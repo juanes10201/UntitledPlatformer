@@ -1272,10 +1272,6 @@ scale = Vector2(5.61, 8.64)
 target_position = Vector2(2.2748814, -4.7683716e-06)
 collision_mask = 4
 
-[node name="TimerIntroSlam" type="Timer" parent="." unique_id=1477449072]
-wait_time = 9.0
-one_shot = true
-
 [node name="SlamDestroyTiles" type="RayCast2D" parent="." unique_id=2079789967]
 position = Vector2(-1.0000002, -9.061937)
 scale = Vector2(2.675, 1)
@@ -1350,4 +1346,3 @@ script = ExtResource("69_yinjy")
 [connection signal="area_exited" from="WaterArea" to="." method="_on_water_area_area_exited"]
 [connection signal="body_entered" from="WaterArea" to="." method="_on_water_area_body_entered"]
 [connection signal="body_exited" from="WaterArea" to="." method="_on_water_area_body_exited"]
-[connection signal="timeout" from="TimerIntroSlam" to="." method="_on_timer_intro_slam_timeout"]

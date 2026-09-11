@@ -72,19 +72,20 @@ func Record_Actions() -> void:
 
 func Replay_Actions() -> void:
 	#Check if the action time is the same(Or less) as the current
-	
+	var _CurrentTime = CurrentTime - Player.ReplayMilisecDelay
+	if(_CurrentTime < 0): return
 	while(ReplayCurrentAction < Player.RecordedActions.size()):
 		var _action_id = Player.RecordedActions[ReplayCurrentAction].y
 		if(!_action_id < Actions.size()): break
 		var _time_action = Player.RecordedActions[ReplayCurrentAction].x
 		var _action = Actions[_action_id]
 		var _state = Player.RecordedActions[ReplayCurrentAction].z
-		if(abs(CurrentTime-_time_action) <= TimeMargin || CurrentTime >= _time_action ):
+		if(abs(_CurrentTime-_time_action) <= TimeMargin || _CurrentTime >= _time_action ):
 			Play_action(_action, _state)
 			ReplayCurrentAction += 1
 		else:
 			break
-	if(CurrentPositionIndex < Player.RecordedPositions.size() && CurrentTime >= Player.RecordedPositions[CurrentPositionIndex].z):
+	if(CurrentPositionIndex < Player.RecordedPositions.size() && _CurrentTime >= Player.RecordedPositions[CurrentPositionIndex].z):
 		Player.global_position = Vector2(Player.RecordedPositions[CurrentPositionIndex].x, Player.RecordedPositions[CurrentPositionIndex].y)
 		CurrentPositionIndex += 1
 

@@ -28,7 +28,11 @@ enum EDITOR_TOOLTIP_FUNCTIONS{
 	Save,
 	SaveAs,
 	Open,
-	Exit
+	Exit,
+	Undo,
+	Redo,
+	Copy,
+	Paste
 }
 
 #Uso un array de array, donde el primer sub-elemento de cada elemento contendra el nombre, el resto los valores cambiados

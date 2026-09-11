@@ -2,6 +2,7 @@ extends Node2D
 
 @export var EditorPlace : Node2D
 @export var LevelEditor : Node2D
+@export var LevelData : Node2D
 
 #Los datos se guardan todos en diccionarios y sub-diccionarios/sub-arrays ahi,
 #todo lo que se guarda en json o archivo es un diccionario basicamente
@@ -61,18 +62,21 @@ func GetOriginalNode(Number : int, SubNumber : int) -> Node2D:
 	return null
 
 func GetSavedDataNodes(Data : Array) -> void:
+	for _child in LevelEditor.get_level_data_gameplay_objects_node().get_children():
+		_child.queue_free()
 	for NodeData in Data:
 		var EditorId : Vector2i = NodeData["EditorId"]
 		var Properties : Dictionary = NodeData["Properties"]
 		
 		var _original_scene = GetOriginalNode(EditorId.x, EditorId.y)
-		var new_node = _original_scene.duplicate()
-		LevelEditor.add_child(new_node)
-		
-		for PropertyName in Properties:
-			var PropertyValue = Properties[PropertyName]
-			if(PropertyName in new_node):
-				new_node.set(PropertyName, PropertyValue)
+		if(_original_scene):
+			var new_node = _original_scene.duplicate()
+			LevelEditor.get_level_data_gameplay_objects_node().add_child(new_node)
+			
+			for PropertyName in Properties:
+				var PropertyValue = Properties[PropertyName]
+				if(PropertyName in new_node):
+					new_node.set(PropertyName, PropertyValue)
 	_reset_original_nodes()
 
 func SaveDataNodes(Nodes : Array) -> Array:
@@ -89,18 +93,18 @@ func SaveDataNodes(Nodes : Array) -> Array:
 			var DictionaryId : Vector2i = Vector2i(_node_number, _node_subnumber)
 			_node_result["EditorId"] = DictionaryId
 			var _original_scene = GetOriginalNode(_node_number, _node_subnumber)
-			
-			var Properties : Dictionary = {}
-			for property in _original_scene.get_property_list():
-				var property_name = property.name
-				var property_value = _original_scene.get(property_name)
-				var changed_property_value = _node.get(property_name)
-				if(property_name in _node && property_value != changed_property_value):
-					if !(changed_property_value is Node):
-						Properties[property_name] = changed_property_value
-					#print("Value difference!: Name: " + str(property_name) + "; Value: " + str(property_value))
-			_node_result["Properties"] = Properties
-			_result.append(_node_result)
+			if(_original_scene):
+				var Properties : Dictionary = {}
+				for property in _original_scene.get_property_list():
+					var property_name = property.name
+					var property_value = _original_scene.get(property_name)
+					var changed_property_value = _node.get(property_name)
+					if(property_name in _node && property_value != changed_property_value):
+						if !(changed_property_value is Node):
+							Properties[property_name] = changed_property_value
+						#print("Value difference!: Name: " + str(property_name) + "; Value: " + str(property_value))
+				_node_result["Properties"] = Properties
+				_result.append(_node_result)
 	OriginalNodesLoaded = {}
 	_reset_original_nodes()
 	return _result
@@ -170,6 +174,7 @@ func SaveToFile(Path : String, Nodes : Array, Tiles : Array, Tilemap : TileMapLa
 	var file = FileAccess.open(Path, FileAccess.WRITE)
 	file.store_string(var_to_str(Saved))
 	file.close()
+	LevelData.LevelPath = Path
 	print("Saved!")
 
 func LoadData(Path : String) -> void:
@@ -179,9 +184,10 @@ func LoadData(Path : String) -> void:
 		var data = str_to_var(file.get_as_text())
 		GetSavedDataNodes(data["Nodes"])
 		LoadDataTiles(LevelEditor.TilesetLayers, data["Tileset"])
+		file.close()
+		LevelData.LevelPath = Path
 	else:
 		print("File not found")
-	file.close()
 
 func SaveDataTileToClipboard(Tiles : Array, Tilemap : TileMapLayer, SaveData : Dictionary) -> void:
 	Clipboard = SaveDataTileset(Tiles, Tilemap, SaveData)
@@ -217,4 +223,11 @@ func _on_editor_save_file_dialog_file_selected(path: String) -> void:
 
 func _on_editor_load_file_dialog_file_selected(path: String) -> void:
 	LoadData(path)
+	GlobalFunctions.OpenedFileDialog = false
+
+
+func _on_editor_save_file_dialog_canceled() -> void:
+	GlobalFunctions.OpenedFileDialog = false
+
+func _on_editor_load_file_dialog_canceled() -> void:
 	GlobalFunctions.OpenedFileDialog = false

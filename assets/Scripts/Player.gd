@@ -229,6 +229,7 @@ func _stop_slam_particles():
 @onready var Replay = $System_replay
 @export var ReplayAction : Global.ReplayStates = Global.ReplayStates.RECORD
 @export var ReplayStyle : bool = false
+@export var ReplayMilisecDelay : float = 0.0
 var RecordedActions : Array[Vector3] = []
 var RecordedPositions : Array[Vector3] = []
 @export var RecordedLocation : String = "res://assets/Replays/tutorial_level1_1.json"
@@ -368,6 +369,9 @@ func _input(event):
 		elif event.keycode == KEY_F5:
 			LevelManager.ExpoTimer.wait_time += 60.0
 			Edition.reset_expo()
+		elif event.keycode == KEY_F6:
+			if(ReplayAction != Global.ReplayStates.STOPPED):
+				_save_replay("res://assets/Replays/saved_replay.json")
 		elif event.keycode == KEY_F9:
 			Edition.ExpoLimitedTime = !Edition.ExpoLimitedTime
 		elif event.keycode == KEY_F10:
@@ -384,6 +388,8 @@ func _input(event):
 		#	if(ReplayAction != Global.ReplayStates.STOPPED):
 		#		_save_replay("res://assets/Replays/saved_replay.json")
 #endregion
+
+@export var TimerIntroSlam : Timer
 
 func _ready() -> void:
 	#Time_Left.paused = true
@@ -424,7 +430,7 @@ func _ready() -> void:
 		#If level is not identified search for it
 		#SaveGame.PlayedIntroBool = true
 		Global.Level = 0
-		$TimerIntroSlam.start()
+		TimerIntroSlam.start()
 		Physics = false
 		Sprite.hide()
 	

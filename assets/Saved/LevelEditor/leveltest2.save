@@ -1,0 +1,59 @@
+{
+&"Nodes": [{
+"EditorId": Vector2i(0, 0),
+"Properties": {
+"global_position": Vector2(171.92265, -11.142929),
+"global_transform": Transform2D(1, 0, 0, 1, 171.92265, -11.142929),
+"position": Vector2(171.92265, -11.142929),
+"transform": Transform2D(1, 0, 0, 1, 171.92265, -11.142929)
+}
+}, {
+"EditorId": Vector2i(0, 0),
+"Properties": {
+"global_position": Vector2(217.7884, -9.422989),
+"global_transform": Transform2D(1, 0, 0, 1, 217.7884, -9.422989),
+"name": &"@CharacterBody2D@673",
+"position": Vector2(217.7884, -9.422989),
+"transform": Transform2D(1, 0, 0, 1, 217.7884, -9.422989)
+}
+}, {
+"EditorId": Vector2i(1, 0),
+"Properties": {
+"OldVel": Vector2(22722.355, 5548.846),
+"OriginalPos": Vector2(352, 16),
+"global_position": Vector2(352, 16),
+"global_transform": Transform2D(1, 0, 0, 1, 352, 16),
+"position": Vector2(352, 16),
+"transform": Transform2D(1, 0, 0, 1, 352, 16)
+}
+}, {
+"EditorId": Vector2i(1, 0),
+"Properties": {
+"OldVel": Vector2(26339.998, 7079.9995),
+"OriginalPos": Vector2(368, 16),
+"global_position": Vector2(368, 16),
+"global_transform": Transform2D(1, 0, 0, 1, 368, 16),
+"name": &"@RigidBody2D@674",
+"position": Vector2(368, 16),
+"transform": Transform2D(1, 0, 0, 1, 368, 16)
+}
+}, {
+"EditorId": Vector2i(1, 0),
+"Properties": {
+"OldVel": Vector2(27779.998, 6119.9995),
+"OriginalPos": Vector2(384, 16),
+"global_position": Vector2(384, 16),
+"global_transform": Transform2D(1, 0, 0, 1, 384, 16),
+"name": &"@RigidBody2D@675",
+"position": Vector2(384, 16),
+"transform": Transform2D(1, 0, 0, 1, 384, 16)
+}
+}],
+&"Tileset": [Dictionary[Vector2i, String]({
+Vector2i(0, 0): "ZZZZZZZZAAZZZZZZAAZZZZZZAAZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ",
+Vector2i(1, 0): "ZZZZZZZZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+Vector2i(1, 1): "AAAAAAAAAAAAAAAAAAAAAAAAZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ",
+Vector2i(2, 0): "ZZZZZZZZAAAAZZZZAAAAZZZZAAAAZZZZAAAAZZZZAAAAZZZZAAAAZZZZAAAAZZZZ",
+Vector2i(2, 1): "AAAAZZZZAAAAZZZZAAAAZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"
+}), Dictionary[Vector2i, String]({}), Dictionary[Vector2i, String]({})]
+}

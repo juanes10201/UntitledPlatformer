@@ -35,8 +35,8 @@ LevelManager="*res://assets/Nodes/Levels/Preload/LevelManager.tscn"
 Global="*res://assets/Scripts/Global/global_variables.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 SteamIntegration="*uid://te1b8a1y4six"
-ImGuiRoot="*uid://dugmpnsxaagba"
 GlobalFunctions="*uid://bpmklfila6ryh"
+ImGuiRoot="*uid://dugmpnsxaagba"
 
 [debug]
 

@@ -1,5 +1,6 @@
 extends Button
 const ButtonPadding : float = 35
+@onready var UiTopButton : Node2D = get_parent()
 @export var Options : Array[GlobalFunctions.EDITOR_TOOLTIP_FUNCTIONS] = []
 @export var SampleButton : Node
 @export var Buttons : Array[Node] = []
@@ -21,11 +22,16 @@ func _ready() -> void:
 func set_visible_button(state : bool) -> void:
 	for _Button in Buttons:
 		_Button.visible = state
+	if(state):
+		UiTopButton.SelectedButton = self
+	elif(UiTopButton.SelectedButton == self):
+		UiTopButton.SelectedButton = null
 	Visible = state
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if(Visible && UiTopButton.SelectedButton != self):
+		set_visible_button(false)
 
 
 func _on_pressed() -> void:
