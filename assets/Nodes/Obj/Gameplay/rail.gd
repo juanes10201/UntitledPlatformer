@@ -142,8 +142,11 @@ func EndPlayerRail(EndSlam : bool = false, EndSpeed : float = 100.0, Angle : flo
 var PlayerInArea : bool = false
 
 func _on_initial_collision_area_body_entered(body: Node2D) -> void:
-	if(body.is_in_group("Player")): PlayerInArea = true
+	if(body.is_in_group("Player")):
+		Player = body
+		PlayerInArea = true
 
 
 func _on_initial_collision_area_body_exited(body: Node2D) -> void:
-	if(body.is_in_group("Player")): PlayerInArea = false
+	if(body.is_in_group("Player")):
+		PlayerInArea = false
