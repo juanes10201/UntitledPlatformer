@@ -84,7 +84,8 @@ func _physics_process(delta: float) -> void:
 func _on_timeline_ended():
 	if(OnlyOnce && HideAnim):
 		Done = true
-	Player._pause_game_no_menu(false)
+	if(!Player.PlayIntro):
+		Player._pause_game_no_menu(false)
 	Move = true
 	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
 	InDialogue = false
