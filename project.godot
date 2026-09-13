@@ -53,6 +53,7 @@ directories/dch_directory={
 "Player": "res://assets/Dialogic/Characters/Player.dch"
 }
 directories/dtl_directory={
+"intro_game_news": "res://assets/Dialogic/Timelines/intro_game_news.dtl",
 "lobby_initial": "res://assets/Dialogic/Timelines/lobby_initial.dtl",
 "npc_boss1_holo1": "res://assets/Dialogic/Timelines/Boss/npc_boss1_holo1.dtl",
 "npc_boss1_holo2": "res://assets/Dialogic/Timelines/Boss/npc_boss1_holo2.dtl",

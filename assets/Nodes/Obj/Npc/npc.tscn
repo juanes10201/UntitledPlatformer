@@ -41,29 +41,33 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="CharacterBody2D2" type="CharacterBody2D" groups=["Npc"]]
+[node name="CharacterBody2D2" type="CharacterBody2D" unique_id=1377833310 node_paths=PackedStringArray("DialogueTrigger") groups=["Npc"]]
 scale = Vector2(1.00384, 1)
 collision_layer = 16384
 collision_mask = 2398
 script = ExtResource("1_1jsqm")
+DialogueTrigger = NodePath("DialogueTrigger")
 
-[node name="DialogueTrigger" type="Area2D" parent="."]
+[node name="DialogueTrigger" type="Area2D" parent="." unique_id=903608065]
 position = Vector2(0, 7)
 script = ExtResource("2_dnd8x")
 Action = "npc_lobby1"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueTrigger"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueTrigger" unique_id=1742477143]
 position = Vector2(-0.9961853, -11.5)
 shape = SubResource("RectangleShape2D_4v437")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=535974750]
 position = Vector2(-0.99617004, 0)
 shape = SubResource("RectangleShape2D_utf66")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1483202553]
 position = Vector2(-2.9885254, 0)
 sprite_frames = SubResource("SpriteFrames_u01wk")
 animation = &"interact"
+
+[node name="Timer" type="Timer" parent="." unique_id=920786241]
+wait_time = 18.0
 
 [connection signal="body_entered" from="DialogueTrigger" to="DialogueTrigger" method="_on_body_entered"]
 [connection signal="body_exited" from="DialogueTrigger" to="DialogueTrigger" method="_on_body_exited"]

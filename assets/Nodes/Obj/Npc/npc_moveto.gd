@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal Dialog_Ended
+
 enum Directions{
 	Go = 1,
 	Return = -1,
@@ -24,14 +26,28 @@ var Move : bool = true
 @export var HideAnim : bool = false
 var Done : bool = false
 var InDialogue : bool = false
+
+@export var ActivateTimed : bool = false
+@export var ActivateTime : float = 1.0
+
 @export var Enabled : bool = true
+
+@export var CutOnMaxDistance : bool = true
+@export var MaxDistance : float = 250.0
+
+@export var DialogueTrigger: Node
+
 func _ready() -> void:
-	$DialogueTrigger.Action = Dialogue_Action
-	$DialogueTrigger.NeedAction = NeedToInteract
-	$DialogueTrigger.PauseGame = PauseGame
-	$DialogueTrigger.OnlyOnce = OnlyOnce
-	$DialogueTrigger.RecordDialogueId = RecordDialogueId
-	$DialogueTrigger.RecordOnlyOnce = RecordOnlyOnce
+	DialogueTrigger.Action = Dialogue_Action
+	DialogueTrigger.NeedAction = NeedToInteract
+	DialogueTrigger.PauseGame = PauseGame
+	DialogueTrigger.OnlyOnce = OnlyOnce
+	DialogueTrigger.RecordDialogueId = RecordDialogueId
+	DialogueTrigger.RecordOnlyOnce = RecordOnlyOnce
+	if(ActivateTimed):
+		await get_tree().create_timer(ActivateTime).timeout
+		DialogueTrigger.start_dialog()
+	
 
 func _physics_process(delta: float) -> void:
 	if(!Enabled): queue_free()
@@ -39,7 +55,7 @@ func _physics_process(delta: float) -> void:
 		Done = true
 		if(Sprite.animation != "hide"): Sprite.play("hide")
 		return
-	if(!Move && Player && self.global_position.distance_to(Player.global_position) > 250):
+	if(CutOnMaxDistance && !Move && Player && self.global_position.distance_to(Player.global_position) > MaxDistance):
 		Dialogic.end_timeline()
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -72,3 +88,4 @@ func _on_timeline_ended():
 	Move = true
 	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
 	InDialogue = false
+	Dialog_Ended.emit()

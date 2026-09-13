@@ -430,7 +430,6 @@ func _ready() -> void:
 		#If level is not identified search for it
 		#SaveGame.PlayedIntroBool = true
 		Global.Level = 0
-		TimerIntroSlam.start()
 		Physics = false
 		Sprite.hide()
 	
@@ -1347,3 +1346,9 @@ func _on_water_area_body_exited(body: Node2D) -> void:
 		WaterTileset = body
 	OnWaterTile = false
 	OnWaterInitialSlideTile = false
+
+
+func _dialog_intro_end() -> void:
+	if(PlayIntro):
+		TimerIntroSlam.start()
+		$Camera2D/AnimationPlayer.play("End")
