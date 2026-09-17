@@ -104,6 +104,8 @@ hue_variation_max = 0.03
 shader = ExtResource("7_5ruuh")
 shader_parameter/blur_size = 0.50000002375
 shader_parameter/max_alpha = 0.400000019
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/extend_px = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nnhfd"]
 atlas = ExtResource("3_3wgm2")

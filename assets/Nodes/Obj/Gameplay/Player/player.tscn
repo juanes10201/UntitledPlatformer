@@ -1362,6 +1362,10 @@ collision_mask = 351
 [node name="PlayerChallenges" type="Node2D" parent="." unique_id=765859753]
 script = ExtResource("69_yinjy")
 
+[node name="InvincibleSlimeCooldown" type="Timer" parent="." unique_id=1913887607]
+wait_time = 0.05
+one_shot = true
+
 [connection signal="area_entered" from="WaterArea" to="." method="_on_water_area_area_entered"]
 [connection signal="area_exited" from="WaterArea" to="." method="_on_water_area_area_exited"]
 [connection signal="body_entered" from="WaterArea" to="." method="_on_water_area_body_entered"]

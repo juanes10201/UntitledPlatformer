@@ -237,6 +237,7 @@ var Moved : bool = false
 
 var PositionDifference : Vector2
 @onready var LastPosition : Vector2 = global_position
+@onready var InvincibleSlimeCooldown : Timer = $InvincibleSlimeCooldown
 
 #region Editor
 var EditorInitialPos : Vector2 = Vector2(0.0,0.0)
@@ -389,18 +390,27 @@ func _input(event):
 #endregion
 
 const MinShadowAlpha : float = .2
-const MaxShadowAlpha : float = 0.5
-const MaxShadowSpeed : float = 700.0
+const MaxShadowAlpha : float = 0.7
+const MaxShadowSpeed : float = 10.0
+
+var PreviousCanvasPos : Vector2
+
+func _get_canvas_position() -> Vector2:
+	var canvas_position = get_canvas_transform().origin
+	return canvas_position + global_position
 
 func _shadow_tick() -> void:
+	var _CanvasPosition = _get_canvas_position()
+	var _CanvasVel = PreviousCanvasPos-_CanvasPosition
 	if(!MoveShadowSprite): return
-	var _speed_val : float = sqrt(velocity.x*velocity.x+velocity.y*velocity.y)
+	var _speed_val : float = sqrt(_CanvasVel.x*_CanvasVel.x+_CanvasVel.y*_CanvasVel.y)
 	var _shadow_alpha : float = _speed_val/MaxShadowSpeed*MaxShadowAlpha
 	_shadow_alpha = clampf(_shadow_alpha, MinShadowAlpha, MaxShadowAlpha )
 	
 	MoveShadowSprite.material.set_shader_parameter("max_alpha", _shadow_alpha)
-	print(_shadow_alpha)
-	print("Speed: " + str(_speed_val))
+	#print(_shadow_alpha)
+	#print("Speed: " + str(_speed_val))
+	PreviousCanvasPos = _get_canvas_position() #_get_camera_distance()
 
 @export var TimerIntroSlam : Timer
 
@@ -1053,6 +1063,7 @@ func Reset_Slide():
 	ParticlesSlide.emitting = false
 	Slide = false
 	OnWaterInitialSlideTile = false
+	if(InvincibleSlimeCooldown): InvincibleSlimeCooldown.start()
 	#if(!SlidingInAir):
 		#Speed.x = 0
 	#SlideVelocity = 0
@@ -1315,6 +1326,7 @@ func Reset_Groundsmash(ThrowEnemies : bool = true, Visuals: bool = true, ResetVe
 	DidDiagonalSlam = false
 	GroundSmashMultiplier = 1
 	JumpGroundsmashMultiplier.start()
+	if(InvincibleSlimeCooldown): InvincibleSlimeCooldown.start()
 	if(ThrowEnemies):
 		throw_enemies()
 	if(ResetVel): velocity.y = 0
