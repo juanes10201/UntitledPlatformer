@@ -226,7 +226,7 @@ texture_scale = 1.6
 height = 13.0
 
 [node name="PointLight2D16" type="PointLight2D" parent="." unique_id=1951412889]
-position = Vector2(-69.225006, -47.6)
+position = Vector2(-14, -51)
 scale = Vector2(1.453125, 1.453125)
 color = Color(0.4444406, 0.66474116, 1, 1)
 energy = 0.8

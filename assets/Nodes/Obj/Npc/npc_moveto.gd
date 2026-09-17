@@ -16,7 +16,8 @@ const JUMP_VELOCITY = -400.0
 @export var PointTo : Marker2D
 @onready var InitialX : float = self.position.x
 @onready var GoToX : float = PointTo.position.x if PointTo else 0.0
-@onready var Sprite = $Sprite
+@export var SeePlayerDirection : bool = true
+@export var MainSprite : AnimatedSprite2D
 var Move : bool = true
 @export var Dialogue_Action : String = "npc_lobby1"
 @export var OnlyOnce : bool = false
@@ -38,6 +39,7 @@ var InDialogue : bool = false
 @export var DialogueTrigger: Node
 
 func _ready() -> void:
+	if(!MainSprite): MainSprite = $Sprite
 	DialogueTrigger.Action = Dialogue_Action
 	DialogueTrigger.NeedAction = NeedToInteract
 	DialogueTrigger.PauseGame = PauseGame
@@ -53,15 +55,15 @@ func _physics_process(delta: float) -> void:
 	if(!Enabled): queue_free()
 	if(Done || (!InDialogue && RecordOnlyOnce && SaveGame.GetDialogue(RecordDialogueId))):
 		Done = true
-		if(Sprite.animation != "hide"): Sprite.play("hide")
+		if(MainSprite.animation != "hide"): MainSprite.play("hide")
 		return
 	if(CutOnMaxDistance && !Move && Player && self.global_position.distance_to(Player.global_position) > MaxDistance):
 		Dialogic.end_timeline()
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	if(PointTo && Move && !HideAnim):
-		if(Sprite.animation != "hide"): Sprite.play("move")
-		Sprite.speed_scale = velocity.x/SPEED
+		if(MainSprite.animation != "hide"): MainSprite.play("move")
+		MainSprite.speed_scale = velocity.x/SPEED
 		$Sprite.scale.x = abs($Sprite.scale.x) if self.global_position.x-GoToX > 0 else abs($Sprite.scale.x)*-1
 		if(Direction == Directions.Go): GoToX = PointTo.position.x
 		elif(Direction == Directions.Return): GoToX = InitialX
@@ -76,8 +78,8 @@ func _physics_process(delta: float) -> void:
 				velocity.x += AccX*delta
 	else:
 		velocity.x = lerp(velocity.x, 0.0, 8*delta)
-		if(Player): Sprite.scale.x = abs(Sprite.scale.x) if Player.global_position < Sprite.global_position else abs(Sprite.scale.x)*-1 
-		if(Sprite.animation != "hide"): Sprite.play("interact")
+		if(Player && SeePlayerDirection): MainSprite.scale.x = abs(MainSprite.scale.x) if Player.global_position < MainSprite.global_position else abs(MainSprite.scale.x)*-1 
+		if(MainSprite.animation != "hide"): MainSprite.play("interact")
 
 	move_and_slide()
 

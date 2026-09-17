@@ -560,11 +560,19 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8lo5w"]
+shader = ExtResource("14_3c4ps")
+shader_parameter/blur_size = 0.770000036575
+shader_parameter/max_alpha = 0.50000002375
+shader_parameter/shadow_color = Color(0.8136721, 0.34865385, 1, 1)
+shader_parameter/extend_px = 0.34
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ckcmk"]
 shader = ExtResource("14_3c4ps")
 shader_parameter/blur_size = 0.270000012825
-shader_parameter/max_alpha = 0.2490000118275
-shader_parameter/shadow_color = Color(0.5744574, 0.00085422455, 0.68491423, 1)
+shader_parameter/max_alpha = 0.3190000151525
+shader_parameter/shadow_color = Color(0.18074048, 8.372344e-05, 0.22344461, 1)
+shader_parameter/extend_px = 0.31
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b1j8a"]
 atlas = ExtResource("4_8hwr6")
@@ -897,11 +905,12 @@ turbulence_enabled = true
 atlas = ExtResource("58_mxrx7")
 region = Rect2(245.81227, 357.8401, 4.423416, 4.180359)
 
-[node name="Player" type="CharacterBody2D" unique_id=173086588 groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=173086588 node_paths=PackedStringArray("MoveShadowSprite") groups=["Player"]]
 position = Vector2(8, 18)
 collision_mask = 67868
 floor_constant_speed = true
 script = ExtResource("1_uhpgg")
+MoveShadowSprite = NodePath("Sprite2D/MoveShadow")
 TimeDeath = 0.4
 
 [node name="WaterArea" type="Area2D" parent="." unique_id=1182992665]
@@ -1030,6 +1039,16 @@ positions = Dictionary[String, Vector2]({
 "Walking": Vector2(0, -1.58),
 "Wall_jump": Vector2(0, 0.265)
 })
+
+[node name="MoveShadow" type="AnimatedSprite2D" parent="Sprite2D" unique_id=635495705]
+z_as_relative = false
+material = SubResource("ShaderMaterial_8lo5w")
+position = Vector2(-0.45497513, 1.0619402)
+scale = Vector2(1.08, 1.08)
+sprite_frames = SubResource("SpriteFrames_qwuic")
+animation = &"Idle"
+offset = Vector2(0, -0.58)
+script = ExtResource("14_2dlrs")
 
 [node name="shadow" type="AnimatedSprite2D" parent="Sprite2D" unique_id=1820450387]
 z_as_relative = false

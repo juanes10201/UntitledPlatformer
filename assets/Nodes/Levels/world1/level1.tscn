@@ -505,9 +505,20 @@ texture = SubResource("GradientTexture2D_wjktn")
 height = 13.0
 
 [node name="PointLight2D32" type="PointLight2D" parent="." unique_id=1316315801]
-position = Vector2(-76, 125)
+position = Vector2(-79, 130)
 scale = Vector2(1.453125, 1.453125)
 color = Color(0.9999998, 0.5040591, 0.20226169, 1)
+energy = 0.86
+texture = SubResource("GradientTexture2D_wjktn")
+texture_scale = 1.25
+height = 13.0
+script = ExtResource("10_qs57u")
+CurrentAnimation = 3
+
+[node name="PointLight2D98" type="PointLight2D" parent="." unique_id=732021742]
+position = Vector2(-59, 104)
+scale = Vector2(1.453125, 1.453125)
+color = Color(0.26651847, 0.72782826, 0.85654485, 1)
 energy = 0.86
 texture = SubResource("GradientTexture2D_wjktn")
 texture_scale = 1.25
@@ -1550,14 +1561,23 @@ position = Vector2(-142, -1320.0001)
 scale = Vector2(2.245, 1.05)
 
 [node name="CharacterBody2D3" parent="." unique_id=1317424473 instance=ExtResource("24_p0slm")]
-position = Vector2(-177, -119)
+position = Vector2(-170, -117)
+SeePlayerDirection = false
 Dialogue_Action = "intro_game_news"
 ActivateTimed = true
 ActivateTime = 16.0
 CutOnMaxDistance = false
+
+[node name="CollisionShape2D" parent="CharacterBody2D3" index="1" unique_id=535974750]
+position = Vector2(-4.4349594, -1)
+
+[node name="Sprite" parent="CharacterBody2D3" index="2" unique_id=1483202553]
+position = Vector2(-2.4426174, 1)
+scale = Vector2(-1, 1)
 
 [connection signal="body_entered" from="TextArea" to="TextArea" method="_on_body_entered"]
 [connection signal="timeout" from="Player/TimerIntroSlam" to="Player" method="_on_timer_intro_slam_timeout"]
 [connection signal="Dialog_Ended" from="CharacterBody2D3" to="Player" method="_dialog_intro_end"]
 
 [editable path="Enemie4"]
+[editable path="CharacterBody2D3"]

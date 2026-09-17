@@ -75,6 +75,7 @@ var juice : bool = true
 @export var Acc_Multiplier : float = 1.0
 @export var Max_Velocity_Multiplier : float = 1.0
 @onready var InvencibilityTimer : Timer = $InvencibilityTimer
+@export var MoveShadowSprite : AnimatedSprite2D
 
 @export_subgroup("Jump")
 @export_range(0, 7000.0, .5, "or_greater", "or_less") var WallJumpVelocity : float = 7000.0
@@ -222,8 +223,6 @@ func _play_slam_particles():
 		SlamParticles1.emitting = true
 func _stop_slam_particles():
 	SlamParticles1.emitting = false
-
-
 
 @export_group("Recording")
 @onready var Replay = $System_replay
@@ -389,6 +388,20 @@ func _input(event):
 		#		_save_replay("res://assets/Replays/saved_replay.json")
 #endregion
 
+const MinShadowAlpha : float = .2
+const MaxShadowAlpha : float = 0.5
+const MaxShadowSpeed : float = 700.0
+
+func _shadow_tick() -> void:
+	if(!MoveShadowSprite): return
+	var _speed_val : float = sqrt(velocity.x*velocity.x+velocity.y*velocity.y)
+	var _shadow_alpha : float = _speed_val/MaxShadowSpeed*MaxShadowAlpha
+	_shadow_alpha = clampf(_shadow_alpha, MinShadowAlpha, MaxShadowAlpha )
+	
+	MoveShadowSprite.material.set_shader_parameter("max_alpha", _shadow_alpha)
+	print(_shadow_alpha)
+	print("Speed: " + str(_speed_val))
+
 @export var TimerIntroSlam : Timer
 
 func _ready() -> void:
@@ -500,6 +513,7 @@ func _physics_process(delta: float) -> void:
 	#endregion
 	#if(PlayIntro):
 	#	Camera.offset.y = lerpf(Camera.offset.y, OriginalCameraY, .6*delta)
+	_shadow_tick()
 	if(Physics && !SnappedOnRail):
 		LevelManager.ExpoMoveTimeout.paused = false
 		if(velocity.y > 0):
