@@ -1,0 +1,6 @@
+[gd_resource type="CanvasTexture" format=3 uid="uid://davu00kbvte3h"]
+
+[ext_resource type="Texture2D" uid="uid://ddbm4mqxv1dew" path="res://assets/Sprites/Gameplay/Bosses/Big-Move.png" id="1_fcovk"]
+
+[resource]
+diffuse_texture = ExtResource("1_fcovk")

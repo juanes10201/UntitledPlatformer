@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" format=3 uid="uid://dncf0iqclbleb"]
+
+[ext_resource type="Texture2D" uid="uid://cmmlupnxxlegg" path="res://assets/Sprites/Gameplay/Bosses/Sleep-anim.png" id="1_bgmdu"]
+[ext_resource type="Texture2D" uid="uid://d3k1v3avq1w7o" path="res://assets/Sprites/Gameplay/Bosses/Sleep-anim-normal.png" id="2_v1oqm"]
+
+[resource]
+diffuse_texture = ExtResource("1_bgmdu")
+normal_texture = ExtResource("2_v1oqm")
