@@ -73,14 +73,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="CharacterBody2D2" type="CharacterBody2D" unique_id=1945689064 groups=["Npc"]]
+[node name="CharacterBody2D2" type="CharacterBody2D" unique_id=1945689064 node_paths=PackedStringArray("MainSprite", "DialogueTrigger") groups=["Npc"]]
 scale = Vector2(-1, 1)
 collision_layer = 16384
 collision_mask = 2398
 script = ExtResource("1_yi6w4")
 PauseGame = true
+MainSprite = NodePath("Sprite")
 OnlyOnce = true
 HideAnim = true
+DialogueTrigger = NodePath("DialogueTrigger")
 
 [node name="DialogueTrigger" type="Area2D" parent="." unique_id=1587177711]
 position = Vector2(0, 7)

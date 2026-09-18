@@ -17,7 +17,8 @@ var ParentCollisionShape : CollisionShape2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	ParentCollisionShape = get_parent().ParentCollisionShape
+	if(Edition.Is_in_editor):
+		ParentCollisionShape = get_parent().ParentCollisionShape
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

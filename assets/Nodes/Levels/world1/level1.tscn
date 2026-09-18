@@ -346,7 +346,7 @@ tile_set = ExtResource("3_ipq53")
 script = ExtResource("2_ubfur")
 
 [node name="TileMapLayer4" type="TileMapLayer" parent="TileMapLayer" unique_id=741970336 groups=["Tileset"]]
-self_modulate = Color(1, 1, 1, 0.49019608)
+self_modulate = Color(1, 1, 1, 0.36862746)
 z_index = -1
 texture_filter = 1
 texture_repeat = 2
