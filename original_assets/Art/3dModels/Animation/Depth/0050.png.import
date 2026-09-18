@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceidc5ojq1i0c"
-path="res://.godot/imported/Stage-bg-floor.png-498625857c60b742d3c3611335bfb8bd.ctex"
+uid="uid://limbk6vetib4"
+path="res://.godot/imported/0050.png-6b6b67de75dbc11eee89880862820f5f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/Gameplay/Bosses/Stage-bg-floor.png"
-dest_files=["res://.godot/imported/Stage-bg-floor.png-498625857c60b742d3c3611335bfb8bd.ctex"]
+source_file="res://original_assets/Art/3dModels/Animation/Depth/0050.png"
+dest_files=["res://.godot/imported/0050.png-6b6b67de75dbc11eee89880862820f5f.ctex"]
 
 [params]
 

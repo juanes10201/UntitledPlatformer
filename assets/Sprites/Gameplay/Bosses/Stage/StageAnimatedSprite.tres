@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" format=3 uid="uid://cfruvg4j0ojum"]
+
+[ext_resource type="Texture2D" uid="uid://djvrhm6wmu8k0" path="res://assets/Sprites/Gameplay/Bosses/Stage/Stage-Move.png" id="1_ur2kv"]
+[ext_resource type="Texture2D" uid="uid://cnkqftu3stg0d" path="res://assets/Sprites/Gameplay/Bosses/Stage/Stage-Move-normal.png" id="2_7ksnd"]
+
+[resource]
+diffuse_texture = ExtResource("1_ur2kv")
+normal_texture = ExtResource("2_7ksnd")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djvrhm6wmu8k0"
-path="res://.godot/imported/Stage-Move.png-53b225b37378c21c09d870f5f4b76152.ctex"
+uid="uid://bevx4cwtp55a7"
+path="res://.godot/imported/0018.png-73ece003496ca6ef9b2b8138136a6bb6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/Gameplay/Bosses/Stage-Move.png"
-dest_files=["res://.godot/imported/Stage-Move.png-53b225b37378c21c09d870f5f4b76152.ctex"]
+source_file="res://original_assets/Art/3dModels/Animation/Depth/0018.png"
+dest_files=["res://.godot/imported/0018.png-73ece003496ca6ef9b2b8138136a6bb6.ctex"]
 
 [params]
 
