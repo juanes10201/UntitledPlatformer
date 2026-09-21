@@ -1,17 +1,18 @@
 [gd_scene format=3 uid="uid://cr4ba258wbw7u"]
 
 [ext_resource type="FontFile" uid="uid://tujme6j0sxbm" path="res://assets/Fonts/pixelart/Old School Adventures.ttf" id="2_ypt0g"]
+[ext_resource type="Texture2D" uid="uid://du5ruoufp0dvj" path="res://assets/Sprites/Gameplay/Gameboy/Borders.png" id="3_7u3ys"]
 [ext_resource type="Shader" uid="uid://6h705pgtj7bn" path="res://assets/Nodes/Levels/world1/level7_shader.tres" id="4_rpk4h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cgr7o"]
 shader = ExtResource("4_rpk4h")
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" unique_id=980841640]
 position = Vector2(0, -1)
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=2077077120]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2" unique_id=1903925921]
 z_index = 6
 material = SubResource("ShaderMaterial_cgr7o")
 anchors_preset = -1
@@ -27,13 +28,21 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer2"]
-offset_left = 4.0
-offset_top = 276.0
-offset_right = 1157.0
-offset_bottom = 448.0
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer2" unique_id=1275902476]
+offset_left = -5.0
+offset_top = 144.0
+offset_right = 1148.0
+offset_bottom = 380.0
 theme_override_fonts/normal_font = ExtResource("2_ypt0g")
 theme_override_font_sizes/normal_font_size = 31
-text = "It's  now  safe  to  turn  off
-your  computer"
+text = "OH!  DAISY
+OH!  DAISY
+
+THANK      YOU      MARIO!"
 horizontal_alignment = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer2" unique_id=344907718]
+z_index = 2
+position = Vector2(576.8889, 324.5)
+scale = Vector2(0.600926, 0.6009259)
+texture = ExtResource("3_7u3ys")

@@ -7,6 +7,7 @@
 [ext_resource type="TileSet" uid="uid://defl28kc6mcu4" path="res://assets/Nodes/Obj/Tileset/tiles.tres" id="3_3sebh"]
 [ext_resource type="PackedScene" uid="uid://chat6jxc63bfj" path="res://assets/Nodes/Obj/Gameplay/Player/player.tscn" id="4_ieqme"]
 [ext_resource type="Script" uid="uid://db87exh6jetnl" path="res://assets/Scripts/Player_camera.gd" id="5_2llqg"]
+[ext_resource type="Texture2D" uid="uid://du5ruoufp0dvj" path="res://assets/Sprites/Gameplay/Gameboy/Borders.png" id="5_picb2"]
 [ext_resource type="PackedScene" uid="uid://cba0dn710x26" path="res://assets/Nodes/Obj/Gameplay/flag.tscn" id="6_cgr7o"]
 [ext_resource type="PackedScene" uid="uid://djqwajvc8m3td" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie.tscn" id="7_64h8s"]
 [ext_resource type="PackedScene" uid="uid://cykeyxkv73jjt" path="res://assets/Nodes/Obj/Gameplay/falling_sand.tscn" id="8_0sj5j"]
@@ -17,12 +18,12 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cgr7o"]
 shader = ExtResource("2_sg2rv")
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" unique_id=782262721]
 position = Vector2(0, -1)
 
-[node name="CanvasLayer" parent="." instance=ExtResource("1_mw2y8")]
+[node name="CanvasLayer" parent="." unique_id=1444175764 instance=ExtResource("1_mw2y8")]
 
-[node name="ui_text_seg" parent="CanvasLayer" index="2"]
+[node name="ui_text_seg" parent="CanvasLayer" index="2" unique_id=845003184]
 offset_left = 518.0
 offset_top = -6.0
 offset_right = 598.0
@@ -33,35 +34,35 @@ theme_override_font_sizes/normal_font_size = 44
 text = " seg"
 metadata/_edit_use_anchors_ = true
 
-[node name="ui_text_timeleft" parent="CanvasLayer" index="4"]
+[node name="ui_text_timeleft" parent="CanvasLayer" index="6" unique_id=2102879422]
 theme_override_fonts/normal_font = ExtResource("3_2llqg")
 metadata/_edit_use_anchors_ = true
 
-[node name="ProgressBar" parent="CanvasLayer" index="7"]
+[node name="ProgressBar" parent="CanvasLayer" index="7" unique_id=318457104]
 metadata/_edit_use_anchors_ = true
 
-[node name="RichTextLabel" parent="CanvasLayer" index="11"]
+[node name="RichTextLabel" parent="CanvasLayer" index="11" unique_id=1943670024]
 metadata/_edit_use_anchors_ = true
 
-[node name="LogoText" parent="CanvasLayer" index="12"]
+[node name="LogoText" parent="CanvasLayer" index="12" unique_id=1669258455]
 metadata/_edit_use_anchors_ = true
 
-[node name="StyleBar" parent="CanvasLayer/Style" index="5"]
+[node name="StyleBar" parent="CanvasLayer/Style" parent_id_path=PackedInt32Array(1444175764, 1989216175) index="5" unique_id=440521956]
 metadata/_edit_use_anchors_ = true
 
-[node name="Points" parent="CanvasLayer/Style" index="6"]
+[node name="Points" parent="CanvasLayer/Style" parent_id_path=PackedInt32Array(1444175764, 1989216175) index="6" unique_id=499762585]
 metadata/_edit_use_anchors_ = true
 
-[node name="Moto" parent="CanvasLayer/Style" index="7"]
+[node name="Moto" parent="CanvasLayer/Style" parent_id_path=PackedInt32Array(1444175764, 1989216175) index="7" unique_id=325337100]
 metadata/_edit_use_anchors_ = true
 
-[node name="MultX" parent="CanvasLayer/Style/Mult" index="1"]
+[node name="MultX" parent="CanvasLayer/Style/Mult" parent_id_path=PackedInt32Array(1444175764, 15292356) index="1" unique_id=1326856897]
 metadata/_edit_use_anchors_ = true
 
-[node name="MultText" parent="CanvasLayer/Style/Mult" index="2"]
+[node name="MultText" parent="CanvasLayer/Style/Mult" parent_id_path=PackedInt32Array(1444175764, 15292356) index="2" unique_id=1173110462]
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=571406673]
 z_index = 6
 material = SubResource("ShaderMaterial_cgr7o")
 anchors_preset = -1
@@ -77,18 +78,24 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." groups=["Tileset"]]
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer" unique_id=915765155]
+z_index = 2
+position = Vector2(576.8889, 324.5)
+scale = Vector2(0.600926, 0.6009259)
+texture = ExtResource("5_picb2")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=400139821 groups=["Tileset"]]
 position = Vector2(-757.008, -831)
 scale = Vector2(1.00769, 1)
-tile_map_data = PackedByteArray("AAAUAC8AAQAAAAAAAAAVAC8AAQABAAAAAAAWAC8AAQABAAAAAAAXAC8AAQABAAAAAAAYAC8AAQABAAAAAAAZAC8AAQABAAAAAAAaAC8AAQABAAAAAAAbAC8AAQABAAAAAAAcAC8AAQABAAAAAAAdAC8AAQABAAAAAAAUADAAAQAAAAEAAAAUADEAAQAAAAEAAAAUADIAAQAAAAEAAAAUADMAAQAAAAEAAAAUADQAAQAAAAEAAAAUADUAAQAAAAEAAAAUADYAAQAAAAEAAAAUADcAAQAAAAEAAAAUADgAAQAAAAIAAAAVADAAAQABAAEAAAAVADEAAQABAAEAAAAVADIAAQABAAEAAAAVADMAAQABAAEAAAAVADQAAQABAAEAAAAVADUAAQABAAEAAAAVADYAAQABAAEAAAAVADcAAQABAAEAAAAVADgAAQABAAIAAAAWADAAAQABAAEAAAAWADEAAQABAAEAAAAWADIAAQABAAEAAAAWADMAAQABAAEAAAAWADQAAQABAAEAAAAWADUAAQABAAEAAAAWADYAAQABAAEAAAAWADcAAQABAAEAAAAWADgAAQABAAIAAAAXADAAAQABAAEAAAAXADEAAQABAAEAAAAXADIAAQACAAEAAAAXADMAAQABAAEAAAAXADQAAQABAAEAAAAXADUAAQABAAEAAAAXADYAAQABAAEAAAAXADcAAQABAAEAAAAXADgAAQABAAIAAAAYADAAAQABAAEAAAAYADEAAQABAAIAAAAYADcAAQABAAAAAAAYADgAAQABAAIAAAAZADAAAQABAAEAAAAZADEAAQABAAIAAAAZADcAAQABAAAAAAAZADgAAQABAAIAAAAaADAAAQABAAEAAAAaADEAAQABAAIAAAAaADcAAQABAAAAAAAaADgAAQABAAIAAAAbADAAAQABAAEAAAAbADEAAQABAAIAAAAbADcAAQABAAAAAAAbADgAAQABAAIAAAAcADAAAQABAAEAAAAcADEAAQABAAIAAAAcADcAAQABAAAAAAAcADgAAQABAAIAAAAdADAAAQABAAEAAAAdADEAAQABAAIAAAAdADcAAQABAAAAAAAdADgAAQABAAIAAAAeAC8AAQABAAAAAAAeADAAAQABAAEAAAAeADEAAQABAAIAAAAfAC8AAQABAAAAAAAfADAAAQABAAEAAAAfADEAAQABAAIAAAAgAC8AAQABAAAAAAAgADAAAQABAAEAAAAgADEAAQABAAIAAAAhAC8AAQABAAAAAAAhADAAAQABAAEAAAAhADEAAQABAAIAAAAiAC8AAQABAAAAAAAiADAAAQABAAEAAAAiADEAAQABAAIAAAAjAC8AAQABAAAAAAAjADAAAQABAAEAAAAjADEAAQABAAIAAAAkAC8AAQABAAAAAAAkADAAAQABAAEAAAAkADEAAQABAAIAAAAlAC8AAQABAAAAAAAlADAAAQABAAEAAAAlADEAAQABAAIAAAAmAC8AAQABAAAAAAAmADAAAQABAAEAAAAmADEAAQABAAIAAAAnAC8AAQABAAAAAAAnADAAAQABAAEAAAAnADEAAQABAAIAAAAoAC8AAQABAAAAAAAoADAAAQABAAEAAAAoADEAAQABAAIAAAApAC8AAQABAAAAAAApADAAAQABAAEAAAApADEAAQABAAIAAAAqAC8AAQABAAAAAAAqADAAAQABAAEAAAAqADEAAQABAAIAAAArAC8AAQABAAAAAAArADAAAQABAAEAAAArADEAAQABAAIAAAAsAC8AAQABAAAAAAAsADAAAQABAAEAAAAsADEAAQABAAIAAAAtAC8AAQABAAAAAAAtADAAAQABAAEAAAAtADEAAQABAAIAAAAuAC8AAQABAAAAAAAuADAAAQABAAEAAAAuADEAAQABAAIAAAAvAC8AAQABAAAAAAAvADAAAQABAAEAAAAvADEAAQABAAIAAAAwAC8AAQACAAAAAAAwADAAAQACAAEAAAAwADEAAQACAAIAAAAeADgAAQACAAIAAAAeADcAAQACAAAAAAA=")
+tile_map_data = PackedByteArray("AAAUAC8AAQAAAAEAAAAVAC8AAQABAAEAAAAWAC8AAQABAAEAAAAXAC8AAQABAAEAAAAYAC8AAQABAAEAAAAZAC8AAQABAAEAAAAaAC8AAQABAAEAAAAbAC8AAQABAAEAAAAcAC8AAQABAAEAAAAdAC8AAQABAAEAAAAUADAAAQAAAAEAAAAUADEAAQAAAAEAAAAUADIAAQAAAAEAAAAUADMAAQAAAAEAAAAUADQAAQAAAAEAAAAUADUAAQAAAAEAAAAUADYAAQAAAAEAAAAUADcAAQAAAAEAAAAUADgAAQAAAAIAAAAVADAAAQABAAEAAAAVADEAAQABAAEAAAAVADIAAQABAAEAAAAVADMAAQABAAEAAAAVADQAAQABAAEAAAAVADUAAQABAAEAAAAVADYAAQABAAEAAAAVADcAAQABAAEAAAAVADgAAQABAAIAAAAWADAAAQABAAEAAAAWADEAAQABAAEAAAAWADIAAQABAAEAAAAWADMAAQABAAEAAAAWADQAAQABAAEAAAAWADUAAQABAAEAAAAWADYAAQABAAEAAAAWADcAAQABAAEAAAAWADgAAQABAAIAAAAXADAAAQABAAEAAAAXADEAAQABAAEAAAAXADIAAQACAAEAAAAXADMAAQABAAEAAAAXADQAAQABAAEAAAAXADUAAQABAAEAAAAXADYAAQABAAEAAAAXADcAAQABAAEAAAAXADgAAQABAAIAAAAYADAAAQABAAEAAAAYADEAAQABAAIAAAAYADcAAQABAAAAAAAYADgAAQABAAIAAAAZADAAAQABAAEAAAAZADEAAQABAAIAAAAZADcAAQABAAAAAAAZADgAAQABAAIAAAAaADAAAQABAAEAAAAaADEAAQABAAIAAAAaADcAAQABAAAAAAAaADgAAQABAAIAAAAbADAAAQABAAEAAAAbADEAAQABAAIAAAAbADcAAQABAAAAAAAbADgAAQABAAIAAAAcADAAAQABAAEAAAAcADEAAQABAAIAAAAcADcAAQABAAAAAAAcADgAAQABAAIAAAAdADAAAQABAAEAAAAdADEAAQABAAIAAAAdADcAAQABAAAAAAAdADgAAQABAAIAAAAeAC8AAQABAAEAAAAeADAAAQABAAEAAAAeADEAAQABAAIAAAAfAC8AAQABAAEAAAAfADAAAQABAAEAAAAfADEAAQABAAIAAAAgAC8AAQACAAEAAAAgADAAAQACAAEAAAAgADEAAQACAAIAAAAeADgAAQACAAIAAAAeADcAAQACAAAAAAAuAC4AAQACAAIAAAAuAC0AAQACAAEAAAAuACwAAQACAAEAAAAuACsAAQACAAAAAAAtAC4AAQABAAIAAAAtAC0AAQABAAEAAAAtACwAAQABAAEAAAAtACsAAQABAAAAAAAsAC4AAQABAAIAAAAsAC0AAQABAAEAAAAsACwAAQABAAEAAAAsACsAAQABAAAAAAArAC4AAQABAAIAAAArAC0AAQABAAEAAAArACwAAQABAAEAAAArACsAAQABAAAAAAAqAC4AAQABAAIAAAAqAC0AAQABAAEAAAAqACwAAQABAAEAAAAqACsAAQABAAAAAAApAC4AAQABAAIAAAApAC0AAQABAAEAAAApACwAAQABAAEAAAApACsAAQABAAAAAAAoAC4AAQABAAIAAAAoAC0AAQABAAEAAAAoACwAAQABAAEAAAAoACsAAQABAAAAAAAnAC4AAQABAAIAAAAnAC0AAQABAAEAAAAnACwAAQABAAEAAAAnACsAAQABAAAAAAAmAC4AAQABAAIAAAAmAC0AAQABAAEAAAAmACwAAQABAAEAAAAmACsAAQABAAAAAAAlAC4AAQABAAIAAAAlAC0AAQABAAEAAAAlACwAAQABAAEAAAAlACsAAQABAAAAAAAkAC4AAQABAAIAAAAkAC0AAQABAAEAAAAkACwAAQABAAEAAAAkACsAAQABAAAAAAAjAC4AAQABAAIAAAAjAC0AAQABAAEAAAAjACwAAQABAAEAAAAjACsAAQABAAAAAAAiAC4AAQABAAIAAAAiAC0AAQABAAEAAAAiACwAAQABAAEAAAAiACsAAQABAAAAAAAhAC4AAQABAAIAAAAhAC0AAQABAAEAAAAhACwAAQABAAEAAAAhACsAAQABAAAAAAAgAC4AAQABAAEAAAAgAC0AAQABAAEAAAAgACwAAQABAAEAAAAgACsAAQABAAAAAAAfAC4AAQABAAEAAAAfAC0AAQABAAEAAAAfACwAAQABAAEAAAAfACsAAQABAAAAAAAeAC4AAQABAAEAAAAeAC0AAQABAAEAAAAeACwAAQABAAEAAAAeACsAAQABAAAAAAAdAC4AAQABAAEAAAAdAC0AAQABAAEAAAAdACwAAQABAAEAAAAdACsAAQABAAAAAAAcAC4AAQABAAEAAAAcAC0AAQABAAEAAAAcACwAAQABAAEAAAAcACsAAQABAAAAAAAbAC4AAQABAAEAAAAbAC0AAQABAAEAAAAbACwAAQABAAEAAAAbACsAAQABAAAAAAAaAC4AAQABAAEAAAAaAC0AAQABAAEAAAAaACwAAQABAAEAAAAaACsAAQABAAAAAAAZAC4AAQABAAEAAAAZAC0AAQABAAEAAAAZACwAAQABAAEAAAAZACsAAQABAAAAAAAYAC4AAQABAAEAAAAYAC0AAQABAAEAAAAYACwAAQABAAEAAAAYACsAAQABAAAAAAAXAC4AAQABAAEAAAAXAC0AAQABAAEAAAAXACwAAQABAAEAAAAXACsAAQABAAAAAAAWAC4AAQABAAEAAAAWAC0AAQABAAEAAAAWACwAAQABAAEAAAAWACsAAQABAAAAAAAVAC4AAQABAAEAAAAVAC0AAQABAAEAAAAVACwAAQABAAEAAAAVACsAAQABAAAAAAAUAC4AAQAAAAEAAAAUAC0AAQAAAAEAAAAUACwAAQAAAAEAAAAUACsAAQAAAAAAAAAoAEgAAQAYAAkAAAAoAEkAAQAYAAkAAAAoAEoAAQAYAAkAAAAoAEsAAQAYAAkAAAAoAEwAAQAYAAkAAAAoAE0AAQAAAAAAAAAoAE4AAQAAAAEAAAAoAE8AAQAAAAEAAAAoAFAAAQAAAAEAAAApAE0AAQACAAAAAAApAE4AAQACAAEAAAApAE8AAQACAAEAAAApAFAAAQACAAEAAAAoAFEAAQAAAAEAAAAoAFIAAQAAAAIAAAApAFEAAQACAAEAAAApAFIAAQACAAIAAAA=")
 tile_set = ExtResource("3_3sebh")
 
-[node name="Player" parent="." instance=ExtResource("4_ieqme")]
+[node name="Player" parent="." unique_id=1147812950 instance=ExtResource("4_ieqme")]
 position = Vector2(-296.00003, 47.000015)
 RetroStyle = true
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(14.5308, 64.5662)
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1448782575]
+position = Vector2(52.5308, 10.5662)
 zoom = Vector2(2.08, 2.08)
 limit_left = -403
 limit_top = -137
@@ -96,169 +103,210 @@ limit_right = 170
 position_smoothing_enabled = true
 script = ExtResource("5_2llqg")
 
-[node name="Time_Left" type="Timer" parent="." groups=["GameTimer"]]
+[node name="Time_Left" type="Timer" parent="." unique_id=249148880 groups=["GameTimer"]]
 wait_time = 15.0
 one_shot = true
 autostart = true
 
-[node name="Flag" parent="." instance=ExtResource("6_cgr7o")]
-position = Vector2(-29, 267)
+[node name="Flag" parent="." unique_id=136508424 instance=ExtResource("6_cgr7o")]
+position = Vector2(31, 653)
 BSide = null
 Gb = null
 CanHover = null
 grab_grid = null
 
-[node name="Enemie" parent="." instance=ExtResource("7_64h8s")]
+[node name="Enemie" parent="." unique_id=524885816 instance=ExtResource("7_64h8s")]
 position = Vector2(-560, -87)
 RetroStyle = true
 EnemyDirection = 2
 Can_BeGroundSmash = false
 
-[node name="Enemie5" parent="." instance=ExtResource("7_64h8s")]
+[node name="Enemie5" parent="." unique_id=1428025625 instance=ExtResource("7_64h8s")]
 position = Vector2(-751, 201)
 RetroStyle = true
 EnemyDirection = 1
 Max_groundsmash_distance = 100.0
 
-[node name="Enemie4" parent="." instance=ExtResource("7_64h8s")]
+[node name="Enemie4" parent="." unique_id=1091789588 instance=ExtResource("7_64h8s")]
 position = Vector2(-719, 203)
 RetroStyle = true
 EnemyDirection = 1
 Max_groundsmash_distance = 100.0
 
-[node name="Enemie6" parent="." instance=ExtResource("7_64h8s")]
+[node name="Enemie6" parent="." unique_id=598779592 instance=ExtResource("7_64h8s")]
 position = Vector2(-784, 201)
 RetroStyle = true
 EnemyDirection = 1
 Max_groundsmash_distance = 100.0
 
-[node name="falling_sand4" parent="." instance=ExtResource("8_0sj5j")]
+[node name="falling_sand4" parent="." unique_id=757554195 instance=ExtResource("8_0sj5j")]
 position = Vector2(-528, -87)
 wait_time = 0.05
 RetroStyle = true
 
-[node name="falling_sand5" parent="." instance=ExtResource("8_0sj5j")]
-position = Vector2(72, 25)
+[node name="falling_sand5" parent="." unique_id=1392884369 instance=ExtResource("8_0sj5j")]
+position = Vector2(69, -52)
 Activate_on_color = 1
 wait_time = 0.05
 RetroStyle = true
+MAX_SPEED = 400.0
 
-[node name="falling_sand8" parent="." instance=ExtResource("8_0sj5j")]
-position = Vector2(-200, 81)
+[node name="falling_sand8" parent="." unique_id=1343436655 instance=ExtResource("8_0sj5j")]
+position = Vector2(-203, 40)
 collision_mask = 272
+Activate_on_color = 2
 wait_time = 0.08
 RetroStyle = true
+MAX_SPEED = 250.0
 
-[node name="falling_sand9" parent="." instance=ExtResource("8_0sj5j")]
-position = Vector2(-184, 81)
+[node name="falling_sand9" parent="." unique_id=920987062 instance=ExtResource("8_0sj5j")]
+position = Vector2(-187, 40)
 collision_mask = 272
+Activate_on_color = 2
 wait_time = 0.08
 RetroStyle = true
+MAX_SPEED = 250.0
 
-[node name="falling_sand10" parent="." instance=ExtResource("8_0sj5j")]
-position = Vector2(-168, 81)
+[node name="falling_sand10" parent="." unique_id=951359044 instance=ExtResource("8_0sj5j")]
+position = Vector2(-171, 40)
 collision_mask = 272
+Activate_on_color = 2
 wait_time = 0.08
 RetroStyle = true
+MAX_SPEED = 250.0
 
-[node name="falling_sand11" parent="." instance=ExtResource("8_0sj5j")]
-position = Vector2(-152, 81)
+[node name="falling_sand11" parent="." unique_id=140481269 instance=ExtResource("8_0sj5j")]
+position = Vector2(-155, 40)
 collision_mask = 272
+Activate_on_color = 2
 wait_time = 0.08
 RetroStyle = true
+MAX_SPEED = 250.0
 
-[node name="falling_sand12" parent="." instance=ExtResource("8_0sj5j")]
-position = Vector2(-136, 81)
+[node name="falling_sand12" parent="." unique_id=2016537272 instance=ExtResource("8_0sj5j")]
+position = Vector2(-139, 40)
 collision_mask = 272
+Activate_on_color = 2
 wait_time = 0.08
 RetroStyle = true
+MAX_SPEED = 250.0
 
-[node name="falling_sand6" parent="." instance=ExtResource("8_0sj5j")]
-position = Vector2(72, 41)
+[node name="falling_sand6" parent="." unique_id=1411704080 instance=ExtResource("8_0sj5j")]
+position = Vector2(69, -36)
 Activate_on_color = 1
 wait_time = 0.05
 RetroStyle = true
+MAX_SPEED = 400.0
 
-[node name="falling_sand7" parent="." instance=ExtResource("8_0sj5j")]
-position = Vector2(72, 57)
+[node name="falling_sand7" parent="." unique_id=1974976713 instance=ExtResource("8_0sj5j")]
+position = Vector2(69, -20)
 Activate_on_color = 1
 wait_time = 0.05
 RetroStyle = true
+MAX_SPEED = 400.0
 
-[node name="falling_sand13" parent="." instance=ExtResource("8_0sj5j")]
-position = Vector2(72, 73)
+[node name="falling_sand13" parent="." unique_id=1545306664 instance=ExtResource("8_0sj5j")]
+position = Vector2(69, -4)
 Activate_on_color = 1
 wait_time = 0.05
 RetroStyle = true
+MAX_SPEED = 400.0
 
-[node name="KillBox" parent="." instance=ExtResource("9_xn1nj")]
-position = Vector2(-144, 673)
+[node name="KillBox" parent="." unique_id=744180777 instance=ExtResource("9_xn1nj")]
+position = Vector2(-88, 815)
 scale = Vector2(53.6, 1)
 Visible = false
 
-[node name="AmbientParticles2" parent="." instance=ExtResource("10_k8l0s")]
+[node name="AmbientParticles2" parent="." unique_id=1813458839 instance=ExtResource("10_k8l0s")]
 position = Vector2(-348, -185)
 fixed_fps = 10
 interpolate = false
 
-[node name="AmbientParticles3" parent="." instance=ExtResource("10_k8l0s")]
+[node name="AmbientParticles3" parent="." unique_id=1748267213 instance=ExtResource("10_k8l0s")]
 position = Vector2(-86, -172)
 fixed_fps = 10
 interpolate = false
 
-[node name="KillBox2" parent="." instance=ExtResource("9_xn1nj")]
-position = Vector2(-22.395, 106)
-scale = Vector2(3, 7)
+[node name="KillBox2" parent="." unique_id=1367387037 instance=ExtResource("9_xn1nj")]
+position = Vector2(-32, 95)
+scale = Vector2(3, 10.24)
 
-[node name="KillBox7" parent="." instance=ExtResource("9_xn1nj")]
-position = Vector2(-168, 137)
+[node name="KillBox15" parent="." unique_id=1386857898 instance=ExtResource("9_xn1nj")]
+position = Vector2(70, 91)
+scale = Vector2(3.705, 2.045)
+
+[node name="KillBox25" parent="." unique_id=1594908269 instance=ExtResource("9_xn1nj")]
+position = Vector2(-3, 162.00002)
+scale = Vector2(3.705, 2.045)
+
+[node name="KillBox19" parent="." unique_id=1637651651 instance=ExtResource("9_xn1nj")]
+position = Vector2(41, -95)
+scale = Vector2(4.73, 2.045)
+
+[node name="KillBox17" parent="." unique_id=332803991 instance=ExtResource("9_xn1nj")]
+position = Vector2(42, 307)
+scale = Vector2(10.195, 2.045)
+
+[node name="KillBox23" parent="." unique_id=1706300445 instance=ExtResource("9_xn1nj")]
+position = Vector2(80.999985, 512)
+scale = Vector2(5.045, 2.045)
+
+[node name="KillBox24" parent="." unique_id=2008433808 instance=ExtResource("9_xn1nj")]
+position = Vector2(4, 594)
+scale = Vector2(5.045, 2.045)
+
+[node name="KillBox22" parent="." unique_id=393226511 instance=ExtResource("9_xn1nj")]
+position = Vector2(-54.000004, 305)
+scale = Vector2(7.995, 2.045)
+
+[node name="KillBox16" parent="." unique_id=1880708138 instance=ExtResource("9_xn1nj")]
+position = Vector2(-240, 67)
+scale = Vector2(2.085, 6.705)
+
+[node name="KillBox21" parent="." unique_id=1649683284 instance=ExtResource("9_xn1nj")]
+position = Vector2(-76, 66.99999)
+scale = Vector2(4.765, 6.705)
+
+[node name="KillBox7" parent="." unique_id=548535749 instance=ExtResource("9_xn1nj")]
+position = Vector2(-163, 136.99998)
 scale = Vector2(15.31, 3)
 
-[node name="KillBox13" parent="." instance=ExtResource("9_xn1nj")]
-position = Vector2(31.999985, 257)
-scale = Vector2(10.7, 3)
-
-[node name="KillBox5" parent="." instance=ExtResource("9_xn1nj")]
-position = Vector2(-32, 249)
-scale = Vector2(4, 4)
-
-[node name="Flag2" parent="." instance=ExtResource("6_cgr7o")]
-position = Vector2(56, 641)
-BSide = null
-Gb = true
-CanHover = null
-grab_grid = null
-
-[node name="KillBox11" parent="." instance=ExtResource("9_xn1nj")]
-position = Vector2(72, 521)
-scale = Vector2(4, 4)
-
-[node name="KillBox12" parent="." instance=ExtResource("9_xn1nj")]
-position = Vector2(40.000004, 713)
+[node name="KillBox12" parent="." unique_id=664092529 instance=ExtResource("9_xn1nj")]
+position = Vector2(49, 737)
 scale = Vector2(6.025, 4)
 
-[node name="KillBox9" parent="." instance=ExtResource("9_xn1nj")]
-position = Vector2(-32, 553)
-scale = Vector2(4, 23.29)
+[node name="KillBox9" parent="." unique_id=230664324 instance=ExtResource("9_xn1nj")]
+position = Vector2(-15.999998, 276.9999)
+scale = Vector2(3.175, 5.755)
 
-[node name="KillBox10" parent="." instance=ExtResource("9_xn1nj")]
-position = Vector2(112, 249)
-scale = Vector2(4, 60.025)
+[node name="KillBox11" parent="." unique_id=1624696105 instance=ExtResource("9_xn1nj")]
+position = Vector2(-15, 629.0001)
+scale = Vector2(3.175, 17.635)
 
-[node name="KillBox8" parent="." instance=ExtResource("9_xn1nj")]
-position = Vector2(-142, 457)
-scale = Vector2(17.43, 4)
+[node name="KillBox10" parent="." unique_id=536812493 instance=ExtResource("9_xn1nj")]
+position = Vector2(109, 328.99997)
+scale = Vector2(4, 55.275)
 
-[node name="KillBox6" parent="." instance=ExtResource("9_xn1nj")]
-position = Vector2(-312, 313.99997)
-scale = Vector2(4, 29.13)
+[node name="KillBox8" parent="." unique_id=62739790 instance=ExtResource("9_xn1nj")]
+position = Vector2(-138, 497)
+scale = Vector2(18.395, 4)
 
-[node name="KillBox3" parent="." instance=ExtResource("9_xn1nj")]
-position = Vector2(-22.395, -12)
-scale = Vector2(3, 2)
+[node name="KillBox6" parent="." unique_id=160318899 instance=ExtResource("9_xn1nj")]
+position = Vector2(-256, 305.00003)
+scale = Vector2(4, 27.825)
 
-[node name="KillBox4" parent="." instance=ExtResource("11_sg2rv")]
+[node name="KillBox4" parent="." unique_id=481802884 instance=ExtResource("11_sg2rv")]
 position = Vector2(8.000015, 41.000004)
 scale = Vector2(0.185, 27.755)
+
+[node name="KillBox14" parent="." unique_id=1255027827 instance=ExtResource("11_sg2rv")]
+position = Vector2(-236.99998, 47.000004)
+scale = Vector2(0.185, 27.755)
+Laser_Color = 2
+
+[node name="KillBox20" parent="." unique_id=572500101 instance=ExtResource("11_sg2rv")]
+position = Vector2(-236.99998, 47.000004)
+scale = Vector2(0.185, 27.755)
+Laser_Color = 2
 
 [editable path="CanvasLayer"]
