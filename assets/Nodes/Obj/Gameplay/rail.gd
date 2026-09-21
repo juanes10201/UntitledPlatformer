@@ -83,6 +83,7 @@ func _process(delta: float) -> void:
 		if(Player.SnappedOnRail && PlayerSnapped):				
 			Player.strech_size(1.0, 1.0, true, 20)
 			Player.Reset_Slide()
+			Player.Dashed = false
 			Player.PressedSlide = false
 			Player.LastDirection = 1 if NormalizedVel.x > 0 else -1
 			Player.direction = 1 if NormalizedVel.x > 0 else -1

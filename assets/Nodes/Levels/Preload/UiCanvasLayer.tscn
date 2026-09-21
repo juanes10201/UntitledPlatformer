@@ -78,6 +78,8 @@ func fade_out():
 shader = ExtResource("3_mqpl3")
 shader_parameter/blur_size = 1.48800007068
 shader_parameter/max_alpha = 0.3200000152
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/extend_px = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_261mj"]
 shader = ExtResource("9_jujlo")
@@ -1127,7 +1129,6 @@ horizontal_alignment = 1
 libraries/ = SubResource("AnimationLibrary_1ffli")
 
 [node name="expo" type="Node2D" parent="." unique_id=206937599 node_paths=PackedStringArray("NodeLimitedtimeUi", "NodeInactiveUi")]
-visible = false
 script = ExtResource("43_ymxs3")
 NodeLimitedtimeUi = NodePath("LimitedTimeUi")
 NodeInactiveUi = NodePath("InactiveUi")
@@ -1149,6 +1150,7 @@ text = "REG Indie Space"
 [node name="LimitedTimeUi" type="Node2D" parent="expo" unique_id=1593580310]
 
 [node name="ExpoDialog" type="Sprite2D" parent="expo/LimitedTimeUi" unique_id=2056295277]
+modulate = Color(0.6901961, 0.65882355, 0.64705884, 0.5529412)
 position = Vector2(1037, 43.79)
 scale = Vector2(0.12622882, 0.12622881)
 texture = ExtResource("44_mqpl3")

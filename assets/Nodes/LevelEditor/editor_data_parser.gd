@@ -172,7 +172,7 @@ func SaveToFile(Path : String, Nodes : Array, Tiles : Array, Tilemap : TileMapLa
 		"Nodes" = SavedNodes
 	}
 	var file = FileAccess.open(Path, FileAccess.WRITE)
-	file.store_string(var_to_str(Saved))
+	file.store_string(var_to_str(2))
 	file.close()
 	LevelData.LevelPath = Path
 	print("Saved!")

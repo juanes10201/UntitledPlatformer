@@ -124,6 +124,8 @@ func fade_out():
 shader = ExtResource("5_crete")
 shader_parameter/blur_size = 1.48800007068
 shader_parameter/max_alpha = 0.3200000152
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/extend_px = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_261mj"]
 shader = ExtResource("11_5mkwl")
@@ -1744,7 +1746,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_uefb1")
 theme_override_styles/focus = SubResource("StyleBoxFlat_tk1t2")
 text = "File"
 script = ExtResource("90_cyxik")
-Options = Array[int]([3, 1, 2])
+Options = Array[int]([3, 1, 2, 4])
 SampleButton = NodePath("DialogButtonSample")
 LevelEditor = NodePath("../../..")
 

@@ -22,18 +22,18 @@ var ReplayActions = {
 	"player_dash": false,
 	"ui_left": false,
 	"ui_right": false,
-	"reset": false
+	"player_reset": false
 	}
 
 func _ready() -> void:
 	ReplayCurrentAction = 0
-	CurrentTime = 0
+	CurrentTime = 0.0
 
 func Reset() -> void:
 	InitialTime = 0.0
 	Player.position = Player.OriginalPos
 	Player.reset_dead()
-	ReplayCurrentAction = -1
+	ReplayCurrentAction = 0
 	CurrentTime = -0.5
 	for i in ReplayActions:
 		ReplayActions[i] = false
@@ -73,7 +73,7 @@ func Record_Actions() -> void:
 func Replay_Actions() -> void:
 	#Check if the action time is the same(Or less) as the current
 	var _CurrentTime = CurrentTime - Player.ReplayMilisecDelay
-	if(_CurrentTime < 0): return
+	if(_CurrentTime < 0.0): return
 	while(ReplayCurrentAction < Player.RecordedActions.size()):
 		var _action_id = Player.RecordedActions[ReplayCurrentAction].y
 		if(!_action_id < Actions.size()): break
@@ -81,6 +81,9 @@ func Replay_Actions() -> void:
 		var _action = Actions[_action_id]
 		var _state = Player.RecordedActions[ReplayCurrentAction].z
 		if(abs(_CurrentTime-_time_action) <= TimeMargin || _CurrentTime >= _time_action ):
+			if(_action == "player_reset"):
+				Play_action(_action, _state)
+				return
 			Play_action(_action, _state)
 			ReplayCurrentAction += 1
 		else:
@@ -92,6 +95,7 @@ func Replay_Actions() -> void:
 @onready var InitialTime = Time.get_ticks_msec()
 
 func _physics_process(delta: float) -> void:
+	#print(CurrentTime)
 	if(!Player): return
 	if("ReplayAction" in Player): State = Player.ReplayAction
 	#print(Input.is_action_pressed("replay_player_jump"))

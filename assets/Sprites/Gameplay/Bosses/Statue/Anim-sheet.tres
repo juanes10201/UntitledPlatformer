@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" format=3 uid="uid://dynn8iu04rp5r"]
+
+[ext_resource type="Texture2D" uid="uid://ucc0ny4i8yju" path="res://assets/Sprites/Gameplay/Bosses/Statue/Anim.png" id="1_g8m3u"]
+[ext_resource type="Texture2D" uid="uid://ba2lk2xlomwc" path="res://assets/Sprites/Gameplay/Bosses/Statue/Statue1-depth.png" id="2_xr38o"]
+
+[resource]
+diffuse_texture = ExtResource("1_g8m3u")
+normal_texture = ExtResource("2_xr38o")

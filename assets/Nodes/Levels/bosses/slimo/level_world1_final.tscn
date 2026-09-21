@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bdr8u6utxer0" path="res://assets/Nodes/Obj/Gameplay/Boss/Slimo/StageParallaxBoss.gd" id="7_o6gnl"]
 [ext_resource type="Texture2D" uid="uid://ceidc5ojq1i0c" path="res://assets/Sprites/Gameplay/Bosses/Stage/Stage-bg-floor.png" id="7_rcitd"]
 [ext_resource type="PackedScene" uid="uid://cfa7sxsc3ppdn" path="res://assets/Nodes/Levels/Preload/UiCanvasLayer.tscn" id="7_tsapb"]
+[ext_resource type="Texture2D" uid="uid://dynn8iu04rp5r" path="res://assets/Sprites/Gameplay/Bosses/Statue/Anim-sheet.tres" id="8_05m2f"]
 [ext_resource type="PackedScene" uid="uid://djqwajvc8m3td" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie.tscn" id="8_v8p1a"]
 [ext_resource type="PackedScene" uid="uid://cba0dn710x26" path="res://assets/Nodes/Obj/Gameplay/flag.tscn" id="9_sw0pm"]
 [ext_resource type="Texture2D" uid="uid://cc6sao5m1uf1p" path="res://assets/Sprites/particles/light3.png" id="9_wig4w"]
@@ -48,12 +49,13 @@
 [ext_resource type="PackedScene" uid="uid://kn27ogqnt70t" path="res://assets/Nodes/Obj/Gameplay/respawn_point.tscn" id="37_e4war"]
 [ext_resource type="Texture2D" uid="uid://bqxt4i6tqxao5" path="res://assets/Sprites/Gameplay/Bosses/Stage/Casino/Depth/1.png" id="37_pixuk"]
 [ext_resource type="Script" uid="uid://dlvjqg4qxquwf" path="res://assets/Scripts/disable_time_area2d.gd" id="38_n4b3u"]
-[ext_resource type="Texture2D" uid="uid://ucc0ny4i8yju" path="res://assets/Sprites/Gameplay/Bosses/Statue/Anim.png" id="41_vef5d"]
 [ext_resource type="Script" uid="uid://ck1ggim80y5wp" path="res://assets/Nodes/Obj/Gameplay/Boss/Slimo/BossStatue.gd" id="42_ieoue"]
 [ext_resource type="Texture2D" uid="uid://biaxt11oianj" path="res://assets/Sprites/Gameplay/Bosses/Statue/Statue1.png" id="42_vef5d"]
+[ext_resource type="Texture2D" uid="uid://dgeyjs46yolkl" path="res://assets/Sprites/Gameplay/Bosses/Stage/Casino/Depth/final.png" id="43_ackkf"]
 [ext_resource type="Script" uid="uid://dbfv5o1s01x06" path="res://assets/Scripts/DynamicLightAnimation.gd" id="47_adys0"]
 [ext_resource type="Texture2D" uid="uid://bkpeeq4uqgy4" path="res://assets/Sprites/particles/LightFocus.png" id="47_jqcgy"]
 [ext_resource type="PackedScene" uid="uid://bxtkh08fsp6ue" path="res://assets/Nodes/Obj/Gameplay/kill_box_blue.tscn" id="49_orvnp"]
+[ext_resource type="Texture2D" uid="uid://ba2lk2xlomwc" path="res://assets/Sprites/Gameplay/Bosses/Statue/Statue1-depth.png" id="54_y5g1q"]
 
 [sub_resource type="Animation" id="Animation_fyk5b"]
 resource_name = "Idle"
@@ -117,83 +119,83 @@ _data = {
 &"RESET": SubResource("Animation_vyrct")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jvkrx"]
-atlas = ExtResource("41_vef5d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cqi3"]
+atlas = ExtResource("8_05m2f")
 region = Rect2(0, 0, 150, 118)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3wi7w"]
-atlas = ExtResource("41_vef5d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4a6d1"]
+atlas = ExtResource("8_05m2f")
 region = Rect2(150, 0, 150, 118)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yx2eo"]
-atlas = ExtResource("41_vef5d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_brlas"]
+atlas = ExtResource("8_05m2f")
 region = Rect2(300, 0, 150, 118)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nte2w"]
-atlas = ExtResource("41_vef5d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_805ss"]
+atlas = ExtResource("8_05m2f")
 region = Rect2(450, 0, 150, 118)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b8etf"]
-atlas = ExtResource("41_vef5d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_r81r5"]
+atlas = ExtResource("8_05m2f")
 region = Rect2(600, 0, 150, 118)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cmygl"]
-atlas = ExtResource("41_vef5d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5agi"]
+atlas = ExtResource("8_05m2f")
 region = Rect2(1500, 0, 150, 118)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_umw2y"]
-atlas = ExtResource("41_vef5d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_twulv"]
+atlas = ExtResource("8_05m2f")
 region = Rect2(1650, 0, 150, 118)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6cuqd"]
-atlas = ExtResource("41_vef5d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_divai"]
+atlas = ExtResource("8_05m2f")
 region = Rect2(1800, 0, 150, 118)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0cwkf"]
-atlas = ExtResource("41_vef5d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_wligs"]
+atlas = ExtResource("8_05m2f")
 region = Rect2(1950, 0, 150, 118)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2bc2y"]
-atlas = ExtResource("41_vef5d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6v67"]
+atlas = ExtResource("8_05m2f")
 region = Rect2(2100, 0, 150, 118)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aocd4"]
-atlas = ExtResource("41_vef5d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdw0p"]
+atlas = ExtResource("8_05m2f")
 region = Rect2(750, 0, 150, 118)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yhcjv"]
-atlas = ExtResource("41_vef5d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cl5d"]
+atlas = ExtResource("8_05m2f")
 region = Rect2(900, 0, 150, 118)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1qo5a"]
-atlas = ExtResource("41_vef5d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlsbc"]
+atlas = ExtResource("8_05m2f")
 region = Rect2(1050, 0, 150, 118)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ad2cf"]
-atlas = ExtResource("41_vef5d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_1y6t4"]
+atlas = ExtResource("8_05m2f")
 region = Rect2(1200, 0, 150, 118)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6txoc"]
-atlas = ExtResource("41_vef5d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkaot"]
+atlas = ExtResource("8_05m2f")
 region = Rect2(1350, 0, 150, 118)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cmygl"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jvkrx")
+"texture": SubResource("AtlasTexture_3cqi3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3wi7w")
+"texture": SubResource("AtlasTexture_4a6d1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yx2eo")
+"texture": SubResource("AtlasTexture_brlas")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nte2w")
+"texture": SubResource("AtlasTexture_805ss")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b8etf")
+"texture": SubResource("AtlasTexture_r81r5")
 }],
 "loop": true,
 "name": &"default",
@@ -201,19 +203,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cmygl")
+"texture": SubResource("AtlasTexture_r5agi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_umw2y")
+"texture": SubResource("AtlasTexture_twulv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6cuqd")
+"texture": SubResource("AtlasTexture_divai")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0cwkf")
+"texture": SubResource("AtlasTexture_wligs")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2bc2y")
+"texture": SubResource("AtlasTexture_j6v67")
 }],
 "loop": true,
 "name": &"left",
@@ -221,19 +223,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_aocd4")
+"texture": SubResource("AtlasTexture_sdw0p")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yhcjv")
+"texture": SubResource("AtlasTexture_3cl5d")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1qo5a")
+"texture": SubResource("AtlasTexture_xlsbc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ad2cf")
+"texture": SubResource("AtlasTexture_1y6t4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6txoc")
+"texture": SubResource("AtlasTexture_jkaot")
 }],
 "loop": true,
 "name": &"right",
@@ -1353,6 +1355,10 @@ normal_texture = ExtResource("36_ahrl7")
 diffuse_texture = ExtResource("31_0dkde")
 normal_texture = ExtResource("37_pixuk")
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_05m2f"]
+diffuse_texture = ExtResource("36_jqcgy")
+normal_texture = ExtResource("43_ackkf")
+
 [sub_resource type="Gradient" id="Gradient_ahrl7"]
 offsets = PackedFloat32Array(0, 0.6423422)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -2042,6 +2048,10 @@ size = Vector2(142, 86)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n4b3u"]
 size = Vector2(102.999985, 167)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_kja4j"]
+diffuse_texture = ExtResource("42_vef5d")
+normal_texture = ExtResource("54_y5g1q")
 
 [node name="Node2D" type="Node2D" unique_id=547109456]
 position = Vector2(1, -1)
@@ -2874,8 +2884,9 @@ position = Vector2(920, -372)
 texture = ExtResource("33_bhiel")
 
 [node name="End" type="Sprite2D" parent="." unique_id=1514064253]
+self_modulate = Color(0.7764706, 0.7764706, 0.7764706, 1)
 position = Vector2(846, -356)
-texture = ExtResource("36_jqcgy")
+texture = SubResource("CanvasTexture_05m2f")
 
 [node name="PointLight2D51" type="PointLight2D" parent="." unique_id=570804372]
 position = Vector2(-674, -351.00003)
@@ -2887,14 +2898,14 @@ texture_scale = 1.37
 script = ExtResource("47_adys0")
 
 [node name="PointLight2D52" type="PointLight2D" parent="." unique_id=1573891283]
-position = Vector2(-616, -350)
+position = Vector2(-621, -298.00003)
 rotation = -0.3403392
 scale = Vector2(1.5259811, 0.28328124)
 color = Color(1, 0.40950897, 0.21989048, 1)
 energy = 1.1
 texture = ExtResource("47_jqcgy")
 texture_scale = 1.37
-height = 60.0
+height = 20.0
 script = ExtResource("47_adys0")
 CurrentAnimation = 1
 
@@ -3028,7 +3039,7 @@ script = ExtResource("47_adys0")
 CurrentAnimation = 1
 
 [node name="PointLight2D71" type="PointLight2D" parent="." unique_id=1289300549]
-position = Vector2(-434.84998, -131.65988)
+position = Vector2(-426.00003, -132)
 rotation = -3.1415925
 scale = Vector2(0.57116777, 0.43114397)
 color = Color(0.99999994, 0.49743295, 0.19575131, 1)
@@ -3126,7 +3137,7 @@ script = ExtResource("47_adys0")
 CurrentAnimation = 3
 
 [node name="PointLight2D60" type="PointLight2D" parent="." unique_id=454996272]
-position = Vector2(-67, 112.99999)
+position = Vector2(-62, 114)
 scale = Vector2(1.1916243, 0.2772256)
 color = Color(0.8798147, 0.5936456, 7.70092e-07, 1)
 energy = 0.65
@@ -3181,18 +3192,18 @@ script = ExtResource("47_adys0")
 CurrentAnimation = 1
 
 [node name="PointLight2D68" type="PointLight2D" parent="." unique_id=35411759]
-position = Vector2(-50, 104)
+position = Vector2(-235, 243)
 scale = Vector2(1.1058763, 0.28243935)
-color = Color(0.91898507, 0.56425524, 7.70092e-07, 1)
+color = Color(1, 0.42604834, 0.6782479, 1)
 energy = 0.55
 texture = ExtResource("47_jqcgy")
 texture_scale = 1.37
-height = 33.0
+height = 53.0
 script = ExtResource("47_adys0")
 CurrentAnimation = 1
 
 [node name="PointLight2D69" type="PointLight2D" parent="." unique_id=918482868]
-position = Vector2(-366, 114)
+position = Vector2(-357, 117.00001)
 scale = Vector2(1.1058763, 0.28243935)
 color = Color(0.91898507, 0.56425524, 7.70092e-07, 1)
 energy = 0.8
@@ -3587,6 +3598,7 @@ TimeState = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DisableTime3" unique_id=1309140000]
 position = Vector2(13.5, 40.5)
 shape = SubResource("RectangleShape2D_n4b3u")
+debug_color = Color(0, 0.6, 0.69803923, 0)
 
 [node name="Flag2" parent="." unique_id=103660052 instance=ExtResource("9_sw0pm")]
 position = Vector2(-1206, -290)
@@ -3618,14 +3630,12 @@ script = ExtResource("42_ieoue")
 [node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="." unique_id=1159615099]
 position = Vector2(765, -330)
 sprite_frames = SubResource("SpriteFrames_cmygl")
-animation = &"right"
 script = ExtResource("42_ieoue")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1714919955]
 z_index = -1
 position = Vector2(-423, -308)
 sprite_frames = SubResource("SpriteFrames_cmygl")
-animation = &"left"
 script = ExtResource("42_ieoue")
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." unique_id=1401239970]
@@ -3637,7 +3647,7 @@ script = ExtResource("42_ieoue")
 [node name="Sprite2D9" type="Sprite2D" parent="." unique_id=197044843]
 z_index = 1
 position = Vector2(1085, -331)
-texture = ExtResource("42_vef5d")
+texture = SubResource("CanvasTexture_kja4j")
 
 [node name="KillBox18" parent="." unique_id=730018019 instance=ExtResource("49_orvnp")]
 position = Vector2(82, 227)
@@ -3666,6 +3676,63 @@ rotation = 1.5707964
 
 [node name="RespawnPoint" parent="." unique_id=994135283 instance=ExtResource("37_e4war")]
 position = Vector2(103, 65)
+
+[node name="PointLight2D84" type="PointLight2D" parent="." unique_id=818738580]
+position = Vector2(642.00006, -300)
+scale = Vector2(2.6542222, 0.35019118)
+color = Color(0.9933445, 0.4515255, 0.6269391, 1)
+energy = 0.95
+texture = ExtResource("47_jqcgy")
+texture_scale = 1.37
+script = ExtResource("47_adys0")
+
+[node name="PointLight2D85" type="PointLight2D" parent="." unique_id=1921496620]
+position = Vector2(1059.6636, -373.79636)
+rotation = -0.008726646
+scale = Vector2(1.6384752, 0.34452638)
+color = Color(1, 0.40950897, 0.21989048, 1)
+energy = 1.1
+texture = ExtResource("47_jqcgy")
+texture_scale = 1.37
+height = 20.0
+script = ExtResource("47_adys0")
+CurrentAnimation = 1
+
+[node name="PointLight2D87" type="PointLight2D" parent="." unique_id=1841993583]
+position = Vector2(958.92487, -347.5992)
+rotation = -0.008726646
+scale = Vector2(1.6384752, 0.37441707)
+color = Color(0.99999994, 0.2981798, 0.7249795, 1)
+energy = 1.1
+texture = ExtResource("47_jqcgy")
+texture_scale = 1.37
+height = 75.0
+script = ExtResource("47_adys0")
+CurrentAnimation = 1
+
+[node name="PointLight2D86" type="PointLight2D" parent="." unique_id=64618533]
+position = Vector2(814.00006, -362)
+rotation = 0.28797933
+scale = Vector2(1.3117505, 0.4620337)
+color = Color(0.99999994, 0.49743295, 0.19575131, 1)
+energy = 0.5
+texture = ExtResource("47_jqcgy")
+texture_scale = 1.37
+height = 13.0
+script = ExtResource("47_adys0")
+CurrentAnimation = 1
+
+[node name="PointLight2D88" type="PointLight2D" parent="." unique_id=212026679]
+position = Vector2(770.00006, -257.99997)
+rotation = -0.4886922
+scale = Vector2(1.3117505, 0.64493847)
+color = Color(1, 0.45881838, 0.5567872, 1)
+energy = 1.45
+texture = ExtResource("47_jqcgy")
+texture_scale = 1.37
+height = 43.0
+script = ExtResource("47_adys0")
+CurrentAnimation = 1
 
 [connection signal="body_entered" from="SlimeRingIntro" to="SlimeRingIntro" method="_on_body_entered"]
 [connection signal="body_entered" from="SlimeRingIntro2" to="SlimeRingIntro2" method="_on_body_entered"]

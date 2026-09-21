@@ -17,13 +17,13 @@ var ParentCollisionShape : CollisionShape2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if(Edition.Is_in_editor):
+	if(ParentCollisionShape && Edition.Is_in_editor):
 		ParentCollisionShape = get_parent().ParentCollisionShape
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if(Edition.Is_in_editor && LeftShape && RightShape):
+	if(ParentCollisionShape && Edition.Is_in_editor && LeftShape && RightShape):
 		global_position = Parent.global_position
 		var _base_shape_size : Vector2 = ParentCollisionShape.shape.size*ParentCollisionShape.scale
 		LeftShape.global_position = global_position

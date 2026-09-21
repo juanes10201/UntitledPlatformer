@@ -1137,7 +1137,6 @@ expand_icon = true
 script = ExtResource("7_fg2bv")
 BUTTON_ACTION = 4
 ADITIONAL_ARGUMENT = "res://assets/Nodes/Ui/config_menu.tscn"
-ShowOnExpo = false
 
 [node name="control_pause_menu" type="Control" parent="." unique_id=502933918]
 layout_mode = 3

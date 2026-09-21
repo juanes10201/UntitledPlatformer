@@ -448,13 +448,15 @@ func _ready() -> void:
 		if (MobileControls != null):
 			var MobileControlsInstance = MobileControls.instantiate()
 			if(MobileControlsInstance != null): UI.add_child(MobileControlsInstance)
-	if(SaveGame.PlayedIntro() && Edition.GAME_STATUS != Edition.ALL_GAME_STATUS.expo): PlayIntro = false
+	#if(SaveGame.PlayedIntro() && Edition.GAME_STATUS != Edition.ALL_GAME_STATUS.expo): PlayIntro = false
 	if(PlayIntro):
 		#If level is not identified search for it
 		#SaveGame.PlayedIntroBool = true
 		Global.Level = 0
 		Physics = false
 		Sprite.hide()
+		TimerIntroSlam.start()
+		LevelManager.ExpoMoveTimeout.start()
 	
 	if(TransitionOut): TransitionOut.hide()
 	if(TransitionIn): TransitionIn.show()
@@ -1343,6 +1345,7 @@ func _on_timer_intro_slam_timeout() -> void:
 	Input.action_press("player_slide")
 	await get_tree().create_timer(.5).timeout
 	Input.action_release("player_slide")
+	LevelManager.ExpoMoveTimeout.start()
 
 
 func _on_water_area_area_entered(area: Area2D) -> void:
@@ -1375,6 +1378,7 @@ func _on_water_area_body_exited(body: Node2D) -> void:
 
 
 func _dialog_intro_end() -> void:
-	if(PlayIntro):
-		TimerIntroSlam.start()
-		$Camera2D/AnimationPlayer.play("End")
+	pass
+	#if(PlayIntro):
+	#	TimerIntroSlam.start()
+	#	$Camera2D/AnimationPlayer.play("End")

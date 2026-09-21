@@ -21,13 +21,6 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q4gwn"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0mp1d"]
-texture = ExtResource("6_4jx20")
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
-
 [sub_resource type="Animation" id="Animation_vkgan"]
 length = 0.001
 tracks/0/type = "value"
@@ -296,6 +289,13 @@ _data = {
 &"start": SubResource("Animation_uijvl")
 }
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0mp1d"]
+texture = ExtResource("6_4jx20")
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
 [node name="control_level_select" type="Control" unique_id=1118240205]
 layout_mode = 3
 anchors_preset = 0
@@ -431,6 +431,17 @@ Challenge = 3
 position = Vector2(1156.6666, 290)
 texture = ExtResource("3_rqai6")
 
+[node name="Transition" type="Sprite2D" parent="CanvasLayer" unique_id=103331453]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 2
+position = Vector2(2320, 1033.3334)
+scale = Vector2(2.454, 2.454)
+texture = ExtResource("9_0mp1d")
+script = ExtResource("10_x20i0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Transition" unique_id=792057343]
+libraries/ = SubResource("AnimationLibrary_q4gwn")
+
 [node name="PauseMenuConfigButton2" type="Button" parent="CanvasLayer" unique_id=907887081]
 z_index = 1
 anchors_preset = 1
@@ -450,18 +461,6 @@ script = ExtResource("5_x20i0")
 BUTTON_ACTION = 4
 ADITIONAL_ARGUMENT = "res://assets/Nodes/Ui/select_level_world1.tscn"
 FadeTransition = true
-ShowOnExpo = false
-
-[node name="Transition" type="Sprite2D" parent="CanvasLayer" unique_id=103331453]
-self_modulate = Color(1, 1, 1, 0)
-z_index = 2
-position = Vector2(2320, 1033.3334)
-scale = Vector2(2.454, 2.454)
-texture = ExtResource("9_0mp1d")
-script = ExtResource("10_x20i0")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Transition" unique_id=792057343]
-libraries/ = SubResource("AnimationLibrary_q4gwn")
 
 [connection signal="pressed" from="CanvasLayer/SelectChallenge/ButtonChallengeNone" to="CanvasLayer/SelectChallenge/ButtonChallengeNone" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/SelectChallenge/ButtonChallenge1" to="CanvasLayer/SelectChallenge/ButtonChallenge1" method="_on_pressed"]

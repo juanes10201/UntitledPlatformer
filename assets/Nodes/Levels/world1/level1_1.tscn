@@ -371,7 +371,7 @@ script = ExtResource("17_kdsa1")
 CurrentAnimation = 1
 
 [node name="PointLight2D59" type="PointLight2D" parent="." unique_id=1845546017]
-position = Vector2(-147, -201)
+position = Vector2(-50, -207)
 scale = Vector2(1.5259811, 1.4260539)
 color = Color(0.9766763, 0.33209845, 0.99999994, 1)
 energy = 0.55
@@ -472,12 +472,12 @@ Visible = false
 
 [node name="Tutorial" type="Node2D" parent="." unique_id=898310837]
 material = ExtResource("12_oq6ls")
-position = Vector2(-188, -205)
+position = Vector2(-199, -205)
 
 [node name="DashButton2" type="AnimatedSprite2D" parent="Tutorial" unique_id=823325995]
 self_modulate = Color(1, 1, 1, 0.8627451)
 use_parent_material = true
-position = Vector2(-69, -6)
+position = Vector2(-71, -6)
 sprite_frames = SubResource("SpriteFrames_kdsa1")
 script = ExtResource("14_oq6ls")
 ReadFromReplay = true
@@ -486,7 +486,7 @@ ButtonToPress = "ui_right"
 [node name="DashButton" type="AnimatedSprite2D" parent="Tutorial" unique_id=169715356]
 self_modulate = Color(1, 1, 1, 0.8627451)
 use_parent_material = true
-position = Vector2(-54.38501, -13.650604)
+position = Vector2(-56.38501, -13.650604)
 sprite_frames = SubResource("SpriteFrames_8fc2q")
 script = ExtResource("14_oq6ls")
 ReadFromReplay = true
@@ -501,8 +501,8 @@ theme_override_fonts/normal_font = ExtResource("12_fneve")
 text = "
 Usa        para escalar
 
-Mantene apretado para
-saltar mas alto"
+Mantene apretado
+para saltar mas alto"
 fit_content = true
 script = ExtResource("16_8fc2q")
 Animate = true
@@ -522,6 +522,14 @@ one_shot = true
 [node name="Voice" type="AudioStreamPlayer" parent="Tutorial/DashTutorial2" unique_id=1453773123]
 stream = ExtResource("17_jlc0c")
 volume_db = -20.0
+
+[node name="DashButton3" type="AnimatedSprite2D" parent="Tutorial" unique_id=1005240315]
+self_modulate = Color(1, 1, 1, 0.8627451)
+use_parent_material = true
+position = Vector2(2, 6)
+sprite_frames = SubResource("SpriteFrames_8fc2q")
+script = ExtResource("14_oq6ls")
+ReadFromReplay = true
 
 [node name="falling_sand" parent="." unique_id=280544768 instance=ExtResource("16_oq6ls")]
 position = Vector2(-42, -232)

@@ -3,11 +3,12 @@ extends AnimatedSprite2D
 @export var ReadFromReplay : bool = false
 @export var ButtonToPress : String = "player_jump"
 
+@onready var ReplayPlayer : Node2D = SaveGame.get_player_replay()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if(ReadFromReplay):
-		if(SaveGame.get_player_replay() && SaveGame.get_player_replay().Replay.ReplayActions[ButtonToPress]):
+		if(ReplayPlayer && ReplayPlayer.Replay.ReplayActions[ButtonToPress]):
 			self.play("pressed")
 		else:
 			self.play("default")

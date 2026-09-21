@@ -19,6 +19,9 @@ func _on_pressed() -> void:
 @export var EditorSaveFileDialog : FileDialog
 @export var EditorLoadFileDialog : FileDialog
 
+func EditorTooltipExit() -> void:
+	get_tree().change_scene_to_file("res://assets/Nodes/Ui/main_menu_w_level_preview.tscn")
+
 func EditorTooltipOpen() -> void:
 	print("Loading file...")
 	GlobalFunctions.OpenedFileDialog = true
