@@ -1,0 +1,154 @@
+[gd_scene format=4 uid="uid://bkdukr12toitp"]
+
+[ext_resource type="PackedScene" uid="uid://cfa7sxsc3ppdn" path="res://assets/Nodes/Levels/Preload/UiCanvasLayer.tscn" id="1_pqy8r"]
+[ext_resource type="FontFile" uid="uid://du1fhb4w0oxp8" path="res://assets/Fonts/pixelart/Coder's Crux.otf" id="2_aa6rj"]
+[ext_resource type="Shader" uid="uid://dos2gdtrqw4xw" path="res://assets/Nodes/Levels/world_extra/snes/level_snes_pallete.gdshader" id="4_67npk"]
+[ext_resource type="Texture2D" uid="uid://b41mkx2occddk" path="res://assets/Sprites/Gameplay/Tilesets/World1/pallete.png" id="5_8el8b"]
+[ext_resource type="FontFile" uid="uid://b42aju5a8xkr8" path="res://assets/Fonts/pixelart/Pixel Or GTFO.ttf" id="6_8el8b"]
+[ext_resource type="Texture2D" uid="uid://hqst1d7kxpgu" path="res://assets/Sprites/Gameplay/Tilesets/World1/pallete-snes.png" id="6_13mr7"]
+[ext_resource type="Script" uid="uid://g35fwd1dftrg" path="res://assets/Nodes/Levels/world_extra/gameboy/gb_borders.gd" id="6_y2beu"]
+[ext_resource type="TileSet" uid="uid://defl28kc6mcu4" path="res://assets/Nodes/Obj/Tileset/tiles.tres" id="7_3wlqi"]
+[ext_resource type="Texture2D" uid="uid://b0yndn2sf6e8s" path="res://assets/Sprites/Gameplay/Snes/Borders.png" id="7_8el8b"]
+[ext_resource type="PackedScene" uid="uid://d3erf6nvt6a0n" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie_special_snes.tscn" id="8_67npk"]
+[ext_resource type="PackedScene" uid="uid://chat6jxc63bfj" path="res://assets/Nodes/Obj/Gameplay/Player/player.tscn" id="8_vktk1"]
+[ext_resource type="Script" uid="uid://db87exh6jetnl" path="res://assets/Scripts/Player_camera.gd" id="9_p1660"]
+[ext_resource type="PackedScene" uid="uid://dmnyy0uuvc0jk" path="res://assets/Nodes/Obj/Gameplay/kill_box.tscn" id="12_uixod"]
+[ext_resource type="PackedScene" uid="uid://d1ji315fcqjjv" path="res://assets/Nodes/Particles/ambientparticles.tscn" id="13_61ubt"]
+[ext_resource type="PackedScene" uid="uid://mwwwugaaoyiw" path="res://assets/Nodes/Obj/Gameplay/key.tscn" id="14_igb2m"]
+[ext_resource type="PackedScene" uid="uid://c1ytdkacld0nb" path="res://assets/Nodes/Obj/Gameplay/open_box.tscn" id="15_eh6j6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ib40"]
+shader = ExtResource("4_67npk")
+shader_parameter/original_palette = ExtResource("5_8el8b")
+shader_parameter/target_palette = ExtResource("6_13mr7")
+
+[node name="Node2D" type="Node2D" unique_id=1013497022]
+position = Vector2(0, -1)
+
+[node name="CanvasLayer" parent="." unique_id=2104942125 instance=ExtResource("1_pqy8r")]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1329628605]
+z_index = 6
+material = SubResource("ShaderMaterial_0ib40")
+anchors_preset = -1
+anchor_left = -0.104166664
+anchor_top = -0.72376543
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -951.0
+offset_top = -620.0
+offset_right = 386.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ui_text_seg" parent="CanvasLayer" index="3" unique_id=845003184]
+offset_left = 518.0
+offset_top = -6.0
+offset_right = 598.0
+offset_bottom = 39.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_aa6rj")
+theme_override_font_sizes/normal_font_size = 44
+text = " seg"
+metadata/_edit_use_anchors_ = true
+
+[node name="ui_text_timeleft" parent="CanvasLayer" index="7" unique_id=2102879422]
+theme_override_fonts/normal_font = ExtResource("6_8el8b")
+theme_override_font_sizes/normal_font_size = 136
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar" parent="CanvasLayer" index="8" unique_id=318457104]
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" parent="CanvasLayer" index="12" unique_id=1943670024]
+metadata/_edit_use_anchors_ = true
+
+[node name="LogoText" parent="CanvasLayer" index="13" unique_id=1669258455]
+metadata/_edit_use_anchors_ = true
+
+[node name="StyleBar" parent="CanvasLayer/Style" parent_id_path=PackedInt32Array(2104942125, 1989216175) index="5" unique_id=440521956]
+metadata/_edit_use_anchors_ = true
+
+[node name="Points" parent="CanvasLayer/Style" parent_id_path=PackedInt32Array(2104942125, 1989216175) index="6" unique_id=499762585]
+metadata/_edit_use_anchors_ = true
+
+[node name="Moto" parent="CanvasLayer/Style" parent_id_path=PackedInt32Array(2104942125, 1989216175) index="7" unique_id=325337100]
+metadata/_edit_use_anchors_ = true
+
+[node name="MultX" parent="CanvasLayer/Style/Mult" parent_id_path=PackedInt32Array(2104942125, 15292356) index="1" unique_id=1326856897]
+metadata/_edit_use_anchors_ = true
+
+[node name="MultText" parent="CanvasLayer/Style/Mult" parent_id_path=PackedInt32Array(2104942125, 15292356) index="2" unique_id=1173110462]
+metadata/_edit_use_anchors_ = true
+
+[node name="Gb_borders" type="Sprite2D" parent="CanvasLayer" unique_id=884556882]
+visible = false
+z_index = 2
+position = Vector2(576.8889, 324.5)
+scale = Vector2(0.600926, 0.6009259)
+texture = ExtResource("7_8el8b")
+script = ExtResource("6_y2beu")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1398394838 groups=["Tileset"]]
+position = Vector2(-757.008, -831)
+scale = Vector2(1.00769, 1)
+tile_map_data = PackedByteArray("AAAXAC0AAAABAAAAAAAXAC4AAAABAAEAAAAYAC4AAAABAAEAAAAZAC4AAAABAAEAAAAaAC4AAAABAAEAAAAbAC4AAAABAAEAAAAcAC4AAAABAAEAAAAdAC4AAAABAAEAAAAlAC4AAAABAAEAAAAoAC4AAAABAAEAAAAoAC0AAAABAAEAAAAnAC4AAAABAAEAAAAnAC0AAAABAAEAAAAmAC4AAAABAAEAAAAmAC0AAAABAAEAAAAkAC4AAAABAAEAAAAjAC4AAAABAAEAAAAiAC4AAAAAAAEAAAAeAC4AAAACAAEAAAAeAC0AAAACAAAAAAAdAC0AAAABAAAAAAAcAC0AAAABAAAAAAAbAC0AAAABAAAAAAAaAC0AAAABAAAAAAAZAC0AAAABAAAAAAAYAC0AAAABAAAAAAAkAC0AAAABAAEAAAAjAC0AAAABAAEAAAAiAC0AAAAAAAEAAAAWAC0AAAABAAAAAAAWAC4AAAABAAEAAAAVAC0AAAAAAAAAAAAVAC4AAAAAAAEAAAAlAC0AAAABAAEAAAAeAC8AAAACAAIAAAAdAC8AAAABAAIAAAAcAC8AAAABAAIAAAAbAC8AAAABAAIAAAAaAC8AAAABAAIAAAAZAC8AAAABAAIAAAAYAC8AAAABAAIAAAAXAC8AAAABAAIAAAAWAC8AAAABAAIAAAAVAC8AAAAAAAIAAAAoAC8AAAABAAIAAAAoACwAAAABAAEAAAAoACsAAAABAAEAAAAnAC8AAAABAAIAAAAnACwAAAABAAEAAAAnACsAAAABAAEAAAAmAC8AAAABAAIAAAAmACwAAAABAAEAAAAmACsAAAABAAEAAAAlAC8AAAABAAIAAAAlACwAAAABAAEAAAAlACsAAAABAAEAAAAkAC8AAAABAAIAAAAkACwAAAABAAEAAAAkACsAAAABAAEAAAAjAC8AAAABAAIAAAAjACwAAAABAAEAAAAjACsAAAABAAEAAAAiAC8AAAAAAAIAAAAiACwAAAAAAAEAAAAiACsAAAAAAAEAAAAoACoAAAABAAEAAAAoACkAAAABAAEAAAAnACoAAAABAAEAAAAnACkAAAABAAEAAAAmACoAAAABAAEAAAAmACkAAAABAAEAAAAlACoAAAABAAEAAAAlACkAAAABAAEAAAAkACoAAAABAAEAAAAkACkAAAABAAEAAAAjACoAAAABAAEAAAAjACkAAAABAAEAAAAiACoAAAAAAAEAAAAiACkAAAAAAAEAAAAoACgAAAABAAEAAAAoACcAAAABAAEAAAAoACYAAAABAAEAAAAoACUAAAABAAEAAAAnACgAAAABAAEAAAAnACcAAAABAAEAAAAnACYAAAABAAEAAAAnACUAAAABAAEAAAAnACQAAAABAAAAAAAmACgAAAABAAEAAAAmACcAAAABAAEAAAAmACYAAAABAAEAAAAmACUAAAABAAEAAAAmACQAAAABAAAAAAAlACgAAAABAAEAAAAlACcAAAABAAEAAAAlACYAAAABAAEAAAAlACUAAAABAAEAAAAlACQAAAABAAAAAAAkACgAAAABAAEAAAAkACcAAAABAAEAAAAkACYAAAABAAEAAAAkACUAAAABAAEAAAAkACQAAAABAAAAAAAjACgAAAABAAEAAAAjACcAAAABAAEAAAAjACYAAAABAAEAAAAjACUAAAABAAEAAAAjACQAAAABAAAAAAAiACgAAAAAAAEAAAAiACcAAAAAAAEAAAAiACYAAAAAAAEAAAAiACUAAAAAAAEAAAAiACQAAAAAAAAAAAAiACMAAQADAAAAAAAyAC8AAAACAAIAAAAyAC4AAAACAAEAAAAyAC0AAAACAAEAAAAyACwAAAACAAEAAAAyACsAAAACAAEAAAAyACoAAAACAAEAAAAyACkAAAACAAEAAAAyACgAAAACAAEAAAAyACcAAAACAAEAAAAyACYAAAACAAEAAAAyACUAAAACAAEAAAAyACQAAAACAAAAAAAxAC8AAAABAAIAAAAxAC4AAAABAAEAAAAxAC0AAAABAAEAAAAxACwAAAABAAEAAAAxACsAAAABAAEAAAAxACoAAAABAAEAAAAxACkAAAABAAEAAAAxACgAAAABAAEAAAAxACcAAAABAAEAAAAxACYAAAABAAEAAAAxACUAAAABAAEAAAAxACQAAAABAAAAAAAwAC8AAAABAAIAAAAwAC4AAAABAAEAAAAwAC0AAAABAAEAAAAwACwAAAABAAEAAAAwACsAAAABAAEAAAAwACoAAAABAAEAAAAwACkAAAABAAEAAAAwACgAAAABAAEAAAAwACcAAAABAAEAAAAwACYAAAABAAEAAAAwACUAAAABAAEAAAAwACQAAAABAAAAAAAvAC8AAAABAAIAAAAvAC4AAAABAAEAAAAvAC0AAAABAAEAAAAvACwAAAABAAEAAAAvACsAAAABAAEAAAAvACoAAAABAAEAAAAvACkAAAABAAEAAAAvACgAAAABAAEAAAAvACcAAAABAAEAAAAvACYAAAABAAEAAAAvACUAAAABAAEAAAAvACQAAAABAAAAAAAuAC8AAAABAAIAAAAuAC4AAAABAAEAAAAuAC0AAAABAAEAAAAuACwAAAABAAEAAAAuACsAAAABAAEAAAAuACoAAAABAAEAAAAuACkAAAABAAEAAAAuACgAAAABAAEAAAAuACcAAAABAAEAAAAuACYAAAABAAEAAAAuACUAAAABAAEAAAAuACQAAAABAAAAAAAtAC8AAAABAAIAAAAtAC4AAAABAAEAAAAtAC0AAAABAAEAAAAtACwAAAABAAEAAAAtACsAAAABAAEAAAAtACoAAAABAAEAAAAtACkAAAABAAEAAAAtACgAAAABAAEAAAAtACcAAAABAAEAAAAtACYAAAABAAEAAAAtACUAAAABAAEAAAAtACQAAAABAAAAAAAsAC8AAAABAAIAAAAsAC4AAAABAAEAAAAsAC0AAAABAAEAAAAsACwAAAABAAEAAAAsACsAAAABAAEAAAAsACoAAAABAAEAAAAsACkAAAABAAEAAAAsACgAAAABAAEAAAAsACcAAAABAAEAAAAsACYAAAABAAEAAAAsACUAAAABAAEAAAAsACQAAAABAAAAAAArAC8AAAABAAIAAAArAC4AAAABAAEAAAArAC0AAAABAAEAAAArACwAAAABAAEAAAArACsAAAABAAEAAAArACoAAAABAAEAAAArACkAAAABAAEAAAArACgAAAABAAEAAAArACcAAAABAAEAAAArACYAAAABAAEAAAArACUAAAABAAEAAAArACQAAAABAAAAAAAqAC8AAAABAAIAAAAqAC4AAAABAAEAAAAqAC0AAAABAAEAAAAqACwAAAABAAEAAAAqACsAAAABAAEAAAAqACoAAAABAAEAAAAqACkAAAABAAEAAAAqACgAAAABAAEAAAAqACcAAAABAAEAAAAqACYAAAABAAEAAAAqACUAAAABAAEAAAAqACQAAAABAAAAAAApAC8AAAABAAIAAAApAC4AAAABAAEAAAApAC0AAAABAAEAAAApACwAAAABAAEAAAApACsAAAABAAEAAAApACoAAAABAAEAAAApACkAAAABAAEAAAApACgAAAABAAEAAAApACcAAAABAAEAAAApACYAAAABAAEAAAApACUAAAABAAEAAAApACQAAAABAAAAAAAoACQAAAABAAAAAAAyACMAAQADAAAAAAAfAC0AAAAAAAcAAAAgAC0AAAABAAcAAAAhAC0AAAACAAcAAAA=")
+tile_set = ExtResource("7_3wlqi")
+
+[node name="Enemie" parent="." unique_id=1214814765 instance=ExtResource("8_67npk")]
+position = Vector2(-171, -264)
+
+[node name="Enemie2" parent="." unique_id=146756109 instance=ExtResource("8_67npk")]
+position = Vector2(-104, -264)
+
+[node name="Enemie3" parent="." unique_id=1497095135 instance=ExtResource("8_67npk")]
+position = Vector2(-35, -264)
+
+[node name="Enemie4" parent="." unique_id=380141886 instance=ExtResource("8_67npk")]
+position = Vector2(29, -264)
+
+[node name="Player" parent="." unique_id=1778032979 instance=ExtResource("8_vktk1")]
+position = Vector2(-296, -114)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1163065805]
+position = Vector2(70.53079, -14.513397)
+zoom = Vector2(2.08, 2.08)
+limit_top = -440
+limit_bottom = 49
+position_smoothing_enabled = true
+script = ExtResource("9_p1660")
+
+[node name="Time_Left" type="Timer" parent="." unique_id=11094413 groups=["GameTimer"]]
+wait_time = 9.0
+one_shot = true
+autostart = true
+
+[node name="KillBox" parent="." unique_id=568359341 instance=ExtResource("12_uixod")]
+position = Vector2(-152, 388)
+scale = Vector2(53.6, 1)
+Visible = false
+
+[node name="AmbientParticles2" parent="." unique_id=309511635 instance=ExtResource("13_61ubt")]
+position = Vector2(-348, -185)
+fixed_fps = 10
+interpolate = false
+
+[node name="AmbientParticles3" parent="." unique_id=1051989653 instance=ExtResource("13_61ubt")]
+position = Vector2(-86, -172)
+fixed_fps = 10
+interpolate = false
+
+[node name="KillBox4" parent="." unique_id=1873874874 instance=ExtResource("12_uixod")]
+position = Vector2(-514, -334)
+scale = Vector2(1.67, 4.015)
+
+[node name="Key" parent="." unique_id=2070008152 instance=ExtResource("14_igb2m")]
+position = Vector2(-396, -345)
+
+[node name="StaticBody2D" parent="." unique_id=382029224 instance=ExtResource("15_eh6j6")]
+position = Vector2(-471, -362)
+scale = Vector2(2.263, 3.11)
+
+[editable path="CanvasLayer"]

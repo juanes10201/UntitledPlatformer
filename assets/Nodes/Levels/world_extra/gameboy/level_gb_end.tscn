@@ -46,8 +46,8 @@ offset_right = 1123.0
 offset_bottom = 571.0
 theme_override_fonts/normal_font = ExtResource("2_ypt0g")
 theme_override_font_sizes/normal_font_size = 24
-text = "OH!  THANK YOU
-OH!  THANK YOU
+text = "OH!  YOU MADE IT
+THAT'S COOL
 
 THANK      YOU      PLAYER!"
 horizontal_alignment = 1

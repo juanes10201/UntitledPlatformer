@@ -1,0 +1,174 @@
+[gd_scene format=4 uid="uid://bp7wraeve3cmm"]
+
+[ext_resource type="PackedScene" uid="uid://cfa7sxsc3ppdn" path="res://assets/Nodes/Levels/Preload/UiCanvasLayer.tscn" id="1_cpngn"]
+[ext_resource type="FontFile" uid="uid://du1fhb4w0oxp8" path="res://assets/Fonts/pixelart/Coder's Crux.otf" id="2_av27h"]
+[ext_resource type="FontFile" uid="uid://dfigptrdw0fg2" path="res://assets/Fonts/pixelart/Gossamer Girls.ttf" id="3_g2hfq"]
+[ext_resource type="Shader" uid="uid://6h705pgtj7bn" path="res://assets/Nodes/Levels/world1/level7_shader.tres" id="4_k80la"]
+[ext_resource type="Texture2D" uid="uid://du5ruoufp0dvj" path="res://assets/Sprites/Gameplay/Gameboy/Borders.png" id="5_3lu33"]
+[ext_resource type="TileSet" uid="uid://defl28kc6mcu4" path="res://assets/Nodes/Obj/Tileset/tiles.tres" id="5_5c8qp"]
+[ext_resource type="Script" uid="uid://g35fwd1dftrg" path="res://assets/Nodes/Levels/world_extra/gameboy/gb_borders.gd" id="6_gtfmg"]
+[ext_resource type="PackedScene" uid="uid://chat6jxc63bfj" path="res://assets/Nodes/Obj/Gameplay/Player/player.tscn" id="6_mu82c"]
+[ext_resource type="Script" uid="uid://db87exh6jetnl" path="res://assets/Scripts/Player_camera.gd" id="7_07qkw"]
+[ext_resource type="PackedScene" uid="uid://cba0dn710x26" path="res://assets/Nodes/Obj/Gameplay/flag.tscn" id="8_3y1vl"]
+[ext_resource type="PackedScene" uid="uid://djqwajvc8m3td" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie.tscn" id="9_ibdnc"]
+[ext_resource type="PackedScene" uid="uid://cykeyxkv73jjt" path="res://assets/Nodes/Obj/Gameplay/falling_sand.tscn" id="10_paana"]
+[ext_resource type="PackedScene" uid="uid://dmnyy0uuvc0jk" path="res://assets/Nodes/Obj/Gameplay/kill_box.tscn" id="11_s1tf0"]
+[ext_resource type="PackedScene" uid="uid://d1ji315fcqjjv" path="res://assets/Nodes/Particles/ambientparticles.tscn" id="12_coj3u"]
+[ext_resource type="PackedScene" uid="uid://cjwpb8ragihkh" path="res://assets/Nodes/Obj/Gameplay/laser.tscn" id="13_h7hd1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cgr7o"]
+shader = ExtResource("4_k80la")
+
+[node name="Node2D" type="Node2D" unique_id=1902215191]
+position = Vector2(0, -1)
+
+[node name="CanvasLayer" parent="." unique_id=1606032747 instance=ExtResource("1_cpngn")]
+
+[node name="ui_text_seg" parent="CanvasLayer" index="2" unique_id=845003184]
+offset_left = 518.0
+offset_top = -6.0
+offset_right = 598.0
+offset_bottom = 39.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_av27h")
+theme_override_font_sizes/normal_font_size = 44
+text = " seg"
+metadata/_edit_use_anchors_ = true
+
+[node name="ui_text_timeleft" parent="CanvasLayer" index="6" unique_id=2102879422]
+theme_override_fonts/normal_font = ExtResource("3_g2hfq")
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar" parent="CanvasLayer" index="7" unique_id=318457104]
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" parent="CanvasLayer" index="11" unique_id=1943670024]
+metadata/_edit_use_anchors_ = true
+
+[node name="LogoText" parent="CanvasLayer" index="12" unique_id=1669258455]
+metadata/_edit_use_anchors_ = true
+
+[node name="StyleBar" parent="CanvasLayer/Style" parent_id_path=PackedInt32Array(1606032747, 1989216175) index="5" unique_id=440521956]
+metadata/_edit_use_anchors_ = true
+
+[node name="Points" parent="CanvasLayer/Style" parent_id_path=PackedInt32Array(1606032747, 1989216175) index="6" unique_id=499762585]
+metadata/_edit_use_anchors_ = true
+
+[node name="Moto" parent="CanvasLayer/Style" parent_id_path=PackedInt32Array(1606032747, 1989216175) index="7" unique_id=325337100]
+metadata/_edit_use_anchors_ = true
+
+[node name="MultX" parent="CanvasLayer/Style/Mult" parent_id_path=PackedInt32Array(1606032747, 15292356) index="1" unique_id=1326856897]
+metadata/_edit_use_anchors_ = true
+
+[node name="MultText" parent="CanvasLayer/Style/Mult" parent_id_path=PackedInt32Array(1606032747, 15292356) index="2" unique_id=1173110462]
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1637585642]
+z_index = 6
+material = SubResource("ShaderMaterial_cgr7o")
+anchors_preset = -1
+anchor_left = -0.104166664
+anchor_top = -0.72376543
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -760.0
+offset_top = -211.0
+offset_right = 577.0
+offset_bottom = 498.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Gb_borders" type="Sprite2D" parent="CanvasLayer" unique_id=539979098]
+visible = false
+z_index = 2
+position = Vector2(576.8889, 324.5)
+scale = Vector2(0.600926, 0.6009259)
+texture = ExtResource("5_3lu33")
+script = ExtResource("6_gtfmg")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=518241949 groups=["Tileset"]]
+position = Vector2(-757.008, -831)
+scale = Vector2(1.00769, 1)
+tile_map_data = PackedByteArray("AAAUADEAAQAAAAAAAAAUADIAAQAAAAEAAAAUADMAAQAAAAEAAAAUADQAAQAAAAEAAAAUADUAAQAAAAEAAAAUADYAAQAAAAEAAAAUADcAAQAAAAEAAAAUADgAAQAAAAIAAAAVADEAAQABAAAAAAAVADIAAQABAAEAAAAVADMAAQABAAEAAAAVADQAAQABAAEAAAAVADUAAQABAAEAAAAVADYAAQABAAEAAAAVADcAAQABAAEAAAAVADgAAQABAAIAAAAWADEAAQABAAAAAAAWADIAAQABAAEAAAAWADMAAQABAAEAAAAWADQAAQABAAEAAAAWADUAAQABAAEAAAAWADYAAQABAAEAAAAWADcAAQABAAEAAAAWADgAAQABAAIAAAAXADEAAQABAAAAAAAXADIAAQABAAEAAAAXADMAAQABAAEAAAAXADQAAQACAAEAAAAXADUAAQACAAEAAAAXADYAAQACAAEAAAAXADcAAQABAAEAAAAXADgAAQABAAIAAAAYADcAAQABAAAAAAAYADgAAQABAAIAAAAZADcAAQABAAAAAAAZADgAAQABAAIAAAAaADcAAQABAAAAAAAaADgAAQABAAIAAAAbADcAAQACAAAAAAAbADgAAQACAAIAAAAbADYAAQAYAAkAAAAbADUAAQAYAAkAAAAbADQAAQAYAAkAAAAaADMAAQACAAIAAAAaADIAAQACAAEAAAAZADMAAQABAAIAAAAZADIAAQABAAEAAAAYADMAAQABAAIAAAAYADIAAQABAAEAAAAaADEAAQACAAAAAAAZADEAAQABAAAAAAAYADEAAQABAAAAAAA=")
+tile_set = ExtResource("5_5c8qp")
+
+[node name="Player" parent="." unique_id=282940762 instance=ExtResource("6_mu82c")]
+position = Vector2(-350, 49)
+RetroStyle = true
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=603401141]
+position = Vector2(64.53079, -14.51339)
+zoom = Vector2(2.08, 2.08)
+limit_top = -137
+limit_bottom = 789
+position_smoothing_enabled = true
+script = ExtResource("7_07qkw")
+
+[node name="Time_Left" type="Timer" parent="." unique_id=922176655 groups=["GameTimer"]]
+wait_time = 15.0
+one_shot = true
+autostart = true
+
+[node name="Flag" parent="." unique_id=1887013388 instance=ExtResource("8_3y1vl")]
+position = Vector2(-752, -127)
+BSide = null
+Gb = null
+CanHover = null
+grab_grid = null
+
+[node name="Enemie" parent="." unique_id=669551196 instance=ExtResource("9_ibdnc")]
+position = Vector2(-560, -87)
+RetroStyle = true
+EnemyDirection = 2
+Can_BeGroundSmash = false
+
+[node name="falling_sand4" parent="." unique_id=609094572 instance=ExtResource("10_paana")]
+position = Vector2(-528, -23)
+wait_time = 0.05
+RetroStyle = true
+
+[node name="KillBox" parent="." unique_id=1189520905 instance=ExtResource("11_s1tf0")]
+position = Vector2(-144, 673)
+scale = Vector2(53.6, 1)
+Visible = false
+
+[node name="AmbientParticles2" parent="." unique_id=1030150736 instance=ExtResource("12_coj3u")]
+position = Vector2(-348, -185)
+fixed_fps = 10
+interpolate = false
+
+[node name="AmbientParticles3" parent="." unique_id=1576938099 instance=ExtResource("12_coj3u")]
+position = Vector2(-86, -172)
+fixed_fps = 10
+interpolate = false
+
+[node name="KillBox5" parent="." unique_id=1844455042 instance=ExtResource("11_s1tf0")]
+position = Vector2(-632, -87)
+scale = Vector2(4, 4)
+
+[node name="KillBox4" parent="." unique_id=464250107 instance=ExtResource("13_h7hd1")]
+position = Vector2(-236, 32.000004)
+scale = Vector2(0.185, 27.755)
+
+[node name="Killbox14" parent="." unique_id=1386857898 instance=ExtResource("11_s1tf0")]
+position = Vector2(-70.00001, 28)
+scale = Vector2(3.12, 7.895)
+
+[node name="Killbox18" parent="." unique_id=1754256904 instance=ExtResource("11_s1tf0")]
+position = Vector2(-68.99999, -133.00002)
+scale = Vector2(3.12, 7.895)
+
+[node name="Killbox17" parent="." unique_id=165810427 instance=ExtResource("11_s1tf0")]
+position = Vector2(-130, 136)
+scale = Vector2(21.82, 7.895)
+
+[node name="Killbox15" parent="." unique_id=1688451179 instance=ExtResource("11_s1tf0")]
+position = Vector2(-314.00003, -23.000004)
+scale = Vector2(1.245, 2.9)
+
+[node name="Killbox16" parent="." unique_id=1232515109 instance=ExtResource("11_s1tf0")]
+position = Vector2(-369, -54.999996)
+scale = Vector2(8.075, 1.255)
+
+[editable path="CanvasLayer"]

@@ -1,0 +1,20 @@
+[gd_resource type="VisualShader" format=3 uid="uid://ddh13kbwh2lml"]
+
+[ext_resource type="Script" uid="uid://crvn733r6kq6d" path="res://addons/shaderV/rgba/turnGBPalette.gd" id="1_mu1jd"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ekfqo"]
+source = 1
+
+[sub_resource type="VisualShaderNodeCustom" id="VisualShaderNodeCustom_k0aci"]
+default_input_values = [1, 0.98]
+initialized = true
+script = ExtResource("1_mu1jd")
+
+[resource]
+mode = 1
+flags/light_only = false
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_ekfqo")
+nodes/fragment/2/position = Vector2(-88.88889, 200)
+nodes/fragment/3/node = SubResource("VisualShaderNodeCustom_k0aci")
+nodes/fragment/3/position = Vector2(200, 155.55556)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 0, 3, 0, 0, 0)
