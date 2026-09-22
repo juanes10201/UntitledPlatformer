@@ -6,7 +6,8 @@ uniform float opacity_post_border : hint_range(0.0, 1.0) = 0.0;
 uniform sampler2D refraction_map;
 uniform vec2 refraction_stretch = vec2(1.0, 1.0);
 uniform float refraction_strength : hint_range(0.0, 0.1) = 0.02;
-uniform vec4 water_tint : source_color = vec4(0.2, 0.6, 1.0, 0.1);
+uniform sampler2D water_tint;// : source_color = vec4(0.2, 0.6, 1.0, 0.1);
+uniform float water_depth_range : hint_range(1.0, 500.0) = 100.0;
 uniform float speed : hint_range(0.0, 1.0) = 0.1;
 
 // Border wave controls
@@ -15,7 +16,7 @@ uniform float border_wave_x_strength : hint_range(0.0, 20.0) = 4.0;
 uniform float border_wave_frequency : hint_range(0.0, 1.0) = 0.05;
 uniform float border_wave_speed : hint_range(0.0, 5.0) = 1.5;
 uniform float border_thickness : hint_range(0.0, 50.0) = 10.0;
-uniform vec4 border_color : source_color = vec4(0.6, 0.85, 1.0, 0.6);
+uniform sampler2D border_color;
 
 // Set this to the world Y position of the water surface (top of the uppermost water tiles)
 uniform float water_surface_y : hint_range(-2000.0, 2000.0) = 0.0;
@@ -62,10 +63,19 @@ void fragment()
     //	discard;
 	//}
 	
+	//Ponerle una textura al water tint
+	float depth_t = clamp(dist_to_border / water_depth_range, 0.0, 1.0);
+	vec4 water_tint_sample = texture(water_tint, vec2(depth_t, 0.5));
+	
+	
 	// --- Composite ---
 	vec4 color = vec4(1.0);
-	color.rgb = mix(refraction.rgb, water_tint.rgb, water_tint.a);
-	color.rgb = mix(color.rgb, border_color.rgb, border_mask * border_color.a);
+	color.rgb = mix(refraction.rgb, water_tint_sample.rgb, water_tint_sample.a);
+	//color.rgb = mix(color.rgb, border_color.rgb, border_mask * border_color.a);
+	
+	float border_gradient_t = clamp(dist_to_border / border_thickness, 0.0, 1.0);
+	vec4 border_color_sample = texture(border_color, vec2(border_gradient_t, 0.5));
+	color.rgb = mix(color.rgb, border_color_sample.rgb, border_mask*border_color_sample.a);
 	
 	color.a = dist_to_border < -1.0 ? opacity_post_border : 1.0;
 	
