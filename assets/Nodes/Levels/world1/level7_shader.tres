@@ -17,7 +17,7 @@ initialized = true
 script = ExtResource("2_w6san")
 
 [sub_resource type="VisualShaderNodeCustom" id="VisualShaderNodeCustom_hdoi8"]
-default_input_values = [1, 0.645]
+default_input_values = [1, 1.0]
 initialized = true
 script = ExtResource("2_w6san")
 
@@ -33,5 +33,5 @@ nodes/fragment/3/position = Vector2(160, 140)
 nodes/fragment/4/node = SubResource("VisualShaderNodeCustom_mrq2o")
 nodes/fragment/4/position = Vector2(180, 480)
 nodes/fragment/5/node = SubResource("VisualShaderNodeCustom_hdoi8")
-nodes/fragment/5/position = Vector2(240, 280)
+nodes/fragment/5/position = Vector2(133.33334, 355.55557)
 nodes/fragment/connections = PackedInt32Array(2, 0, 3, 0, 3, 0, 0, 0)

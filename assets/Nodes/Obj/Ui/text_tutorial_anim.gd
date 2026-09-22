@@ -5,6 +5,7 @@ extends RichTextLabel
 @export var TextDelay : Timer
 @export var VoiceDelay : Timer
 @export var Voice : AudioStreamPlayer
+@export var CutOnDistance : bool = true
 @onready var Player = SaveGame.get_player()
 
 func _ready() -> void:
@@ -23,7 +24,7 @@ func _process(delta: float) -> void:
 			Voice.pitch_scale = randf_range(.9, 1.1)
 			Voice.play()
 			VoiceDelay.start()
-		if(Player && self.global_position.distance_to(Player.global_position) > 250):
+		if(CutOnDistance && Player && self.global_position.distance_to(Player.global_position) > 250):
 			Animate = false
 			text = OgText
 		TextDelay.start()

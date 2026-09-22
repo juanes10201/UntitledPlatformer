@@ -384,9 +384,9 @@ func _input(event):
 			Edition.reset_expo()
 		elif event.keycode == KEY_F12:
 			Edition.LimitWorlds = !Edition.LimitWorlds
-		#elif event.keycode == KEY_F4:
-		#	if(ReplayAction != Global.ReplayStates.STOPPED):
-		#		_save_replay("res://assets/Replays/saved_replay.json")
+		elif event.keycode == KEY_F7:
+			if(ReplayAction != Global.ReplayStates.STOPPED):
+				_save_replay("res://assets/Replays/saved_replay.json")
 #endregion
 
 const MinShadowAlpha : float = .2
