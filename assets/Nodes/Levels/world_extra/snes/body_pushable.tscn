@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://15n3mulg8su5"]
+
+[ext_resource type="Script" uid="uid://dtfve1fukttq7" path="res://assets/Nodes/Levels/world_extra/snes/body_pushable.gd" id="1_cn0r4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6lmg"]
+size = Vector2(22, 22)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_a6plp"]
+size = Vector2(20, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylgiq"]
+
+[node name="BodyPushable" type="CharacterBody2D" unique_id=1298972280]
+collision_layer = 4194304
+collision_mask = 256
+script = ExtResource("1_cn0r4")
+MaxVel = Vector2(400, 50)
+
+[node name="AreaDetectPlayer" type="Area2D" parent="." unique_id=940551363]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetectPlayer" unique_id=125809478]
+shape = SubResource("RectangleShape2D_j6lmg")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1440908342]
+texture = SubResource("PlaceholderTexture2D_a6plp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=725515342]
+shape = SubResource("RectangleShape2D_ylgiq")
+
+[node name="TimerEnablePhysics" type="Timer" parent="." unique_id=803014524]
+wait_time = 0.2
+one_shot = true
+
+[node name="TimerMaxTimeBreak" type="Timer" parent="." unique_id=851408993]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="area_entered" from="AreaDetectPlayer" to="." method="_on_area_detect_player_area_entered"]
+[connection signal="area_exited" from="AreaDetectPlayer" to="." method="_on_area_detect_player_area_exited"]
+[connection signal="body_entered" from="AreaDetectPlayer" to="." method="_on_area_detect_player_body_entered"]
+[connection signal="body_exited" from="AreaDetectPlayer" to="." method="_on_area_detect_player_body_exited"]
+[connection signal="timeout" from="TimerEnablePhysics" to="." method="_on_timer_enable_physics_timeout"]
+[connection signal="timeout" from="TimerMaxTimeBreak" to="." method="_on_timer_max_time_break_timeout"]
