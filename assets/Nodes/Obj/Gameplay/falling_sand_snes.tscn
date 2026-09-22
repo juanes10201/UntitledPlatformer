@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://ckvjv26tlk028"]
+
+[ext_resource type="Script" uid="uid://fce3hghglf5u" path="res://assets/Scripts/falling_sand.gd" id="1_578s0"]
+[ext_resource type="Texture2D" uid="uid://ntb0befljsre" path="res://assets/Sprites/Gameplay/Tilesets/tiles_1.png" id="2_578s0"]
+[ext_resource type="Texture2D" uid="uid://c0r64yavno4pi" path="res://assets/Sprites/Gameplay/Tilesets/tiles_expose.png" id="3_liby4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bujpq"]
+size = Vector2(8, 5.7561)
+
+[sub_resource type="Curve" id="Curve_ol8f7"]
+_data = [Vector2(0.34375, 1), 0.0, -3.726249, 0, 0, Vector2(0.9166667, 0), -9.861949, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bn0sm"]
+curve = SubResource("Curve_ol8f7")
+
+[sub_resource type="Curve" id="Curve_bdg0v"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.515625, 1), 0.0, 0.0, 0, 0, Vector2(0.9635417, 0.15730345), -8.629206, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_h1pwc"]
+curve = SubResource("Curve_bdg0v")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l121k"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(8.09, 7.995, 1)
+inherit_velocity_ratio = -0.5
+gravity = Vector3(0, -98, 0)
+scale_curve = SubResource("CurveTexture_h1pwc")
+alpha_curve = SubResource("CurveTexture_bn0sm")
+hue_variation_min = 0.059999976
+hue_variation_max = 0.119999975
+turbulence_enabled = true
+turbulence_noise_speed_random = 0.13
+turbulence_influence_min = 0.017
+turbulence_influence_max = 0.067
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qn4ou"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ol8f7"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3oug"]
+atlas = ExtResource("2_578s0")
+region = Rect2(96.03107, 0.04364586, 15.968002, 15.926597)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xa06r"]
+noise_type = 3
+frequency = 0.0031
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_al4gb"]
+width = 16
+height = 16
+noise = SubResource("FastNoiseLite_xa06r")
+as_normal_map = true
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bwwnb"]
+diffuse_texture = SubResource("AtlasTexture_x3oug")
+normal_texture = SubResource("NoiseTexture2D_al4gb")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdg0v"]
+atlas = ExtResource("3_liby4")
+region = Rect2(96.06239, 0.03119874, 16.04921, 15.961155)
+
+[node name="falling_sand" type="RigidBody2D" unique_id=214611821 groups=["sand"]]
+position = Vector2(-63, -142)
+collision_layer = 131088
+collision_mask = 256
+sleeping = true
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+script = ExtResource("1_578s0")
+
+[node name="Area2DCrush" type="Area2D" parent="." unique_id=652881092]
+gravity_space_override = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DCrush" unique_id=7693113]
+position = Vector2(-0.17, 1.73)
+scale = Vector2(1.355, 1.875)
+shape = SubResource("RectangleShape2D_bujpq")
+
+[node name="MoveParticles" type="GPUParticles2D" parent="." unique_id=1128723504]
+position = Vector2(0, -6)
+emitting = false
+amount = 3
+lifetime = 0.6900000000000001
+trail_enabled = true
+trail_lifetime = 0.14
+trail_sections = 7
+trail_section_subdivisions = 3
+process_material = SubResource("ParticleProcessMaterial_l121k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1650166875]
+shape = SubResource("RectangleShape2D_qn4ou")
+debug_color = Color(0.893685, 0.000220054, 0.783477, 0.42)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=100601236]
+collision_layer = 0
+collision_mask = 31
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=752703833]
+scale = Vector2(1.115, 1.16)
+shape = SubResource("RectangleShape2D_qn4ou")
+debug_color = Color(0.823213, 0.373721, 0.385799, 0.42)
+
+[node name="BossDestroy2" type="Area2D" parent="." unique_id=1775453514]
+collision_layer = 512
+collision_mask = 4096
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossDestroy2" unique_id=277904429]
+visible = false
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_ol8f7")
+debug_color = Color(0, 0.6, 0.69803923, 0.10980392)
+
+[node name="SandTimer" type="Timer" parent="." unique_id=1330670591]
+wait_time = 0.2
+
+[node name="RetroTimer" type="Timer" parent="." unique_id=2058034542]
+wait_time = 0.07
+one_shot = true
+
+[node name="RetroTimerMove" type="Timer" parent="." unique_id=1303741939]
+wait_time = 0.00999999999999999
+one_shot = true
+
+[node name="BossDestroy" type="Timer" parent="." unique_id=1369843433]
+wait_time = 1.5
+one_shot = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1216214251]
+visible = false
+texture = SubResource("CanvasTexture_bwwnb")
+region_enabled = true
+region_rect = Rect2(224.014, 112.007, 16, 16)
+
+[node name="SpriteRetro" type="Sprite2D" parent="." unique_id=106543198]
+position = Vector2(0, -1)
+texture = SubResource("AtlasTexture_bdg0v")
+
+[connection signal="body_entered" from="Area2DCrush" to="." method="_on_area_2d_crush_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="BossDestroy2" to="." method="_on_boss_destroy_2_body_entered"]
+[connection signal="timeout" from="RetroTimer" to="." method="_on_retro_timer_timeout"]
+[connection signal="timeout" from="RetroTimerMove" to="." method="_on_retro_timer_move_timeout"]
+[connection signal="timeout" from="BossDestroy" to="." method="_on_boss_destroy_timeout"]

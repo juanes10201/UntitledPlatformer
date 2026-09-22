@@ -461,6 +461,7 @@ pointing/emulate_mouse_from_touch=false
 2d_physics/layer_20="X Expandable in Editor"
 2d_physics/layer_21="Fish"
 2d_physics/layer_22="Cd Boss"
+2d_physics/layer_23="Throwable"
 
 [rendering]
 

@@ -1,0 +1,381 @@
+[gd_scene format=4 uid="uid://df74wcdsqn0o"]
+
+[ext_resource type="Texture2D" uid="uid://l5gcewxed7vs" path="res://assets/Sprites/Gameplay/Bg/grid.png" id="1_j6lmg"]
+[ext_resource type="Script" uid="uid://bfjuhdt66v471" path="res://assets/Scripts/grid_bg.gd" id="2_a6plp"]
+[ext_resource type="PackedScene" uid="uid://cfa7sxsc3ppdn" path="res://assets/Nodes/Levels/Preload/UiCanvasLayer.tscn" id="3_ylgiq"]
+[ext_resource type="FontFile" uid="uid://du1fhb4w0oxp8" path="res://assets/Fonts/pixelart/Coder's Crux.otf" id="4_kw5ug"]
+[ext_resource type="FontFile" uid="uid://b42aju5a8xkr8" path="res://assets/Fonts/pixelart/Pixel Or GTFO.ttf" id="5_m037s"]
+[ext_resource type="Shader" uid="uid://dos2gdtrqw4xw" path="res://assets/Nodes/Levels/world_extra/snes/level_snes_pallete.gdshader" id="6_ppv70"]
+[ext_resource type="Texture2D" uid="uid://b41mkx2occddk" path="res://assets/Sprites/Gameplay/Tilesets/World1/pallete.png" id="7_wtf0m"]
+[ext_resource type="Texture2D" uid="uid://hqst1d7kxpgu" path="res://assets/Sprites/Gameplay/Tilesets/World1/pallete-snes.png" id="8_dsp7x"]
+[ext_resource type="Texture2D" uid="uid://b0yndn2sf6e8s" path="res://assets/Sprites/Gameplay/Snes/Borders.png" id="9_upg3y"]
+[ext_resource type="Script" uid="uid://g35fwd1dftrg" path="res://assets/Nodes/Levels/world_extra/gameboy/gb_borders.gd" id="10_dru08"]
+[ext_resource type="PackedScene" uid="uid://cjwpb8ragihkh" path="res://assets/Nodes/Obj/Gameplay/laser.tscn" id="11_xyxsg"]
+[ext_resource type="TileSet" uid="uid://defl28kc6mcu4" path="res://assets/Nodes/Obj/Tileset/tiles.tres" id="12_y7nuk"]
+[ext_resource type="PackedScene" uid="uid://chat6jxc63bfj" path="res://assets/Nodes/Obj/Gameplay/Player/player.tscn" id="13_a2t5m"]
+[ext_resource type="Script" uid="uid://db87exh6jetnl" path="res://assets/Scripts/Player_camera.gd" id="14_rdid0"]
+[ext_resource type="PackedScene" uid="uid://dmnyy0uuvc0jk" path="res://assets/Nodes/Obj/Gameplay/kill_box.tscn" id="15_1odww"]
+[ext_resource type="PackedScene" uid="uid://d1ji315fcqjjv" path="res://assets/Nodes/Particles/ambientparticles.tscn" id="16_abrmd"]
+[ext_resource type="PackedScene" uid="uid://mwwwugaaoyiw" path="res://assets/Nodes/Obj/Gameplay/key.tscn" id="17_sywbj"]
+[ext_resource type="PackedScene" uid="uid://c1ytdkacld0nb" path="res://assets/Nodes/Obj/Gameplay/open_box.tscn" id="18_7t2pt"]
+[ext_resource type="PackedScene" uid="uid://cba0dn710x26" path="res://assets/Nodes/Obj/Gameplay/flag.tscn" id="20_2x0lf"]
+[ext_resource type="Script" uid="uid://b70n1us6src5o" path="res://assets/Nodes/Obj/Dialogue/dialog_text_area.gd" id="22_5wbnm"]
+[ext_resource type="Texture2D" uid="uid://pjki5nu48c5" path="res://assets/Sprites/Gameplay/player/hologram.png" id="23_38oqv"]
+[ext_resource type="Script" uid="uid://6216kh0o2v0m" path="res://assets/Nodes/Obj/hologram.gd" id="24_557pv"]
+[ext_resource type="Script" uid="uid://dtfve1fukttq7" path="res://assets/Nodes/Levels/world_extra/snes/body_pushable.gd" id="25_kkj27"]
+[ext_resource type="Script" uid="uid://b7kp4oyo8y484" path="res://assets/Nodes/Obj/Ui/text_tutorial_anim.gd" id="25_lwe3h"]
+[ext_resource type="AudioStream" uid="uid://dsvfo3erylgm" path="res://assets/Sounds/Tutorial/voicetutorial.wav" id="26_0i874"]
+
+[sub_resource type="Animation" id="Animation_wh1ld"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-755, -863)]
+}
+
+[sub_resource type="Animation" id="Animation_6ubuh"]
+resource_name = "move"
+length = 40.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 21.2, 39.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-755, -863), Vector2(-493, -367), Vector2(-755, -863)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bih6b"]
+_data = {
+&"RESET": SubResource("Animation_wh1ld"),
+&"move": SubResource("Animation_6ubuh")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ib40"]
+shader = ExtResource("6_ppv70")
+shader_parameter/original_palette = ExtResource("7_wtf0m")
+shader_parameter/target_palette = ExtResource("8_dsp7x")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7ae7"]
+atlas = ExtResource("23_38oqv")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6niov"]
+atlas = ExtResource("23_38oqv")
+region = Rect2(60, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmt3o"]
+atlas = ExtResource("23_38oqv")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2utor"]
+atlas = ExtResource("23_38oqv")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25fng"]
+atlas = ExtResource("23_38oqv")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e34pc"]
+atlas = ExtResource("23_38oqv")
+region = Rect2(40, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5p4m"]
+atlas = ExtResource("23_38oqv")
+region = Rect2(60, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5d5i3"]
+atlas = ExtResource("23_38oqv")
+region = Rect2(80, 0, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5xetx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7ae7")
+}],
+"loop": true,
+"name": &"disabled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_6niov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmt3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7ae7")
+}],
+"loop": false,
+"name": &"hide",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2utor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25fng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e34pc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5p4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5d5i3")
+}],
+"loop": false,
+"name": &"show",
+"speed": 5.0
+}]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jq853"]
+light_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugyyw"]
+size = Vector2(41.5, 60.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6lmg"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_a6plp"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylgiq"]
+size = Vector2(18, 18)
+
+[node name="Node2D" type="Node2D" unique_id=1013497022]
+position = Vector2(0, -1)
+
+[node name="Bg" type="Sprite2D" parent="." unique_id=1297843794]
+visible = false
+texture_repeat = 2
+position = Vector2(-755, -863)
+texture = ExtResource("1_j6lmg")
+centered = false
+region_enabled = true
+region_rect = Rect2(0.078, 0.149, 1000, 1000)
+script = ExtResource("2_a6plp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bg" unique_id=1566881689]
+libraries/ = SubResource("AnimationLibrary_bih6b")
+
+[node name="CanvasLayer" parent="." unique_id=2104942125 instance=ExtResource("3_ylgiq")]
+
+[node name="ui_text_seg" parent="CanvasLayer" index="2" unique_id=845003184]
+offset_left = 518.0
+offset_top = -6.0
+offset_right = 598.0
+offset_bottom = 39.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_kw5ug")
+theme_override_font_sizes/normal_font_size = 44
+text = " seg"
+metadata/_edit_use_anchors_ = true
+
+[node name="ui_text_timeleft" parent="CanvasLayer" index="6" unique_id=2102879422]
+theme_override_fonts/normal_font = ExtResource("5_m037s")
+theme_override_font_sizes/normal_font_size = 136
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar" parent="CanvasLayer" index="7" unique_id=318457104]
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" parent="CanvasLayer" index="11" unique_id=1943670024]
+metadata/_edit_use_anchors_ = true
+
+[node name="LogoText" parent="CanvasLayer" index="12" unique_id=1669258455]
+metadata/_edit_use_anchors_ = true
+
+[node name="StyleBar" parent="CanvasLayer/Style" parent_id_path=PackedInt32Array(2104942125, 1989216175) index="5" unique_id=440521956]
+metadata/_edit_use_anchors_ = true
+
+[node name="Points" parent="CanvasLayer/Style" parent_id_path=PackedInt32Array(2104942125, 1989216175) index="6" unique_id=499762585]
+metadata/_edit_use_anchors_ = true
+
+[node name="Moto" parent="CanvasLayer/Style" parent_id_path=PackedInt32Array(2104942125, 1989216175) index="7" unique_id=325337100]
+metadata/_edit_use_anchors_ = true
+
+[node name="MultX" parent="CanvasLayer/Style/Mult" parent_id_path=PackedInt32Array(2104942125, 15292356) index="1" unique_id=1326856897]
+metadata/_edit_use_anchors_ = true
+
+[node name="MultText" parent="CanvasLayer/Style/Mult" parent_id_path=PackedInt32Array(2104942125, 15292356) index="2" unique_id=1173110462]
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1329628605]
+z_index = 6
+material = SubResource("ShaderMaterial_0ib40")
+anchors_preset = -1
+anchor_left = -0.104166664
+anchor_top = -0.72376543
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1072.0
+offset_top = -1163.0
+offset_right = 265.0
+offset_bottom = -454.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Gb_borders" type="Sprite2D" parent="CanvasLayer" unique_id=884556882]
+visible = false
+z_index = 2
+position = Vector2(576.8889, 324.5)
+scale = Vector2(0.600926, 0.6009259)
+texture = ExtResource("9_upg3y")
+script = ExtResource("10_dru08")
+
+[node name="KillBox2" parent="." unique_id=1255027827 instance=ExtResource("11_xyxsg")]
+position = Vector2(-266, -254)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1398394838 groups=["Tileset"]]
+position = Vector2(-757.008, -831)
+scale = Vector2(1.00769, 1)
+tile_map_data = PackedByteArray("AAAaAC4AAAAAAAEAAAAbAC4AAAABAAEAAAAcAC4AAAABAAEAAAAdAC4AAAABAAEAAAAeAC4AAAABAAEAAAAeAC0AAAABAAAAAAAdAC0AAAABAAAAAAAcAC0AAAABAAAAAAAbAC0AAAABAAAAAAAaAC0AAAAAAAAAAAAeAC8AAAABAAIAAAAdAC8AAAABAAIAAAAcAC8AAAABAAIAAAAbAC8AAAABAAIAAAAaAC8AAAAAAAIAAAAcACwAAQAEAAoAAAAdACwAAQAFAAoAAAAeACwAAQAGAAoAAAAiAC8AAAACAAIAAAAiAC4AAAACAAEAAAAiAC0AAAACAAAAAAAhAC8AAAABAAIAAAAhAC4AAAABAAEAAAAhAC0AAAABAAAAAAAgAC8AAAABAAIAAAAgAC4AAAABAAEAAAAgAC0AAAABAAAAAAAfAC8AAAABAAIAAAAfAC4AAAABAAEAAAAfAC0AAAABAAAAAAA7ADQAAAACAAIAAAA7ADMAAAACAAEAAAA7ADIAAAACAAEAAAA7ADEAAAACAAEAAAA7ADAAAAACAAEAAAA7AC8AAAACAAEAAAA7AC4AAAACAAEAAAA6ADQAAAABAAIAAAA6ADMAAAABAAEAAAA6ADIAAAABAAEAAAA6ADEAAAABAAEAAAA6ADAAAAABAAEAAAA6AC8AAAABAAEAAAA6AC4AAAABAAEAAAA5ADQAAAAAAAIAAAA5ADMAAAAAAAEAAAA5ADIAAAAAAAEAAAA5ADEAAAAAAAEAAAA5ADAAAAAAAAEAAAA5AC8AAAAAAAEAAAA5AC4AAAAAAAEAAAA7AC0AAAACAAEAAAA6AC0AAAABAAEAAAA5AC0AAAAAAAEAAAA7ACwAAAACAAAAAAA6ACwAAAABAAAAAAA5ACwAAAAAAAAAAAA=")
+tile_set = ExtResource("12_y7nuk")
+
+[node name="TileMapLayer3" type="TileMapLayer" parent="TileMapLayer" unique_id=1699803039 groups=["Tileset"]]
+modulate = Color(0.5996599, 0.5996599, 0.5996599, 1)
+position = Vector2(7.938965, 0)
+tile_set = ExtResource("12_y7nuk")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="TileMapLayer" unique_id=1919950609 groups=["Tileset"]]
+tile_set = ExtResource("12_y7nuk")
+
+[node name="Player" parent="." unique_id=1778032979 instance=ExtResource("13_a2t5m")]
+position = Vector2(-294, -114)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1163065805]
+position = Vector2(93.53079, -25.513397)
+zoom = Vector2(2.08, 2.08)
+limit_left = -9999639
+limit_top = -296
+limit_right = 10000361
+limit_bottom = 64
+position_smoothing_enabled = true
+script = ExtResource("14_rdid0")
+
+[node name="Time_Left" type="Timer" parent="." unique_id=11094413 groups=["GameTimer"]]
+wait_time = 9.0
+one_shot = true
+autostart = true
+
+[node name="KillBox" parent="." unique_id=568359341 instance=ExtResource("15_1odww")]
+position = Vector2(96, 33)
+scale = Vector2(117.04, 1)
+
+[node name="AmbientParticles2" parent="." unique_id=309511635 instance=ExtResource("16_abrmd")]
+position = Vector2(-188, -375)
+fixed_fps = 10
+interpolate = false
+
+[node name="AmbientParticles3" parent="." unique_id=1051989653 instance=ExtResource("16_abrmd")]
+position = Vector2(-51, -414)
+fixed_fps = 10
+interpolate = false
+
+[node name="KillBox4" parent="." unique_id=1873874874 instance=ExtResource("15_1odww")]
+position = Vector2(-573.00006, -358)
+scale = Vector2(1.67, 4.015)
+
+[node name="Key" parent="." unique_id=2070008152 instance=ExtResource("17_sywbj")]
+position = Vector2(-572, -420)
+
+[node name="StaticBody2D" parent="." unique_id=382029224 instance=ExtResource("18_7t2pt")]
+position = Vector2(-525, -378)
+scale = Vector2(2.263, 3.11)
+
+[node name="Flag" parent="." unique_id=893668377 instance=ExtResource("20_2x0lf")]
+position = Vector2(186, -145)
+
+[node name="TextArea" type="Area2D" parent="." unique_id=646248128 node_paths=PackedStringArray("Text")]
+position = Vector2(-169, -212)
+script = ExtResource("22_5wbnm")
+Text = NodePath("DashTutorial2")
+
+[node name="Hologram" type="AnimatedSprite2D" parent="TextArea" unique_id=623170541]
+modulate = Color(1, 1, 1, 0.77254903)
+position = Vector2(-158, 91)
+sprite_frames = SubResource("SpriteFrames_5xetx")
+animation = &"disabled"
+script = ExtResource("24_557pv")
+
+[node name="DashTutorial2" type="RichTextLabel" parent="TextArea" unique_id=1254115237 node_paths=PackedStringArray("TextDelay", "VoiceDelay", "Voice")]
+material = SubResource("CanvasItemMaterial_jq853")
+offset_left = -191.0
+offset_top = 21.0
+offset_right = -49.0
+offset_bottom = 93.0
+theme_override_fonts/normal_font = ExtResource("4_kw5ug")
+text = "
+Tira el objeto usando cualquier habilidad(Dash, Slide, Slam)"
+fit_content = true
+script = ExtResource("25_lwe3h")
+TextDelay = NodePath("TextDelay")
+VoiceDelay = NodePath("VoiceDelay")
+Voice = NodePath("Voice")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextDelay" type="Timer" parent="TextArea/DashTutorial2" unique_id=1806073348]
+wait_time = 0.00999999999999999
+one_shot = true
+
+[node name="VoiceDelay" type="Timer" parent="TextArea/DashTutorial2" unique_id=865558720]
+wait_time = 0.05
+one_shot = true
+
+[node name="Voice" type="AudioStreamPlayer" parent="TextArea/DashTutorial2" unique_id=1928804546]
+stream = ExtResource("26_0i874")
+volume_db = -20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TextArea" unique_id=1162750361]
+position = Vector2(-132, 70)
+shape = SubResource("RectangleShape2D_ugyyw")
+
+[node name="BodyPushable" type="CharacterBody2D" parent="." unique_id=1730025480]
+position = Vector2(-224, -119)
+collision_layer = 4194304
+collision_mask = 257
+script = ExtResource("25_kkj27")
+MaxVel = 150.0
+
+[node name="AreaDetectPlayer" type="Area2D" parent="BodyPushable" unique_id=1175762820]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyPushable/AreaDetectPlayer" unique_id=583270632]
+shape = SubResource("RectangleShape2D_j6lmg")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BodyPushable" unique_id=1703247404]
+texture = SubResource("PlaceholderTexture2D_a6plp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyPushable" unique_id=602868752]
+shape = SubResource("RectangleShape2D_ylgiq")
+
+[node name="TimerEnablePhysics" type="Timer" parent="BodyPushable" unique_id=2136466032]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="body_entered" from="TextArea" to="TextArea" method="_on_body_entered"]
+[connection signal="area_entered" from="BodyPushable/AreaDetectPlayer" to="BodyPushable" method="_on_area_detect_player_area_entered"]
+[connection signal="body_entered" from="BodyPushable/AreaDetectPlayer" to="BodyPushable" method="_on_area_detect_player_body_entered"]
+[connection signal="timeout" from="BodyPushable/TimerEnablePhysics" to="BodyPushable" method="_on_timer_enable_physics_timeout"]
+
+[editable path="CanvasLayer"]
