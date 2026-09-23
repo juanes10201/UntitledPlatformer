@@ -6,12 +6,17 @@
 [ext_resource type="Script" uid="uid://db87exh6jetnl" path="res://assets/Scripts/Player_camera.gd" id="4_um37n"]
 [ext_resource type="FontFile" uid="uid://du1fhb4w0oxp8" path="res://assets/Fonts/pixelart/Coder's Crux.otf" id="5_un2kb"]
 [ext_resource type="PackedScene" uid="uid://cba0dn710x26" path="res://assets/Nodes/Obj/Gameplay/flag.tscn" id="6_mrnbo"]
-[ext_resource type="TileSet" uid="uid://bploughbnnh38" path="res://assets/Nodes/Obj/Tileset/tiles_alt_bside.tres" id="7_vw10m"]
 [ext_resource type="PackedScene" uid="uid://cykeyxkv73jjt" path="res://assets/Nodes/Obj/Gameplay/falling_sand.tscn" id="8_dadij"]
 [ext_resource type="PackedScene" uid="uid://xjx2k63akbn3" path="res://assets/Nodes/Levels/Preload/levels_default.tscn" id="9_7gjam"]
+[ext_resource type="TileSet" uid="uid://7dplhsq4unyk" path="res://assets/Sprites/Gameplay/Tilesets/World1/tileset.res" id="9_mq2he"]
 [ext_resource type="PackedScene" uid="uid://dmnyy0uuvc0jk" path="res://assets/Nodes/Obj/Gameplay/kill_box.tscn" id="10_1ourg"]
 [ext_resource type="PackedScene" uid="uid://cfa7sxsc3ppdn" path="res://assets/Nodes/Levels/Preload/UiCanvasLayer.tscn" id="11_bhgva"]
 [ext_resource type="PackedScene" uid="uid://d1ji315fcqjjv" path="res://assets/Nodes/Particles/ambientparticles.tscn" id="12_3t3fl"]
+[ext_resource type="TileSet" uid="uid://edh4to7ikywy" path="res://assets/Sprites/Gameplay/Tilesets/World1-bside/tileset.res" id="13_mq2he"]
+[ext_resource type="PackedScene" uid="uid://bxp63dfc0g300" path="res://assets/Nodes/Obj/Gameplay/Player/player_hologram.tscn" id="14_3i2cw"]
+[ext_resource type="Material" uid="uid://cjr5dj81gf86x" path="res://assets/Shader/tutorial_button_shader_config.tres" id="14_e3exb"]
+[ext_resource type="Script" uid="uid://b7kp4oyo8y484" path="res://assets/Nodes/Obj/Ui/text_tutorial_anim.gd" id="16_84sns"]
+[ext_resource type="AudioStream" uid="uid://dsvfo3erylgm" path="res://assets/Sounds/Tutorial/voicetutorial.wav" id="17_21vkk"]
 
 [sub_resource type="Animation" id="Animation_wh1ld"]
 length = 0.001
@@ -50,7 +55,7 @@ _data = {
 &"move": SubResource("Animation_6ubuh")
 }
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kk2is"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vqlnd"]
 light_mode = 1
 
 [node name="Node2D" type="Node2D" unique_id=1156833985]
@@ -71,13 +76,15 @@ libraries/ = SubResource("AnimationLibrary_0i2pc")
 
 [node name="Player" parent="." unique_id=153750150 instance=ExtResource("3_i3720")]
 position = Vector2(-319, -22)
+CountTime = false
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=829251950]
-position = Vector2(30, 26.053)
+position = Vector2(32, -9.946999)
 zoom = Vector2(2.08, 2.08)
 limit_left = -403
-limit_right = 338
-limit_bottom = 153
+limit_top = -233
+limit_right = 155
+limit_bottom = 126
 limit_smoothed = true
 position_smoothing_enabled = true
 script = ExtResource("4_um37n")
@@ -87,38 +94,44 @@ wait_time = 8.0
 one_shot = true
 autostart = true
 
-[node name="DashTutorial" type="RichTextLabel" parent="Time_Left" unique_id=979576894]
-material = SubResource("CanvasItemMaterial_kk2is")
-offset_left = -285.0
-offset_top = -53.0
-offset_right = -116.0
-offset_bottom = -10.0
-theme_override_fonts/normal_font = ExtResource("5_un2kb")
-text = "Wavedash?"
-
 [node name="Flag" parent="." unique_id=511856468 instance=ExtResource("6_mrnbo")]
-position = Vector2(70, -85)
+position = Vector2(94, -122)
 BSide = true
 CanHover = null
 grab_grid = null
 
 [node name="Killbox" parent="." unique_id=1386857898 instance=ExtResource("10_1ourg")]
-position = Vector2(-40, -31)
-scale = Vector2(1.575, 1)
+position = Vector2(-40, -22.999998)
+scale = Vector2(1.575, 1.035)
+
+[node name="Killbox5" parent="." unique_id=1285084932 instance=ExtResource("10_1ourg")]
+position = Vector2(-37, -148)
+scale = Vector2(1.575, 2.1)
+
+[node name="Killbox4" parent="." unique_id=244710428 instance=ExtResource("10_1ourg")]
+position = Vector2(14, -175)
+scale = Vector2(8.535, 1.47)
 
 [node name="Killbox3" parent="." unique_id=389421512 instance=ExtResource("10_1ourg")]
 position = Vector2(-76, 2.3841858e-07)
 scale = Vector2(2.84, 1.8)
 
 [node name="Killbox2" parent="." unique_id=1900759669 instance=ExtResource("10_1ourg")]
-position = Vector2(72, -31)
-scale = Vector2(2.395, 1)
+position = Vector2(81, -21.999998)
+scale = Vector2(5.625, 1.035)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1469350023 groups=["Tileset"]]
-position = Vector2(-4, 32)
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=645269361 groups=["Tileset"]]
+position = Vector2(-2, 32)
 scale = Vector2(1.00384, 1)
-tile_map_data = PackedByteArray("AADq//3/AAABAAAAAADr//3/AAABAAAAAADs//3/AAABAAAAAADt//3/AAABAAAAAADu//3/AAACAAAAAADo//j/AAAAAAEAAADo//n/AAAAAAEAAADo//r/AAAAAAEAAADo//v/AAAAAAEAAADo//z/AAAAAAEAAADo//3/AAAAAAEAAADo//7/AAAAAAEAAADo////AAAAAAIAAADp//j/AAABAAEAAADp//n/AAACAAEAAADp//r/AAACAAEAAADp//v/AAACAAEAAADp//z/AAACAAEAAADp//3/AAAHAAMAAADp//7/AAABAAEAAADp////AAABAAIAAADq//7/AAABAAEAAADq////AAABAAIAAADr//7/AAABAAEAAADr////AAABAAIAAADs//7/AAABAAEAAADs////AAABAAIAAADt//7/AAABAAEAAADt////AAABAAIAAADu//7/AAACAAEAAADu////AAACAAIAAAD7//z/AAABAAIAAAD7//v/AAABAAEAAAD7//r/AAABAAEAAAD7//n/AAABAAEAAAD7//j/AAABAAEAAAD6//z/AAAAAAIAAAD6//v/AAAAAAEAAAD6//r/AAAAAAEAAAD6//n/AAAAAAEAAAD6//j/AAABAAEAAAD8//z/AAACAAIAAAD8//v/AAACAAEAAAD8//r/AAACAAEAAAD8//n/AAACAAEAAAD8//j/AAACAAEAAAD5//j/AAABAAEAAAD4//j/AAABAAEAAAD3//j/AAABAAEAAAD2//j/AAABAAEAAAD1//j/AAABAAEAAAD0//j/AAABAAEAAADz//j/AAABAAEAAADy//j/AAABAAEAAADx//j/AAABAAEAAADw//j/AAABAAEAAADv//j/AAABAAEAAADu//j/AAABAAEAAADt//j/AAABAAEAAADs//j/AAABAAEAAADr//j/AAABAAEAAADq//j/AAABAAEAAAD8//f/AAACAAEAAAD7//f/AAABAAEAAAD6//f/AAABAAEAAAD5//f/AAABAAAAAAD4//f/AAABAAAAAAD3//f/AAABAAAAAAD2//f/AAABAAAAAAD1//f/AAABAAAAAAD0//f/AAABAAAAAADz//f/AAABAAAAAADy//f/AAABAAAAAADx//f/AAABAAAAAADw//f/AAABAAAAAADv//f/AAABAAAAAADu//f/AAABAAAAAADt//f/AAABAAAAAADs//f/AAABAAAAAADr//f/AAABAAAAAADq//f/AAABAAAAAADp//f/AAABAAAAAADo//f/AAAAAAAAAAACAPb/AAACAAIAAAACAPX/AAACAAEAAAACAPT/AAACAAEAAAACAPP/AAACAAEAAAACAPL/AAACAAEAAAACAPH/AAABAAEAAAABAPb/AAABAAIAAAABAPX/AAABAAEAAAABAPT/AAABAAEAAAABAPP/AAABAAEAAAABAPL/AAABAAEAAAABAPH/AAABAAEAAAAAAPb/AAABAAIAAAAAAPX/AAABAAEAAAAAAPT/AAABAAEAAAAAAPP/AAABAAEAAAAAAPL/AAABAAEAAAAAAPH/AAABAAEAAAD///b/AAABAAIAAAD///X/AAABAAEAAAD///T/AAABAAEAAAD///P/AAABAAEAAAD///L/AAABAAEAAAD///H/AAABAAEAAAD+//b/AAABAAIAAAD+//X/AAABAAEAAAD+//T/AAABAAEAAAD+//P/AAABAAEAAAD+//L/AAABAAEAAAD+//H/AAABAAEAAAD9//b/AAABAAIAAAD9//X/AAABAAEAAAD9//T/AAABAAEAAAD9//P/AAABAAEAAAD9//L/AAABAAEAAAD9//H/AAABAAEAAAD8//b/AAABAAEAAAD8//X/AAABAAEAAAD8//T/AAABAAEAAAD8//P/AAABAAEAAAD8//L/AAABAAEAAAD8//H/AAABAAEAAAD7//b/AAABAAEAAAD7//X/AAABAAEAAAD7//T/AAABAAEAAAD7//P/AAABAAEAAAD7//L/AAABAAEAAAD7//H/AAABAAEAAAD6//b/AAABAAEAAAD6//X/AAABAAEAAAD6//T/AAABAAEAAAD6//P/AAABAAEAAAD6//L/AAABAAEAAAD6//H/AAAAAAEAAAAKAPH/AAACAAIAAAAJAPH/AAABAAIAAAAIAPH/AAABAAIAAAAHAPH/AAABAAIAAAAGAPH/AAABAAIAAAAFAPH/AAABAAIAAAAEAPH/AAABAAIAAAADAPH/AAABAAIAAAAKAPD/AAACAAAAAAAJAPD/AAABAAAAAAAIAPD/AAABAAAAAAAHAPD/AAABAAAAAAAGAPD/AAABAAAAAAAFAPD/AAABAAAAAAAEAPD/AAABAAAAAAADAPD/AAABAAAAAAACAPD/AAABAAAAAAABAPD/AAABAAAAAAAAAPD/AAABAAAAAAD///D/AAABAAAAAAD+//D/AAABAAAAAAD9//D/AAABAAAAAAD8//D/AAABAAAAAAD7//D/AAABAAAAAAD6//D/AAAAAAAAAAA=")
-tile_set = ExtResource("7_vw10m")
+tile_map_data = PackedByteArray("AADu////AQACAAIAAADu//7/AQACAAEAAADu//3/AQACAAAAAADt////AQABAAIAAADt//7/AQABAAEAAADt//3/AQABAAAAAADs////AQABAAIAAADs//7/AQABAAEAAADs//3/AQABAAAAAADr////AQABAAIAAADr//7/AQABAAEAAADr//3/AQABAAAAAADq////AQABAAIAAADq//7/AQABAAEAAADq//3/AQABAAAAAADp////AQABAAIAAADp//7/AQABAAEAAADp//3/AQABAAEAAADo////AQAAAAIAAADo//7/AQAAAAEAAADo//3/AQAAAAEAAADp//z/AQABAAEAAADp//v/AQABAAEAAADp//r/AQABAAEAAADp//n/AQABAAEAAADp//j/AQABAAEAAADp//f/AQABAAEAAADo//z/AQAAAAEAAADo//v/AQAAAAEAAADo//r/AQAAAAEAAADo//n/AQAAAAEAAADo//j/AQAAAAEAAADo//f/AQAAAAEAAAD8//j/AQACAAEAAAD8//f/AQACAAEAAAD7//j/AQABAAEAAAD7//f/AQABAAEAAAD6//j/AQABAAEAAAD6//f/AQABAAEAAAD5//j/AQABAAIAAAD5//f/AQABAAEAAAD4//j/AQABAAIAAAD4//f/AQABAAEAAAD3//j/AQABAAIAAAD3//f/AQABAAEAAAD2//j/AQABAAIAAAD2//f/AQABAAEAAAD1//j/AQABAAIAAAD1//f/AQABAAEAAAD0//j/AQABAAIAAAD0//f/AQABAAEAAADz//j/AQABAAIAAADz//f/AQABAAEAAADy//j/AQABAAIAAADy//f/AQABAAEAAADx//j/AQABAAIAAADx//f/AQABAAEAAADw//j/AQABAAIAAADw//f/AQABAAEAAADv//j/AQABAAIAAADv//f/AQABAAEAAADu//j/AQABAAIAAADu//f/AQABAAEAAADt//j/AQABAAIAAADt//f/AQABAAEAAADs//j/AQABAAIAAADs//f/AQABAAEAAADr//j/AQABAAIAAADr//f/AQABAAEAAADq//j/AQABAAIAAADq//f/AQABAAEAAAD8//z/AQACAAIAAAD8//v/AQACAAEAAAD8//r/AQACAAEAAAD8//n/AQACAAEAAAD8//b/AQACAAEAAAD8//X/AQACAAEAAAD8//T/AQACAAEAAAD8//P/AQACAAEAAAD8//L/AQACAAEAAAD8//H/AQACAAEAAAD8//D/AQACAAAAAAD7//z/AQABAAIAAAD7//v/AQABAAEAAAD7//r/AQABAAEAAAD7//n/AQABAAEAAAD7//b/AQABAAEAAAD7//X/AQABAAEAAAD7//T/AQABAAEAAAD7//P/AQABAAEAAAD7//L/AQABAAEAAAD7//H/AQABAAEAAAD7//D/AQABAAAAAAD6//z/AQAAAAIAAAD6//v/AQAAAAEAAAD6//r/AQAAAAEAAAD6//n/AQAAAAEAAAD6//b/AQABAAEAAAD6//X/AQAAAAEAAAD6//T/AQABAAEAAAD6//P/AQABAAEAAAD6//L/AQABAAEAAAD6//H/AQAAAAEAAAD6//D/AQAAAAAAAAAEAPj/AQAAAAAAAAAFAPj/AQABAAAAAAAGAPj/AQABAAAAAAAHAPj/AQACAAAAAAAEAPn/AQAAAAEAAAAEAPr/AQAAAAEAAAAFAPn/AQABAAEAAAAFAPr/AQABAAEAAAAGAPn/AQABAAEAAAAGAPr/AQABAAEAAAAHAPn/AQACAAEAAAAHAPr/AQACAAEAAAD5//b/AQABAAAAAAD4//b/AQABAAAAAAD3//b/AQABAAAAAAD2//b/AQABAAAAAAD1//b/AQABAAAAAAD0//b/AQABAAAAAADz//b/AQABAAAAAADy//b/AQABAAAAAADx//b/AQABAAAAAADw//b/AQABAAAAAADv//b/AQABAAAAAADu//b/AQABAAAAAADt//b/AQABAAAAAADs//b/AQABAAAAAADr//b/AQABAAAAAADq//b/AQABAAAAAADp//b/AQABAAAAAADo//b/AQAAAAAAAAAGAPv/AQABAAIAAAAFAPv/AQABAAIAAAAEAPv/AQAAAAIAAAAHAPv/AQACAAIAAAAEAP3/AQAFAA4AAAD5/wMAAQAGAAcAAAA=")
+tile_set = ExtResource("13_mq2he")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="TileMapLayer2" unique_id=244021240 groups=["Tileset"]]
+tile_map_data = PackedByteArray("AADt/wAAAQACAAYAACDu/wAAAQADAAYAACD7//j/AQALAAcAAGD7//n/AQAKAAcAAGD8//n/AQAKAAgAAGD6//f/AQAMAAYAAGD6//j/AQALAAYAAGD7//b/AQANAAcAAGD7//f/AQAMAAcAAGD8//f/AQAMAAgAAGD8//j/AQALAAgAAGD9//f/AQAJABIAAHD9//j/AQAIABIAAHD+//f/AQAZABQAAHD+//j/AQAYABQAAHD///f/AQAZABMAAHD///j/AQAYABMAAHA=")
+tile_set = ExtResource("13_mq2he")
+
+[node name="TileMapLayer3" type="TileMapLayer" parent="TileMapLayer2" unique_id=1339961221 groups=["Tileset"]]
+tile_set = ExtResource("9_mq2he")
 
 [node name="falling_sand5" parent="." unique_id=1930706259 instance=ExtResource("8_dadij")]
 position = Vector2(-173, 90)
@@ -132,14 +145,6 @@ position = Vector2(-141, 90)
 [node name="falling_sand22" parent="." unique_id=1825112443 instance=ExtResource("8_dadij")]
 position = Vector2(-125, 90)
 
-[node name="falling_sand10" parent="." unique_id=214611821 instance=ExtResource("8_dadij")]
-position = Vector2(64, -55)
-MAX_SPEED = 80.0
-
-[node name="falling_sand11" parent="." unique_id=490747635 instance=ExtResource("8_dadij")]
-position = Vector2(80, -55)
-MAX_SPEED = 80.0
-
 [node name="WorldEnvironment" parent="." unique_id=1135473385 instance=ExtResource("9_7gjam")]
 
 [node name="KillBox" parent="." unique_id=911665166 instance=ExtResource("10_1ourg")]
@@ -151,3 +156,46 @@ Visible = false
 
 [node name="AmbientParticles" parent="." unique_id=482013563 instance=ExtResource("12_3t3fl")]
 position = Vector2(-62, -231)
+
+[node name="Player2" parent="." unique_id=564014068 groups=["PlayerReplay"] instance=ExtResource("14_3i2cw")]
+position = Vector2(-319, -22)
+IsMainPlayer = false
+CountTime = false
+ReplayAction = 0
+ReplayStyle = true
+RecordedLocation = "res://assets/Replays/tutorial_level_bside_wavedash.json"
+
+[node name="Tutorial" type="Node2D" parent="." unique_id=1347400538]
+material = ExtResource("14_e3exb")
+position = Vector2(-162, -44)
+
+[node name="DashTutorial2" type="RichTextLabel" parent="Tutorial" unique_id=2094305286 node_paths=PackedStringArray("TextDelay", "VoiceDelay", "Voice")]
+material = SubResource("CanvasItemMaterial_vqlnd")
+offset_left = -95.0
+offset_top = -28.0
+offset_right = 47.0
+offset_bottom = 44.0
+theme_override_fonts/normal_font = ExtResource("5_un2kb")
+text = "
+Ejecuta un Wavedash de la siguiente forma:
+- Haz un Slam+Dash diagonal
+- Al tocar el piso, ejecuta otro dash y salta"
+fit_content = true
+script = ExtResource("16_84sns")
+Animate = true
+TextDelay = NodePath("TextDelay")
+VoiceDelay = NodePath("VoiceDelay")
+Voice = NodePath("Voice")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextDelay" type="Timer" parent="Tutorial/DashTutorial2" unique_id=386792621]
+wait_time = 0.00999999999999999
+one_shot = true
+
+[node name="VoiceDelay" type="Timer" parent="Tutorial/DashTutorial2" unique_id=940308714]
+wait_time = 0.05
+one_shot = true
+
+[node name="Voice" type="AudioStreamPlayer" parent="Tutorial/DashTutorial2" unique_id=1037875170]
+stream = ExtResource("17_21vkk")
+volume_db = -20.0

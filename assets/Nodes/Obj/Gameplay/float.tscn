@@ -58,6 +58,7 @@ radius = 3.0
 height = 48.0
 
 [node name="float" type="AnimatableBody2D" unique_id=1298722529 node_paths=PackedStringArray("TimerExplode", "TimerRespawn", "OnWaterRay", "NotOnWaterRay", "WaterFloatLogic")]
+z_index = 2
 collision_layer = 131328
 script = ExtResource("1_meotq")
 TimerExplode = NodePath("TimerExplode")
