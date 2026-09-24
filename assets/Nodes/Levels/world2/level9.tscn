@@ -3,12 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://l5gcewxed7vs" path="res://assets/Sprites/Gameplay/Bg/grid.png" id="1_gini6"]
 [ext_resource type="Script" uid="uid://bfjuhdt66v471" path="res://assets/Scripts/grid_bg.gd" id="2_ivgeh"]
 [ext_resource type="Texture2D" uid="uid://krk3i3gy70sb" path="res://assets/Sprites/Gameplay/Bg/grid2.png" id="3_hcpv8"]
+[ext_resource type="PackedScene" uid="uid://cn87vu0mc6xb7" path="res://assets/Nodes/Obj/Gameplay/tile_map_layer_water.tscn" id="4_6sm51"]
 [ext_resource type="TileSet" uid="uid://ce6l7o26fuqgd" path="res://assets/Nodes/Obj/Tileset/tiles_alt_neon.tres" id="4_ev3gw"]
-[ext_resource type="Shader" uid="uid://bfnyn2mcfcjby" path="res://assets/Shader/Water2.gdshader" id="4_xxl62"]
 [ext_resource type="PackedScene" uid="uid://cfa7sxsc3ppdn" path="res://assets/Nodes/Levels/Preload/UiCanvasLayer.tscn" id="5_72e1c"]
-[ext_resource type="TileSet" uid="uid://defl28kc6mcu4" path="res://assets/Nodes/Obj/Tileset/tiles.tres" id="5_a2wm1"]
 [ext_resource type="PackedScene" uid="uid://cba0dn710x26" path="res://assets/Nodes/Obj/Gameplay/flag.tscn" id="6_cxdg0"]
-[ext_resource type="Script" uid="uid://cekeslpashr8u" path="res://assets/Nodes/Obj/Tileset/tile_map_layer_water.gd" id="6_yfc1d"]
 [ext_resource type="PackedScene" uid="uid://xjx2k63akbn3" path="res://assets/Nodes/Levels/Preload/levels_default.tscn" id="7_c5kej"]
 [ext_resource type="Script" uid="uid://cq42f2j2x22je" path="res://assets/Scripts/time_left.gd" id="8_2f1kw"]
 [ext_resource type="PackedScene" uid="uid://dmnyy0uuvc0jk" path="res://assets/Nodes/Obj/Gameplay/kill_box.tscn" id="8_s46yw"]
@@ -111,35 +109,6 @@ _data = {
 &"move2": SubResource("Animation_b10uo")
 }
 
-[sub_resource type="Gradient" id="Gradient_hhjnp"]
-offsets = PackedFloat32Array(0, 0.75271297)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ip3hq"]
-frequency = 0.0007
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d77xg"]
-width = 1200
-height = 1200
-noise = SubResource("FastNoiseLite_ip3hq")
-color_ramp = SubResource("Gradient_hhjnp")
-seamless = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0cg15"]
-shader = ExtResource("4_xxl62")
-shader_parameter/opacity_post_border = 0.0
-shader_parameter/refraction_map = SubResource("NoiseTexture2D_d77xg")
-shader_parameter/refraction_stretch = Vector2(1, 1)
-shader_parameter/refraction_strength = 0.02
-shader_parameter/water_tint = Color(0.4576931, 0.6033853, 0.77906215, 0.101960786)
-shader_parameter/speed = 0.1
-shader_parameter/border_wave_height = 1.5570000739575
-shader_parameter/border_wave_x_strength = 0.2050000097375
-shader_parameter/border_wave_frequency = 0.26800001273
-shader_parameter/border_wave_speed = 2.5870001228825
-shader_parameter/border_thickness = 4.434000210615
-shader_parameter/border_color = Color(0.6, 0.85, 1, 0.6)
-shader_parameter/water_surface_y = 83.23
-
 [node name="Node2D" type="Node2D" unique_id=385749821]
 position = Vector2(0, -1)
 
@@ -172,16 +141,9 @@ PlayAnimation = "move2"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Bg2" unique_id=207620071]
 libraries/ = SubResource("AnimationLibrary_klj0i")
 
-[node name="TileMapLayerWater" type="TileMapLayer" parent="." unique_id=230808657 groups=["Tileset", "WaterTileset"]]
-z_index = 2
-texture_filter = 1
-texture_repeat = 2
-material = SubResource("ShaderMaterial_0cg15")
-position = Vector2(-59, 320)
-scale = Vector2(1.00384, 1)
-tile_map_data = PackedByteArray("AAACAOv/AQARABYAAGACAOz/AQARABYAAGACAO3/AQARABYAAGACAO7/AQARABYAAGACAO//AQARABYAAGADAOv/AQARABYAAGADAOz/AQARABYAAGADAO3/AQARABYAAGADAO7/AQARABYAAGADAO//AQARABYAAGAEAOv/AQARABYAAGAEAOz/AQARABYAAGAEAO3/AQARABYAAGAEAO7/AQARABYAAGAEAO//AQARABYAAGAFAOv/AQARABYAAGAFAOz/AQARABYAAGAFAO3/AQARABYAAGAFAO7/AQARABYAAGAFAO//AQARABYAAGAGAOv/AQARABYAAGAGAOz/AQARABYAAGAGAO3/AQARABYAAGAGAO7/AQARABYAAGAGAO//AQARABYAAGAHAOv/AQARABYAAGAHAOz/AQARABYAAGAHAO3/AQARABYAAGAHAO7/AQARABYAAGAHAO//AQARABYAAGAIAOv/AQARABYAAGAIAOz/AQARABYAAGAIAO3/AQARABYAAGAIAO7/AQARABYAAGAIAO//AQARABYAAGAJAOv/AQARABYAAGAJAOz/AQARABYAAGAJAO3/AQARABYAAGAJAO7/AQARABYAAGAJAO//AQARABYAAGAKAOv/AQARABYAAGAKAOz/AQARABYAAGAKAO3/AQARABYAAGAKAO7/AQARABYAAGAKAO//AQARABYAAGALAOv/AQARABYAAGALAOz/AQARABYAAGALAO3/AQARABYAAGALAO7/AQARABYAAGALAO//AQARABYAAGA=")
-tile_set = ExtResource("5_a2wm1")
-script = ExtResource("6_yfc1d")
+[node name="TileMapLayerWater" parent="." unique_id=1940844964 instance=ExtResource("4_6sm51")]
+position = Vector2(-2, 32)
+tile_map_data = PackedByteArray()
 WaterLevel = 83.23
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=826413276 groups=["Tileset"]]
