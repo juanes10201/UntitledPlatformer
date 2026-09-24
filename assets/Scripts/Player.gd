@@ -455,7 +455,7 @@ func _ready() -> void:
 		Global.Level = 0
 		Physics = false
 		Sprite.hide()
-		TimerIntroSlam.start()
+		#TimerIntroSlam.start()
 		LevelManager.ExpoMoveTimeout.start()
 	
 	if(TransitionOut): TransitionOut.hide()
@@ -1378,7 +1378,7 @@ func _on_water_area_body_exited(body: Node2D) -> void:
 
 
 func _dialog_intro_end() -> void:
-	pass
-	#if(PlayIntro):
-	#	TimerIntroSlam.start()
-	#	$Camera2D/AnimationPlayer.play("End")
+	#pass
+	if(PlayIntro):
+		TimerIntroSlam.start()
+		$Camera2D/AnimationPlayer.play("End")

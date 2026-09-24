@@ -50,7 +50,8 @@ directories/dch_directory={
 "Crowd": "res://assets/Dialogic/Characters/Crowd.dch",
 "Holo": "res://assets/Dialogic/Characters/Holo.dch",
 "Npc1": "res://assets/Dialogic/Characters/Npc1.dch",
-"Player": "res://assets/Dialogic/Characters/Player.dch"
+"Player": "res://assets/Dialogic/Characters/Player.dch",
+"Telephone": "res://assets/Dialogic/Characters/Telephone.dch"
 }
 directories/dtl_directory={
 "intro_game_news": "res://assets/Dialogic/Timelines/intro_game_news.dtl",
