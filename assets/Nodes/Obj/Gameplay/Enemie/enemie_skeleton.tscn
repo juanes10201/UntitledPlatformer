@@ -134,7 +134,7 @@ scale = Vector2(1.225, 1.39)
 shape = SubResource("RectangleShape2D_4y4c6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=11339414]
-position = Vector2(0.14, 4.138)
+position = Vector2(0.13999987, 3.1379995)
 scale = Vector2(0.61, 0.6)
 shape = SubResource("RectangleShape2D_4y4c6")
 
@@ -146,7 +146,7 @@ material = SubResource("ShaderMaterial_wd6sj")
 position = Vector2(0.279999, 6.74)
 sprite_frames = SubResource("SpriteFrames_2fkqx")
 animation = &"Shoot"
-offset = Vector2(-0.28, -9.195)
+offset = Vector2(-0.28, -6.35)
 
 [node name="ShootBulletTimer" type="Timer" parent="." unique_id=2051909585]
 wait_time = 0.9
