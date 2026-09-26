@@ -30,7 +30,7 @@ func _generate_map_image() -> ImageTexture:
 	var _tileset_size : Vector2i = _tileset_rect2i.size
 	var _image = Image.create_empty(_tileset_size.x, _tileset_size.y, false, Image.FORMAT_RGBA8)
 	material.set_shader_parameter("map_size", Vector2(_tileset_rect2i.size))
-	material.set_shader_parameter("map_origin", Vector2(_tileset_rect2i.position) - Vector2(1.0, 1.0) )
+	material.set_shader_parameter("map_origin", Vector2(_tileset_rect2i.position))# - Vector2(1.0, 1.0) )
 	material.set_shader_parameter("cell_size", Vector2(tile_set.tile_size))
 	
 	for _tile in get_used_cells():
