@@ -71,7 +71,7 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_2utor")
 fill = 1
 fill_from = Vector2(0.5144382, 0.5037434)
-fill_to = Vector2(0.53048104, 0.53582895)
+fill_to = Vector2(0.5905212, 0.73744076)
 
 [sub_resource type="Gradient" id="Gradient_4bv7n"]
 offsets = PackedFloat32Array(0, 0.65238094)
@@ -613,13 +613,13 @@ height = 13.0
 script = ExtResource("23_2utor")
 
 [node name="PointLight2D60" type="PointLight2D" parent="." unique_id=1779953599]
-position = Vector2(69, 145)
+position = Vector2(68, 137)
 scale = Vector2(1.5259811, 1.4260539)
 color = Color(0.9766763, 0.33209845, 0.99999994, 1)
-energy = 0.9
+energy = 0.25
 texture = SubResource("GradientTexture2D_e34pc")
 texture_scale = 2.57
-height = 13.0
+height = 143.0
 script = ExtResource("23_2utor")
 
 [node name="Enemie2" parent="." unique_id=1073910296 instance=ExtResource("7_myvs5")]

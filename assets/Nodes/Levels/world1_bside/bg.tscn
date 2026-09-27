@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://hu3v1yc12ded"]
+
+[ext_resource type="Shader" uid="uid://bb1qro3ncdkil" path="res://assets/Shader/bg-bside.gdshader" id="1_hrfns"]
+[ext_resource type="Texture2D" uid="uid://l5gcewxed7vs" path="res://assets/Sprites/Gameplay/Bg/grid.png" id="2_mhidr"]
+[ext_resource type="Script" uid="uid://bfjuhdt66v471" path="res://assets/Scripts/grid_bg.gd" id="3_ssj0n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ths46"]
+shader = ExtResource("1_hrfns")
+shader_parameter/horizontal_oscillation = 0.1190000056525
+shader_parameter/vertical_oscillation = 0.0890000042275
+shader_parameter/scanline_wave_frequency = 36.20000052452224
+shader_parameter/scanline_wave_speed = 2.40000003576288
+shader_parameter/alternate_direction = true
+shader_parameter/viewport_size = Vector2(1920, 1080)
+shader_parameter/hue_shift_speed = 0.1499999966472
+shader_parameter/hue_strength = 0.999999977648
+
+[sub_resource type="Animation" id="Animation_wh1ld"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-755, -863)]
+}
+
+[sub_resource type="Animation" id="Animation_6ubuh"]
+resource_name = "move"
+length = 40.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 21.2, 39.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-755, -863), Vector2(-493, -367), Vector2(-755, -863)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0i2pc"]
+_data = {
+&"RESET": SubResource("Animation_wh1ld"),
+&"move": SubResource("Animation_6ubuh")
+}
+
+[node name="Bg" type="Sprite2D" unique_id=6104661]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ths46")
+scale = Vector2(1, 1.33)
+texture = ExtResource("2_mhidr")
+centered = false
+region_enabled = true
+region_rect = Rect2(0.078, 0.149, 1000, 1000)
+script = ExtResource("3_ssj0n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1120770041]
+libraries/ = SubResource("AnimationLibrary_0i2pc")

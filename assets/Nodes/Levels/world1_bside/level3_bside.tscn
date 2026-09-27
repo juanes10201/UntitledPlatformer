@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://cfa4hjbqc8gva"]
 
-[ext_resource type="Texture2D" uid="uid://l5gcewxed7vs" path="res://assets/Sprites/Gameplay/Bg/grid.png" id="1_bgodq"]
-[ext_resource type="Script" uid="uid://bfjuhdt66v471" path="res://assets/Scripts/grid_bg.gd" id="2_aa1bf"]
+[ext_resource type="PackedScene" uid="uid://hu3v1yc12ded" path="res://assets/Nodes/Levels/world1_bside/bg.tscn" id="1_e3exb"]
 [ext_resource type="PackedScene" uid="uid://chat6jxc63bfj" path="res://assets/Nodes/Obj/Gameplay/Player/player.tscn" id="3_i3720"]
 [ext_resource type="Script" uid="uid://db87exh6jetnl" path="res://assets/Scripts/Player_camera.gd" id="4_um37n"]
 [ext_resource type="FontFile" uid="uid://du1fhb4w0oxp8" path="res://assets/Fonts/pixelart/Coder's Crux.otf" id="5_un2kb"]
@@ -19,43 +18,6 @@
 [ext_resource type="AudioStream" uid="uid://dsvfo3erylgm" path="res://assets/Sounds/Tutorial/voicetutorial.wav" id="17_21vkk"]
 [ext_resource type="Script" uid="uid://dbfv5o1s01x06" path="res://assets/Scripts/DynamicLightAnimation.gd" id="18_84sns"]
 
-[sub_resource type="Animation" id="Animation_wh1ld"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-755, -863)]
-}
-
-[sub_resource type="Animation" id="Animation_6ubuh"]
-resource_name = "move"
-length = 40.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 21.2, 39.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-755, -863), Vector2(-493, -367), Vector2(-755, -863)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0i2pc"]
-_data = {
-&"RESET": SubResource("Animation_wh1ld"),
-&"move": SubResource("Animation_6ubuh")
-}
-
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vqlnd"]
 light_mode = 1
 
@@ -71,18 +33,9 @@ fill_from = Vector2(0.48290598, 0.517094)
 [node name="Node2D" type="Node2D" unique_id=1156833985]
 position = Vector2(0, -1)
 
-[node name="Bg" type="Sprite2D" parent="." unique_id=304256738]
+[node name="Bg2" parent="." unique_id=6104661 instance=ExtResource("1_e3exb")]
 visible = false
-texture_repeat = 2
 position = Vector2(-755, -863)
-texture = ExtResource("1_bgodq")
-centered = false
-region_enabled = true
-region_rect = Rect2(0.078, 0.149, 1200, 1273.48)
-script = ExtResource("2_aa1bf")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bg" unique_id=322380299]
-libraries/ = SubResource("AnimationLibrary_0i2pc")
 
 [node name="Player" parent="." unique_id=153750150 instance=ExtResource("3_i3720")]
 position = Vector2(-319, -22)
