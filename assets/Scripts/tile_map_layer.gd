@@ -19,6 +19,13 @@ enum PosBorderY{
 	South = 2,
 	Both = 3
 }
+enum PosBorderDiagonal{
+	None = 0,
+	UpperRight = 1,
+	UpperLeft = 2,
+	DownRight = 3,
+	DownLeft = 4
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -57,11 +64,28 @@ func _generate_map_image() -> ImageTexture:
 		elif _is_south_border:
 			_tile_border_y = PosBorderY.South
 		
+		var _tile_border_diagonal : PosBorderDiagonal = PosBorderDiagonal.None
+		
+		#Diagonals
+		if(_tile_border_x != PosBorderX.Both):
+			if(!( (_tile + Vector2i(1, 1)) in get_used_cells() ) && _tile_border_y != PosBorderY.North && _tile_border_x != PosBorderX.East):
+				_tile_border_diagonal = PosBorderDiagonal.UpperRight
+			if(!( (_tile + Vector2i(-1, 1)) in get_used_cells() ) && _tile_border_y != PosBorderY.North && _tile_border_x != PosBorderX.West):
+				_tile_border_diagonal = PosBorderDiagonal.UpperLeft
+			if(!( (_tile + Vector2i(1, -1)) in get_used_cells() ) && _tile_border_y != PosBorderY.South && _tile_border_x != PosBorderX.East):
+				_tile_border_diagonal = PosBorderDiagonal.DownRight
+			if(!( (_tile + Vector2i(-1, -1)) in get_used_cells() ) && _tile_border_y != PosBorderY.South && _tile_border_x != PosBorderX.West):
+				_tile_border_diagonal = PosBorderDiagonal.DownLeft
+		
 		var _tile_border_num_x : float = float(_tile_border_x)/float(PosBorderX.size())
 		var _tile_border_num_y : float = float(_tile_border_y)/float(PosBorderY.size())
-		var _tile_color : Color = Color(_tile_border_num_x, _tile_border_num_y, 0.0, 1.0)
-		print("Border x: " + str(_tile_color))
+		
+		var _tile_border_num_diagonal : float = float(_tile_border_diagonal)/float(PosBorderDiagonal.size())
+		
+		var _tile_color : Color = Color(_tile_border_num_x, _tile_border_num_y, _tile_border_num_diagonal, 1.0)
+		#print("Border x: " + str(_tile_color))
 		#print("Border y: " + str(_tile_border_num_y))
+		if(_tile_border_num_diagonal != 0.0): print("Border diagonal: " + str(_tile_border_num_diagonal))
 		_image.set_pixel(_tile_pos.x, _tile_pos.y, _tile_color)
 	return ImageTexture.create_from_image(_image)
 

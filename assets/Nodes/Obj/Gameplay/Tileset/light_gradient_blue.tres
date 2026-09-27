@@ -1,9 +1,8 @@
 [gd_resource type="GradientTexture2D" format=3 uid="uid://dny7bs8kmt5vn"]
 
 [sub_resource type="Gradient" id="Gradient_of5fn"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.24716146, 0.5091702, 1)
-colors = PackedColorArray(0, 0, 0, 0, 0.30588236, 0.39607844, 0.7294118, 0.05882353, 0.30588236, 0.39607844, 0.7294118, 0.15686275, 0.6367913, 0.74081725, 1, 0.3137255)
+offsets = PackedFloat32Array(0, 0.1254385, 0.31842095, 0.5508771, 0.6342104, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.30588236, 0.39607844, 0.7294118, 0.05882353, 0.30588236, 0.39607844, 0.7294118, 0.14117648, 0.52156866, 0.44313726, 0.9529412, 0.20392157, 0.5686275, 0.4509804, 1, 0.1764706, 0.5686275, 0.4509804, 1, 0.16078432)
 
 [resource]
 resource_local_to_scene = true
