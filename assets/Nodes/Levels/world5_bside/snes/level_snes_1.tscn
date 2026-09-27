@@ -3,13 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://cjwpb8ragihkh" path="res://assets/Nodes/Obj/Gameplay/laser.tscn" id="1_8el8b"]
 [ext_resource type="Texture2D" uid="uid://l5gcewxed7vs" path="res://assets/Sprites/Gameplay/Bg/grid.png" id="1_pia2t"]
 [ext_resource type="PackedScene" uid="uid://cfa7sxsc3ppdn" path="res://assets/Nodes/Levels/Preload/UiCanvasLayer.tscn" id="1_pqy8r"]
-[ext_resource type="Script" uid="uid://bfjuhdt66v471" path="res://assets/Scripts/grid_bg.gd" id="2_8s7qt"]
+[ext_resource type="Shader" uid="uid://dapc0wsjejtvt" path="res://assets/Shader/snes-bg.gdshader" id="1_vmoge"]
 [ext_resource type="FontFile" uid="uid://du1fhb4w0oxp8" path="res://assets/Fonts/pixelart/Coder's Crux.otf" id="2_aa6rj"]
-[ext_resource type="Shader" uid="uid://dos2gdtrqw4xw" path="res://assets/Nodes/Levels/world_extra/snes/level_snes_pallete.gdshader" id="4_67npk"]
+[ext_resource type="Shader" uid="uid://dos2gdtrqw4xw" path="res://assets/Nodes/Levels/world5_bside/snes/level_snes_pallete.gdshader" id="4_67npk"]
 [ext_resource type="Texture2D" uid="uid://b41mkx2occddk" path="res://assets/Sprites/Gameplay/Tilesets/World1/pallete.png" id="5_8el8b"]
 [ext_resource type="FontFile" uid="uid://b42aju5a8xkr8" path="res://assets/Fonts/pixelart/Pixel Or GTFO.ttf" id="6_8el8b"]
 [ext_resource type="Texture2D" uid="uid://hqst1d7kxpgu" path="res://assets/Sprites/Gameplay/Tilesets/World1/pallete-snes.png" id="6_13mr7"]
-[ext_resource type="Script" uid="uid://g35fwd1dftrg" path="res://assets/Nodes/Levels/world_extra/gameboy/gb_borders.gd" id="6_y2beu"]
+[ext_resource type="Script" uid="uid://g35fwd1dftrg" path="res://assets/Nodes/Levels/world5_bside/gameboy/gb_borders.gd" id="6_y2beu"]
 [ext_resource type="TileSet" uid="uid://defl28kc6mcu4" path="res://assets/Nodes/Obj/Tileset/tiles.tres" id="7_3wlqi"]
 [ext_resource type="Texture2D" uid="uid://b0yndn2sf6e8s" path="res://assets/Sprites/Gameplay/Snes/Borders.png" id="7_8el8b"]
 [ext_resource type="PackedScene" uid="uid://d3erf6nvt6a0n" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie_special_snes.tscn" id="8_67npk"]
@@ -27,43 +27,42 @@
 [ext_resource type="Script" uid="uid://b7kp4oyo8y484" path="res://assets/Nodes/Obj/Ui/text_tutorial_anim.gd" id="25_dtqlq"]
 [ext_resource type="AudioStream" uid="uid://dsvfo3erylgm" path="res://assets/Sounds/Tutorial/voicetutorial.wav" id="26_7fsh2"]
 
-[sub_resource type="Animation" id="Animation_wh1ld"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-755, -863)]
-}
-
-[sub_resource type="Animation" id="Animation_6ubuh"]
-resource_name = "move"
-length = 40.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 21.2, 39.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-755, -863), Vector2(-493, -367), Vector2(-755, -863)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bih6b"]
-_data = {
-&"RESET": SubResource("Animation_wh1ld"),
-&"move": SubResource("Animation_6ubuh")
-}
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w8pjw"]
+shader = ExtResource("1_vmoge")
+shader_parameter/_c_Settings = 0.0
+shader_parameter/snes_transparency = false
+shader_parameter/gba_transparency = false
+shader_parameter/horizontal_scan_line = false
+shader_parameter/vertical_scan_line = false
+shader_parameter/enable_palette_cycling = false
+shader_parameter/_c_Sprite_Scroll = 0.0
+shader_parameter/sprite_scroll_direction = Vector2(0.12, 0.125)
+shader_parameter/sprite_scroll_speed = 4.17
+shader_parameter/_c_GBA_Transparency = 0.0
+shader_parameter/gba_transparency_scroll_direction = Vector2(0, 0)
+shader_parameter/gba_transparency_scroll_speed = 0.01
+shader_parameter/gba_transparency_value = 0.5
+shader_parameter/_c_Horizontal_Wave = 0.83
+shader_parameter/horizontal_wave_amplitude = 0.325
+shader_parameter/horizontal_wave_frequency = 0.495
+shader_parameter/horizontal_wave_speed = 0.63
+shader_parameter/_c_Vertical_Wave = 0.0
+shader_parameter/vertical_wave_amplitude = 0.0
+shader_parameter/vertical_wave_frequency = 0.0
+shader_parameter/vertical_wave_speed = 1.0
+shader_parameter/_c_Horizontal_Deform = 0.0
+shader_parameter/horizontal_deform_amplitude = 0.0
+shader_parameter/horizontal_deform_frequency = 0.0
+shader_parameter/horizontal_deform_speed = 1.0
+shader_parameter/_c_Vertical_Deform = 0.0
+shader_parameter/vertical_deform_amplitude = 0.0
+shader_parameter/vertical_deform_frequency = 0.0
+shader_parameter/vertical_deform_speed = 1.0
+shader_parameter/_c_Size = 0.0
+shader_parameter/width = 0.0
+shader_parameter/height = 0.0
+shader_parameter/_c_Palette_Cycling = 0.0
+shader_parameter/palette_cycling_speed = 0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0ib40"]
 shader = ExtResource("4_67npk")
@@ -157,17 +156,13 @@ size = Vector2(41.5, 60.5)
 position = Vector2(0, -1)
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=1297843794]
-visible = false
 texture_repeat = 2
+material = SubResource("ShaderMaterial_w8pjw")
 position = Vector2(-755, -863)
 texture = ExtResource("1_pia2t")
 centered = false
 region_enabled = true
 region_rect = Rect2(0.078, 0.149, 1000, 1000)
-script = ExtResource("2_8s7qt")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bg" unique_id=1566881689]
-libraries/ = SubResource("AnimationLibrary_bih6b")
 
 [node name="CanvasLayer" parent="." unique_id=2104942125 instance=ExtResource("1_pqy8r")]
 

@@ -1,8 +1,8 @@
-world1_bside,world2_bside,world3_bside,world4_bside
-level1_bside.tscn,level6_bside.tscn,level15_bside.tscn,level23_bside.tscn
-level2_bside.tscn,level8_bside.tscn,level16_bside.tscn,
-level3_bside.tscn,,level17_bside.tscn,
-level5_bside.tscn,,level24_bside.tscn,
-level8_bside.tscn,,level25_bside.tscn,
-level13_bside.tscn,,,
-level14_bside.tscn,,,
+world1_bside,world2_bside,world3_bside,world4_bside,world5_bside
+level1_bside.tscn,level6_bside.tscn,level15_bside.tscn,level23_bside.tscn,gameboy/level_gb_1.tscn
+level2_bside.tscn,level8_bside.tscn,level16_bside.tscn,,gameboy/level_gb_2.tscn
+level3_bside.tscn,,level17_bside.tscn,,gameboy/level_gb_3.tscn
+level5_bside.tscn,,level24_bside.tscn,,snes/level_snes_1.tscn
+level8_bside.tscn,,level25_bside.tscn,,snes/level_snes_2.tscn
+level13_bside.tscn,,,,snes/level_snes_3.tscn
+level14_bside.tscn,,,,snes/level_snes_4.tscn

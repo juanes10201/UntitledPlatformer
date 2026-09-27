@@ -6,7 +6,7 @@
 [ext_resource type="Shader" uid="uid://6h705pgtj7bn" path="res://assets/Nodes/Levels/world1/level7_shader.tres" id="4_k80la"]
 [ext_resource type="Texture2D" uid="uid://du5ruoufp0dvj" path="res://assets/Sprites/Gameplay/Gameboy/Borders.png" id="5_3lu33"]
 [ext_resource type="TileSet" uid="uid://defl28kc6mcu4" path="res://assets/Nodes/Obj/Tileset/tiles.tres" id="5_5c8qp"]
-[ext_resource type="Script" uid="uid://g35fwd1dftrg" path="res://assets/Nodes/Levels/world_extra/gameboy/gb_borders.gd" id="6_gtfmg"]
+[ext_resource type="Script" uid="uid://g35fwd1dftrg" path="res://assets/Nodes/Levels/world5_bside/gameboy/gb_borders.gd" id="6_gtfmg"]
 [ext_resource type="PackedScene" uid="uid://chat6jxc63bfj" path="res://assets/Nodes/Obj/Gameplay/Player/player.tscn" id="6_mu82c"]
 [ext_resource type="Script" uid="uid://db87exh6jetnl" path="res://assets/Scripts/Player_camera.gd" id="7_07qkw"]
 [ext_resource type="PackedScene" uid="uid://cba0dn710x26" path="res://assets/Nodes/Obj/Gameplay/flag.tscn" id="8_3y1vl"]

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://chat6jxc63bfj" path="res://assets/Nodes/Obj/Gameplay/Player/player.tscn" id="4_i76ih"]
 [ext_resource type="Texture2D" uid="uid://du5ruoufp0dvj" path="res://assets/Sprites/Gameplay/Gameboy/Borders.png" id="5_ar7nx"]
 [ext_resource type="Script" uid="uid://db87exh6jetnl" path="res://assets/Scripts/Player_camera.gd" id="5_gf3s4"]
-[ext_resource type="Script" uid="uid://g35fwd1dftrg" path="res://assets/Nodes/Levels/world_extra/gameboy/gb_borders.gd" id="6_nc68i"]
+[ext_resource type="Script" uid="uid://g35fwd1dftrg" path="res://assets/Nodes/Levels/world5_bside/gameboy/gb_borders.gd" id="6_nc68i"]
 [ext_resource type="PackedScene" uid="uid://cba0dn710x26" path="res://assets/Nodes/Obj/Gameplay/flag.tscn" id="6_rj8dq"]
 [ext_resource type="PackedScene" uid="uid://djqwajvc8m3td" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie.tscn" id="7_141wr"]
 [ext_resource type="PackedScene" uid="uid://cfa7sxsc3ppdn" path="res://assets/Nodes/Levels/Preload/UiCanvasLayer.tscn" id="10_0mr73"]

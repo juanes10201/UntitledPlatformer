@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://15n3mulg8su5"]
 
-[ext_resource type="Script" uid="uid://dtfve1fukttq7" path="res://assets/Nodes/Levels/world_extra/snes/body_pushable.gd" id="1_cn0r4"]
+[ext_resource type="Script" uid="uid://dtfve1fukttq7" path="res://assets/Nodes/Levels/world5_bside/snes/body_pushable.gd" id="1_cn0r4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6lmg"]
 size = Vector2(22, 22)

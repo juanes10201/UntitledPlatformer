@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cispxmxkgqevq"]
 
-[ext_resource type="Script" uid="uid://sp85faq0sp01" path="res://assets/Scripts/Level-order.gd" id="1_72qwh"]
+[ext_resource type="Script" uid="uid://sp85faq0sp01" path="res://assets/Scripts/Global/Level-order.gd" id="1_72qwh"]
 
 [node name="Global" type="Node" unique_id=351270033]
 script = ExtResource("1_72qwh")

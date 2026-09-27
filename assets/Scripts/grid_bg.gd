@@ -18,7 +18,7 @@ var move_direction : Directions = Directions.LEFT
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	z_index = -5
-	$AnimationPlayer.play(PlayAnimation)
+	if($AnimationPlayer): $AnimationPlayer.play(PlayAnimation)
 	if(Show):
 		self.show()
 	else:
