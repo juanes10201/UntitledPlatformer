@@ -6,7 +6,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ths46"]
 shader = ExtResource("1_hrfns")
-shader_parameter/horizontal_oscillation = 0.1190000056525
+shader_parameter/horizontal_oscillation = 0.374000017765
 shader_parameter/vertical_oscillation = 0.0890000042275
 shader_parameter/scanline_wave_frequency = 36.20000052452224
 shader_parameter/scanline_wave_speed = 2.40000003576288
@@ -53,15 +53,20 @@ _data = {
 &"move": SubResource("Animation_6ubuh")
 }
 
-[node name="Bg" type="Sprite2D" unique_id=6104661]
+[node name="Parallax2D" type="Parallax2D" unique_id=1535254603]
+scroll_scale = Vector2(0.1, 0.1)
+
+[node name="Bg" type="Sprite2D" parent="." unique_id=6104661]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_ths46")
+position = Vector2(-755, -863)
 scale = Vector2(1, 1.33)
 texture = ExtResource("2_mhidr")
 centered = false
+offset = Vector2(500, 0)
 region_enabled = true
 region_rect = Rect2(0.078, 0.149, 1000, 1000)
 script = ExtResource("3_ssj0n")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1120770041]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bg" unique_id=1120770041]
 libraries/ = SubResource("AnimationLibrary_0i2pc")

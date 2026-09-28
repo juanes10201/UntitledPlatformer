@@ -17,6 +17,7 @@ var move_direction : Directions = Directions.LEFT
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if(get_parent() is Parallax2D): get_parent().show()
 	z_index = -5
 	if($AnimationPlayer): $AnimationPlayer.play(PlayAnimation)
 	if(Show):

@@ -29,7 +29,6 @@ position = Vector2(0, -1)
 
 [node name="Bg2" parent="." unique_id=6104661 instance=ExtResource("1_icnfm")]
 visible = false
-position = Vector2(-755, -863)
 
 [node name="WorldEnvironment" parent="." unique_id=550457332 instance=ExtResource("3_gtoub")]
 
