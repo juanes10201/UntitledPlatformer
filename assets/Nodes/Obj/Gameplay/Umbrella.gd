@@ -2,8 +2,10 @@ extends Area2D
 
 @export var PushVelocity : float = -320.0
 @export var Rotation : float = 0.0
+@onready var Sprite : AnimatedSprite2D = $Sprite 
 
 func _ready() -> void:
+	if(Sprite): Sprite.play("idle")
 	Rotation = rotation_degrees
 
 func _process(delta: float) -> void:
@@ -12,6 +14,7 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if(body.is_in_group("Player")):
+		if(Sprite): Sprite.play("hit")
 		body.Reset_Slide()
 		body.Reset_Groundsmash(false, false, false)
 		var BaseVelX : float = PushVelocity*sin(deg_to_rad(rotation_degrees))

@@ -35,7 +35,7 @@ WaterLevel = 253.725
 [node name="KillBox2" parent="." unique_id=317210304 instance=ExtResource("18_cnn4i")]
 position = Vector2(46, 209)
 
-[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=676178411 groups=["Tileset"]]
+[node name="CleanTileMap" type="TileMapLayer" parent="." unique_id=676178411 groups=["Tileset"]]
 texture_filter = 1
 texture_repeat = 2
 material = ExtResource("4_cqqrl")
@@ -46,13 +46,13 @@ tile_set = ExtResource("7_xdva3")
 script = ExtResource("7_hxncs")
 ShadowShader = true
 
-[node name="TileMapLayer2" type="TileMapLayer" parent="TileMapLayer2" unique_id=1838179829 groups=["Tileset"]]
+[node name="CleanSubTileMap" type="TileMapLayer" parent="CleanTileMap" unique_id=1838179829 groups=["Tileset"]]
 texture_filter = 1
 texture_repeat = 2
 tile_set = ExtResource("7_xdva3")
 script = ExtResource("7_hxncs")
 
-[node name="TileMapLayer4" type="TileMapLayer" parent="TileMapLayer2" unique_id=698234613 groups=["Tileset"]]
+[node name="DirtBgTileMap" type="TileMapLayer" parent="CleanTileMap" unique_id=698234613 groups=["Tileset"]]
 modulate = Color(1, 0.5254902, 0.9019608, 0.34509805)
 z_index = -2
 texture_filter = 1
@@ -61,7 +61,7 @@ tile_map_data = PackedByteArray("AADl/w8AAQASAAoAAADl/xAAAQASAAoAAADl/xEAAQASAAo
 tile_set = ExtResource("7_xdva3")
 script = ExtResource("7_hxncs")
 
-[node name="TileMapLayer3" type="TileMapLayer" parent="TileMapLayer2" unique_id=2050613330 groups=["Tileset"]]
+[node name="GreenTileMap" type="TileMapLayer" parent="CleanTileMap" unique_id=2050613330 groups=["Tileset"]]
 texture_filter = 1
 texture_repeat = 2
 material = ExtResource("7_cqqrl")
@@ -69,6 +69,12 @@ tile_map_data = PackedByteArray("AADu/w8AAQAAAAEAAADu/xAAAQAAAAEAAADu/xEAAQAAAAE
 tile_set = ExtResource("9_km4k2")
 script = ExtResource("7_hxncs")
 ShadowShader = true
+
+[node name="GreenSubTileMap" type="TileMapLayer" parent="CleanTileMap" unique_id=775152824 groups=["Tileset"]]
+texture_filter = 1
+texture_repeat = 2
+tile_set = ExtResource("9_km4k2")
+script = ExtResource("7_hxncs")
 
 [node name="Time_Left" type="Timer" parent="." unique_id=123732541 groups=["GameTimer"]]
 wait_time = 14.0
