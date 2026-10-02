@@ -67,7 +67,7 @@ func _generate_map_image() -> ImageTexture:
 		var _tile_border_diagonal : PosBorderDiagonal = PosBorderDiagonal.None
 		
 		#Diagonals
-		if(_tile_border_x != PosBorderX.Both):
+		if(_tile_border_x != PosBorderX.Both && _tile_border_y != PosBorderY.Both):
 			if(!( (_tile + Vector2i(1, 1)) in get_used_cells() ) && _tile_border_y != PosBorderY.North && _tile_border_x != PosBorderX.East):
 				_tile_border_diagonal = PosBorderDiagonal.UpperRight
 			if(!( (_tile + Vector2i(-1, 1)) in get_used_cells() ) && _tile_border_y != PosBorderY.North && _tile_border_x != PosBorderX.West):

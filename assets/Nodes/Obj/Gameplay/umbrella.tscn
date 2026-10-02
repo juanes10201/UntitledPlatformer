@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://bghwiax46qa54" path="res://assets/Sprites/Gameplay/Obj/Umbrella/idle-red.png" id="2_wtmjr"]
 [ext_resource type="AudioStream" uid="uid://cpafacfjts0pn" path="res://assets/Sounds/boing1_proccessed.wav" id="3_mqlb3"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7kmg"]
+size = Vector2(46, 18)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_mf0p5"]
 atlas = ExtResource("2_e5iu2")
 region = Rect2(0, 0, 70, 70)
@@ -57,19 +60,12 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 1.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7kmg"]
-size = Vector2(46, 18)
 
 [node name="Umbrella" type="Area2D" unique_id=791046513]
 collision_layer = 131328
 script = ExtResource("1_wanhh")
-
-[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1634135038]
-sprite_frames = SubResource("SpriteFrames_6r3kq")
-animation = &"hit"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=674738501]
 visible = false
@@ -81,5 +77,9 @@ shape = SubResource("RectangleShape2D_i7kmg")
 
 [node name="Boing" type="AudioStreamPlayer" parent="." unique_id=1024367860]
 stream = ExtResource("3_mqlb3")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1634135038]
+sprite_frames = SubResource("SpriteFrames_6r3kq")
+animation = &"idle"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

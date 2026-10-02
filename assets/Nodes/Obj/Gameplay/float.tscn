@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cuo85uam6d03p" path="res://assets/Nodes/Obj/Gameplay/float.gd" id="1_meotq"]
 [ext_resource type="Texture2D" uid="uid://ss4fek4dagk1" path="res://assets/Sprites/Gameplay/Tilesets/World1/tiles.png" id="1_wb8lm"]
 [ext_resource type="AudioStream" uid="uid://kyhbhitly8g" path="res://assets/Sounds/popballoon_proccessed.wav" id="3_lugg0"]
+[ext_resource type="Texture2D" uid="uid://clqye3cjbjmpu" path="res://assets/Sprites/Gameplay/Obj/float2.png" id="3_t60l5"]
 [ext_resource type="AudioStream" uid="uid://ltupmd82lp5b" path="res://assets/Sounds/Balloon_Inflate_Proccesed.wav" id="4_nkcm8"]
 [ext_resource type="Script" uid="uid://dwdcgo564kwae" path="res://assets/Nodes/Obj/water_float_logic.gd" id="5_ujmy2"]
 
@@ -17,7 +18,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:offset")
+tracks/0/path = NodePath("Sprite3:offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -33,7 +34,7 @@ length = 1.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:offset")
+tracks/0/path = NodePath("Sprite3:offset")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -58,7 +59,6 @@ radius = 3.0
 height = 48.0
 
 [node name="float" type="AnimatableBody2D" unique_id=1298722529 node_paths=PackedStringArray("TimerExplode", "TimerRespawn", "OnWaterRay", "NotOnWaterRay", "WaterFloatLogic")]
-z_index = 2
 collision_layer = 131328
 script = ExtResource("1_meotq")
 TimerExplode = NodePath("TimerExplode")
@@ -86,9 +86,14 @@ shape = SubResource("RectangleShape2D_g8d21")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2125039926]
 libraries/ = SubResource("AnimationLibrary_lugg0")
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=604759268]
+[node name="Sprite3" type="Sprite2D" parent="." unique_id=604759268]
+visible = false
 position = Vector2(0, 2)
 texture = SubResource("AtlasTexture_hw1xd")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=453151733]
+position = Vector2(-3, -4)
+texture = ExtResource("3_t60l5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=735099106]
 position = Vector2(0, 5)
