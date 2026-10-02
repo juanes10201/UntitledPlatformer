@@ -347,10 +347,9 @@ func On_Death():
 		if(RetroStyle):
 			InstanceParticles.RetroStyle()
 	#endregion
-	if(Edition.Is_in_editor):
-		Sprite.visible = false
-		Enabled = false
-	else:
+	Sprite.visible = false
+	Enabled = false
+	if(!Edition.Is_in_editor):
 		self.queue_free()
 #endregion
 

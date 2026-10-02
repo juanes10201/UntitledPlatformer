@@ -642,10 +642,13 @@ position = Vector2(152, 336)
 position = Vector2(184, 336)
 
 [node name="falling_sand4" parent="." unique_id=186363627 instance=ExtResource("20_ag4mn")]
-position = Vector2(108, 503)
+position = Vector2(119, 503)
+
+[node name="falling_sand11" parent="." unique_id=44642245 instance=ExtResource("20_ag4mn")]
+position = Vector2(103, 503)
 
 [node name="falling_sand5" parent="." unique_id=373692051 instance=ExtResource("20_ag4mn")]
-position = Vector2(124, 503)
+position = Vector2(135, 503)
 
 [node name="falling_sand6" parent="." unique_id=1076402372 instance=ExtResource("20_ag4mn")]
 position = Vector2(173, 547)
