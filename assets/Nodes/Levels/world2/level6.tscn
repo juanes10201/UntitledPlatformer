@@ -237,13 +237,6 @@ tile_set = ExtResource("6_swwr0")
 script = ExtResource("5_56hs8")
 ShadowShader = true
 
-[node name="CleanSubTileMap" type="TileMapLayer" parent="CleanTileMap" unique_id=1154053475 groups=["Tileset"]]
-texture_filter = 1
-texture_repeat = 2
-tile_map_data = PackedByteArray("AAD9/wcAAQACAAYAAAD+/wcAAQADAAYAAAAHAA0AAQAFAAYAAAACAA8AAQAKAA4AAAADAA8AAQALAA4AAAAEAA8AAQAMAA4AAAANAAsAAQABAAYAABANAAwAAQABAAcAABA=")
-tile_set = ExtResource("6_swwr0")
-script = ExtResource("5_56hs8")
-
 [node name="DirtBgTileMap" type="TileMapLayer" parent="CleanTileMap" unique_id=1076176742 groups=["Tileset"]]
 modulate = Color(0.2509804, 0.14509805, 0.21568628, 0.47058824)
 z_index = -2
@@ -264,8 +257,23 @@ script = ExtResource("5_56hs8")
 [node name="GreenSubTileMap" type="TileMapLayer" parent="CleanTileMap" unique_id=1420747063 groups=["Tileset"]]
 texture_filter = 1
 texture_repeat = 2
-tile_map_data = PackedByteArray("AAAFABUAAQAYAAYAAAAFABYAAQAYAAcAAAAGABUAAQAZAAYAAAAGABYAAQAZAAcAAAAIABMAAQAAAAkAAAANAAUAAQALAA8AAAANAAYAAQAMAA8AAAANAAcAAQANAA8AAAANAAQAAQAKAA8AAAAIABIAAQAAAAgAAAA=")
+tile_map_data = PackedByteArray("AAAFABUAAQAYAAYAAAAFABYAAQAYAAcAAAAGABUAAQAZAAYAAAAGABYAAQAZAAcAAAANAAUAAQALAA8AAAANAAYAAQAMAA8AAAANAAcAAQANAA8AAAANAAQAAQAKAA8AAAA=")
 tile_set = ExtResource("7_2w6l7")
+script = ExtResource("5_56hs8")
+
+[node name="CleanSubTileMap" type="TileMapLayer" parent="CleanTileMap" unique_id=1154053475 groups=["Tileset"]]
+texture_filter = 1
+texture_repeat = 2
+tile_map_data = PackedByteArray("AAAHAA0AAQAFAAYAAAD9/wkAAQArAAgAABD+/wkAAQAqAAgAABAHABcAAQAnAAoAAAAIABcAAQAoAAoAAAAJABcAAQApAAoAAAAIAAYAAQAqAA4AAAAIAAcAAQAqAA8AAAAJAAYAAQArAA4AAAAJAAcAAQArAA8AAAAIAAUAAQAoAA0AAAAJAAUAAQApAA0AAAAOAAsAAQAuAAYAAAAOAAwAAQAuAAcAAAAPAAsAAQAvAAYAAAAPAAwAAQAvAAcAAAAGAAgAAQApAAoAAAAFAAgAAQAnAAoAAAAHAAgAAQAlAAwAAAA=")
+tile_set = ExtResource("6_swwr0")
+script = ExtResource("5_56hs8")
+
+[node name="CleanSubTileMap2" type="TileMapLayer" parent="CleanTileMap" unique_id=1361493597 groups=["Tileset"]]
+modulate = Color(0.7303682, 0.86920005, 0.76012594, 1)
+texture_filter = 1
+texture_repeat = 2
+tile_map_data = PackedByteArray("AAAHAA0AAQAFAAYAAAAHABcAAQAnAAoAAAAIABcAAQAoAAoAAAAJABcAAQApAAoAAAAOAAsAAQAuAAYAAAAOAAwAAQAuAAcAAAAPAAsAAQAvAAYAAAAPAAwAAQAvAAcAAAAKAA4AAQAhAAwAAAALAA4AAQAiAAwAAAAMAA4AAQAeAAwAAAANAA4AAQAfAAwAAAACABEAAQAuAAoAAAACABIAAQAuAAsAAAADABEAAQAvAAoAAAADABIAAQAvAAsAAAAIABEAAQArAA4AAAAIABIAAQArAAwAAAAIABMAAQArAAsAAAAHABEAAQAqAA4AAAAHABIAAQAqAAwAAAAHABMAAQAqAAsAAAA=")
+tile_set = ExtResource("6_swwr0")
 script = ExtResource("5_56hs8")
 
 [node name="Time_Left" type="Timer" parent="." unique_id=659811553 groups=["GameTimer"]]
@@ -277,7 +285,7 @@ script = ExtResource("8_pvu53")
 [node name="CanvasLayer" parent="." unique_id=1456251577 instance=ExtResource("5_gp860")]
 
 [node name="Flag" parent="." unique_id=994706306 instance=ExtResource("6_v80wx")]
-position = Vector2(127, 368)
+position = Vector2(127, 370)
 
 [node name="WorldEnvironment" parent="." unique_id=1124927380 instance=ExtResource("7_5rm3w")]
 
