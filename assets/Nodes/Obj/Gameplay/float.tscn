@@ -121,7 +121,7 @@ OnWaterRay = NodePath("OnWaterRay")
 NotOnWaterRay = NodePath("NotOnWaterRay")
 
 [node name="NotOnWaterRay" type="RayCast2D" parent="WaterFloatLogic" unique_id=750481891]
-target_position = Vector2(0, 6)
+target_position = Vector2(0, 17)
 collision_mask = 33024
 hit_from_inside = true
 
