@@ -260,6 +260,7 @@ texture_repeat = 2
 tile_map_data = PackedByteArray("AAAFABUAAQAYAAYAAAAFABYAAQAYAAcAAAAGABUAAQAZAAYAAAAGABYAAQAZAAcAAAANAAUAAQALAA8AAAANAAYAAQAMAA8AAAANAAcAAQANAA8AAAANAAQAAQAKAA8AAAA=")
 tile_set = ExtResource("7_2w6l7")
 script = ExtResource("5_56hs8")
+ShadowShader = true
 
 [node name="CleanSubTileMap" type="TileMapLayer" parent="CleanTileMap" unique_id=1154053475 groups=["Tileset"]]
 texture_filter = 1
@@ -269,7 +270,7 @@ tile_set = ExtResource("6_swwr0")
 script = ExtResource("5_56hs8")
 
 [node name="CleanSubTileMap2" type="TileMapLayer" parent="CleanTileMap" unique_id=1361493597 groups=["Tileset"]]
-modulate = Color(0.7303682, 0.86920005, 0.76012594, 1)
+modulate = Color(0.83819735, 0.9264403, 0.8567119, 1)
 texture_filter = 1
 texture_repeat = 2
 tile_map_data = PackedByteArray("AAAHAA0AAQAFAAYAAAAHABcAAQAnAAoAAAAIABcAAQAoAAoAAAAJABcAAQApAAoAAAAOAAsAAQAuAAYAAAAOAAwAAQAuAAcAAAAPAAsAAQAvAAYAAAAPAAwAAQAvAAcAAAAKAA4AAQAhAAwAAAALAA4AAQAiAAwAAAAMAA4AAQAeAAwAAAANAA4AAQAfAAwAAAACABEAAQAuAAoAAAACABIAAQAuAAsAAAADABEAAQAvAAoAAAADABIAAQAvAAsAAAAIABEAAQArAA4AAAAIABIAAQArAAwAAAAIABMAAQArAAsAAAAHABEAAQAqAA4AAAAHABIAAQAqAAwAAAAHABMAAQAqAAsAAAA=")

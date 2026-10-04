@@ -252,6 +252,7 @@ texture_repeat = 2
 material = SubResource("ShaderMaterial_h4og5")
 tile_set = ExtResource("5_oi8cv")
 script = ExtResource("4_ffk4x")
+ShadowShader = true
 
 [node name="GreenSubTileMap" type="TileMapLayer" parent="CleanTileMap" unique_id=2024933941 groups=["Tileset"]]
 texture_filter = 1
