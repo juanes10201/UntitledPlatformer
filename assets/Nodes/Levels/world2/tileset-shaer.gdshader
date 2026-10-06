@@ -28,7 +28,7 @@ void fragment() {
 	vec2 in_tile_uv = fract(tile_uv);
 	ivec2 tile_coord = ivec2(floor(tile_uv)) - ivec2(map_origin);
 	vec4 pixel_color = texelFetch(border_map, tile_coord, 0);
-	if(pixel_color.a > 0.0){
+	if(pixel_color.a > 0.0 && COLOR.a > 0.0){
 		//Horizontal lights
 		if((pixel_color.x > 0.1 && pixel_color.x < 0.3) || pixel_color.x > .8) {
 			vec4 shadow_color_sample = texture(light_color, in_tile_uv);
