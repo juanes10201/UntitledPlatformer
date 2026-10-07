@@ -3,6 +3,7 @@ extends TileMapLayer
 
 @onready var Player = $"../Player"
 @export var ShadowShader : bool = false
+@export var IsShadedSubtile : bool = false
 @export_tool_button("Redraw Neighbor Map", "Callable")
 var update_neighbor_map_action: Callable:
 	get: return update_neighbor_map
