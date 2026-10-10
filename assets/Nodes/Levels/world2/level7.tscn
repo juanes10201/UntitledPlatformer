@@ -289,7 +289,7 @@ modulate = Color(0.69610345, 0.78720355, 0.73665726, 1)
 texture_filter = 1
 texture_repeat = 2
 material = ExtResource("9_ou65k")
-tile_map_data = PackedByteArray("AAD//w0AAQAjAA0AACD1/xEAAQArAAcAAGD1/xIAAQAqAAcAAGD5/xMAAQAeAAwAAAD6/xMAAQAfAAwAAAD7/xMAAQAgAAwAAAA=")
+tile_map_data = PackedByteArray("AAD//w0AAQAjAA0AACD5/xMAAQAeAAwAAAD6/xMAAQAfAAwAAAD7/xMAAQAgAAwAAAD1/xIAAQArAAcAAGD1/xMAAQAqAAcAAGAAAA8AAQAqAAcAAFAAABAAAQArAAcAAFA=")
 tile_set = ExtResource("5_kjt7l")
 script = ExtResource("7_yqpsj")
 IsShadedSubtile = true

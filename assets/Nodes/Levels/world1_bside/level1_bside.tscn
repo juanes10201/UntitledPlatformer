@@ -106,7 +106,6 @@ script = ExtResource("12_ko5iy")
 
 [node name="Bg" parent="." unique_id=6104661 instance=ExtResource("2_6b0wx")]
 visible = false
-position = Vector2(-755, -863)
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1115734373 groups=["Tileset"]]
 position = Vector2(-2, 32)

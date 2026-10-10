@@ -236,7 +236,7 @@ script = ExtResource("18_uxfaw")
 ShadowShader = true
 
 [node name="DirtBgTileMap2" type="TileMapLayer" parent="CleanTileMap" unique_id=640623035 groups=["Tileset"]]
-modulate = Color(0.5292196, 0.41417193, 0.5966589, 0.7529412)
+modulate = Color(0.68394536, 0.41133544, 0.5887505, 0.7529412)
 z_index = -2
 texture_filter = 1
 texture_repeat = 2
