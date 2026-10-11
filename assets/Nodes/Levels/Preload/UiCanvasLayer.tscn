@@ -1012,6 +1012,7 @@ text = "速度代码
 
 [node name="Logo" type="Sprite2D" parent="." unique_id=2088275025]
 modulate = Color(1, 1, 1, 0)
+z_index = 3
 position = Vector2(579, 318)
 scale = Vector2(0.794659, 0.794659)
 texture = ExtResource("21_cn8mj")

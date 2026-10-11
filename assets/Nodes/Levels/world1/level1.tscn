@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://dmnyy0uuvc0jk" path="res://assets/Nodes/Obj/Gameplay/kill_box.tscn" id="3_vdqar"]
 [ext_resource type="TileSet" uid="uid://defl28kc6mcu4" path="res://assets/Nodes/Obj/Tileset/tiles.tres" id="4_dwwxv"]
 [ext_resource type="Script" uid="uid://bn0iulww64056" path="res://assets/Scripts/tile_map_layer.gd" id="5_c7cqe"]
-[ext_resource type="PackedScene" uid="uid://cfa7sxsc3ppdn" path="res://assets/Nodes/Levels/Preload/UiCanvasLayer.tscn" id="6_iasts"]
 [ext_resource type="Script" uid="uid://cq42f2j2x22je" path="res://assets/Scripts/time_left.gd" id="7_ww10e"]
 [ext_resource type="PackedScene" uid="uid://cba0dn710x26" path="res://assets/Nodes/Obj/Gameplay/flag.tscn" id="8_rmkdv"]
 [ext_resource type="PackedScene" uid="uid://xjx2k63akbn3" path="res://assets/Nodes/Levels/Preload/levels_default.tscn" id="9_1rqlk"]
@@ -61,22 +60,6 @@ _data = {
 &"RESET": SubResource("Animation_wh1ld"),
 &"move": SubResource("Animation_6ubuh")
 }
-
-[sub_resource type="GDScript" id="GDScript_kdu5x"]
-script/source = "extends CanvasLayer
-@export var ShowFadeIn : bool = true
-@export var ShowFadeOut : bool = false
-@export var ShowTimer : bool = true
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
 
 [sub_resource type="Environment" id="Environment_vmlh1"]
 background_mode = 3
@@ -326,9 +309,6 @@ texture_repeat = 2
 tile_map_data = PackedByteArray("AAD0/+j/AQAaABEAAAD0/+n/AQAaABIAAAD0/+r/AQAIABIAAAD1/+j/AQAbABEAAAD1/+n/AQAbABIAAAD1/+r/AQAJABIAAADw/+j/AQAMAAkAAADw/+n/AQAMAAoAAADx/+j/AQANAAkAAADx/+n/AQANAAoAAAD7/8j/AQABAA4AAAD7/8n/AQABAA8AAAD8/8j/AQACAA4AAAD8/8n/AQACAA8AAAD9/8j/AQADAA4AAAD9/8n/AQADAA8AAAD3/8v/AQAQAAUAAAD4/8v/AQARAAUAAAD5/8r/AQASAAQAAAD5/8v/AQASAAUAAAAKAMT/AQAHAAYAAAAKAMX/AQAHAAcAAAAKAMb/AQAHAAgAAAAKAMf/AQAHAAkAAAAKAMj/AQAHAAoAAAALAMT/AQAIAAYAAAALAMX/AQAIAAcAAAALAMb/AQAIAAgAAAALAMf/AQAIAAkAAAALAMj/AQAIAAoAAAAMAMT/AQAJAAYAAAAMAMX/AQAJAAcAAAAMAMb/AQAJAAgAAAAMAMf/AQAJAAkAAAAMAMj/AQAJAAoAAAD3/9v/AQAKAAwAAAD3/9z/AQAKAA0AAAD4/9v/AQALAAwAAAD4/9z/AQALAA0AAAD5/9v/AQAMAAwAAAD5/9z/AQAMAA0AAAD6/9v/AQANAAwAAAD6/9z/AQANAA0AAAD3/9r/AQAKAAsAAAD4/9r/AQALAAsAAAD5/9r/AQAMAAsAAAD6/9r/AQANAAsAAAA=")
 tile_set = ExtResource("4_dwwxv")
 script = ExtResource("5_c7cqe")
-
-[node name="CanvasLayer" parent="." unique_id=1211982132 instance=ExtResource("6_iasts")]
-script = SubResource("GDScript_kdu5x")
 
 [node name="Time_Left" type="Timer" parent="." unique_id=891190019 groups=["GameTimer"]]
 wait_time = 20.0

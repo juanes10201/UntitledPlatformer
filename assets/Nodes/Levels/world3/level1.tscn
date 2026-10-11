@@ -34,7 +34,7 @@ shader_parameter/scanline_wave_frequency = 40.0
 shader_parameter/scanline_wave_speed = 0.20000000298024
 shader_parameter/alternate_direction = true
 shader_parameter/viewport_size = Vector2(1920, 1080)
-shader_parameter/hue_shift_speed = 0.28999999351792
+shader_parameter/hue_shift_speed = 0.08999999798832
 shader_parameter/hue_strength = 0.28999999351792
 
 [sub_resource type="Animation" id="Animation_wh1ld"]
@@ -211,7 +211,7 @@ position = Vector2(5, -290)
 texture = ExtResource("2_n0vcv")
 
 [node name="Bg" type="Sprite2D" parent="Parallax2D" unique_id=339543120]
-visible = false
+modulate = Color(0.63344324, 0.63344324, 0.63344324, 1)
 z_index = -5
 texture_repeat = 2
 material = SubResource("ShaderMaterial_cuvt4")
@@ -222,7 +222,6 @@ offset = Vector2(75.165, 0)
 region_enabled = true
 region_rect = Rect2(0.078, 0.149, 2000, 1000)
 script = ExtResource("5_shrjd")
-Show = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Parallax2D/Bg" unique_id=1819860564]
 libraries/ = SubResource("AnimationLibrary_y6cpy")

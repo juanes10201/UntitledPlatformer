@@ -463,7 +463,7 @@ func _ready() -> void:
 	if(TransitionIn): TransitionIn.fade_out()
 	
 	if(PlayIntro):
-		$Camera2D/AnimationPlayer.play("Start")
+		IntroAnim.play("Start")
 		#Camera.offset.y = $Camera2D/InitialPoint.global_position.y
 		FrameFreeze(.4, 2)
 	
@@ -473,7 +473,14 @@ func _ready() -> void:
 	#endregion
 	
 #region Physics proccess
+
+@onready var IntroAnim : AnimationPlayer = $Camera2D/AnimationPlayer
 func _physics_process(delta: float) -> void:
+	if(PlayIntro && EndedDialogIntro && !IntroAnim.is_playing()):
+		TimerIntroSlam.start()
+		$Camera2D/AnimationPlayer.play("End")
+		EndedDialogIntro = false
+	
 	if(!Paused):
 		LevelManager.world_timer_tick(delta)
 		LevelManager.calc_world_timer_mult()
@@ -1376,9 +1383,9 @@ func _on_water_area_body_exited(body: Node2D) -> void:
 	OnWaterTile = false
 	OnWaterInitialSlideTile = false
 
+var EndedDialogIntro : bool = false
 
 func _dialog_intro_end() -> void:
 	#pass
 	if(PlayIntro):
-		TimerIntroSlam.start()
-		$Camera2D/AnimationPlayer.play("End")
+		EndedDialogIntro = true
