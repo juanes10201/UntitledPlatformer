@@ -465,6 +465,7 @@ script = ExtResource("2_ubfur")
 script = SubResource("GDScript_kdu5x")
 
 [node name="Snes_borders" type="Sprite2D" parent="CanvasLayer" unique_id=500099975]
+visible = false
 z_index = 2
 position = Vector2(576.8889, 324.5)
 scale = Vector2(0.600926, 0.6009259)

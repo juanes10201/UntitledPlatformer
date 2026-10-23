@@ -822,6 +822,7 @@ expand_icon = true
 script = ExtResource("9_itrmr")
 BUTTON_ACTION = 4
 ADITIONAL_ARGUMENT = "res://assets/Nodes/LevelEditor/levelEditor.tscn"
+Tag = "Editor"
 HoverDif = 20.0
 FadeTransition = true
 
@@ -832,7 +833,7 @@ anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -1754.0
 offset_right = -1383.1068
-offset_bottom = 213.77054
+offset_bottom = 213.77042
 grow_horizontal = 0
 theme_override_styles/focus = ExtResource("10_gopbp")
 icon = ExtResource("11_tsnyn")

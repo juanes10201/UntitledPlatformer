@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b25t1aa2kdi6p" path="res://assets/Sprites/Gameplay/Tilesets/World2/bg_placeholder.png" id="3_470lj"]
 [ext_resource type="Texture2D" uid="uid://hcxs4btcs1e4" path="res://assets/Sprites/Gameplay/Tilesets/World2/world2sky-bg.png" id="4_fh1ei"]
 [ext_resource type="Texture2D" uid="uid://dv34bgxvc8hy7" path="res://assets/Sprites/Gameplay/Tilesets/World2/world2sky-beach.png" id="5_470lj"]
+[ext_resource type="Shader" uid="uid://bqv1myhf1mr1x" path="res://assets/Shader/SquiggleVision.gdshader" id="6_2jnbn"]
+[ext_resource type="Texture2D" uid="uid://btl0w1y8u71yo" path="res://assets/Sprites/Gameplay/Tilesets/World3/bgtest1.png" id="7_fw0y0"]
 
 [sub_resource type="Animation" id="Animation_timnu"]
 length = 0.001
@@ -83,6 +85,11 @@ _data = {
 atlas = ExtResource("3_470lj")
 region = Rect2(0, 139.5, 600, 244.5)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p34cj"]
+shader = ExtResource("6_2jnbn")
+shader_parameter/jiggle = 10.0
+shader_parameter/speed = 0.2
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_u26yp"]
 atlas = ExtResource("1_u26yp")
 region = Rect2(0, 221.99913, 621.9823, 221.00087)
@@ -144,6 +151,15 @@ z_index = -6
 z_as_relative = false
 position = Vector2(0, -29)
 texture = ExtResource("1_u26yp")
+
+[node name="Sprite2D8" type="Sprite2D" parent="." unique_id=2029603404]
+visible = false
+modulate = Color(0.6131996, 0.61319953, 0.6131995, 1)
+z_index = -6
+z_as_relative = false
+material = SubResource("ShaderMaterial_p34cj")
+position = Vector2(0, 184)
+texture = ExtResource("7_fw0y0")
 
 [node name="Parallax2D3" type="Parallax2D" parent="." unique_id=149699400]
 scroll_scale = Vector2(0, 0.8)

@@ -3,6 +3,8 @@ extends Button
 @export var BUTTON_ACTION = Global.BUTTON_ACTIONS.none
 @export var ADITIONAL_ARGUMENT : String = ""
 
+@export var Tag : String = ""
+
 @export var DiscShader : bool = false
 
 @export var HoverDif : float = 30
@@ -50,6 +52,8 @@ var tween_normal = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if(Tag == "Editor"):
+		disabled = !Edition.IncludeLevelEditor
 	#if(text == "1"):
 	#	grab_focus()
 	
@@ -68,7 +72,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if(disabled): return
+	if(disabled):
+		modulate = Color(1.0, 1.0, 1.0, .8)
+		return
 	if(DiscShader):
 		if(!DiscShaderInitialTilt):
 			DiscShaderInitialTilt = material.get_shader_parameter("max_tilt")

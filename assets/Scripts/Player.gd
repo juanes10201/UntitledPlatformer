@@ -12,6 +12,8 @@ enum Sides{
 	UP
 }
 
+@export var ShortFormContent : bool = false
+
 var SlidingInAir : bool = false
 var EnableMovement : bool = true
 
@@ -415,6 +417,11 @@ func _shadow_tick() -> void:
 @export var TimerIntroSlam : Timer
 
 func _ready() -> void:
+	if(ShortFormContent):
+		if(Camera):
+			Camera.limit_enabled = false
+			Camera.position = Vector2(0.0, 0.0)
+			Camera.offset = Vector2(0.0, -20.0)
 	#Time_Left.paused = true
 	MaxAcc.x *= Max_Velocity_Multiplier
 	if(!Edition.Is_in_editor):

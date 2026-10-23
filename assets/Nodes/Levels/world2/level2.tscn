@@ -290,7 +290,6 @@ scale = Vector2(1.48, 4.08)
 position = Vector2(375, 384)
 InitialMarker = NodePath("InitialMarkerCustom")
 EndMarker = NodePath("EndMarkerCustom")
-CurrentDir = -1
 
 [node name="InitialMarkerCustom" type="Marker2D" parent="Enemy_Fish3" unique_id=1334085989]
 top_level = true
@@ -304,6 +303,7 @@ position = Vector2(374, 397)
 position = Vector2(418, 390)
 InitialMarker = NodePath("InitialMarkerCustom")
 EndMarker = NodePath("EndMarkerCustom")
+CurrentDir = -1
 
 [node name="InitialMarkerCustom" type="Marker2D" parent="Enemy_Fish4" unique_id=750681895]
 top_level = true
