@@ -1,10 +1,12 @@
-END-USER LICENSE AGREEMENT FOR [GAME NAME]
+END-USER LICENSE AGREEMENT FOR Speedtickers
 
 IMPORTANT: PLEASE READ THE TERMS AND CONDITIONS OF THIS LICENSE AGREEMENT CAREFULLY BEFORE CONTINUING WITH THIS PROGRAM INSTALL.
 
-This End-User License Agreement ("EULA") is a legal agreement between you (either an individual or a single entity) and Juanes1020 (hereinafter referred to as "Licensor"), for the software product identified above, which may include associated software components, media, printed materials, and "online" or electronic documentation ("SOFTWARE PRODUCT"). By installing, copying, or otherwise using the SOFTWARE PRODUCT, you agree to be bound by the terms of this EULA. This license agreement represents the entire agreement concerning the program between you and the Licensor, and it supersedes any prior proposal, representation, or understanding between the parties. If you do not agree to the terms of this EULA, do not install or use the SOFTWARE PRODUCT.
+This End-User License Agreement ("EULA") is a legal agreement between you (either an individual or a single entity) and Juanes1020 (hereinafter referred to as "Licensor"), for the software product identified above, which may include associated software components, source code, media, printed materials, and "online" or electronic documentation ("SOFTWARE PRODUCT"). By installing, copying, accessing, or otherwise using the SOFTWARE PRODUCT, you agree to be bound by the terms of this EULA. This license agreement represents the entire agreement concerning the program between you and the Licensor, and it supersedes any prior proposal, representation, or understanding between the parties. If you do not agree to the terms of this EULA, do not install, access, or use the SOFTWARE PRODUCT.
 
 The SOFTWARE PRODUCT is protected by copyright laws and international copyright treaties, as well as other intellectual property laws and treaties. The SOFTWARE PRODUCT is licensed, not sold.
+
+DEFINITION. "AI Training" means any use of the SOFTWARE PRODUCT, in whole or in part, (including its source code, compiled code, assets, media, documentation, and any copies, excerpts, or derivatives of them) to create, train, pre-train, fine-tune, validate, test, evaluate, distill, align, or otherwise improve any artificial intelligence or machine learning model, including large language models, code-generation models, and generative models; or to build, populate, or enrich any dataset, corpus, embedding, vector index, or knowledge base intended for such purposes.
 
 1. GRANT OF LICENSE
 
@@ -14,7 +16,7 @@ The SOFTWARE PRODUCT is licensed as follows:
 The Licensor grants you the right to install and use copies of the SOFTWARE PRODUCT on your computer running a validly licensed copy of the operating system for which the SOFTWARE PRODUCT was designed, strictly for personal, non-commercial purposes.
 
 (b) Modifications.
-You may modify the SOFTWARE PRODUCT solely for personal, non-commercial purposes. Any modified version of the SOFTWARE PRODUCT must not be distributed, shared, or used for commercial gain.
+You may modify the SOFTWARE PRODUCT solely for personal, non-commercial purposes. Any modified version of the SOFTWARE PRODUCT must not be used for commercial gain, and remains subject to Section 2(h) (No AI Training).
 
 (c) Backup Copies.
 You may make copies of the SOFTWARE PRODUCT as necessary for backup and archival purposes.
@@ -42,9 +44,18 @@ You must comply with all applicable laws regarding use of the SOFTWARE PRODUCT.
 (g) Unauthorized Forks.
 You may not create unauthorized forks of the SOFTWARE PRODUCT for commercial purposes.
 
+(h) No AI Training.
+You may not, and you may not permit, enable, or assist any third party to, use the SOFTWARE PRODUCT for AI Training. This restriction applies to any purpose, whether commercial or non-commercial, research or otherwise, and to any copy, fork, modification, mirror, or derivative of the SOFTWARE PRODUCT, however obtained. The Licensor does not grant any license, express or implied, for AI Training, and all such rights are expressly reserved.
+
+(i) No Automated Collection.
+You may not use crawlers, scrapers, bots, or any other automated means to collect, copy, or index the SOFTWARE PRODUCT (including from any repository or website where it is published) for the purpose of AI Training, or for the purpose of supplying material to any third party for AI Training.
+
+(j) Downstream Restrictions.
+If you provide or make available any copy or portion of the SOFTWARE PRODUCT to any third party (to the extent such provision is otherwise permitted by this EULA), you must ensure that the third party is bound by restrictions at least as protective as Sections 2(h) and 2(i). The Licensor reserves its rights, including any right to opt out of text and data mining or similar exceptions under applicable law, and this EULA constitutes an express reservation of those rights.
+
 3. TERMINATION
 
-Without prejudice to any other rights, the Licensor may terminate this EULA if you fail to comply with its terms and conditions. In such an event, you must destroy all copies of the SOFTWARE PRODUCT in your possession.
+Without prejudice to any other rights, the Licensor may terminate this EULA if you fail to comply with its terms and conditions. In such an event, you must destroy all copies of the SOFTWARE PRODUCT in your possession and, to the extent technically feasible, cease using and delete any dataset, index, or model that was created or improved in breach of Section 2(h) or 2(i). The Licensor may seek any remedy available under applicable law, including injunctive relief.
 
 4. COPYRIGHT
 
@@ -52,7 +63,7 @@ All title, including but not limited to copyrights, in and to the SOFTWARE PRODU
 
 5. UPDATES
 
-Licensor reserves the right to provide updates, patches, and modifications to the SOFTWARE PRODUCT at any time. These updates may modify or remove certain features, and the Licensor has no obligation to provide continued support or maintenance.
+Licensor reserves the right to provide updates, patches, and modifications to the SOFTWARE PRODUCT at any time. These updates may modify or remove certain features, and the Licensor has no obligation to provide continued support or maintenance. Updates are subject to this EULA, including Sections 2(h) to 2(j).
 
 6. NO WARRANTIES
 
@@ -64,12 +75,10 @@ In no event shall the Licensor be liable for any damages (including, without lim
 
 8. GOVERNING LAW
 
-This Agreement shall be governed and interpreted in accordance with the laws of [Your Country/State], without regard to its conflict of law principles.
+This Agreement shall be governed and interpreted in accordance with the laws of Argentina, without regard to its conflict of law principles.
 
 9. CONTACT INFORMATION
 
-For any inquiries regarding this Agreement, please contact [Your Contact Information].
+For any inquiries regarding this Agreement, please contact juanesteban10201@gmail.com.
 
-By installing or using the SOFTWARE PRODUCT, you acknowledge that you have read and understood this Agreement and agree to be bound by its terms.
-
-
+By installing, accessing, or using the SOFTWARE PRODUCT, you acknowledge that you have read and understood this Agreement and agree to be bound by its terms.
