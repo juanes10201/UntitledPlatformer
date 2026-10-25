@@ -49,6 +49,7 @@ directories/dch_directory={
 "Boss1": "res://assets/Dialogic/Characters/Boss1.dch",
 "Crowd": "res://assets/Dialogic/Characters/Crowd.dch",
 "Holo": "res://assets/Dialogic/Characters/Holo.dch",
+"NewsGuy1": "res://assets/Dialogic/Characters/NewsGuy1.dch",
 "Npc1": "res://assets/Dialogic/Characters/Npc1.dch",
 "Player": "res://assets/Dialogic/Characters/Player.dch",
 "Telephone": "res://assets/Dialogic/Characters/Telephone.dch"

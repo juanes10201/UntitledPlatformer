@@ -1,0 +1,32 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "",
+&"color": Color(1, 1, 1, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "Mood 1",
+"sound_moods": {
+"Mood 1": {
+"mode": 0,
+"name": "Mood 1",
+"pitch_base": 1.0,
+"pitch_variance": 0.1,
+"skip_characters": 2.0,
+"sound_path": "res://assets/Sounds/Voices/Reporter/InGame",
+"volume_base": 12.0,
+"volume_variance": 0.0
+}
+},
+"style": "FaceShow",
+"suffix": ""
+},
+&"default_portrait": "",
+&"description": "",
+&"display_name": "NewsGuy1",
+&"mirror": false,
+&"nicknames": [""],
+&"offset": Vector2(0, 0),
+&"portraits": {},
+&"scale": 1.0
+}

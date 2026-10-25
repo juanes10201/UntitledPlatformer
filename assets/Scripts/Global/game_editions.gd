@@ -37,7 +37,7 @@ var GAME_STATUS_CHARACTERISTICS : Array = [
 	}
 	
 	]
-var GAME_STATUS = ALL_GAME_STATUS.demo
+var GAME_STATUS = ALL_GAME_STATUS.retail
 var IncludeLevelEditor = true
 
 var ExpoLimitedTime : bool = true
