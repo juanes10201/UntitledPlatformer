@@ -3,9 +3,10 @@
 ![SPEEDTICKERS Steam 1th Screenshot](./md_images/SteamImages/Screenshots/1.png)
 
 [See the original game protype on itch.io](https://juanes10201.itch.io/speedtickers)
+Speedtickers is a fast paced speedrun centered 2d platformer game that uses the momentum based physics and fast movement from Ultrakill. Built with **Godot 4**.
+
 YOU MAY NOT USE ANY OF THE CODE NOR ASSETS TO TRAIN AI, FOLLOWING THE [End-User License Agreement for Speedtickers](https://github.com/juanes10201/speedtickers/blob/main/EULA.txt)
 
-Speedtickers is a fast paced speedrun centered 2d platformer game that uses the momentum based physics and fast movement from Ultrakill. Built with **Godot 4**.
 
 Original prototype submited for [Hackclub Juice Gamejam](https://github.com/hackclub/juice).
 
