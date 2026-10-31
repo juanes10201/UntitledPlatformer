@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dfxj00uyktfa7" path="res://assets/Sprites/Gameplay/enemies/slime/regular/slime-Sheet.png" id="3_k2r51"]
 [ext_resource type="Texture2D" uid="uid://b145nvnbk486f" path="res://assets/Sprites/particles/slime-particles.png" id="4_wx0it"]
 [ext_resource type="Texture2D" uid="uid://3x6g56fvrojo" path="res://assets/Sprites/Gameplay/enemies/slime/shoot/slime-bullet-sheet.png" id="5_l2o4g"]
+[ext_resource type="Script" uid="uid://r1dc1ig1cw8y" path="res://assets/Nodes/Obj/Gameplay/Enemie/sprite_juice_stretch_logic.gd" id="6_fowpd"]
+[ext_resource type="Script" uid="uid://dhc8o6itiqgki" path="res://assets/Nodes/Obj/Gameplay/Player/juice_stretch_logic.gd" id="7_tipw1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4y4c6"]
 size = Vector2(8, 9.615)
@@ -147,6 +149,11 @@ position = Vector2(0.279999, 6.74)
 sprite_frames = SubResource("SpriteFrames_2fkqx")
 animation = &"Shoot"
 offset = Vector2(-0.28, -6.35)
+script = ExtResource("6_fowpd")
+
+[node name="JuiceStretchLogic" type="Node2D" parent="Sprite2D" unique_id=1809063143]
+position = Vector2(-0.45497608, 9.06194)
+script = ExtResource("7_tipw1")
 
 [node name="ShootBulletTimer" type="Timer" parent="." unique_id=2051909585]
 wait_time = 0.9

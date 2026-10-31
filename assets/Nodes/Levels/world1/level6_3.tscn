@@ -410,7 +410,6 @@ script = ExtResource("16_eqw1s")
 [node name="Rail" parent="." unique_id=638927588 instance=ExtResource("16_b3igw")]
 position = Vector2(-122, 35)
 points = PackedVector2Array(-6, 6, 0, 2, 4, 21, 63, 27, 87, -9, 174, 5, 176, 23)
-MoveSpeed = 450
 EndWithSlam = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2085571386 groups=["Tileset"]]

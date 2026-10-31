@@ -3258,7 +3258,7 @@ CurrentAnimation = 1
 [node name="Player" parent="." unique_id=165322871 instance=ExtResource("5_kr6ob")]
 position = Vector2(-663, -290)
 
-[node name="shadow" parent="Player/Sprite2D" parent_id_path=PackedInt32Array(165322871, 923411027) index="1" unique_id=1820450387]
+[node name="shadow" parent="Player/Sprite2D" parent_id_path=PackedInt32Array(165322871, 923411027) index="2" unique_id=1820450387]
 frame_progress = 0.2079959
 
 [node name="Camera2D3" type="Camera2D" parent="Player" unique_id=501980957]

@@ -43,6 +43,7 @@
 [ext_resource type="AudioStream" uid="uid://cgvt4j0ojlh60" path="res://assets/Sounds/switch.wav" id="19_uvkhq"]
 [ext_resource type="AudioStream" uid="uid://cqau2g0edyke0" path="res://assets/Sounds/key.wav" id="20_2xca2"]
 [ext_resource type="AudioStream" uid="uid://bh23td2y13ecc" path="res://assets/Sounds/orb_gravity.wav" id="22_1ia1n"]
+[ext_resource type="Script" uid="uid://dhc8o6itiqgki" path="res://assets/Nodes/Obj/Gameplay/Player/juice_stretch_logic.gd" id="25_epkpk"]
 [ext_resource type="AudioStream" uid="uid://xns532oekjvk" path="res://assets/Sounds/skate-rail.wav" id="26_g5ylh"]
 [ext_resource type="AudioStream" uid="uid://chesfmv4s1cm8" path="res://assets/Sounds/Upgrade.mp3" id="27_gu8yx"]
 [ext_resource type="AudioStream" uid="uid://cudsgu0v7c88x" path="res://assets/Sounds/water_splash_proccesed.wav" id="28_ygib8"]
@@ -1039,6 +1040,11 @@ positions = Dictionary[String, Vector2]({
 "Walking": Vector2(0, -1.58),
 "Wall_jump": Vector2(0, 0.265)
 })
+
+[node name="JuiceStretchLogic" type="Node2D" parent="Sprite2D" unique_id=715435328]
+position = Vector2(-0.45497608, 9.06194)
+script = ExtResource("25_epkpk")
+UpdateOffset = true
 
 [node name="MoveShadow" type="AnimatedSprite2D" parent="Sprite2D" unique_id=635495705]
 z_as_relative = false

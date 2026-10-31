@@ -288,7 +288,7 @@ func editor_reset() -> void:
 #endregion
 
 func reset_dead() -> void:
-	stretch_reset()
+	Sprite.JuiceStretchLogic.stretch_reset()
 	Sprite.play("Idle")
 	Reset_Slide()
 	Reset_Groundsmash(false, false, true)
@@ -626,7 +626,7 @@ func _physics_process(delta: float) -> void:
 		
 		if(_is_on_floor_raycast() && !was_on_floor_raycast):
 			print("Stretch 1")
-			stretch_size(Vector2(1.4, .6), Vector2(1.0, 1.0), .3, true, false)
+			Sprite.JuiceStretchLogic.stretch_size(Vector2(1.4, .6), Vector2(1.0, 1.0), .3, true, false, Tween.EASE_IN_OUT, Tween.TRANS_CUBIC, Sprite.JuiceStretchLogic.OffsetDirections.Down)
 			ParticlesJump.emitting = false
 			ParticlesLanding.hide()
 		if(!_is_on_floor_raycast() && Particles):
@@ -682,7 +682,8 @@ func _physics_process(delta: float) -> void:
 		# Move the character
 		LastPosition = global_position
 		move_and_slide()
-		_stretch_tick(delta) 
+		if(Sprite.JuiceStretchLogic):
+			Sprite.JuiceStretchLogic._stretch_tick(delta) 
 		#endregion
 	elif(SnappedOnRail):
 		_physics_water(delta)
@@ -833,10 +834,10 @@ func _physics_apply_gravity(delta: float) -> void:
 			if(!WallJump):
 				if(velocity.y*GravityDirection < 0 && !_is_on_floor_raycast()): 
 					print("Stretch 2")
-					stretch_size(Vector2(1.5, .5), Vector2(.7, 1.2), .3, true, false)
+					Sprite.JuiceStretchLogic.stretch_size(Vector2(1.5, .5), Vector2(.7, 1.2), .2, true, false, Tween.EASE_IN_OUT, Tween.TRANS_QUINT, Sprite.JuiceStretchLogic.OffsetDirections.Down)
 				elif(velocity.y*GravityDirection >= MaxAcc.y && !_is_on_floor_raycast()):
 					print("Stretch 3")
-					stretch_size(Vector2(.7, 1.2), Vector2(.8, 1.1), .2, true, true)
+					Sprite.JuiceStretchLogic.stretch_size(Vector2(.7, 1.2), Vector2(.8, 1.1), .2, true, true)
 					#_play_sound(AudioWind, false)
 		#else: velocity.y += Speed.y * delta
 	if (_is_on_floor()):
@@ -859,7 +860,7 @@ func _change_gravity_decal() -> void:
 	velocity.y = 100 * GravityDirection
 	Dashed = false
 	print("Stretch gravity")
-	stretch_size(Vector2(1.0,1.0), Vector2(1.5,1.2), .5, true, true)
+	Sprite.JuiceStretchLogic.stretch_size(Vector2(1.0,1.0), Vector2(1.5,1.2), .5, true, true)
 	if(Particles): $ParticlesOrb.emitting = true
 	_play_sound(AudioOrbGravity, true)
 
@@ -1100,7 +1101,7 @@ func _physics_dash(delta: float) -> void:
 		expo_did_action()
 		velocity.y = 0
 		Dashed = true
-		stretch_size(Vector2(.9, .9), Vector2(1.5, .7), .3, true, true)
+		Sprite.JuiceStretchLogic.stretch_size(Vector2(1.2, 1.2), Vector2(.85, .85), .3, true, true)
 		AudioDash.pitch_scale = randf_range(0.8, 1.2)
 		AudioDash.play()
 		print("Stretch 6")
@@ -1169,40 +1170,6 @@ func Controller_Vibrate_Player_Movement(Force):
 
 #region Juice
 
-#region Streching and scaling
-@onready var original_scale = Sprite.scale
-var Stretch_Tween : Tween
-var Doing_Tween : bool = false
-var Tween_scale_to : Vector2 = Vector2(0.0, 0.0)
-var TweenTickContinue : bool = false
-var TweenGoBack : bool = true
-
-func stretch_reset():
-	Stretch_Tween = null
-	Doing_Tween = false
-	Sprite.scale = original_scale
-
-func stretch_size(From : Vector2, To : Vector2, TimeTo : float, Override : bool, GoBack : bool = true, ease : Tween.EaseType = Tween.EASE_IN_OUT, trans : Tween.TransitionType = Tween.TRANS_CUBIC):
-	TweenTickContinue = true
-	TweenGoBack = GoBack
-	if(Tween_scale_to == To): return
-	if(juice && (Override || !Doing_Tween)):
-		Sprite.scale = original_scale*From
-		Stretch_Tween = get_tree().create_tween()
-		Stretch_Tween.tween_property(Sprite, "scale", original_scale*To, TimeTo)
-		if(ease): Stretch_Tween.set_ease(ease)
-		if(trans): Stretch_Tween.set_trans(trans)
-		
-
-func _stretch_tick(delta : float):
-	Doing_Tween = !Stretch_Tween || Stretch_Tween.is_running()
-	if(!Doing_Tween || !TweenTickContinue):
-		if(TweenGoBack):
-			stretch_size(Sprite.scale, original_scale, .2, true, false)
-		else:
-			stretch_reset()
-	TweenTickContinue = false
-#endregion
 #andino was here
 #region FrameFreeze
 var FrameFreezeEnabled : bool = false

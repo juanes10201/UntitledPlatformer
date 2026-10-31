@@ -15,7 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://ddbe23rdv6bq8" path="res://assets/Sprites/Gameplay/enemies/slime/special/slime-Sheet-idle-normal.png" id="7_meurv"]
 [ext_resource type="Texture2D" uid="uid://dcelo55p1v8ds" path="res://assets/Sprites/Gameplay/enemies/slime/special/slime-Sheet-jump-normal.png" id="11_xxbrk"]
 [ext_resource type="Script" uid="uid://d23fnhxwc5cxw" path="res://assets/Nodes/Obj/Gameplay/ShadowSprite.gd" id="13_5ruuh"]
+[ext_resource type="Shader" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie-flicker.gdshader" id="14_bjx3o"]
 [ext_resource type="Texture2D" uid="uid://bk1fn3dewdcv8" path="res://assets/Sprites/Gameplay/enemies/slime/special/slime-Sheet-move-normal.png" id="14_nnhfd"]
+[ext_resource type="Script" uid="uid://dhc8o6itiqgki" path="res://assets/Nodes/Obj/Gameplay/Player/juice_stretch_logic.gd" id="17_0i4lq"]
 
 [sub_resource type="Curve" id="Curve_o3y1q"]
 _data = [Vector2(0.87445885, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -270,6 +272,15 @@ animations = [{
 "name": &"Walking",
 "speed": 6.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eb67m"]
+shader = ExtResource("14_bjx3o")
+shader_parameter/end_time = 5.0
+shader_parameter/start_freq = 1.0
+shader_parameter/end_freq = 10.0
+shader_parameter/time = 0.0
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/blink_length = 0.5
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_mxkeg"]
 diffuse_texture = ExtResource("3_15oel")
@@ -722,6 +733,7 @@ offset = Vector2(-0.28, -6.525)
 script = ExtResource("13_5ruuh")
 
 [node name="IdleAnim" type="Sprite2D" parent="Sprite2D" unique_id=432012126]
+material = SubResource("ShaderMaterial_eb67m")
 position = Vector2(-0.7200012, 1.6299992)
 texture = SubResource("CanvasTexture_mxkeg")
 offset = Vector2(0, -2.375)
@@ -751,5 +763,9 @@ hframes = 6
 [node name="Anim" type="AnimationPlayer" parent="Sprite2D" unique_id=2146337338]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_5ruuh")
+
+[node name="JuiceStretchLogic" type="Node2D" parent="Sprite2D" unique_id=1525023318]
+position = Vector2(-0.45497608, 9.06194)
+script = ExtResource("17_0i4lq")
 
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]

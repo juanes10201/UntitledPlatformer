@@ -89,7 +89,7 @@ func editor_reset() -> void:
 		if(Child is GPUParticles2D || Child is CPUParticles2D):
 			Child.emitting = false
 	velocity = Vector2(0.0, 0.0)
-	strech_size(1.0, 1.0)
+	Sprite.JuiceStretchLogic.stretch_reset()
 	Sprite.play("Idle")
 	position = EditorInitialPos
 	direction = InitialEnemyDirection
@@ -166,7 +166,7 @@ func _ready():
 	if(ShootBulletTimer): ShootBulletTimer.wait_time = TimeToShoot
 	if(Activate_on_color != Global.LASER_COLORS.NONE):
 		Enabled = false
-		Sprite.play("Laser")
+		if(Sprite): Sprite.play("Laser")
 
 
 func _Enemie_Shoot_Sprite_Shader() -> void:
@@ -216,7 +216,7 @@ func _process(delta: float) -> void:
 		#endregion
 		
 		if(Player && !Player.EnemiesPhysics):
-			strech_size(1.0, 1.0)
+			Sprite.JuiceStretchLogic.stretch_reset()
 		if(Player && Player.EnemiesPhysics):
 			_update_sprite()
 			
@@ -224,12 +224,12 @@ func _process(delta: float) -> void:
 			
 			#if(is_on_ceiling()): queue_free()
 			
-			if(velocity.y < 0): strech_size(0.7, 1.3)
-			if(velocity.y >= MAX_FALL_SPEED): strech_size(0.5, 1.7)
+			if(velocity.y < 0): Sprite.JuiceStretchLogic.stretch_size(Vector2(1.8, .3), Vector2(.7, 1.2), .3, true, false, Tween.EASE_IN_OUT, Tween.TRANS_QUINT)
+			if(velocity.y >= MAX_FALL_SPEED): Sprite.JuiceStretchLogic.stretch_size(Vector2(.7, 1.2), Vector2(.6, 1.3), .2, true, true, Tween.EASE_IN_OUT, Tween.TRANS_QUINT)
 			
-			if(_is_on_floor() && was_on_floor == false): strech_size(1.7, 0.5)
+			#if(_is_on_floor() && was_on_floor == false): Sprite.JuiceStretchLogic.stretch_size(Vector2(), Vector2(1.7, 0.5))
 			
-			_strech_tick(delta)
+			Sprite.JuiceStretchLogic._stretch_tick(delta)
 			
 			
 			#region Trigger Player GroundSmash
@@ -252,7 +252,7 @@ func _process(delta: float) -> void:
 			if(Move && Player):
 				if (direction && SPEED < MAX_SPEED && SPEED > MAX_SPEED*-1 && MoveTimer.is_stopped()):
 					velocity.x = direction * SPEED# * randf_range(1, 1.2)
-					strech_size(1.7, 0.5)
+					Sprite.JuiceStretchLogic.stretch_size(Vector2(2.2, 0.7), Vector2(.8, 1.3), .3, true, true, Tween.EASE_IN_OUT, Tween.TRANS_QUINT)
 					MoveTimer.start()
 					Player._play_sound(AudioMove, false)
 				elif(!MoveTimer.is_stopped()):
@@ -276,19 +276,6 @@ func _process(delta: float) -> void:
 				move_and_slide()
 	else:
 		pass
-#endregion
-
-#region Scaling
-@onready var original_scale = Sprite.scale
-func strech_size(X, Y):
-	if(Sprite):
-		Sprite.scale = Vector2(original_scale.x*X, original_scale.y*Y)
-		Sprite.scale.y = abs(Sprite.scale.y)*GravityDirection*Player.GlobalGravityDirection
-
-func _strech_tick(delta : float):
-	if(Sprite):
-		Sprite.scale.x += (original_scale.x - Sprite.scale.x) * 15 * delta
-		Sprite.scale.y += (original_scale.y*GravityDirection*Player.GlobalGravityDirection - Sprite.scale.y) * 15 * delta
 #endregion
 
 #region toggle collision

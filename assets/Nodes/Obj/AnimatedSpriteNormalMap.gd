@@ -3,6 +3,7 @@ extends Node2D
 var flip_h : bool
 var animation : String
 @export var OverrideAnim : bool = false
+@onready var JuiceStretchLogic : Node2D = $JuiceStretchLogic
 
 func _ready() -> void:
 	$Anim.play("Idle")

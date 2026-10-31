@@ -81,7 +81,7 @@ func _process(delta: float) -> void:
 				PlayerSnapped = true
 				print("Player snapped on rail")
 		if(Player.SnappedOnRail && PlayerSnapped):				
-			Player.stretch_size(Vector2(1.2, .8), Vector2(.8, 1.2), .7,true, true)
+			Player.Sprite.JuiceStretchLogic.stretch_size(Vector2(1.2, .8), Vector2(.8, 1.2), .7,true, true)
 			Player.Reset_Slide()
 			Player.Dashed = false
 			Player.PressedSlide = false
