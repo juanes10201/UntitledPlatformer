@@ -49,7 +49,7 @@ func _stretch_offset():
 		Sprite.offset.y = Offset.y+frame_size.y/2-(Tween_scale_to.y/original_scale.y)*(frame_size.y/2)
 	elif(OffsetDirection == OffsetDirections.Up):
 		Sprite.offset.y = Offset.y+frame_size.y/2+(Tween_scale_to.y/original_scale.y)*(frame_size.y/2)
-	print(Offset.y)
+	#print(Offset.y)
 	
 func _stretch_tick(delta : float):
 	if(!Juice): return

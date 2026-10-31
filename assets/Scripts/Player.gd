@@ -625,7 +625,7 @@ func _physics_process(delta: float) -> void:
 		#endregion  
 		
 		if(_is_on_floor_raycast() && !was_on_floor_raycast):
-			print("Stretch 1")
+			#print("Stretch 1")
 			Sprite.JuiceStretchLogic.stretch_size(Vector2(1.4, .6), Vector2(1.0, 1.0), .3, true, false, Tween.EASE_IN_OUT, Tween.TRANS_CUBIC, Sprite.JuiceStretchLogic.OffsetDirections.Down)
 			ParticlesJump.emitting = false
 			ParticlesLanding.hide()
@@ -833,10 +833,10 @@ func _physics_apply_gravity(delta: float) -> void:
 			velocity.y += get_gravity_player() * Acc.y * delta * GravityDirection * GravitySandFallDirection
 			if(!WallJump):
 				if(velocity.y*GravityDirection < 0 && !_is_on_floor_raycast()): 
-					print("Stretch 2")
+					#print("Stretch 2")
 					Sprite.JuiceStretchLogic.stretch_size(Vector2(1.5, .5), Vector2(.7, 1.2), .2, true, false, Tween.EASE_IN_OUT, Tween.TRANS_QUINT, Sprite.JuiceStretchLogic.OffsetDirections.Down)
 				elif(velocity.y*GravityDirection >= MaxAcc.y && !_is_on_floor_raycast()):
-					print("Stretch 3")
+					#print("Stretch 3")
 					Sprite.JuiceStretchLogic.stretch_size(Vector2(.7, 1.2), Vector2(.8, 1.1), .2, true, true)
 					#_play_sound(AudioWind, false)
 		#else: velocity.y += Speed.y * delta
@@ -859,7 +859,7 @@ func _change_gravity_decal() -> void:
 	SwitchedGravity = true
 	velocity.y = 100 * GravityDirection
 	Dashed = false
-	print("Stretch gravity")
+	#print("Stretch gravity")
 	Sprite.JuiceStretchLogic.stretch_size(Vector2(1.0,1.0), Vector2(1.5,1.2), .5, true, true)
 	if(Particles): $ParticlesOrb.emitting = true
 	_play_sound(AudioOrbGravity, true)
@@ -1060,7 +1060,7 @@ func _physics_slide_and_groundsmash(delta: float) -> void:
 			#if(SlidingOnRamp): Speed.x *= 1.2
 			Slide = true
 			if(Particles): ParticlesSlide.emitting = true
-			print("Stretch 5")
+			#print("Stretch 5")
 			#strech_size(1, .9)
 			Sprite.play("Slide")
 			set_collision_mask_value(3, false)
@@ -1104,7 +1104,7 @@ func _physics_dash(delta: float) -> void:
 		Sprite.JuiceStretchLogic.stretch_size(Vector2(1.2, 1.2), Vector2(.85, .85), .3, true, true)
 		AudioDash.pitch_scale = randf_range(0.8, 1.2)
 		AudioDash.play()
-		print("Stretch 6")
+		#print("Stretch 6")
 		#strech_size(2.5, 0.5)
 		DashTime.start()
 		DashMove = DashAcc

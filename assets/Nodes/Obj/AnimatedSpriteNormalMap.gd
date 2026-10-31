@@ -4,11 +4,24 @@ var flip_h : bool
 var animation : String
 @export var OverrideAnim : bool = false
 @onready var JuiceStretchLogic : Node2D = $JuiceStretchLogic
+@onready var FrameHitTimer : Timer = $FrameHitTimer
+
+func _start_frame_hit() -> void:
+	if(FrameHitTimer):
+		print("Started frame hit")
+		FrameHitTimer.stop()
+		FrameHitTimer.start()
 
 func _ready() -> void:
 	$Anim.play("Idle")
 
 func _process(delta: float) -> void:
+	if(FrameHitTimer):
+		if(!FrameHitTimer.is_stopped()):
+			material.set_shader_parameter("time", FrameHitTimer.time_left)
+			material.set_shader_parameter("end_time", FrameHitTimer.wait_time)
+		else:
+			material.set_shader_parameter("time", 0.0)
 	#if(OverrideAnim): $Anim.pause()
 	#if(OverrideAnim != ""):
 	#	play(OverrideAnim, true, OverrideAnimTime)

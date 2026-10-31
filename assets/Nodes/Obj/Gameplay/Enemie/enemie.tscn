@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://ddbe23rdv6bq8" path="res://assets/Sprites/Gameplay/enemies/slime/special/slime-Sheet-idle-normal.png" id="7_meurv"]
 [ext_resource type="Texture2D" uid="uid://dcelo55p1v8ds" path="res://assets/Sprites/Gameplay/enemies/slime/special/slime-Sheet-jump-normal.png" id="11_xxbrk"]
 [ext_resource type="Script" uid="uid://d23fnhxwc5cxw" path="res://assets/Nodes/Obj/Gameplay/ShadowSprite.gd" id="13_5ruuh"]
-[ext_resource type="Shader" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie-flicker.gdshader" id="14_bjx3o"]
+[ext_resource type="Shader" uid="uid://b3lmrcsjfmg7y" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie-flicker.gdshader" id="14_bjx3o"]
 [ext_resource type="Texture2D" uid="uid://bk1fn3dewdcv8" path="res://assets/Sprites/Gameplay/enemies/slime/special/slime-Sheet-move-normal.png" id="14_nnhfd"]
 [ext_resource type="Script" uid="uid://dhc8o6itiqgki" path="res://assets/Nodes/Obj/Gameplay/Player/juice_stretch_logic.gd" id="17_0i4lq"]
 
@@ -101,6 +101,18 @@ scale_curve = SubResource("CurveTexture_ova88")
 alpha_curve = SubResource("CurveTexture_mxkeg")
 hue_variation_min = -0.02
 hue_variation_max = 0.03
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bjx3o"]
+shader = ExtResource("14_bjx3o")
+shader_parameter/end_time = 5.0
+shader_parameter/start_freq = 1.0
+shader_parameter/end_freq = 1.5
+shader_parameter/time = 0.0
+shader_parameter/flash_color = Color(0.27069956, 0.6770764, 0.7496645, 0.70980394)
+shader_parameter/flash_color2 = Color(0.03137255, 0.05490196, 0.16078432, 1)
+shader_parameter/blink_length = 0.5
+shader_parameter/posterize = 0.25
+shader_parameter/div_second_color = 0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8txah"]
 shader = ExtResource("7_5ruuh")
@@ -272,15 +284,6 @@ animations = [{
 "name": &"Walking",
 "speed": 6.0
 }]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_eb67m"]
-shader = ExtResource("14_bjx3o")
-shader_parameter/end_time = 5.0
-shader_parameter/start_freq = 1.0
-shader_parameter/end_freq = 10.0
-shader_parameter/time = 0.0
-shader_parameter/flash_color = Color(1, 1, 1, 1)
-shader_parameter/blink_length = 0.5
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_mxkeg"]
 diffuse_texture = ExtResource("3_15oel")
@@ -722,6 +725,7 @@ shape = SubResource("RectangleShape2D_4y4c6")
 debug_color = Color(0.846084, 0.377331, 0, 0.42)
 
 [node name="Sprite2D" type="Node2D" parent="." unique_id=472253450]
+material = SubResource("ShaderMaterial_bjx3o")
 script = ExtResource("6_mxkeg")
 
 [node name="shadow" type="AnimatedSprite2D" parent="Sprite2D" unique_id=1596290727]
@@ -733,7 +737,7 @@ offset = Vector2(-0.28, -6.525)
 script = ExtResource("13_5ruuh")
 
 [node name="IdleAnim" type="Sprite2D" parent="Sprite2D" unique_id=432012126]
-material = SubResource("ShaderMaterial_eb67m")
+use_parent_material = true
 position = Vector2(-0.7200012, 1.6299992)
 texture = SubResource("CanvasTexture_mxkeg")
 offset = Vector2(0, -2.375)
@@ -741,6 +745,7 @@ hframes = 3
 
 [node name="AirAnim" type="Sprite2D" parent="Sprite2D" unique_id=1282070827]
 visible = false
+use_parent_material = true
 position = Vector2(-0.7200012, 0.62999916)
 texture = SubResource("CanvasTexture_nnhfd")
 offset = Vector2(0, -0.415)
@@ -748,6 +753,7 @@ hframes = 7
 
 [node name="LaserAnim" type="Sprite2D" parent="Sprite2D" unique_id=353093110]
 visible = false
+use_parent_material = true
 position = Vector2(-0.7200012, 0.62999916)
 texture = ExtResource("4_k4yf5")
 offset = Vector2(0, -1.915)
@@ -755,6 +761,7 @@ hframes = 3
 
 [node name="WalkingAnim" type="Sprite2D" parent="Sprite2D" unique_id=610641878]
 visible = false
+use_parent_material = true
 position = Vector2(-0.7200012, 0.62999916)
 texture = SubResource("CanvasTexture_5ruuh")
 offset = Vector2(0, -1.685)
@@ -767,5 +774,9 @@ libraries/ = SubResource("AnimationLibrary_5ruuh")
 [node name="JuiceStretchLogic" type="Node2D" parent="Sprite2D" unique_id=1525023318]
 position = Vector2(-0.45497608, 9.06194)
 script = ExtResource("17_0i4lq")
+
+[node name="FrameHitTimer" type="Timer" parent="Sprite2D" unique_id=1891282386]
+wait_time = 0.4
+one_shot = true
 
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]

@@ -63,6 +63,8 @@ var StatePlaying : bool = false
 
 @onready var _Position = self.position 
 
+@export var FrameHit : bool = true
+
 #endregion
 
 #region Editor
@@ -121,6 +123,7 @@ func _on_player_ground_smash_signal(player_instance : CharacterBody2D = Player, 
 			_jump(JUMP_VELOCITY if enemy_type == 0 else SPECIAL_ENEMY_JUMP_VELOCITY)
 			if(enemy_type == 0):
 				LevelManager.AddStyle(0, "GroundSmash enemy")
+				if(FrameHit): Sprite._start_frame_hit()
 				if(Particles): $HitParticles.emitting = true
 				#Player.FrameFreeze(0.05, 0.4)
 				velocity.x = Enemy_burst_speed if player_instance.position.x < position.x else Enemy_burst_speed*-1
@@ -136,6 +139,7 @@ func on_player_destroy_float(player_instance : CharacterBody2D = Player) -> void
 #region Player Slide 
 func _on_player_slide_signal() -> void:
 	if(_is_on_floor() && enemy_type == 0 && Player.GravityDirection == GravityDirection):
+		if(FrameHit): Sprite._start_frame_hit()
 		LevelManager.AddStyle(0, "Slide enemy")
 		if(Particles): $HitParticles.emitting = true
 		#Player.FrameFreeze(0.05, 0.4)
