@@ -345,7 +345,7 @@ func _tick_tileset(delta: float):
 			SpriteFill2.hide()
 
 func _delete_node(node : Node2D):
-	if(node && !node.is_in_group("Player") && !node.is_in_group("YExpandEditor") && !node.is_in_group("XExpandEditor")):
+	if(node && !node.is_in_group("CantBeDeletedInEditor") && !node.is_in_group("Player") && !node.is_in_group("YExpandEditor") && !node.is_in_group("XExpandEditor")):
 		node.queue_free()
 
 var LastPositionSelectedBody : Vector2 = Vector2(0.0, 0.0)
@@ -361,7 +361,7 @@ func _tick_nodes(delta: float):
 	
 	_selecting_multiple()
 	if(SelectingMultiple): return
-	print(CollidingBody)
+	#print(CollidingBody)
 	if(Input.is_action_pressed("ui_editor_place")):
 		if(CollidingBody):
 			if(!SelectingBody): LastPositionSelectedBody = CollidingBody.global_position

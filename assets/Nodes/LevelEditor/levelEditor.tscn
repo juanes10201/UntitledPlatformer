@@ -1236,13 +1236,13 @@ shader_parameter/border_wave_speed = 2.5870001228825
 shader_parameter/border_thickness = 4.434000210615
 shader_parameter/water_surface_y = 0.0
 
-[sub_resource type="Gradient" id="Gradient_jtl08"]
-colors = PackedColorArray(0.67058825, 0.8039216, 0.6745098, 0.5294118, 0.25253218, 0.87526745, 0.77536225, 0.5137255)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2ls0"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ehx2g"]
 size = Vector2(16, 16)
+
+[sub_resource type="Gradient" id="Gradient_jtl08"]
+colors = PackedColorArray(0.67058825, 0.8039216, 0.6745098, 0.5294118, 0.25253218, 0.87526745, 0.77536225, 0.5137255)
 
 [node name="LevelEditorRework" type="Node2D" unique_id=1519603222]
 
@@ -1889,7 +1889,7 @@ Editor = NodePath("..")
 script = ExtResource("67_aueqc")
 LevelEditor = NodePath("..")
 
-[node name="Player" parent="LevelEditor/LevelData" unique_id=173086588 instance=ExtResource("8_achxd")]
+[node name="Player" parent="LevelEditor/LevelData" unique_id=173086588 groups=["CantBeDeletedInEditor"] instance=ExtResource("8_achxd")]
 position = Vector2(33, 1)
 collision_layer = 131081
 Physics = false
@@ -1946,6 +1946,58 @@ collision_layer = 1025
 Visible = false
 CanChange = false
 
+[node name="Rail" parent="LevelEditor/LevelData" unique_id=607275562 node_paths=PackedStringArray("AddPointEditorButton", "RemovePointEditorButton") instance=ExtResource("93_uefb1")]
+position = Vector2(-44, -51)
+points = PackedVector2Array(-6, 6, 0, 2, 106, -34, 274, 5)
+AddPointEditorButton = NodePath("AddPointEditorButton")
+RemovePointEditorButton = NodePath("AddPointEditorButton2")
+
+[node name="EditorRailSupport" type="Node2D" parent="LevelEditor/LevelData/Rail" unique_id=1308171322 node_paths=PackedStringArray("NodeCachePoints")]
+script = ExtResource("94_tk1t2")
+NodeCachePoints = NodePath("CachePoints")
+
+[node name="CachePoints" type="Node2D" parent="LevelEditor/LevelData/Rail/EditorRailSupport" unique_id=185417711 node_paths=PackedStringArray("SampleNode")]
+script = ExtResource("95_tk1t2")
+SampleNode = NodePath("../SampleCachePoint")
+
+[node name="SampleCachePoint" type="Area2D" parent="LevelEditor/LevelData/Rail/EditorRailSupport" unique_id=626937760 groups=["CantBeDeletedInEditor"]]
+visible = false
+top_level = true
+position = Vector2(0, -5)
+collision_layer = 131072
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="LevelEditor/LevelData/Rail/EditorRailSupport/SampleCachePoint" unique_id=437380797]
+shape = SubResource("RectangleShape2D_n2ls0")
+debug_color = Color(0, 0.63529414, 0.44313726, 0.44705883)
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelEditor/LevelData/Rail/EditorRailSupport/SampleCachePoint" unique_id=1679284552]
+texture = SubResource("PlaceholderTexture2D_ehx2g")
+
+[node name="AddPointEditorButton" type="Button" parent="LevelEditor/LevelData/Rail" unique_id=594372399]
+offset_left = 266.0
+offset_top = -28.0
+offset_right = 292.0
+offset_bottom = -3.0
+theme_override_fonts/font = ExtResource("100_m5bm5")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("75_si8cv")
+theme_override_styles/pressed = ExtResource("76_gm2v4")
+theme_override_styles/focus = ExtResource("78_4pocn")
+text = "+"
+
+[node name="AddPointEditorButton2" type="Button" parent="LevelEditor/LevelData/Rail" unique_id=2146656513]
+offset_left = -8.0
+offset_top = -39.0
+offset_right = 18.0
+offset_bottom = -14.0
+theme_override_fonts/font = ExtResource("100_m5bm5")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("75_si8cv")
+theme_override_styles/pressed = ExtResource("76_gm2v4")
+theme_override_styles/focus = ExtResource("78_4pocn")
+text = "-"
+
 [node name="EditorDataParser" type="Node2D" parent="LevelEditor" unique_id=1150111339 node_paths=PackedStringArray("EditorPlace", "LevelEditor", "LevelData", "ParentOriginalNodes")]
 script = ExtResource("75_6jsng")
 EditorPlace = NodePath("../EditorPlace")
@@ -1976,58 +2028,6 @@ position = Vector2(16.999998, -16)
 scale = Vector2(1.00384, 1)
 tile_set = ExtResource("2_iimnb")
 script = ExtResource("3_0r4ld")
-
-[node name="Rail" parent="." unique_id=607275562 node_paths=PackedStringArray("AddPointEditorButton", "RemovePointEditorButton") instance=ExtResource("93_uefb1")]
-position = Vector2(-44, -51)
-points = PackedVector2Array(-6, 6, 0, 2, 106, -34, 274, 5)
-AddPointEditorButton = NodePath("AddPointEditorButton")
-RemovePointEditorButton = NodePath("AddPointEditorButton2")
-
-[node name="EditorRailSupport" type="Node2D" parent="Rail" unique_id=1308171322 node_paths=PackedStringArray("NodeCachePoints")]
-script = ExtResource("94_tk1t2")
-NodeCachePoints = NodePath("CachePoints")
-
-[node name="CachePoints" type="Node2D" parent="Rail/EditorRailSupport" unique_id=185417711 node_paths=PackedStringArray("SampleNode")]
-script = ExtResource("95_tk1t2")
-SampleNode = NodePath("../SampleCachePoint")
-
-[node name="SampleCachePoint" type="Area2D" parent="Rail/EditorRailSupport" unique_id=626937760]
-visible = false
-top_level = true
-position = Vector2(0, -5)
-collision_layer = 131072
-collision_mask = 0
-
-[node name="Shape" type="CollisionShape2D" parent="Rail/EditorRailSupport/SampleCachePoint" unique_id=437380797]
-shape = SubResource("RectangleShape2D_n2ls0")
-debug_color = Color(0, 0.63529414, 0.44313726, 0.44705883)
-
-[node name="Sprite2D" type="Sprite2D" parent="Rail/EditorRailSupport/SampleCachePoint" unique_id=1679284552]
-texture = SubResource("PlaceholderTexture2D_ehx2g")
-
-[node name="AddPointEditorButton" type="Button" parent="Rail" unique_id=594372399]
-offset_left = 266.0
-offset_top = -28.0
-offset_right = 292.0
-offset_bottom = -3.0
-theme_override_fonts/font = ExtResource("100_m5bm5")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = ExtResource("75_si8cv")
-theme_override_styles/pressed = ExtResource("76_gm2v4")
-theme_override_styles/focus = ExtResource("78_4pocn")
-text = "+"
-
-[node name="AddPointEditorButton2" type="Button" parent="Rail" unique_id=2146656513]
-offset_left = -8.0
-offset_top = -39.0
-offset_right = 18.0
-offset_bottom = -14.0
-theme_override_fonts/font = ExtResource("100_m5bm5")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = ExtResource("75_si8cv")
-theme_override_styles/pressed = ExtResource("76_gm2v4")
-theme_override_styles/focus = ExtResource("78_4pocn")
-text = "-"
 
 [connection signal="mouse_entered" from="LevelEditor/CanvasLayer/ButtonPlusTime" to="LevelEditor" method="_button_hovered"]
 [connection signal="mouse_exited" from="LevelEditor/CanvasLayer/ButtonPlusTime" to="LevelEditor" method="_button_not_hovered"]
@@ -2078,7 +2078,9 @@ text = "-"
 [connection signal="area_exited" from="LevelEditor/EditorPlace/EditorUiSelectingMultiple" to="LevelEditor/EditorPlace" method="_on_editor_ui_selecting_multiple_area_exited"]
 [connection signal="body_entered" from="LevelEditor/EditorPlace/EditorUiSelectingMultiple" to="LevelEditor/EditorPlace" method="_on_editor_ui_selecting_multiple_body_entered"]
 [connection signal="body_exited" from="LevelEditor/EditorPlace/EditorUiSelectingMultiple" to="LevelEditor/EditorPlace" method="_on_editor_ui_selecting_multiple_body_exited"]
-[connection signal="button_up" from="Rail/AddPointEditorButton" to="Rail" method="_on_add_point_editor_button_button_up"]
-[connection signal="focus_entered" from="Rail/AddPointEditorButton" to="Rail" method="_on_add_point_editor_button_focus_entered"]
-[connection signal="button_up" from="Rail/AddPointEditorButton2" to="Rail" method="_on_add_point_editor_button_2_button_up"]
-[connection signal="focus_entered" from="Rail/AddPointEditorButton2" to="Rail" method="_on_add_point_editor_button_2_focus_entered"]
+[connection signal="button_up" from="LevelEditor/LevelData/Rail/AddPointEditorButton" to="LevelEditor/LevelData/Rail" method="_on_add_point_editor_button_button_up"]
+[connection signal="mouse_entered" from="LevelEditor/LevelData/Rail/AddPointEditorButton" to="LevelEditor/LevelData/Rail" method="_mouse_entered_button_ui"]
+[connection signal="mouse_exited" from="LevelEditor/LevelData/Rail/AddPointEditorButton" to="LevelEditor/LevelData/Rail" method="_mouse_exited_button_ui"]
+[connection signal="button_up" from="LevelEditor/LevelData/Rail/AddPointEditorButton2" to="LevelEditor/LevelData/Rail" method="_on_add_point_editor_button_2_button_up"]
+[connection signal="mouse_entered" from="LevelEditor/LevelData/Rail/AddPointEditorButton2" to="LevelEditor/LevelData/Rail" method="_mouse_entered_button_ui"]
+[connection signal="mouse_exited" from="LevelEditor/LevelData/Rail/AddPointEditorButton2" to="LevelEditor/LevelData/Rail" method="_mouse_exited_button_ui"]

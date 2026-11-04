@@ -188,10 +188,11 @@ func _on_add_point_editor_button_button_up() -> void:
 func _on_add_point_editor_button_2_button_up() -> void:
 	editor_remove_point()
 
+@onready var LevelEditor = $"../../"
 
-func _on_add_point_editor_button_focus_entered() -> void:
-	pass # Replace with function body.
+func _mouse_entered_button_ui() -> void:
+	if(LevelEditor): LevelEditor.ButtonHovered = true
+	#pass # Replace with function body.
 
-
-func _on_add_point_editor_button_2_focus_entered() -> void:
-	pass # Replace with function body.
+func _mouse_exited_button_ui() -> void:
+	if(LevelEditor): LevelEditor.ButtonHovered = false

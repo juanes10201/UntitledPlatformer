@@ -157,6 +157,7 @@ Killbox=""
 Laser=""
 CdBoss=""
 RailNodes=""
+CantBeDeletedInEditor=""
 
 [input]
 
