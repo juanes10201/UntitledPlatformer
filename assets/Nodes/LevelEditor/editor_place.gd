@@ -361,6 +361,7 @@ func _tick_nodes(delta: float):
 	
 	_selecting_multiple()
 	if(SelectingMultiple): return
+	print(CollidingBody)
 	if(Input.is_action_pressed("ui_editor_place")):
 		if(CollidingBody):
 			if(!SelectingBody): LastPositionSelectedBody = CollidingBody.global_position
@@ -371,6 +372,7 @@ func _tick_nodes(delta: float):
 			#Selecting a node
 			SelectingBody = true
 			CollidingBody.global_position = EditorCursor.global_position
+			#print("moving")
 		elif(ExpandYSelected):
 			if(ExpandYSelected.is_in_group("Killbox")):
 				ExpandYSelected.Sprite.material.set_shader_parameter("tile_size", ExpandYSelected.scale)
@@ -489,6 +491,7 @@ func _on_editor_cursor_body_entered(body: Node2D) -> void:
 
 func _on_editor_cursor_body_exited(body: Node2D) -> void:
 	if(!SelectingBody && !ExpandingY && !ExpandingX):
+		#if(CollidingBody == body): CollidingBody = null
 		CollidingBody = null
 
 
@@ -505,11 +508,12 @@ func _on_editor_cursor_area_entered(area: Area2D) -> void:
 
 func _on_editor_cursor_area_exited(area: Area2D) -> void:
 	if(!SelectingBody && !ExpandingY && !ExpandingX):
+		#if(CollidingBody != area && ExpandYSelected != area && ExpandXSelected != area ): return
 		if(area.is_in_group("YExpandEditor")):
 			ExpandYSelected = null
 		if(area.is_in_group("XExpandEditor")):
 			ExpandXSelected = null
-		else: CollidingBody = null 
+		elif(CollidingBody == area): CollidingBody = null 
 
 
 #region Selecting Area body

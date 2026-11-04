@@ -1,0 +1,58 @@
+{
+&"Nodes": [{
+"EditorId": Vector2i(0, 0),
+"Properties": {
+"global_position": Vector2(131.70322, -88.337906),
+"global_transform": Transform2D(1, 0, 0, 1, 131.70322, -88.337906),
+"position": Vector2(131.70322, -88.337906),
+"transform": Transform2D(1, 0, 0, 1, 131.70322, -88.337906)
+}
+}, {
+"EditorId": Vector2i(0, 0),
+"Properties": {
+"global_position": Vector2(215.94818, -90.19231),
+"global_transform": Transform2D(1, 0, 0, 1, 215.94818, -90.19231),
+"name": &"@CharacterBody2D@674",
+"position": Vector2(215.94818, -90.19231),
+"transform": Transform2D(1, 0, 0, 1, 215.94818, -90.19231)
+}
+}, {
+"EditorId": Vector2i(1, 0),
+"Properties": {
+"OldVel": Vector2(7650.352, 10291.153),
+"OriginalPos": Vector2(56, 40),
+"global_position": Vector2(56, 40),
+"global_transform": Transform2D(1, 0, 0, 1, 56, 40),
+"position": Vector2(56, 40),
+"transform": Transform2D(1, 0, 0, 1, 56, 40)
+}
+}, {
+"EditorId": Vector2i(1, 0),
+"Properties": {
+"OldVel": Vector2(8580, 8520),
+"OriginalPos": Vector2(72, 40),
+"global_position": Vector2(72, 40),
+"global_transform": Transform2D(1, 0, 0, 1, 72, 40),
+"name": &"@RigidBody2D@675",
+"position": Vector2(72, 40),
+"transform": Transform2D(1, 0, 0, 1, 72, 40)
+}
+}, {
+"EditorId": Vector2i(1, 0),
+"Properties": {
+"OldVel": Vector2(9060, 12359.999),
+"OriginalPos": Vector2(88, 40),
+"global_position": Vector2(88, 40),
+"global_transform": Transform2D(1, 0, 0, 1, 88, 40),
+"name": &"@RigidBody2D@676",
+"position": Vector2(88, 40),
+"transform": Transform2D(1, 0, 0, 1, 88, 40)
+}
+}],
+&"Tileset": [Dictionary[Vector2i, String]({
+Vector2i(0, -1): "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZAAAZZZZZAAAZZZZZAAAZZZZZAAA",
+Vector2i(0, 0): "ZZZZZAAAAAZZZAAAAAZZZAAAAAZZZAAAZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ",
+Vector2i(1, -1): "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZAAAAAAZZAAAAAAZZAAAAAAZZAAAAAAZZ",
+Vector2i(1, 0): "AAAAAAZZAAAAAAZZAAAAAAZZAAAAAAZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"
+}), Dictionary[Vector2i, String]({}), Dictionary[Vector2i, String]({})]
+}

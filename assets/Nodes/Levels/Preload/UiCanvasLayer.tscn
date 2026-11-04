@@ -20,8 +20,6 @@
 [ext_resource type="FontFile" uid="uid://dfigptrdw0fg2" path="res://assets/Fonts/pixelart/Gossamer Girls.ttf" id="18_g2260"]
 [ext_resource type="Script" uid="uid://dr6lh5wlohuyn" path="res://assets/Nodes/Obj/Gameplay/selectedlevelText.gd" id="19_fsy2k"]
 [ext_resource type="FontFile" uid="uid://f0hkvlt4avd6" path="res://assets/Fonts/ChocolateClassicalSans-Regular.ttf" id="20_5f8k6"]
-[ext_resource type="Texture2D" uid="uid://cpkuxgr2hg7ll" path="res://assets/Sprites/Ui/Logo/logo.png" id="21_cn8mj"]
-[ext_resource type="Script" uid="uid://d17qirinur7vk" path="res://assets/Scripts/logo_anim.gd" id="22_5y2sw"]
 [ext_resource type="Script" uid="uid://ca1s5w4bjubwi" path="res://assets/Scripts/Style.gd" id="23_eyv3c"]
 [ext_resource type="Texture2D" uid="uid://bv63m7ppamws2" path="res://assets/Sprites/Ui/menus/RankMenu/StyleMenu.png" id="24_xels1"]
 [ext_resource type="Texture2D" uid="uid://b8bt0ralfefg7" path="res://assets/Sprites/Ui/menus/RankMenu/Ranks/A.png" id="25_vythc"]
@@ -96,240 +94,6 @@ bg_color = Color(0.619608, 0.478431, 1, 1)
 shader = ExtResource("9_jujlo")
 shader_parameter/threshold = 0.4550000216125
 shader_parameter/aa_strength = 0.20000000298023
-
-[sub_resource type="Animation" id="Animation_8ohxx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.794659, 0.794659)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../LogoText:theme_override_font_sizes/normal_font_size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [300]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../LogoText:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../LogoText:theme_override_constants/line_separation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-65]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(579, 318)]
-}
-
-[sub_resource type="Animation" id="Animation_2n7mv"]
-resource_name = "Start"
-length = 2.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(580, 332), Vector2(579, 318), Vector2(579, 352)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 1.96667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0.64, 0.64), Vector2(0.719, 0.719), Vector2(0.76, 0.76)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../LogoText:theme_override_constants/line_separation")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.2, 1.16667, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [-120, -105, -65]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../LogoText:theme_override_font_sizes/normal_font_size")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.0333333, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [289, 295]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../LogoText:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(1.63333, 1.96667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.643137), Color(1, 1, 1, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.1, 0.233333, 1.89961, 2.06667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_1gu5b"]
-resource_name = "Start_wishlist"
-length = 2.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(580, 332), Vector2(579, 318), Vector2(579, 352)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 1.96667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0.64, 0.64), Vector2(0.689, 0.689), Vector2(0.695, 0.695)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../LogoText:theme_override_constants/line_separation")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.2, 1.16667, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [-120, -105, -65]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../LogoText:theme_override_font_sizes/normal_font_size")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.0333333, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [289, 295]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../LogoText:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(1.63333),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.643137)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.1, 0.233333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_g0tcv"]
-_data = {
-&"RESET": SubResource("Animation_8ohxx"),
-&"Start": SubResource("Animation_2n7mv"),
-&"Start_wishlist": SubResource("Animation_1gu5b")
-}
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_def47"]
 animations = [{
@@ -999,27 +763,16 @@ script = ExtResource("19_fsy2k")
 
 [node name="LogoText" type="RichTextLabel" parent="." unique_id=1669258455]
 visible = false
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0.643137)
 offset_left = -11.0
 offset_top = 7.0
 offset_right = 1253.0
 offset_bottom = 702.0
-theme_override_constants/line_separation = -65
+theme_override_constants/line_separation = -103
 theme_override_fonts/normal_font = ExtResource("20_5f8k6")
-theme_override_font_sizes/normal_font_size = 300
+theme_override_font_sizes/normal_font_size = 294
 text = "速度代码
 速度代码"
-
-[node name="Logo" type="Sprite2D" parent="." unique_id=2088275025]
-modulate = Color(1, 1, 1, 0)
-z_index = 3
-position = Vector2(579, 318)
-scale = Vector2(0.794659, 0.794659)
-texture = ExtResource("21_cn8mj")
-script = ExtResource("22_5y2sw")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Logo" unique_id=1258583368]
-libraries/ = SubResource("AnimationLibrary_g0tcv")
 
 [node name="Style" type="Node2D" parent="." unique_id=1989216175]
 position = Vector2(346.44, 0)

@@ -11,11 +11,11 @@ size = Vector2(16, 7.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xl8c5"]
 size = Vector2(7.5, 16.375)
 
-[node name="AreaExpandableEditor" type="Node2D" unique_id=983867856 node_paths=PackedStringArray("ParentCollisionShape")]
+[node name="AreaExpandableEditor" type="Node2D" unique_id=983867856]
 script = ExtResource("1_dx4tu")
-ParentCollisionShape = NodePath("")
 
 [node name="YExpandableEditor" type="Area2D" parent="." unique_id=658823172 groups=["YExpandEditor"]]
+visible = false
 top_level = true
 position = Vector2(0, -5)
 collision_layer = 262144
@@ -34,16 +34,15 @@ shape = SubResource("RectangleShape2D_cdhe4")
 debug_color = Color(0, 0.63529414, 0.44313726, 0.44705883)
 
 [node name="Sprite2D" type="Sprite2D" parent="YExpandableEditor" unique_id=1873798523]
-visible = false
 position = Vector2(0, -1)
 texture = ExtResource("3_xdusl")
 
 [node name="Sprite2D2" type="Sprite2D" parent="YExpandableEditor" unique_id=1425358927]
-visible = false
 position = Vector2(0, 11)
 texture = ExtResource("4_38lqs")
 
 [node name="XExpandableEditor" type="Area2D" parent="." unique_id=1667342643 groups=["XExpandEditor"]]
+visible = false
 top_level = true
 position = Vector2(0, -5)
 collision_layer = 524288
@@ -61,13 +60,11 @@ shape = SubResource("RectangleShape2D_xl8c5")
 debug_color = Color(0.9411765, 0, 0.6039216, 0.4)
 
 [node name="Sprite2D" type="Sprite2D" parent="XExpandableEditor" unique_id=1430919122]
-visible = false
 position = Vector2(6, 5)
 rotation = 1.5707964
 texture = ExtResource("3_xdusl")
 
 [node name="Sprite2D2" type="Sprite2D" parent="XExpandableEditor" unique_id=294091140]
-visible = false
 position = Vector2(-6, 5)
 rotation = 1.5707964
 texture = ExtResource("4_38lqs")

@@ -14,6 +14,7 @@ imgui/config="uid://dqoyjbibcphgl"
 
 [animation]
 
+warnings/check_invalid_track_paths=false
 compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
@@ -465,6 +466,7 @@ pointing/emulate_mouse_from_touch=false
 2d_physics/layer_22="Cd Boss"
 2d_physics/layer_23="Throwable"
 2d_physics/layer_24="Throwable Player collisions"
+2d_physics/layer_25="Editor Cursor"
 
 [rendering]
 

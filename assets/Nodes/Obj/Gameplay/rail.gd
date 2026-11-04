@@ -27,7 +27,19 @@ var CurrentAngle : float = -45.0
 
 var NormalizedVel : Vector2
 
+const MarginNewPointEditor : Vector2 = Vector2(20.0, 0.0)
+const MarginButtonAddNewPointEditor : Vector2 = Vector2(25.0, -25.0)
+@export var AddPointEditorButton : Button
+@onready var EditorRailSupport : Node2D = $EditorRailSupport
+
+func editor_add_point() -> void:
+	var NewPosition : Vector2 = points[points.size()-1]+MarginNewPointEditor 
+	add_point(NewPosition)
+	if(EditorRailSupport):
+		EditorRailSupport._cache_points()
+
 func reload_path() -> void:
+	ReloadedPath = true
 	var min_pos : Vector2 = points[0]
 	var max_pos : Vector2 = points[0]
 	#Esto todavia no esta porque la parte donde se centra la posicion esta mal hecha.
@@ -61,7 +73,15 @@ func reload_path() -> void:
 func _ready() -> void:
 	reload_path()
 
+var ReloadedPath : bool = false
+
 func _process(delta: float) -> void:
+	if(Edition.Is_in_editor):
+		if(AddPointEditorButton):
+			AddPointEditorButton.position = points[points.size()-1]+MarginButtonAddNewPointEditor
+		if(!Edition.Is_playing_in_editor): ReloadedPath = false
+		elif(!ReloadedPath): reload_path()
+		
 	#print(PlayerInArea)
 	#print(Player.velocity.x)
 	var PrevPosition = PathFollow.global_position
@@ -151,3 +171,7 @@ func _on_initial_collision_area_body_entered(body: Node2D) -> void:
 func _on_initial_collision_area_body_exited(body: Node2D) -> void:
 	if(body.is_in_group("Player")):
 		PlayerInArea = false
+
+
+func _on_add_point_editor_button_button_up() -> void:
+	editor_add_point()

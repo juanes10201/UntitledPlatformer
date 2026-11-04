@@ -472,7 +472,8 @@ func _ready() -> void:
 	if(PlayIntro):
 		IntroAnim.play("Start")
 		#Camera.offset.y = $Camera2D/InitialPoint.global_position.y
-		FrameFreeze(.4, 2)
+		await get_tree().create_timer(1.2).timeout
+		FrameFreeze(.4, 3.2)
 	
 	#region Change music style to ingame
 	if(PlayMusic && SongPlayer.MusicState != SongPlayer.MusicStates.boss1):
