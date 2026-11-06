@@ -396,7 +396,8 @@ func _tick_nodes(delta: float):
 			ExpandingX = false
 			ExpandingOriginalPos = Vector2(0.0,0.0)
 			
-			create_node(EditorCursor.SelectedNode-1, EditorCursor.SelectedSubNode)
+			var _created_node = create_node(EditorCursor.SelectedNode-1, EditorCursor.SelectedSubNode)
+			_created_node.global_position = EditorCursor.global_position
 	#Selecting Node
 	elif(Input.is_action_pressed("ui_editor_erase") && CollidingBody):
 		_delete_node(CollidingBody)
@@ -432,7 +433,7 @@ func _initial_instatiate_nodes() -> void:
 		category_n += 1
 	#print("Cache in memory of nodes: " + str(SelectableNodesLoaded))
 
-func create_node(NodeNumber : int, SubNodeNumber : int) -> void:
+func create_node(NodeNumber : int, SubNodeNumber : int) -> Node:
 	var _node = SelectableNodesLoaded[NodeNumber][SubNodeNumber]
 	#var NewNode = GlobalFunctions.Copy_and_Instatiate_node2d(_node, LevelEditor.get_level_data_gameplay_objects_node())
 	var NewNode = GlobalFunctions.Create_node2d(LevelEditor.SelectableObjects[NodeNumber][SubNodeNumber], LevelEditor.get_level_data_gameplay_objects_node())
@@ -441,6 +442,7 @@ func create_node(NodeNumber : int, SubNodeNumber : int) -> void:
 		NewNode.global_position = EditorCursor.global_position
 		NewNode.set_meta(NewNodeMetaNumber, NodeNumber)
 		NewNode.set_meta(NewNodeMetaSubNumber, SubNodeNumber)
+	return NewNode
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

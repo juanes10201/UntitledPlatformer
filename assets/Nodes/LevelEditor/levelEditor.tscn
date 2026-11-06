@@ -96,10 +96,6 @@
 [ext_resource type="Script" uid="uid://3crm18ad88ys" path="res://assets/Scripts/menu_button.gd" id="81_hytg7"]
 [ext_resource type="Script" uid="uid://dulvtfw7ngkfh" path="res://assets/Nodes/LevelEditor/dialog_button_file.gd" id="90_cyxik"]
 [ext_resource type="Script" uid="uid://baav4tg1rfxgu" path="res://assets/Nodes/LevelEditor/dialog_button.gd" id="91_edcu7"]
-[ext_resource type="PackedScene" uid="uid://cjdqb7io2svh1" path="res://assets/Nodes/Obj/Gameplay/rail.tscn" id="93_uefb1"]
-[ext_resource type="Script" uid="uid://c623l5pbeq0ug" path="res://assets/Nodes/LevelEditor/editor_rail_support.gd" id="94_tk1t2"]
-[ext_resource type="Script" uid="uid://qhd10nb4q87i" path="res://assets/Nodes/LevelEditor/cache_nodes.gd" id="95_tk1t2"]
-[ext_resource type="FontFile" uid="uid://bphx4hxrs7qgv" path="res://assets/Fonts/AudioNugget.ttf" id="100_m5bm5"]
 
 [sub_resource type="GDScript" id="GDScript_4cp2g"]
 script/source = "extends Sprite2D
@@ -1236,11 +1232,6 @@ shader_parameter/border_wave_speed = 2.5870001228825
 shader_parameter/border_thickness = 4.434000210615
 shader_parameter/water_surface_y = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2ls0"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ehx2g"]
-size = Vector2(16, 16)
-
 [sub_resource type="Gradient" id="Gradient_jtl08"]
 colors = PackedColorArray(0.67058825, 0.8039216, 0.6745098, 0.5294118, 0.25253218, 0.87526745, 0.77536225, 0.5137255)
 
@@ -1260,7 +1251,7 @@ script = ExtResource("2_denb7")
 [node name="LevelEditor" type="Node2D" parent="." unique_id=1375215272 node_paths=PackedStringArray("Cursor", "TilesetLayers", "EditorCamera", "Time_Left", "Player", "PlayerCamera", "LevelData", "EditorPlayerTrail", "EditorPlace") groups=["LevelEditor"]]
 script = ExtResource("1_qesh2")
 Cursor = NodePath("EditorCursor")
-SelectableObjects = Array[Array]([["res://assets/Nodes/Obj/Gameplay/Enemie/enemie.tscn", "res://assets/Nodes/Obj/Gameplay/Enemie/enemie_special.tscn", "res://assets/Nodes/Obj/Gameplay/Enemie/enemie_skeleton.tscn"], ["res://assets/Nodes/Obj/Gameplay/falling_sand.tscn", "res://assets/Nodes/Obj/Gameplay/key.tscn", "res://assets/Nodes/Obj/Gameplay/open_box.tscn"], ["res://assets/Nodes/Obj/Gameplay/kill_box.tscn", "res://assets/Nodes/Obj/Gameplay/kill_box_blue.tscn", "res://assets/Nodes/Obj/Gameplay/laser.tscn"], ["res://assets/Nodes/Obj/Gameplay/float.tscn", "res://assets/Nodes/Obj/Gameplay/Enemie/enemy_fish_editor.tscn", "res://assets/Nodes/Obj/Gameplay/umbrella.tscn"], ["res://assets/Nodes/Obj/Gameplay/flag.tscn", "res://assets/Nodes/Obj/Gameplay/clock.tscn"]])
+SelectableObjects = Array[Array]([["res://assets/Nodes/Obj/Gameplay/Enemie/enemie.tscn", "res://assets/Nodes/Obj/Gameplay/Enemie/enemie_special.tscn", "res://assets/Nodes/Obj/Gameplay/Enemie/enemie_skeleton.tscn"], ["res://assets/Nodes/Obj/Gameplay/falling_sand.tscn", "res://assets/Nodes/Obj/Gameplay/key.tscn", "res://assets/Nodes/Obj/Gameplay/open_box.tscn", "res://assets/Nodes/Obj/Gameplay/editor_rail.tscn"], ["res://assets/Nodes/Obj/Gameplay/kill_box.tscn", "res://assets/Nodes/Obj/Gameplay/kill_box_blue.tscn", "res://assets/Nodes/Obj/Gameplay/laser.tscn"], ["res://assets/Nodes/Obj/Gameplay/float.tscn", "res://assets/Nodes/Obj/Gameplay/Enemie/enemy_fish_editor.tscn", "res://assets/Nodes/Obj/Gameplay/umbrella.tscn"], ["res://assets/Nodes/Obj/Gameplay/flag.tscn", "res://assets/Nodes/Obj/Gameplay/clock.tscn"]])
 SelectableAutotiles = Array[int]([0, 1, 2, 3])
 AutotileTilemapLayers = Array[int]([0, 2, 0, 0])
 TilesetLayers = [NodePath("LevelData/TileMapLayer0"), NodePath("LevelData/TileMapLayer2"), NodePath("LevelData/TileMapLayerWater")]
@@ -1946,58 +1937,6 @@ collision_layer = 1025
 Visible = false
 CanChange = false
 
-[node name="Rail" parent="LevelEditor/LevelData" unique_id=607275562 node_paths=PackedStringArray("AddPointEditorButton", "RemovePointEditorButton") instance=ExtResource("93_uefb1")]
-position = Vector2(-44, -51)
-points = PackedVector2Array(-6, 6, 0, 2, 106, -34, 274, 5)
-AddPointEditorButton = NodePath("AddPointEditorButton")
-RemovePointEditorButton = NodePath("AddPointEditorButton2")
-
-[node name="EditorRailSupport" type="Node2D" parent="LevelEditor/LevelData/Rail" unique_id=1308171322 node_paths=PackedStringArray("NodeCachePoints")]
-script = ExtResource("94_tk1t2")
-NodeCachePoints = NodePath("CachePoints")
-
-[node name="CachePoints" type="Node2D" parent="LevelEditor/LevelData/Rail/EditorRailSupport" unique_id=185417711 node_paths=PackedStringArray("SampleNode")]
-script = ExtResource("95_tk1t2")
-SampleNode = NodePath("../SampleCachePoint")
-
-[node name="SampleCachePoint" type="Area2D" parent="LevelEditor/LevelData/Rail/EditorRailSupport" unique_id=626937760 groups=["CantBeDeletedInEditor"]]
-visible = false
-top_level = true
-position = Vector2(0, -5)
-collision_layer = 131072
-collision_mask = 0
-
-[node name="Shape" type="CollisionShape2D" parent="LevelEditor/LevelData/Rail/EditorRailSupport/SampleCachePoint" unique_id=437380797]
-shape = SubResource("RectangleShape2D_n2ls0")
-debug_color = Color(0, 0.63529414, 0.44313726, 0.44705883)
-
-[node name="Sprite2D" type="Sprite2D" parent="LevelEditor/LevelData/Rail/EditorRailSupport/SampleCachePoint" unique_id=1679284552]
-texture = SubResource("PlaceholderTexture2D_ehx2g")
-
-[node name="AddPointEditorButton" type="Button" parent="LevelEditor/LevelData/Rail" unique_id=594372399]
-offset_left = 266.0
-offset_top = -28.0
-offset_right = 292.0
-offset_bottom = -3.0
-theme_override_fonts/font = ExtResource("100_m5bm5")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = ExtResource("75_si8cv")
-theme_override_styles/pressed = ExtResource("76_gm2v4")
-theme_override_styles/focus = ExtResource("78_4pocn")
-text = "+"
-
-[node name="AddPointEditorButton2" type="Button" parent="LevelEditor/LevelData/Rail" unique_id=2146656513]
-offset_left = -8.0
-offset_top = -39.0
-offset_right = 18.0
-offset_bottom = -14.0
-theme_override_fonts/font = ExtResource("100_m5bm5")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = ExtResource("75_si8cv")
-theme_override_styles/pressed = ExtResource("76_gm2v4")
-theme_override_styles/focus = ExtResource("78_4pocn")
-text = "-"
-
 [node name="EditorDataParser" type="Node2D" parent="LevelEditor" unique_id=1150111339 node_paths=PackedStringArray("EditorPlace", "LevelEditor", "LevelData", "ParentOriginalNodes")]
 script = ExtResource("75_6jsng")
 EditorPlace = NodePath("../EditorPlace")
@@ -2078,9 +2017,3 @@ script = ExtResource("3_0r4ld")
 [connection signal="area_exited" from="LevelEditor/EditorPlace/EditorUiSelectingMultiple" to="LevelEditor/EditorPlace" method="_on_editor_ui_selecting_multiple_area_exited"]
 [connection signal="body_entered" from="LevelEditor/EditorPlace/EditorUiSelectingMultiple" to="LevelEditor/EditorPlace" method="_on_editor_ui_selecting_multiple_body_entered"]
 [connection signal="body_exited" from="LevelEditor/EditorPlace/EditorUiSelectingMultiple" to="LevelEditor/EditorPlace" method="_on_editor_ui_selecting_multiple_body_exited"]
-[connection signal="button_up" from="LevelEditor/LevelData/Rail/AddPointEditorButton" to="LevelEditor/LevelData/Rail" method="_on_add_point_editor_button_button_up"]
-[connection signal="mouse_entered" from="LevelEditor/LevelData/Rail/AddPointEditorButton" to="LevelEditor/LevelData/Rail" method="_mouse_entered_button_ui"]
-[connection signal="mouse_exited" from="LevelEditor/LevelData/Rail/AddPointEditorButton" to="LevelEditor/LevelData/Rail" method="_mouse_exited_button_ui"]
-[connection signal="button_up" from="LevelEditor/LevelData/Rail/AddPointEditorButton2" to="LevelEditor/LevelData/Rail" method="_on_add_point_editor_button_2_button_up"]
-[connection signal="mouse_entered" from="LevelEditor/LevelData/Rail/AddPointEditorButton2" to="LevelEditor/LevelData/Rail" method="_mouse_entered_button_ui"]
-[connection signal="mouse_exited" from="LevelEditor/LevelData/Rail/AddPointEditorButton2" to="LevelEditor/LevelData/Rail" method="_mouse_exited_button_ui"]

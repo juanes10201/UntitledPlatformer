@@ -34,6 +34,7 @@ const MarginButtonAddNewPointEditor : Vector2 = Vector2(25.0, -25.0)
 @onready var EditorRailSupport : Node2D = $EditorRailSupport
 
 func editor_remove_point() -> void:
+	if(points.size() <= 2): queue_free()
 	remove_point(points.size()-1)
 	if(EditorRailSupport):
 		EditorRailSupport._cache_points()
@@ -83,6 +84,7 @@ func _ready() -> void:
 var ReloadedPath : bool = false
 
 func _process(delta: float) -> void:
+	#print("pos: " + str(global_position))
 	if(Edition.Is_in_editor):
 		if(AddPointEditorButton && RemovePointEditorButton):
 			AddPointEditorButton.position = points[points.size()-1]+MarginButtonAddNewPointEditor
@@ -179,20 +181,3 @@ func _on_initial_collision_area_body_entered(body: Node2D) -> void:
 func _on_initial_collision_area_body_exited(body: Node2D) -> void:
 	if(body.is_in_group("Player")):
 		PlayerInArea = false
-
-
-func _on_add_point_editor_button_button_up() -> void:
-	editor_add_point()
-
-
-func _on_add_point_editor_button_2_button_up() -> void:
-	editor_remove_point()
-
-@onready var LevelEditor = $"../../"
-
-func _mouse_entered_button_ui() -> void:
-	if(LevelEditor): LevelEditor.ButtonHovered = true
-	#pass # Replace with function body.
-
-func _mouse_exited_button_ui() -> void:
-	if(LevelEditor): LevelEditor.ButtonHovered = false

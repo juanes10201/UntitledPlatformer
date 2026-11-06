@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://dgcvoxyp6pxs4"]
+
+[ext_resource type="Script" uid="uid://bx7lp0u4fes1s" path="res://assets/Nodes/Obj/Gameplay/rail.gd" id="1_hhj1r"]
+[ext_resource type="Texture2D" uid="uid://ocqr4kaowgws" path="res://icon.svg" id="2_m8gtc"]
+[ext_resource type="Script" uid="uid://c623l5pbeq0ug" path="res://assets/Nodes/LevelEditor/editor_rail_support.gd" id="3_vbpr4"]
+[ext_resource type="Script" uid="uid://qhd10nb4q87i" path="res://assets/Nodes/LevelEditor/cache_nodes.gd" id="4_u37s1"]
+[ext_resource type="FontFile" uid="uid://bphx4hxrs7qgv" path="res://assets/Fonts/AudioNugget.ttf" id="5_p4yj3"]
+[ext_resource type="StyleBox" uid="uid://c1g4khjf3kje4" path="res://assets/Sprites/Ui/Style/editor_tooltip.tres" id="6_mvn1b"]
+[ext_resource type="StyleBox" uid="uid://detwiv6e07ln8" path="res://assets/Sprites/Ui/Style/editor_tooltip_pressed.tres" id="7_40v7l"]
+[ext_resource type="StyleBox" uid="uid://du6vdt1eyk2je" path="res://assets/Sprites/Ui/Style/editor_tooltip_focus.tres" id="8_4nln2"]
+[ext_resource type="Script" uid="uid://dt623f0rfjfr1" path="res://assets/Nodes/LevelEditor/rail_add_point_editor_button.gd" id="9_qkm1r"]
+
+[sub_resource type="Curve" id="Curve_d77xg"]
+_data = [Vector2(0, 0.7821012), 0.0, 0.0, 0, 0, Vector2(1, 0.6731518), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_75dy6"]
+colors = PackedColorArray(0.16082096, 0.10031984, 0.27544695, 1, 0.91397053, 0.60972846, 0.8570899, 1)
+metadata/_snap_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_t0ac7"]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4vkw"]
+resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2ls0"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ehx2g"]
+size = Vector2(16, 16)
+
+[node name="EditorRail" type="Line2D" unique_id=618184540 node_paths=PackedStringArray("FallCooldown", "MoveRef", "Path", "PathFollow", "AddPointEditorButton", "RemovePointEditorButton")]
+points = PackedVector2Array(0, 0, 45, 0)
+width = 4.835
+width_curve = SubResource("Curve_d77xg")
+default_color = Color(0.9597251, 0.5843025, 1, 1)
+gradient = SubResource("Gradient_75dy6")
+script = ExtResource("1_hhj1r")
+FallCooldown = NodePath("FallCooldown")
+MoveRef = NodePath("Path2D/PathFollow2D/MoveRef")
+Path = NodePath("Path2D")
+PathFollow = NodePath("Path2D/PathFollow2D")
+AddPointEditorButton = NodePath("AddPointEditorButton")
+RemovePointEditorButton = NodePath("AddPointEditorButton2")
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1897470310]
+curve = SubResource("Curve2D_t0ac7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=2052156637]
+loop = false
+
+[node name="MoveRef" type="Sprite2D" parent="Path2D/PathFollow2D" unique_id=1131422953]
+visible = false
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("2_m8gtc")
+
+[node name="FallCooldown" type="Timer" parent="." unique_id=1682409608]
+wait_time = 0.5
+one_shot = true
+
+[node name="InitialCollisionArea" type="Area2D" parent="." unique_id=363357255]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InitialCollisionArea" unique_id=759514596]
+shape = SubResource("RectangleShape2D_r4vkw")
+debug_color = Color(0.9254215, 0.27351406, 0, 0.41960785)
+
+[node name="EditorRailSupport" type="Node2D" parent="." unique_id=1576886812 node_paths=PackedStringArray("NodeCachePoints")]
+script = ExtResource("3_vbpr4")
+NodeCachePoints = NodePath("CachePoints")
+
+[node name="CachePoints" type="Node2D" parent="EditorRailSupport" unique_id=1180693177 node_paths=PackedStringArray("SampleNode")]
+script = ExtResource("4_u37s1")
+SampleNode = NodePath("../SampleCachePoint")
+
+[node name="SampleCachePoint" type="Area2D" parent="EditorRailSupport" unique_id=1516484223 groups=["CantBeDeletedInEditor"]]
+visible = false
+top_level = true
+position = Vector2(0, -5)
+collision_layer = 131072
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="EditorRailSupport/SampleCachePoint" unique_id=1324305888]
+shape = SubResource("RectangleShape2D_n2ls0")
+debug_color = Color(0, 0.63529414, 0.44313726, 0.44705883)
+
+[node name="Sprite2D" type="Sprite2D" parent="EditorRailSupport/SampleCachePoint" unique_id=1211992089]
+texture = SubResource("PlaceholderTexture2D_ehx2g")
+
+[node name="AddPointEditorButton" type="Button" parent="." unique_id=813742231]
+offset_left = 27.0
+offset_top = -41.0
+offset_right = 53.0
+offset_bottom = -16.0
+theme_override_fonts/font = ExtResource("5_p4yj3")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("6_mvn1b")
+theme_override_styles/pressed = ExtResource("7_40v7l")
+theme_override_styles/focus = ExtResource("8_4nln2")
+text = "+"
+script = ExtResource("9_qkm1r")
+
+[node name="AddPointEditorButton2" type="Button" parent="." unique_id=1952545345]
+offset_left = 57.0
+offset_top = -9.0
+offset_right = 83.0
+offset_bottom = 16.0
+theme_override_fonts/font = ExtResource("5_p4yj3")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("6_mvn1b")
+theme_override_styles/pressed = ExtResource("7_40v7l")
+theme_override_styles/focus = ExtResource("8_4nln2")
+text = "-"
+script = ExtResource("9_qkm1r")
+type = 1
+
+[connection signal="body_entered" from="InitialCollisionArea" to="." method="_on_initial_collision_area_body_entered"]
+[connection signal="body_exited" from="InitialCollisionArea" to="." method="_on_initial_collision_area_body_exited"]
+[connection signal="mouse_entered" from="AddPointEditorButton" to="AddPointEditorButton" method="_mouse_entered_button_ui"]
+[connection signal="mouse_exited" from="AddPointEditorButton" to="AddPointEditorButton" method="_mouse_exited_button_ui"]
+[connection signal="mouse_entered" from="AddPointEditorButton2" to="AddPointEditorButton2" method="_mouse_entered_button_ui"]
+[connection signal="mouse_exited" from="AddPointEditorButton2" to="AddPointEditorButton2" method="_mouse_exited_button_ui"]

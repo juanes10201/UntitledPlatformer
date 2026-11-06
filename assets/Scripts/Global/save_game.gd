@@ -334,12 +334,15 @@ func get_boss():
 	var Boss = get_tree().get_nodes_in_group("Boss")[0] if get_tree().get_nodes_in_group("Boss").size() else null
 	return Boss
 
+var _cache_player : CharacterBody2D
 func get_player():
+	#if(_cache_player): return _cache_player
 	if(get_tree()):
 		var Players = get_tree().get_nodes_in_group("Player") if get_tree().get_nodes_in_group("Player").size() else null
 		if(Players):
 			for Player in Players:
 				if("IsMainPlayer" in Player && Player.IsMainPlayer):
+					_cache_player = Player
 					return Player
 	else:
 		print("WARNING: Tried loading Player before the scene is loaded.")

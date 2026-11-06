@@ -1331,6 +1331,8 @@ func Reset_Groundsmash(ThrowEnemies : bool = true, Visuals: bool = true, ResetVe
 		ParticlesLanding.show()
 		AudioGroundsmash.play()
 		if(Camera && "Shake" in Camera): Camera.Shake(10.0, 10.0)
+		Sprite.JuiceStretchLogic.stretch_size(Vector2(1.6, .4), Vector2(1.0, 1.0), .3, true, false, Tween.EASE_IN_OUT, Tween.TRANS_CUBIC, Sprite.JuiceStretchLogic.OffsetDirections.Down)
+		print("shjidflsijhdg")
 	PressingGroundSmash = Input.is_action_pressed("player_slide")
 	GroundSmash = false
 	DidSlamStorage = false

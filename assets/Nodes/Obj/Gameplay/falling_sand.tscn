@@ -132,6 +132,11 @@ texture = SubResource("CanvasTexture_bwwnb")
 region_enabled = true
 region_rect = Rect2(224.014, 112.007, 16, 16)
 
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=605169513]
+texture = SubResource("CanvasTexture_bwwnb")
+region_enabled = true
+region_rect = Rect2(224.014, 112.007, 16, 16)
+
 [node name="SpriteRetro" type="Sprite2D" parent="." unique_id=106543198]
 visible = false
 position = Vector2(0, -1)

@@ -44,6 +44,8 @@ var ExpoLimitedTime : bool = true
 
 var CrtFilter : bool = true
 
+var LightsEnabled : bool = true
+var ShowBg : bool = true
 
 var Is_in_editor : bool = false
 

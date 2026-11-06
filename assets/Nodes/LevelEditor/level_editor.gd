@@ -73,10 +73,14 @@ func LoadSnapshotLevelDataPaths() -> void:
 	for _node in LevelDataChildNodes:
 		for prop in _node.get_property_list():
 			var _val = _node.get(prop.name)
-			if _val && _val is Node && _val.is_inside_tree() && _val in LevelDataRecursiveNodePaths:
-				var _new_node_ref : Node = get_node(LevelDataRecursiveNodePaths[_val])
-				_node.set(prop.name, _new_node_ref)
+			#if _val && _val is Node && _val.is_inside_tree() && _val in LevelDataRecursiveNodePaths:
+			#	var _new_node_ref : Node = get_node(LevelDataRecursiveNodePaths[_val])
+			#	_node.set(prop.name, _new_node_ref)
 				#print("Loaded node: "  + str(_new_node_ref) + " from " + str(_node))
+			if _val && _val is Node && _val in LevelDataRecursiveNodePaths:
+				var _path = LevelDataRecursiveNodePaths[_val]
+				if has_node(_path):
+					_node.set(prop.name, get_node(_path))
 	for prop in get_property_list():
 		var _val = get(prop.name)
 		if _val && _val is Node && _val in SelfRecursiveNodePaths:
@@ -105,7 +109,7 @@ var SnapshotLevelData : Node2D
 
 func SaveSnapshotLevelData() -> void:
 	if(LevelData):
-		SnapshotLevelData = LevelData.duplicate(DUPLICATE_USE_INSTANTIATION)
+		SnapshotLevelData = LevelData.duplicate()#DUPLICATE_USE_INSTANTIATION)
 		SaveSnapshotLevelDataPaths()
 		#print("Saved Snapshot: " + str(SnapshotLevelData))
 
@@ -114,7 +118,7 @@ func _reset_play() -> void:
 		if(LevelData):
 			var OldLevelData = LevelData
 			remove_child(OldLevelData)
-			LevelData = SnapshotLevelData.duplicate(DUPLICATE_USE_INSTANTIATION)
+			LevelData = SnapshotLevelData.duplicate()#DUPLICATE_USE_INSTANTIATION)
 			LevelData.name = "LevelData"
 			add_child(LevelData)
 			

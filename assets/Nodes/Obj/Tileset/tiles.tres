@@ -235,12 +235,12 @@ texture = ExtResource("1_f3432")
 14:3/0 = 0
 14:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(0.71943474, 8, 8, 0.35971832, 8, 8, 0.5395756, 8)
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_exs0l"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_fls27"]
 diffuse_texture = ExtResource("2_exs0l")
 normal_texture = ExtResource("3_nmjon")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nmjon"]
-texture = SubResource("CanvasTexture_exs0l")
+texture = SubResource("CanvasTexture_fls27")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0

@@ -4,6 +4,14 @@ extends Node2D
 @export var SampleNode : Node
 var CacheNodes : Array[Node] = [] 
 
+#func _process(delta: float) -> void:
+	#print(CacheNodes)
+	#if(Edition.Is_in_editor):
+	#	for _node in CacheNodes:
+	#		if(!_node):
+	#			CacheNodes = []
+	#			_tick_cache_nodes_size()
+
 func _tick_cache_nodes_size() -> void:
 	CacheNodes = get_children()
 

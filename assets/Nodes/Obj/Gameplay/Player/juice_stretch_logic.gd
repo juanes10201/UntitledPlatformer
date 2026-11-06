@@ -20,6 +20,10 @@ enum OffsetDirections{
 var OffsetDirection : OffsetDirections = OffsetDirections.Center
 @export var UpdateOffset : bool = false
 
+func _ready() -> void:
+	if(Juice && SaveGame.get_config_value("Juice") != null):
+		Juice = SaveGame.get_config_value("Juice")
+
 func stretch_reset():
 	Stretch_Tween = null
 	Doing_Tween = false
