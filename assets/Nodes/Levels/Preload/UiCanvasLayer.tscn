@@ -445,6 +445,59 @@ tracks/3/keys = {
 "values": [Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_2ft35"]
+resource_name = "Idle_good_rank"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StyleSprite:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.4, 0.6333333, 0.79, 1.1666666, 1.3, 1.5666666, 1.8, 1.9566667, 2.16, 2.2933335, 2.5600002, 2.7933335, 2.95, 3.17, 3.3033335, 3.5700002, 3.8033333, 3.96),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.445, 0.445), Vector2(0.41540876, 0.41540876), Vector2(0.4, 0.4), Vector2(0.4094189, 0.4094189), Vector2(0.445, 0.445), Vector2(0.445, 0.445), Vector2(0.41540876, 0.41540876), Vector2(0.4, 0.4), Vector2(0.4094189, 0.4094189), Vector2(0.445, 0.445), Vector2(0.445, 0.445), Vector2(0.41540876, 0.41540876), Vector2(0.4, 0.4), Vector2(0.4094189, 0.4094189), Vector2(0.445, 0.445), Vector2(0.445, 0.445), Vector2(0.41540876, 0.41540876), Vector2(0.4, 0.4), Vector2(0.4094189, 0.4094189), Vector2(0.445, 0.445)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Points:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 3.2, 3.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(997, 478), Vector2(997, 473.25), Vector2(997, 475.183), Vector2(997, 478)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Moto:position")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.5, 1.79837, 2.19837, 2.59837, 2.99837, 3.29837, 3.63333, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(975, 606), Vector2(976, 607), Vector2(975, 606), Vector2(974, 605), Vector2(976, 606), Vector2(975, 606), Vector2(976, 607), Vector2(975, 606), Vector2(974, 605), Vector2(976, 606), Vector2(975, 606), Vector2(976, 607)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_eun7h"]
 length = 0.001
 tracks/0/type = "value"
@@ -578,6 +631,7 @@ _data = {
 &"Hide": SubResource("Animation_def47"),
 &"Hiden": SubResource("Animation_fd35p"),
 &"Idle": SubResource("Animation_1ffli"),
+&"Idle_good_rank": SubResource("Animation_2ft35"),
 &"RESET": SubResource("Animation_eun7h"),
 &"Show": SubResource("Animation_pi2gu")
 }
@@ -822,7 +876,7 @@ z_index = 2
 offset_left = 997.0
 offset_top = 478.0
 offset_right = 1190.0
-offset_bottom = 511.99988
+offset_bottom = 511.99982
 theme_override_colors/default_color = Color(0.823529, 0.658824, 1, 1)
 theme_override_fonts/normal_font = ExtResource("36_ke2n3")
 theme_override_font_sizes/normal_font_size = 32

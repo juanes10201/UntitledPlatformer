@@ -636,6 +636,7 @@ func _physics_process(delta: float) -> void:
 		if(!_is_on_floor_raycast() && Particles):
 			ParticlesJump.emitting = true
 		#endregion
+		_sound_effects_process(delta)
 		_corner_correction_tick(CornerCorrectionAmount, delta)
 		_physics_water(delta)
 		_physics_walljump(delta) 
@@ -1256,6 +1257,8 @@ func _Raycast_Destroy_Tiles(Raycaster : RayCast2D) -> void:
 			var hit_pos_global = Raycaster.get_collision_point()
 			var hit_pos_local = tilemap.to_local(hit_pos_global)
 			var tile_pos: Vector2i = tilemap.local_to_map(hit_pos_local)
+			if(tilemap.get_cell_source_id(tile_pos) != -1):
+				LevelManager.AddStyle(0, "Broke Glass", 1.0, global_position, Global.ALL_DIRECTIONS.determine)
 			tilemap.set_cell(tile_pos, -1)
 			
 			print("Destroyed tile: " + str(tile_pos))
@@ -1272,8 +1275,6 @@ func _Raycast_Destroy_Tiles(Raycaster : RayCast2D) -> void:
 			_play_sound($AudioGlassBreak_part3, true, true, -5, 1, .7, 0.2)
 			_play_sound($AudioGlassBreak_part4, true, true, -5, 1, .7, .1)
 			_play_sound($AudioGlassBreak_part5, true, true, -5, 1, .8, .1)
-			LevelManager.AddStyle(0, "Broke Glass")
-
 
 @onready var GroundRaycast : RayCast2D = $GroundRaycast
 func _gravity_is_on_floor_raycast() -> bool:
@@ -1310,6 +1311,10 @@ func _is_on_ceiling() -> bool:
 func is_near_wall() -> bool:
 	return $Wallchecker.is_colliding()
 #endregion
+
+func _sound_effects_process(delta : float) -> void:
+	if(Time_Left && Time_Left.time_left < 3):
+		_play_sound($AudioHeartbeat, false, false, 20)
 
 func is_action_pressed(Action : String):
 	if(!EnableMovement): return

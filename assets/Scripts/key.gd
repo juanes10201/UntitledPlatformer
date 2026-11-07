@@ -54,10 +54,10 @@ func _on_body_entered(body: Node2D) -> void:
 	if(body.is_in_group("Player") && !done):
 		set_key_state(true, true)
 		if(AditionalAction == GlobalFunctions.FUNCTIONS.Switch_Player_Gravity):
-			LevelManager.AddStyle(0, "Changed Gravity")
+			LevelManager.AddStyle(0, "Changed Gravity", 1.0, global_position, Global.ALL_DIRECTIONS.up)
 		elif(AditionalAction == GlobalFunctions.FUNCTIONS.Restart_Time):
-			LevelManager.AddStyle(1, "Got Clock")
-		else: LevelManager.AddStyle(0, "Got Key")
+			LevelManager.AddStyle(1, "Got Clock", 1.0, global_position, Global.ALL_DIRECTIONS.up)
+		else: LevelManager.AddStyle(0, "Got Key", 1.0, global_position, Global.ALL_DIRECTIONS.up)
 
 func set_key_state(state : bool, PlayAction : bool):
 	if(!Respawn):

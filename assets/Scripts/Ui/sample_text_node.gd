@@ -14,14 +14,23 @@ func _process(delta: float) -> void:
 		Playing = false
 		get_parent().set_unused_node(self)
 
+const OffsetStyleTextMin : Vector2 = Vector2(0.0, -20)
+const OffsetStyleTextMax : Vector2 = Vector2(0.0, -5)
+
 func play_score(val : int, _global_pos : Vector2, Direction : Global.ALL_DIRECTIONS = Global.ALL_DIRECTIONS.none) -> void:
 	Playing = true
 	
 	if(val > 0): text.text = "+" + str(val)
 	if(val < 0): text.text = "-" + str(val)
 	
+	if(Direction != Global.ALL_DIRECTIONS.up):
+		var _offset = Vector2(randf_range(OffsetStyleTextMin.x, OffsetStyleTextMax.x), randf_range(OffsetStyleTextMin.y, OffsetStyleTextMax.y))
+		_global_pos += _offset
+	
 	if(anim):
 		var _key = Global.ALL_DIRECTIONS.keys()[Direction]
+		if !(_key in AnimsMove): _key = "down"
+		
 		var _index = round(randf_range(0, AnimsMove[_key].size()-1))
 		print("Playing anim: key: " + str(_key) + " , index: " + str(_index))
 		print("Anim: " + str(AnimsMove[_key][_index]))

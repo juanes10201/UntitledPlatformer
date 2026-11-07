@@ -307,7 +307,7 @@ func AddStyle(Qt : int, Moto : String = "", Mult : float = 1.0, global_pos : Vec
 	var _player = SaveGame.get_player()
 	if(_player && !_player.Styleometter): return
 	StyleMultiplierTimer.start()
-	if(Moto == StyleMoto):#!=1
+	if(Moto != StyleMoto):#!=1
 		PointsLeftMult -= 1
 		#if(PointsLeftMult <= 0):
 		if(ScoreMult < 3):
@@ -323,6 +323,12 @@ func AddStyle(Qt : int, Moto : String = "", Mult : float = 1.0, global_pos : Vec
 	var _amount = StyleAmounts[Qt] * ScoreMult * Mult
 	StyloMetter += _amount
 	if(direction != Global.ALL_DIRECTIONS.none):
+		if(direction == Global.ALL_DIRECTIONS.determine):
+			if(_player.velocity.y > 0): direction = Global.ALL_DIRECTIONS.down
+			elif(_player.velocity.y < 0): direction = Global.ALL_DIRECTIONS.up
+			elif(_player.velocity.x > 0): direction = Global.ALL_DIRECTIONS.right
+			elif(_player.velocity.x < 0): direction = Global.ALL_DIRECTIONS.left
+			else: direction = Global.ALL_DIRECTIONS.down
 		_player.play_score_text(_amount, global_pos, direction)
 	StyleMoto = Moto
 	if(StyloMetter < 0): StyloMetter = 0

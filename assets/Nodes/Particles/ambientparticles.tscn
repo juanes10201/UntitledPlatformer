@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1ji315fcqjjv"]
+[gd_scene format=3 uid="uid://d1ji315fcqjjv"]
 
 [ext_resource type="Texture2D" uid="uid://bcqhpwtu5xyn8" path="res://assets/Sprites/particles/slime-special-particles.png" id="1_rhgmu"]
 
@@ -9,7 +9,7 @@ turbulence_enabled = true
 turbulence_noise_strength = 2.39
 turbulence_noise_speed = Vector3(1.385, 0, 0)
 
-[node name="AmbientParticles" type="GPUParticles2D"]
+[node name="AmbientParticles" type="GPUParticles2D" unique_id=1781417963]
 scale = Vector2(1.805, 1.805)
 amount = 10
 texture = ExtResource("1_rhgmu")

@@ -70,6 +70,7 @@
 [ext_resource type="AudioStream" uid="uid://bluoycwhp4kr6" path="res://assets/Sounds/SandFall/SandFall7.wav" id="50_mxrx7"]
 [ext_resource type="Texture2D" uid="uid://c60f22s8hbxqm" path="res://assets/Sprites/particles/Particle-WallJump.png" id="57_vfcmg"]
 [ext_resource type="Texture2D" uid="uid://ss4fek4dagk1" path="res://assets/Sprites/Gameplay/Tilesets/World1/tiles.png" id="58_mxrx7"]
+[ext_resource type="AudioStream" uid="uid://bifg1qqbdmme0" path="res://assets/Sounds/heart_last3_seconds.wav" id="67_opw6d"]
 [ext_resource type="Script" uid="uid://81xjxjgxisjg" path="res://assets/Nodes/Obj/Gameplay/Player/player_challenges.gd" id="69_yinjy"]
 [ext_resource type="Script" uid="uid://wrqun4v0qqem" path="res://assets/Scripts/Ui/score_text.gd" id="72_ngcqy"]
 [ext_resource type="Script" uid="uid://qhd10nb4q87i" path="res://assets/Nodes/LevelEditor/cache_nodes.gd" id="73_opw6d"]
@@ -949,6 +950,279 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_mvdu0"]
+resource_name = "move_down_skew_1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SampleText:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -19.51), Vector2(0, -23.48668), Vector2(0, -7.49), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.17453292519943295, -0.07853981633974483, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SampleText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.03333334, 0.1, 0.3, 0.53333336, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1.035265),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.68191504, 0.62516874, 1, 1), Color(0.8308751, 0.8007032, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3xwkm"]
+resource_name = "move_down_skew_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SampleText:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -19.51), Vector2(0, -23.48668), Vector2(0, -7.49), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.4625122517784973, -0.00698131700797741, -0.4520402762665314]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SampleText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.46666667, 0.56666666, 0.7666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1.035265),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.9797657, 0.5152843, 0.66751564, 1), Color(0.9747786, 0.76600134, 0.8093218, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qskwg"]
+resource_name = "move_down_skew_3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SampleText:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -19.51), Vector2(0, -23.48668), Vector2(0, -7.49), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.21642082724729697, 0.008726646259971648, 0.17453292519943295]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SampleText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.03333334, 0.1, 0.3, 0.53333336, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1.035265),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.68191504, 0.62516874, 1, 1), Color(0.8308751, 0.8007032, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kfmes"]
+resource_name = "move_left_skew_1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SampleText:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.56666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-10.731, -6.315), Vector2(-14.02, -2.08)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.56666666, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-0.4625122517784975, 0.006981317007977169, 0.20785691, 0.4520402762665312]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SampleText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.23333333, 0.43333334, 0.6333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1.035265),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.68191504, 0.62516874, 1, 1), Color(0.8308751, 0.8007032, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_euqqh"]
+resource_name = "move_left_skew_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SampleText:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.46666667, 0.6666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-17.255, -11.975), Vector2(-18.195, -11.246), Vector2(-20.68, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.4625122517784973, -0.00698131700797741, -0.4520402762665314]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SampleText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.33333334, 0.43333334, 0.6333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1.035265),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.9797657, 0.5152843, 0.66751564, 1), Color(0.9747786, 0.76600134, 0.8093218, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6qx60"]
+resource_name = "move_left_skew_3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SampleText:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.46666667, 0.6666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-17.255, -11.975), Vector2(-18.195, -11.246), Vector2(-20.68, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.46666667, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.4625122517784975, 0.006981317007977169, 0.4520402762665312]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SampleText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.33333334, 0.43333334, 0.6333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1.035265),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.9797657, 0.5152843, 0.66751564, 1), Color(0.9747786, 0.76600134, 0.8093218, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4xi37"]
+resource_name = "move_left_skew_4"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SampleText:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.56666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-10.731, -4.62), Vector2(-14.02, -2.08)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.46666667, 0.8666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.4625122517784975, 0.006981317007977169, 0.4520402762665312]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SampleText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.26666668, 0.36666667, 0.5666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1.035265),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.84793115, 0.573147, 0.8531615, 1), Color(0.78970796, 0.8329696, 0.9133984, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_t217t"]
 resource_name = "move_right_skew_1"
 tracks/0/type = "value"
@@ -970,10 +1244,10 @@ tracks/1/path = NodePath(".:skew")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.23333333, 0.56666666),
+"times": PackedFloat32Array(0, 0.3, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.4625122517784973, -0.006981317007977417, -0.4520402762665314]
+"values": [0.4625122517784973, -0.00698131700797741, -0.4520402762665314]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1012,7 +1286,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.36666667, 0.76666665),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.4625122517784973, -0.006981317007977417, -0.4520402762665314]
+"values": [0.4625122517784973, -0.00698131700797741, -0.4520402762665314]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1048,10 +1322,10 @@ tracks/1/path = NodePath(".:skew")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.56666666),
+"times": PackedFloat32Array(0, 0.46666667, 0.8666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.4625122517784973, -0.006981317007977417, -0.4520402762665314]
+"values": [0.4625122517784973, -0.00698131700797741, -0.4520402762665314]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1066,12 +1340,179 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 1), Color(0.84793115, 0.573147, 0.8531615, 1), Color(0.78970796, 0.8329696, 0.9133984, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_ngcqy"]
+resource_name = "move_up_skew_1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SampleText:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.4, 0.8666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -19.51), Vector2(0, -23.48668), Vector2(0, -7.49)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.17453292519943295, -0.07853981633974483, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SampleText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.03333334, 0.1, 0.3, 0.53333336, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1.035265),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.68191504, 0.62516874, 1, 1), Color(0.8308751, 0.8007032, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_opw6d"]
+resource_name = "move_up_skew_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SampleText:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.8666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -19.51), Vector2(0, -23.48668), Vector2(0, -7.49)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.17453292519943295, -0.07853981633974483, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SampleText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.33333334, 0.43333334, 0.6333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1.035265),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.9797657, 0.5152843, 0.66751564, 1), Color(0.9747786, 0.76600134, 0.8093218, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uqoun"]
+resource_name = "move_up_skew_3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SampleText:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.4, 0.8666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -19.51), Vector2(0, -23.48668), Vector2(0, -7.49)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.21642082724729697, 0.008726646259971648, 0.17453292519943295]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SampleText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.03333334, 0.1, 0.3, 0.53333336, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1.035265),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.68191504, 0.62516874, 1, 1), Color(0.8308751, 0.8007032, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kp2gu"]
+resource_name = "move_up_skew_4"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SampleText:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.4, 0.8666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -19.51), Vector2(0, -23.48668), Vector2(0, -7.49)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.21642082724729697, 0.008726646259971648, 0.17453292519943295]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SampleText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.33333334, 0.43333334, 0.6333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1.035265),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.9797657, 0.5152843, 0.66751564, 1), Color(0.9747786, 0.76600134, 0.8093218, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mvdu0"]
 _data = {
 &"RESET": SubResource("Animation_3kljs"),
+&"move_down_skew_1": SubResource("Animation_mvdu0"),
+&"move_down_skew_2": SubResource("Animation_3xwkm"),
+&"move_down_skew_3": SubResource("Animation_qskwg"),
+&"move_left_skew_1": SubResource("Animation_kfmes"),
+&"move_left_skew_2": SubResource("Animation_euqqh"),
+&"move_left_skew_3": SubResource("Animation_6qx60"),
+&"move_left_skew_4": SubResource("Animation_4xi37"),
 &"move_right_skew_1": SubResource("Animation_t217t"),
 &"move_right_skew_2": SubResource("Animation_rklqo"),
-&"move_right_skew_3": SubResource("Animation_2yy5b")
+&"move_right_skew_3": SubResource("Animation_2yy5b"),
+&"move_up_skew_1": SubResource("Animation_ngcqy"),
+&"move_up_skew_2": SubResource("Animation_opw6d"),
+&"move_up_skew_3": SubResource("Animation_uqoun"),
+&"move_up_skew_4": SubResource("Animation_kp2gu")
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=173086588 node_paths=PackedStringArray("MoveShadowSprite") groups=["Player"]]
@@ -1079,7 +1520,6 @@ position = Vector2(8, 18)
 collision_mask = 8456476
 floor_constant_speed = true
 script = ExtResource("1_uhpgg")
-ShortFormContent = true
 MoveShadowSprite = NodePath("Sprite2D/MoveShadow")
 TimeDeath = 0.4
 
@@ -1405,6 +1845,9 @@ bus = &"Sfx"
 [node name="AudioSandFall" type="AudioStreamPlayer" parent="." unique_id=296994434]
 stream = SubResource("AudioStreamRandomizer_b0a62")
 
+[node name="AudioHeartbeat" type="AudioStreamPlayer" parent="." unique_id=902217343]
+stream = ExtResource("67_opw6d")
+
 [node name="SlamStorageTimer" type="Timer" parent="." unique_id=1553088189]
 one_shot = true
 
@@ -1554,11 +1997,13 @@ SampleNode = NodePath("../SampleTextNode")
 position = Vector2(-91, -39)
 script = ExtResource("74_uqoun")
 AnimsMove = Dictionary[String, Array]({
-"right": ["move_right_skew_1", "move_right_skew_2", "move_right_skew_3"]
+"down": ["move_down_skew_1", "move_down_skew_2", "move_down_skew_3"],
+"right": ["move_right_skew_1", "move_right_skew_2", "move_right_skew_3"],
+"up": ["move_up_skew_1", "move_up_skew_2", "move_up_skew_3", "move_up_skew_4"]
 })
 
 [node name="SampleText" type="RichTextLabel" parent="ScoreTextNode/SampleTextNode" unique_id=23432288]
-offset_right = 20.000027
+offset_right = 20.000011
 offset_bottom = 11.0
 theme_override_fonts/normal_font = ExtResource("75_kp2gu")
 text = "+20"

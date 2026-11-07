@@ -169,12 +169,6 @@ PlayAnimation = "move2"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Bg2" unique_id=275658208]
 libraries/ = SubResource("AnimationLibrary_klj0i")
 
-[node name="Placeholder" type="Sprite2D" parent="." unique_id=1670196711]
-self_modulate = Color(1, 1, 1, 0.40392157)
-position = Vector2(-555, -55)
-scale = Vector2(0.30839247, 0.30839252)
-texture = ExtResource("4_fnpmo")
-
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=123331500]
 position = Vector2(-222, 217)
 scale = Vector2(1.453125, 1.453125)
@@ -383,5 +377,11 @@ EnemyDirection = 2
 position = Vector2(-80, -200)
 scale = Vector2(9999, 1)
 Visible = false
+
+[node name="Placeholder" type="Sprite2D" parent="." unique_id=1670196711]
+top_level = true
+position = Vector2(-741, -131)
+scale = Vector2(0.30839247, 0.30839252)
+texture = ExtResource("4_fnpmo")
 
 [editable path="Enemie3"]

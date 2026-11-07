@@ -4,6 +4,7 @@ extends Node2D
 
 func _ready() -> void:
 	CacheNode.set_cache_nodes_amount(CacheAmount, false)
+	show()
 
 #func _process(delta: float) -> void:
 #	draw_score(20, Vector2(-266.0, -87))

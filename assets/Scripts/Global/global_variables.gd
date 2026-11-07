@@ -58,6 +58,7 @@ enum ALL_DIRECTIONS{
 	right,
 	left,
 	center,
+	determine,
 	none
 }
 var Selected_Challenge : CHALLENGES = CHALLENGES.none
