@@ -396,7 +396,6 @@ script = ExtResource("7_y33gm")
 SpeedrunWaitTime = 4.0
 
 [node name="PointLight2D48" type="PointLight2D" parent="." unique_id=329991227]
-visible = false
 position = Vector2(-233, -58)
 scale = Vector2(1.5259811, 1.4260539)
 color = Color(0.9766763, 0.33209845, 0.99999994, 1)
@@ -407,7 +406,6 @@ height = 13.0
 script = ExtResource("23_2utor")
 
 [node name="PointLight2D59" type="PointLight2D" parent="." unique_id=1416894719]
-visible = false
 position = Vector2(-249, -95.99999)
 scale = Vector2(1.5259811, 1.4260539)
 color = Color(0.9766763, 0.33209845, 0.99999994, 1)
@@ -418,7 +416,6 @@ height = 13.0
 script = ExtResource("23_2utor")
 
 [node name="PointLight2D58" type="PointLight2D" parent="." unique_id=1321374691]
-visible = false
 position = Vector2(-162, -15)
 scale = Vector2(1.5259811, 1.4260539)
 color = Color(0.12424647, 0.796192, 1.1551381e-06, 1)
@@ -429,7 +426,6 @@ height = 13.0
 script = ExtResource("23_2utor")
 
 [node name="PointLight2D54" type="PointLight2D" parent="." unique_id=472118718]
-visible = false
 position = Vector2(-165, 131)
 scale = Vector2(1.5259811, 1.4260539)
 color = Color(0.9766763, 0.33209845, 0.99999994, 1)
@@ -440,7 +436,6 @@ height = 13.0
 script = ExtResource("23_2utor")
 
 [node name="PointLight2D55" type="PointLight2D" parent="." unique_id=1410104563]
-visible = false
 position = Vector2(-104, 228)
 scale = Vector2(1.5259811, 1.4260539)
 color = Color(0.9766763, 0.33209845, 0.99999994, 1)
@@ -451,7 +446,6 @@ height = 13.0
 script = ExtResource("23_2utor")
 
 [node name="PointLight2D56" type="PointLight2D" parent="." unique_id=1287149777]
-visible = false
 position = Vector2(12.999996, 272)
 scale = Vector2(1.5259811, 1.4260539)
 color = Color(0.84822273, 0.6129843, 0, 1)
@@ -462,7 +456,6 @@ height = 13.0
 script = ExtResource("23_2utor")
 
 [node name="PointLight2D57" type="PointLight2D" parent="." unique_id=454661138]
-visible = false
 position = Vector2(7, 202)
 scale = Vector2(1.5259811, 1.4260539)
 color = Color(0.9999997, 0.2979485, 0.9891551, 1)
@@ -473,7 +466,6 @@ height = 13.0
 script = ExtResource("23_2utor")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1684159127]
-visible = false
 position = Vector2(25, -105)
 scale = Vector2(1.453125, 1.453125)
 color = Color(0.95631605, 0.47549087, 0.7099316, 1)
@@ -481,7 +473,6 @@ texture = SubResource("GradientTexture2D_8vuuc")
 height = 13.0
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=570929673]
-visible = false
 position = Vector2(-40, 60)
 scale = Vector2(1.453125, 1.453125)
 color = Color(0.54460174, 0.7033149, 0.6498402, 1)
@@ -489,7 +480,6 @@ texture = SubResource("GradientTexture2D_reu32")
 height = 13.0
 
 [node name="PointLight2D3" type="PointLight2D" parent="." unique_id=331467239]
-visible = false
 position = Vector2(65, 129)
 scale = Vector2(1.453125, 1.453125)
 color = Color(0.54460174, 0.7033149, 0.6498402, 1)
@@ -497,7 +487,6 @@ texture = SubResource("GradientTexture2D_reu32")
 height = 13.0
 
 [node name="PointLight2D4" type="PointLight2D" parent="." unique_id=1006241083]
-visible = false
 position = Vector2(1.000001, 293)
 scale = Vector2(1.453125, 1.453125)
 color = Color(0.8255318, 0.6290966, 0.018607348, 1)
@@ -507,7 +496,6 @@ texture_scale = 1.72
 height = 13.0
 
 [node name="PointLight2D5" type="PointLight2D" parent="." unique_id=415687637]
-visible = false
 position = Vector2(-80, 182)
 scale = Vector2(1.453125, 1.453125)
 color = Color(0.8255318, 0.6290966, 0.018607348, 1)
@@ -517,7 +505,6 @@ texture_scale = 1.72
 height = 13.0
 
 [node name="PointLight2D6" type="PointLight2D" parent="." unique_id=511583654]
-visible = false
 position = Vector2(-87, 191)
 scale = Vector2(1.453125, 1.453125)
 color = Color(0.7026668, 0.5993584, 0.9006834, 1)
@@ -526,7 +513,6 @@ texture = SubResource("GradientTexture2D_6niov")
 height = 13.0
 
 [node name="PointLight2D9" type="PointLight2D" parent="." unique_id=416332809]
-visible = false
 position = Vector2(-172, 92.99999)
 scale = Vector2(1.453125, 1.453125)
 color = Color(0.9999998, 0.5046499, 0.18954533, 1)
@@ -535,7 +521,6 @@ texture = SubResource("GradientTexture2D_nmt3o")
 height = 13.0
 
 [node name="PointLight2D10" type="PointLight2D" parent="." unique_id=520436583]
-visible = false
 position = Vector2(-92, 220)
 scale = Vector2(1.453125, 1.453125)
 color = Color(0.9999998, 0.5046499, 0.18954533, 1)
@@ -544,7 +529,6 @@ texture = SubResource("GradientTexture2D_nmt3o")
 height = 13.0
 
 [node name="PointLight2D11" type="PointLight2D" parent="." unique_id=990084883]
-visible = false
 position = Vector2(-109, 123.999985)
 scale = Vector2(1.453125, 1.453125)
 color = Color(0.58740115, 0.72377235, 0.25861034, 1)
@@ -553,7 +537,6 @@ texture = SubResource("GradientTexture2D_nmt3o")
 height = 13.0
 
 [node name="PointLight2D12" type="PointLight2D" parent="." unique_id=600379188]
-visible = false
 position = Vector2(-33, 50)
 scale = Vector2(1.453125, 1.453125)
 color = Color(0.9411765, 0, 0.6862745, 1)
@@ -563,7 +546,6 @@ texture_scale = 1.9
 height = 13.0
 
 [node name="PointLight2D13" type="PointLight2D" parent="." unique_id=752887923]
-visible = false
 position = Vector2(-203, -34)
 scale = Vector2(1.453125, 1.453125)
 color = Color(0.88741815, 0.49767113, 0.8530232, 1)
@@ -572,7 +554,6 @@ texture = SubResource("GradientTexture2D_4bv7n")
 height = 13.0
 
 [node name="PointLight2D14" type="PointLight2D" parent="." unique_id=1036018351]
-visible = false
 position = Vector2(14, 3)
 scale = Vector2(1.453125, 1.453125)
 color = Color(0.88741815, 0.49767113, 0.8530232, 1)
@@ -580,7 +561,6 @@ texture = SubResource("GradientTexture2D_4bv7n")
 height = 13.0
 
 [node name="PointLight2D49" type="PointLight2D" parent="." unique_id=604187178]
-visible = false
 position = Vector2(-6, -39.000004)
 scale = Vector2(1.5259811, 1.4260539)
 color = Color(0.9766763, 0.33209845, 0.99999994, 1)
@@ -591,7 +571,6 @@ height = 13.0
 script = ExtResource("23_2utor")
 
 [node name="PointLight2D50" type="PointLight2D" parent="." unique_id=2055475535]
-visible = false
 position = Vector2(-84, -120)
 scale = Vector2(1.5259811, 1.4260539)
 color = Color(0.9766763, 0.33209845, 0.99999994, 1)
@@ -602,7 +581,6 @@ height = 13.0
 script = ExtResource("23_2utor")
 
 [node name="PointLight2D51" type="PointLight2D" parent="." unique_id=491723606]
-visible = false
 position = Vector2(-171, -140)
 scale = Vector2(1.5259811, 1.4260539)
 color = Color(0.99999994, 0.49743295, 0.19575131, 1)
@@ -614,7 +592,6 @@ script = ExtResource("23_2utor")
 CurrentAnimation = 1
 
 [node name="PointLight2D52" type="PointLight2D" parent="." unique_id=1192603874]
-visible = false
 position = Vector2(-104, 159)
 scale = Vector2(1.5259811, 1.4260539)
 color = Color(0.82936877, 0.6241621, 0, 1)
@@ -626,7 +603,6 @@ script = ExtResource("23_2utor")
 CurrentAnimation = 3
 
 [node name="PointLight2D53" type="PointLight2D" parent="." unique_id=1870867112]
-visible = false
 position = Vector2(-171, 96)
 scale = Vector2(1.5259811, 1.4260539)
 color = Color(1, 0.48708814, 0.32640275, 1)
@@ -637,7 +613,6 @@ height = 13.0
 script = ExtResource("23_2utor")
 
 [node name="PointLight2D60" type="PointLight2D" parent="." unique_id=1779953599]
-visible = false
 position = Vector2(68, 137)
 scale = Vector2(1.5259811, 1.4260539)
 color = Color(0.9766763, 0.33209845, 0.99999994, 1)

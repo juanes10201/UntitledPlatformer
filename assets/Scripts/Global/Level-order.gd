@@ -302,7 +302,7 @@ func RemoveStyle(Qt : int, Moto : String = ""):
 	if(StyloMetter < 0): StyloMetter = 0
 	ScoreMult = 1
 
-func AddStyle(Qt : int, Moto : String = "", Mult : float = 1.0):
+func AddStyle(Qt : int, Moto : String = "", Mult : float = 1.0, global_pos : Vector2 = Vector2(0.0, 0.0), direction : Global.ALL_DIRECTIONS = Global.ALL_DIRECTIONS.none):
 	#Score Multiplier
 	var _player = SaveGame.get_player()
 	if(_player && !_player.Styleometter): return
@@ -320,7 +320,10 @@ func AddStyle(Qt : int, Moto : String = "", Mult : float = 1.0):
 					#Player._play_sound(Player.AudioUpgrade)
 					if(Player.Camera && "Shake" in Player.Camera):
 						Player.Camera.Shake(12.0, 12.0, true)
-	StyloMetter += StyleAmounts[Qt] * ScoreMult * Mult
+	var _amount = StyleAmounts[Qt] * ScoreMult * Mult
+	StyloMetter += _amount
+	if(direction != Global.ALL_DIRECTIONS.none):
+		_player.play_score_text(_amount, global_pos, direction)
 	StyleMoto = Moto
 	if(StyloMetter < 0): StyloMetter = 0
 	StyleTimer.start()

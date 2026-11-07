@@ -241,6 +241,8 @@ var PositionDifference : Vector2
 @onready var LastPosition : Vector2 = global_position
 @onready var InvincibleSlimeCooldown : Timer = $InvincibleSlimeCooldown
 
+@onready var ScoreTextNode : Node2D = $ScoreTextNode
+
 #region Editor
 var EditorInitialPos : Vector2 = Vector2(0.0,0.0)
 
@@ -1360,6 +1362,8 @@ func _on_timer_intro_slam_timeout() -> void:
 	Input.action_release("player_slide")
 	LevelManager.ExpoMoveTimeout.start()
 
+func play_score_text(score : int, global_pos : Vector2, _direction : Global.ALL_DIRECTIONS = Global.ALL_DIRECTIONS.up) -> void:
+	if(ScoreTextNode): ScoreTextNode.draw_score(score, global_pos, _direction)
 
 func _on_water_area_area_entered(area: Area2D) -> void:
 	OnWaterTile = true

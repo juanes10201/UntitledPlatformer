@@ -52,6 +52,14 @@ enum CHALLENGES{
 	no_restart,
 	speedrun
 }
+enum ALL_DIRECTIONS{
+	up,
+	down,
+	right,
+	left,
+	center,
+	none
+}
 var Selected_Challenge : CHALLENGES = CHALLENGES.none
 
 var Player = null

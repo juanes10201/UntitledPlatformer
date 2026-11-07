@@ -71,6 +71,10 @@
 [ext_resource type="Texture2D" uid="uid://c60f22s8hbxqm" path="res://assets/Sprites/particles/Particle-WallJump.png" id="57_vfcmg"]
 [ext_resource type="Texture2D" uid="uid://ss4fek4dagk1" path="res://assets/Sprites/Gameplay/Tilesets/World1/tiles.png" id="58_mxrx7"]
 [ext_resource type="Script" uid="uid://81xjxjgxisjg" path="res://assets/Nodes/Obj/Gameplay/Player/player_challenges.gd" id="69_yinjy"]
+[ext_resource type="Script" uid="uid://wrqun4v0qqem" path="res://assets/Scripts/Ui/score_text.gd" id="72_ngcqy"]
+[ext_resource type="Script" uid="uid://qhd10nb4q87i" path="res://assets/Nodes/LevelEditor/cache_nodes.gd" id="73_opw6d"]
+[ext_resource type="Script" uid="uid://dsxahlnpmfvdr" path="res://assets/Scripts/Ui/sample_text_node.gd" id="74_uqoun"]
+[ext_resource type="FontFile" uid="uid://du1fhb4w0oxp8" path="res://assets/Fonts/pixelart/Coder's Crux.otf" id="75_kp2gu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfcmg"]
 size = Vector2(21, 23)
@@ -906,6 +910,170 @@ turbulence_enabled = true
 atlas = ExtResource("58_mxrx7")
 region = Rect2(245.81227, 357.8401, 4.423416, 4.180359)
 
+[sub_resource type="Animation" id="Animation_3kljs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SampleText:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SampleText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_t217t"]
+resource_name = "move_right_skew_1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SampleText:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.56666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(10.730982, -6.3145933), Vector2(14.02, -2.08)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.56666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.4625122517784973, -0.006981317007977417, -0.4520402762665314]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SampleText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.23333333, 0.43333334, 0.6333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1.035265),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.68191504, 0.62516874, 1, 1), Color(0.8308751, 0.8007032, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rklqo"]
+resource_name = "move_right_skew_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SampleText:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.46666667, 0.6666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(17.255, -11.975), Vector2(18.195198, -11.245696), Vector2(20.68, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.4625122517784973, -0.006981317007977417, -0.4520402762665314]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SampleText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.33333334, 0.43333334, 0.6333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1.035265),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.9797657, 0.5152843, 0.66751564, 1), Color(0.9747786, 0.76600134, 0.8093218, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2yy5b"]
+resource_name = "move_right_skew_3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SampleText:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.56666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(10.731, -4.62), Vector2(14.02, -2.08)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.56666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.4625122517784973, -0.006981317007977417, -0.4520402762665314]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SampleText:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.26666668, 0.36666667, 0.5666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1.035265),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.84793115, 0.573147, 0.8531615, 1), Color(0.78970796, 0.8329696, 0.9133984, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mvdu0"]
+_data = {
+&"RESET": SubResource("Animation_3kljs"),
+&"move_right_skew_1": SubResource("Animation_t217t"),
+&"move_right_skew_2": SubResource("Animation_rklqo"),
+&"move_right_skew_3": SubResource("Animation_2yy5b")
+}
+
 [node name="Player" type="CharacterBody2D" unique_id=173086588 node_paths=PackedStringArray("MoveShadowSprite") groups=["Player"]]
 position = Vector2(8, 18)
 collision_mask = 8456476
@@ -1372,6 +1540,32 @@ script = ExtResource("69_yinjy")
 [node name="InvincibleSlimeCooldown" type="Timer" parent="." unique_id=1913887607]
 wait_time = 0.05
 one_shot = true
+
+[node name="ScoreTextNode" type="Node2D" parent="." unique_id=2023801422]
+top_level = true
+script = ExtResource("72_ngcqy")
+
+[node name="CacheText" type="Node2D" parent="ScoreTextNode" unique_id=2115405243 node_paths=PackedStringArray("SampleNode")]
+script = ExtResource("73_opw6d")
+ExtraCacheAmount = 0
+SampleNode = NodePath("../SampleTextNode")
+
+[node name="SampleTextNode" type="Node2D" parent="ScoreTextNode" unique_id=1074453456]
+position = Vector2(-91, -39)
+script = ExtResource("74_uqoun")
+AnimsMove = Dictionary[String, Array]({
+"right": ["move_right_skew_1", "move_right_skew_2", "move_right_skew_3"]
+})
+
+[node name="SampleText" type="RichTextLabel" parent="ScoreTextNode/SampleTextNode" unique_id=23432288]
+offset_right = 20.000027
+offset_bottom = 11.0
+theme_override_fonts/normal_font = ExtResource("75_kp2gu")
+text = "+20"
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ScoreTextNode/SampleTextNode" unique_id=1062169361]
+libraries/ = SubResource("AnimationLibrary_mvdu0")
 
 [connection signal="area_entered" from="WaterArea" to="." method="_on_water_area_area_entered"]
 [connection signal="area_exited" from="WaterArea" to="." method="_on_water_area_area_exited"]

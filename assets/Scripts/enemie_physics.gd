@@ -73,6 +73,9 @@ var EditorInitialPos : Vector2 = Vector2(0.0,0.0)
 var InitialEnemyDirection : Directions = Directions.RIGHT
 var InitialGravityDirection : Global.GravityDirections = Global.GravityDirections.MAIN
 
+const OffsetStyleTextMin : Vector2 = Vector2(0.0, -20)
+const OffsetStyleTextMax : Vector2 = Vector2(0.0, -5)
+
 func cache_values_editor() -> void:
 	if(ShootBulletTimer): ShootBulletTimer.wait_time = TimeToShoot
 	EditorInitialPos = position
@@ -130,6 +133,8 @@ func _on_player_ground_smash_signal(player_instance : CharacterBody2D = Player, 
 				Move = false
 				player_instance.Controller_Vibrate_Player_Movement(1)
 				_groundsmash_player_sound()
+				var _offset = Vector2(randf_range(OffsetStyleTextMin.x, OffsetStyleTextMax.x), randf_range(OffsetStyleTextMin.y, OffsetStyleTextMax.y))
+				LevelManager.AddStyle(0, "Slide enemy", 1.0, global_position+_offset, Global.ALL_DIRECTIONS.right)
 #endregion
 
 func on_player_destroy_float(player_instance : CharacterBody2D = Player) -> void:
@@ -140,7 +145,8 @@ func on_player_destroy_float(player_instance : CharacterBody2D = Player) -> void
 func _on_player_slide_signal() -> void:
 	if(_is_on_floor() && enemy_type == 0 && Player.GravityDirection == GravityDirection):
 		if(FrameHit): Sprite._start_frame_hit()
-		LevelManager.AddStyle(0, "Slide enemy")
+		var _offset = Vector2(randf_range(OffsetStyleTextMin.x, OffsetStyleTextMax.x), randf_range(OffsetStyleTextMin.y, OffsetStyleTextMax.y))
+		LevelManager.AddStyle(0, "Slide enemy", 1.0, global_position+_offset, Global.ALL_DIRECTIONS.right)
 		if(Particles): $HitParticles.emitting = true
 		#Player.FrameFreeze(0.05, 0.4)
 		_jump(-400)
