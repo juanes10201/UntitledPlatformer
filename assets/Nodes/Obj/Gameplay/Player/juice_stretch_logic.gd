@@ -11,6 +11,8 @@ var Tween_scale_to : Vector2 = Vector2(0.0, 0.0)
 var TweenTickContinue : bool = false
 var TweenGoBack : bool = true
 
+var CanOverride : bool = true
+
 @onready var Offset : Vector2 = Sprite.offset if "offset" in Sprite else Vector2(0.0,0.0)
 enum OffsetDirections{
 	Center = 0,
@@ -28,14 +30,18 @@ func stretch_reset():
 	Stretch_Tween = null
 	Doing_Tween = false
 	Sprite.scale = original_scale
+	CanOverride = true
 
-func stretch_size(From : Vector2, To : Vector2, TimeTo : float = .7, Override : bool = true, GoBack : bool = true, ease : Tween.EaseType = Tween.EASE_IN_OUT, trans : Tween.TransitionType = Tween.TRANS_CUBIC, _OffsetDirection : OffsetDirections = OffsetDirections.Center):
+func stretch_size(From : Vector2, To : Vector2, TimeTo : float = .7, Override : bool = true, GoBack : bool = true, ease : Tween.EaseType = Tween.EASE_IN_OUT, trans : Tween.TransitionType = Tween.TRANS_CUBIC, _OffsetDirection : OffsetDirections = OffsetDirections.Center, _CanBeOverriden : bool = true):
 	if(!Juice): return
+	if(!CanOverride && Doing_Tween): return
+	CanOverride = _CanBeOverriden
 	TweenTickContinue = true
 	TweenGoBack = GoBack
 	_OffsetDirection = OffsetDirection
 	#if(Tween_scale_to == To): return
 	if(Override || !Doing_Tween):
+		stretch_reset()
 		Sprite.scale = original_scale*From
 		Stretch_Tween = get_tree().create_tween()
 		Stretch_Tween.tween_property(Sprite, "scale", original_scale*To, TimeTo)
@@ -59,6 +65,7 @@ func _stretch_tick(delta : float):
 	if(!Juice): return
 	Doing_Tween = !Stretch_Tween || Stretch_Tween.is_running()
 	if(!Doing_Tween || !TweenTickContinue):
+		CanOverride = true
 		if(TweenGoBack):
 			stretch_size(Sprite.scale, original_scale, .2, true, false)
 		else:

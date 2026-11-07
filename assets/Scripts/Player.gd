@@ -627,7 +627,8 @@ func _physics_process(delta: float) -> void:
 		
 		if(_is_on_floor_raycast() && !was_on_floor_raycast):
 			#print("Stretch 1")
-			Sprite.JuiceStretchLogic.stretch_size(Vector2(1.4, .6), Vector2(1.0, 1.0), .3, true, false, Tween.EASE_IN_OUT, Tween.TRANS_CUBIC, Sprite.JuiceStretchLogic.OffsetDirections.Down)
+			if(!GroundSmash):
+				Sprite.JuiceStretchLogic.stretch_size(Vector2(1.4, .6), Vector2(1.0, 1.0), .3, true, false, Tween.EASE_IN_OUT, Tween.TRANS_CUBIC, Sprite.JuiceStretchLogic.OffsetDirections.Down, false)
 			ParticlesJump.emitting = false
 			ParticlesLanding.hide()
 		if(!_is_on_floor_raycast() && Particles):
@@ -708,8 +709,7 @@ func _play_sound(body, override : bool = true, pitch_scale: bool = true, gain : 
 			if(pitch_scale): body.pitch_scale = randf_range(min_pitch, max_pitch)*pitch
 			body.play()
 func _stop_sound(body):
-	if(body.playing):
-		body.stop()
+	body.stop()
 func _fade_sound(body):
 	var tween_fade_sound = get_tree().create_tween()
 	tween_fade_sound.tween_property(body, "volume_db", -80, 0.5)
@@ -832,19 +832,22 @@ func _physics_apply_gravity(delta: float) -> void:
 		if(was_on_floor): CoyoteTimer.start()
 		if(!WallJump && DashTime.is_stopped()):
 			velocity.y += get_gravity_player() * Acc.y * delta * GravityDirection * GravitySandFallDirection
-			if(!WallJump):
+			if(!WallJump && !_is_on_floor_raycast()):
 				if(velocity.y*GravityDirection < 0 && !_is_on_floor_raycast()): 
 					#print("Stretch 2")
 					Sprite.JuiceStretchLogic.stretch_size(Vector2(1.5, .5), Vector2(.7, 1.2), .2, true, false, Tween.EASE_IN_OUT, Tween.TRANS_QUINT, Sprite.JuiceStretchLogic.OffsetDirections.Down)
+					_stop_sound(AudioWind)
 				elif(velocity.y*GravityDirection >= MaxAcc.y && !_is_on_floor_raycast()):
 					#print("Stretch 3")
 					Sprite.JuiceStretchLogic.stretch_size(Vector2(.7, 1.2), Vector2(.8, 1.1), .2, true, true)
-					#_play_sound(AudioWind, false)
+					_play_sound(AudioWind, false)
+				else:
+					_stop_sound(AudioWind)
 		#else: velocity.y += Speed.y * delta
 	if (_is_on_floor()):
+		_stop_sound(AudioWind)
 		DoubleJumped = false
 		Dashed = false
-		_stop_sound(AudioWind)
 		#DashWithJump = false
 		DashWithJump = false
 		if(GroundSmash):
@@ -1331,8 +1334,7 @@ func Reset_Groundsmash(ThrowEnemies : bool = true, Visuals: bool = true, ResetVe
 		ParticlesLanding.show()
 		AudioGroundsmash.play()
 		if(Camera && "Shake" in Camera): Camera.Shake(10.0, 10.0)
-		Sprite.JuiceStretchLogic.stretch_size(Vector2(1.6, .4), Vector2(1.0, 1.0), .3, true, false, Tween.EASE_IN_OUT, Tween.TRANS_CUBIC, Sprite.JuiceStretchLogic.OffsetDirections.Down)
-		print("shjidflsijhdg")
+		Sprite.JuiceStretchLogic.stretch_size(Vector2(1.6, .4), Vector2(1.0, 1.0), .3, true, false, Tween.EASE_IN_OUT, Tween.TRANS_CUBIC, Sprite.JuiceStretchLogic.OffsetDirections.Down, false)
 	PressingGroundSmash = Input.is_action_pressed("player_slide")
 	GroundSmash = false
 	DidSlamStorage = false
