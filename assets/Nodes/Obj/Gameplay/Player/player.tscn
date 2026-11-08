@@ -1052,7 +1052,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.8333333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [-0.21642082724729697, 0.008726646259971648, 0.17453292519943295]
+"values": [-0.21642082724729697, 0.00872664625997164, 0.17453292519943295]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1091,7 +1091,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.56666666, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [-0.4625122517784975, 0.006981317007977169, 0.20785691, 0.4520402762665312]
+"values": [-0.4625122517784975, 0.00698131700797716, 0.20785691, 0.4520402762665312]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1169,7 +1169,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.46666667, 0.76666665),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [-0.4625122517784975, 0.006981317007977169, 0.4520402762665312]
+"values": [-0.4625122517784975, 0.00698131700797716, 0.4520402762665312]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1208,7 +1208,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.46666667, 0.8666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [-0.4625122517784975, 0.006981317007977169, 0.4520402762665312]
+"values": [-0.4625122517784975, 0.00698131700797716, 0.4520402762665312]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1442,7 +1442,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.8333333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [-0.21642082724729697, 0.008726646259971648, 0.17453292519943295]
+"values": [-0.21642082724729697, 0.00872664625997164, 0.17453292519943295]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1481,7 +1481,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.8333333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [-0.21642082724729697, 0.008726646259971648, 0.17453292519943295]
+"values": [-0.21642082724729697, 0.00872664625997164, 0.17453292519943295]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1520,6 +1520,7 @@ position = Vector2(8, 18)
 collision_mask = 8456476
 floor_constant_speed = true
 script = ExtResource("1_uhpgg")
+ShortFormContent = true
 MoveShadowSprite = NodePath("Sprite2D/MoveShadow")
 TimeDeath = 0.4
 

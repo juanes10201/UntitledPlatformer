@@ -66,7 +66,6 @@ var DoubleJumped : bool = false
 
 #region Export variables
 @export var IsMainPlayer : bool = true
-@export var EnableParticles : bool = true
 @export var RetroStyle : bool = false
 @export var PlayIntro : bool = false
 var juice : bool = true
@@ -78,6 +77,7 @@ var juice : bool = true
 @export var Max_Velocity_Multiplier : float = 1.0
 @onready var InvencibilityTimer : Timer = $InvencibilityTimer
 @export var MoveShadowSprite : AnimatedSprite2D
+@export var HaveMoveShadow : bool = true
 
 @export_subgroup("Jump")
 @export_range(0, 7000.0, .5, "or_greater", "or_less") var WallJumpVelocity : float = 7000.0
@@ -196,6 +196,7 @@ var SwitchedGravity : bool = false
 var PlayedSwitchedGravityAnimation : bool = false
 
 @export var Particles : bool = true
+@export var ParticlesHitText : bool = true
 
 @onready var Time_Left : Timer = $"../Time_Left"
 
@@ -404,6 +405,10 @@ func _get_canvas_position() -> Vector2:
 	return canvas_position + global_position
 
 func _shadow_tick() -> void:
+	if(!HaveMoveShadow):
+		if(MoveShadowSprite):
+			MoveShadowSprite.modulate.a = 0.0
+		return
 	var _CanvasPosition = _get_canvas_position()
 	var _CanvasVel = PreviousCanvasPos-_CanvasPosition
 	if(!MoveShadowSprite): return
@@ -428,7 +433,7 @@ func _ready() -> void:
 	MaxAcc.x *= Max_Velocity_Multiplier
 	if(!Edition.Is_in_editor):
 		_set_time_state(CountTime)
-	if(RetroStyle):
+	if(RetroStyle && Particles):
 		ParticlesSlide.fixed_fps = 15
 		ParticlesSlide.interpolate = false
 		ParticlesJump.fixed_fps = 15
@@ -513,7 +518,7 @@ func _physics_process(delta: float) -> void:
 	if(ReplayStyle):
 		Sprite.modulate.a = 0.7
 		Particles = false
-	if($WaterParticles):
+	if(Particles && $WaterParticles):
 		$WaterParticles.emitting = OnWater
 		$WaterParticles2.emitting = OnWater
 	#if(Edition.GAME_STATUS == Edition.ALL_GAME_STATUS.expo_cbb):
@@ -617,7 +622,7 @@ func _physics_process(delta: float) -> void:
 		#region Jump initial particles
 		if(!_is_on_floor_raycast() && was_on_floor_raycast):
 			Reset_Slide()
-			if(!ParticlesLanding.is_playing()):
+			if(Particles && !ParticlesLanding.is_playing()):
 				ParticlesLanding.position = self.position
 				ParticlesLanding.position.y -= 5
 				ParticlesLanding.set_as_top_level(true)
@@ -972,7 +977,7 @@ func DoJump(delta : float = 1/60) -> void:
 		PreWallJumpTimer.stop()
 		#print(PositionDifference.x)
 		velocity.y -= 50 * GravityDirection
-		if($ParticleWalljump && !$ParticleWalljump/ParticleWallJumpAnim.is_playing()):
+		if(Particles && $ParticleWalljump && !$ParticleWalljump/ParticleWallJumpAnim.is_playing()):
 			#print(WallJumpSide)
 			$ParticleWalljump.position = position
 			$ParticleWalljump.position.x -= 6.0
@@ -1262,11 +1267,11 @@ func _Raycast_Destroy_Tiles(Raycaster : RayCast2D) -> void:
 			tilemap.set_cell(tile_pos, -1)
 			
 			print("Destroyed tile: " + str(tile_pos))
-			
-			var DestroyParticles = preload("res://assets/Nodes/Obj/Gameplay/Player/ParticleBreakGlass.tscn")
-			var InstanceParticles = DestroyParticles.instantiate()
-			get_tree().current_scene.add_child(InstanceParticles)
-			InstanceParticles.position = self.position
+			if(Particles):
+				var DestroyParticles = preload("res://assets/Nodes/Obj/Gameplay/Player/ParticleBreakGlass.tscn")
+				var InstanceParticles = DestroyParticles.instantiate()
+				get_tree().current_scene.add_child(InstanceParticles)
+				InstanceParticles.position = self.position
 			print(tile_pos)
 			if(randf() > .7):
 				_play_sound($AudioGlassBreak_part1, true, true, -5, 1, .9, .1)
@@ -1333,7 +1338,7 @@ func get_axis():
 		else: return 0
 
 func Reset_Groundsmash(ThrowEnemies : bool = true, Visuals: bool = true, ResetVel : bool = true) -> void:
-	if(Visuals):
+	if(Visuals && Particles):
 		ParticlesLanding.position = self.position
 		ParticlesLanding.position.y -= 10
 		ParticlesLanding.set_as_top_level(true)
@@ -1368,7 +1373,7 @@ func _on_timer_intro_slam_timeout() -> void:
 	LevelManager.ExpoMoveTimeout.start()
 
 func play_score_text(score : int, global_pos : Vector2, _direction : Global.ALL_DIRECTIONS = Global.ALL_DIRECTIONS.up) -> void:
-	if(ScoreTextNode): ScoreTextNode.draw_score(score, global_pos, _direction)
+	if(ScoreTextNode && ParticlesHitText && Particles): ScoreTextNode.draw_score(score, global_pos, _direction)
 
 func _on_water_area_area_entered(area: Area2D) -> void:
 	OnWaterTile = true

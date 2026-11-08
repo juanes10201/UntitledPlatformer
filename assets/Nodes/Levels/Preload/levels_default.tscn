@@ -9,7 +9,6 @@ glow_enabled = true
 glow_levels/3 = 0.0
 glow_levels/6 = 0.97
 glow_bloom = 0.05
-glow_blend_mode = 1
 adjustment_enabled = true
 adjustment_brightness = 1.05
 adjustment_saturation = 1.15
@@ -24,19 +23,19 @@ shader_parameter/vignette_intensity = 0.438
 shader_parameter/grille_amount = 0.348
 shader_parameter/brightness_boost = 1.087
 
-[node name="WorldEnvironment" type="WorldEnvironment"]
+[node name="WorldEnvironment" type="WorldEnvironment" unique_id=1383689085]
 environment = SubResource("Environment_dklr8")
 script = ExtResource("1_pouvw")
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=218097300]
 color = Color(0.332903, 0.463423, 0.655491, 1)
 energy = 0.2
 shadow_enabled = true
 shadow_item_cull_mask = 1023
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=60166804]
 
-[node name="ColorRect3" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer" unique_id=73661956]
 visible = false
 top_level = true
 z_index = 99

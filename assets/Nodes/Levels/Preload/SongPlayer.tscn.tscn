@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://icc3ivk04e40" path="res://assets/Music/TestBoss.wav" id="4_i05w6"]
 [ext_resource type="AudioStream" uid="uid://5odsrlxbpbat" path="res://assets/Sounds/death.wav" id="5_7olny"]
 [ext_resource type="AudioStream" uid="uid://cq8f2wmvvgrgh" path="res://assets/Sounds/completelevel.wav" id="6_i05w6"]
+[ext_resource type="AudioStream" uid="uid://bn632hbv8as5u" path="res://assets/Sounds/wah_test.wav" id="7_oyca0"]
 
 [node name="SongPlayer_tscn" type="Node2D" unique_id=359652332]
 script = ExtResource("1_wkvdr")
@@ -29,3 +30,6 @@ bus = &"Sfx"
 
 [node name="AudioCompleteLevel" type="AudioStreamPlayer" parent="." unique_id=400413956]
 stream = ExtResource("6_i05w6")
+
+[node name="AudioNewLevel" type="AudioStreamPlayer" parent="." unique_id=994908693]
+stream = ExtResource("7_oyca0")

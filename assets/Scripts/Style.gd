@@ -18,9 +18,11 @@ var PlayedHideAnimation : bool = false
 var Particle_Points_Preload_Amount : int = 20
 var PointsParticlePool = []
 
+var Player : CharacterBody2D
+
 func _ready() -> void:
 	_setup_point_particles()
-	var Player = SaveGame.get_player()
+	Player = SaveGame.get_player()
 	if((Player && !Player.Styleometter) || Global.LoadingReplay): queue_free()
 
 func _setup_point_particles() -> void:
@@ -75,13 +77,13 @@ func _process(delta: float) -> void:
 			LevelManager.StylePlayedHideAnimation = false
 		elif(!Anim.is_playing()):
 			Anim.play("ChangeRank")
+		#Player._play_sound(SongPlayer.AudioStyleNewLevel, false, false, 5)
 		LevelManager.PreviousStyle = StyleSprite.animation
 	#Añadir score
 	if(LevelManager.PreviousScore != StylePoints.text):# && !PlayedHideAnimation && !Anim.is_playing()):
 		LevelManager.PreviousScore = StylePoints.text
 		Anim.play("ChangeScore")
 		_create_point_particles(LevelManager.LastScore*10)
-		
 		
 	if(CanHide && StyleSprite.animation == "D"):
 		if(LevelManager && !LevelManager.StylePlayedHideAnimation):
