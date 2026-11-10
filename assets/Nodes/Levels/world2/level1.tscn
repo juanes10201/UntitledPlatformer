@@ -280,6 +280,71 @@ shader_parameter/vignette_intensity = 0.438
 shader_parameter/grille_amount = 0.348
 shader_parameter/brightness_boost = 1.087
 
+[sub_resource type="Gradient" id="Gradient_vgvrc"]
+offsets = PackedFloat32Array(0, 0.5004015, 1)
+colors = PackedColorArray(0.84118605, 0.5332419, 0.81833607, 0.6039216, 0.84924674, 0.913463, 0.99182945, 0.83715564, 1, 1, 1, 0.9254902)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oacxl"]
+gradient = SubResource("Gradient_vgvrc")
+width = 4
+height = 4
+fill_from = Vector2(1, 1)
+fill_to = Vector2(0.52890986, 0.4767773)
+
+[sub_resource type="Curve" id="Curve_phag5"]
+_data = [Vector2(0.7337942, 1), 0.0, 0.0, 0, 0, Vector2(0.789974, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_y8b5m"]
+curve = SubResource("Curve_phag5")
+
+[sub_resource type="Gradient" id="Gradient_vqecc"]
+offsets = PackedFloat32Array(0, 0.23033164)
+colors = PackedColorArray(0.4495595, 0.59829974, 0.95802635, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v5r0p"]
+gradient = SubResource("Gradient_vqecc")
+
+[sub_resource type="Gradient" id="Gradient_cp5jw"]
+offsets = PackedFloat32Array(0, 0.90805674)
+colors = PackedColorArray(0.38159823, 0.3165485, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_d8cye"]
+gradient = SubResource("Gradient_cp5jw")
+
+[sub_resource type="Curve" id="Curve_of5fn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8ifkb"]
+curve = SubResource("Curve_of5fn")
+
+[sub_resource type="Curve" id="Curve_l5iy8"]
+_data = [Vector2(0, 0.11681676), 0.0, 0.0, 0, 0, Vector2(0.19792557, 0.7971761), 0.0, 0.0, 0, 0, Vector2(0.43560925, 1), 0.0, 0.0, 0, 0, Vector2(0.6949005, 0.83568704), 0.0, 0.0, 0, 0, Vector2(0.7683664, 0.38639307), 0.0, 0.0, 0, 0, Vector2(0.8764044, 0), 0.0, 0.0, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0]
+point_count = 7
+
+[sub_resource type="CurveTexture" id="CurveTexture_5i8ic"]
+curve = SubResource("Curve_l5iy8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_huc1v"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(11.44, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(1, -100, 0)
+initial_velocity_min = 37.17
+initial_velocity_max = 105.32
+gravity = Vector3(0, 98, 0)
+linear_accel_min = -100.0
+linear_accel_max = -29.000002
+scale_curve = SubResource("CurveTexture_5i8ic")
+color_ramp = SubResource("GradientTexture1D_d8cye")
+color_initial_ramp = SubResource("GradientTexture1D_v5r0p")
+alpha_curve = SubResource("CurveTexture_y8b5m")
+emission_curve = SubResource("CurveTexture_8ifkb")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.019999977
+
 [node name="Node2D" type="Node2D" unique_id=132502342]
 position = Vector2(0, -1)
 
@@ -483,6 +548,20 @@ limit_bottom = 618
 limit_smoothed = true
 position_smoothing_enabled = true
 script = ExtResource("11_p3dn7")
+
+[node name="EnterWaterParticles" type="GPUParticles2D" parent="Player" unique_id=1750146366]
+top_level = true
+position = Vector2(-1, 5)
+emitting = false
+amount = 12
+texture = SubResource("GradientTexture2D_oacxl")
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+trail_enabled = true
+trail_lifetime = 0.24000000000000002
+trail_sections = 6
+process_material = SubResource("ParticleProcessMaterial_huc1v")
 
 [node name="KillBox15" parent="." unique_id=1386857898 instance=ExtResource("8_uyjke")]
 position = Vector2(108, 522)

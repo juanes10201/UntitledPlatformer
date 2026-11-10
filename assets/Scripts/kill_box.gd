@@ -29,7 +29,7 @@ enum LavaDirections{
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if(!Visible): self.hide()
+	if(!Visible): hide()
 	
 	var shader = load("res://assets/Shader/kill_box.gdshader")
 	
@@ -44,6 +44,9 @@ var WasLavaEnabled : bool = false
 
 @export var grab_grid : float = 8.0
 func _process(delta: float) -> void:
+	if(!Visible && Edition.Is_in_editor):
+		modulate.a = .3
+		show()
 	if($CollisionShape2D.disabled):
 		z_index = -1
 	else: z_index = OriginalZIndex

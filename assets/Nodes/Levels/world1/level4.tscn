@@ -622,35 +622,8 @@ texture_scale = 2.57
 height = 143.0
 script = ExtResource("23_2utor")
 
-[node name="Enemie2" parent="." unique_id=1073910296 instance=ExtResource("7_myvs5")]
-position = Vector2(-162, -24)
-EnemyDirection = 2
-Enemy_burst_speed = 400.0
-
-[node name="Enemie" parent="." unique_id=598490085 instance=ExtResource("7_myvs5")]
-position = Vector2(-144, -24)
-EnemyDirection = 2
-Enemy_burst_speed = 400.0
-
-[node name="Enemie3" parent="." unique_id=376333206 instance=ExtResource("7_myvs5")]
-position = Vector2(-126, -24)
-EnemyDirection = 2
-Enemy_burst_speed = 400.0
-
 [node name="Flag" parent="." unique_id=891608953 instance=ExtResource("8_khvyn")]
 position = Vector2(-37, 218)
-
-[node name="Enemie9" parent="." unique_id=133346576 instance=ExtResource("7_myvs5")]
-position = Vector2(-95, 86.26)
-EnemyDirection = 2
-
-[node name="Enemie10" parent="." unique_id=1308539175 instance=ExtResource("7_myvs5")]
-position = Vector2(-73.7199, 86)
-EnemyDirection = 2
-
-[node name="Enemie11" parent="." unique_id=1669823092 instance=ExtResource("7_myvs5")]
-position = Vector2(-52.719902, 86)
-EnemyDirection = 2
 
 [node name="KillBox" parent="." unique_id=73564062 instance=ExtResource("9_uuxf6")]
 position = Vector2(-100, 336)
@@ -873,6 +846,33 @@ script = ExtResource("6_vfkf5")
 [node name="InvertedGravityInitialPosMarker" type="Marker2D" parent="Player" unique_id=1135333241]
 top_level = true
 position = Vector2(-31, 39)
+
+[node name="Enemie2" parent="." unique_id=1073910296 instance=ExtResource("7_myvs5")]
+position = Vector2(-162, -24)
+EnemyDirection = 2
+Enemy_burst_speed = 400.0
+
+[node name="Enemie" parent="." unique_id=598490085 instance=ExtResource("7_myvs5")]
+position = Vector2(-144, -24)
+EnemyDirection = 2
+Enemy_burst_speed = 400.0
+
+[node name="Enemie3" parent="." unique_id=376333206 instance=ExtResource("7_myvs5")]
+position = Vector2(-126, -24)
+EnemyDirection = 2
+Enemy_burst_speed = 400.0
+
+[node name="Enemie9" parent="." unique_id=133346576 instance=ExtResource("7_myvs5")]
+position = Vector2(-95, 86.26)
+EnemyDirection = 2
+
+[node name="Enemie10" parent="." unique_id=1308539175 instance=ExtResource("7_myvs5")]
+position = Vector2(-73.7199, 86)
+EnemyDirection = 2
+
+[node name="Enemie11" parent="." unique_id=1669823092 instance=ExtResource("7_myvs5")]
+position = Vector2(-52.719902, 86)
+EnemyDirection = 2
 
 [connection signal="body_entered" from="TimeStop" to="TimeStop" method="_on_body_entered"]
 [connection signal="body_entered" from="TimeStop/StopRemover" to="TimeStop" method="_on_stop_remover_body_entered"]

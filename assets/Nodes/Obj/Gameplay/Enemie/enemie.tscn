@@ -669,6 +669,15 @@ _data = {
 &"Walking": SubResource("Animation_nnhfd")
 }
 
+[sub_resource type="Gradient" id="Gradient_cn2ev"]
+offsets = PackedFloat32Array(0, 0.65238094)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bjx3o"]
+gradient = SubResource("Gradient_cn2ev")
+fill = 1
+fill_from = Vector2(0.48290598, 0.517094)
+
 [node name="Enemie" type="CharacterBody2D" unique_id=1044905873 groups=["Enemie"]]
 position = Vector2(115.72, -23.74)
 collision_layer = 131584
@@ -778,5 +787,14 @@ script = ExtResource("17_0i4lq")
 [node name="FrameHitTimer" type="Timer" parent="Sprite2D" unique_id=1891282386]
 wait_time = 0.4
 one_shot = true
+
+[node name="PointLight2D13" type="PointLight2D" parent="." unique_id=1117355332]
+visible = false
+position = Vector2(48.28, -1.2600002)
+scale = Vector2(1.453125, 1.453125)
+color = Color(0.2650027, 0.7293789, 0.84260124, 1)
+energy = 2.4
+texture = SubResource("GradientTexture2D_bjx3o")
+height = 3.0
 
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]

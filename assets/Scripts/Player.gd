@@ -811,7 +811,11 @@ func _physics_water(delta: float) -> void:
 		WaterTileset = get_parent().get_node("TileMapLayerWater")
 	if(OnWaterTile && WaterTileset && position.y >= WaterTileset.WaterLevel):
 		if(Slide): OnWaterInitialSlideTile = true
-		if(!OnWater): Dashed = false
+		if(!OnWater):
+			if($EnterWaterParticles):
+				$EnterWaterParticles.emitting = true
+				$EnterWaterParticles.global_position = global_position
+			Dashed = false
 		OnWaterInitialSlide = OnWaterInitialSlideTile
 		#if(!OnWater):
 			#_play_sound(AudioWaterSplash, true)
