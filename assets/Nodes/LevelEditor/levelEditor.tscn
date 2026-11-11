@@ -1863,7 +1863,7 @@ zoom = Vector2(2.08, 2.08)
 limit_left = -403
 limit_top = -414
 limit_right = 819
-limit_bottom = 243
+limit_bottom = 414
 position_smoothing_enabled = true
 script = ExtResource("17_3vt02")
 

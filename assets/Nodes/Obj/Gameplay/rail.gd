@@ -40,7 +40,10 @@ const MarginButtonAddNewPointEditor : Vector2 = Vector2(25.0, -25.0)
 var MinPointRail : Vector2 = Vector2(0.0, 0.0)
 var MaxPointRail : Vector2 = Vector2(0.0, 0.0)
 
-func update_added_gradient() -> void:
+var opacity_gradient : float = 0.0
+var last_player_progress_rail : float
+
+func update_added_gradient(delta : float) -> void:
 	var _base_gradient : Gradient = AddedPlayerGradient.get_gradient()
 	var _gradient_length = AddedPlayerGradient.get_width()
 	
@@ -50,31 +53,73 @@ func update_added_gradient() -> void:
 	var _rail_length = _initial_point.distance_to(_final_point)
 	var _relative_player_length = (Player.global_position).distance_to(_initial_point+global_position)
 	#Esto marca el pto desde 0.0 a 1.0 en el que se encuentra el jugador
+	var _player_rail_length : float
+	if(PlayerSnapped):
+		var _a: Vector2 = points[points.size() - 1] + global_position
+		var _b: Vector2 = points[0] + global_position
+		var _ab := _b - _a
+		var _t := 0.0
+		if not is_zero_approx(_ab.length_squared()):
+			_t = clampf((Player.global_position - _a).dot(_ab) / _ab.length_squared(), 0.0, 1.0)
+		_player_rail_length = 1.0 - _t
 	
-	var _player_rail_length = 1.0-_relative_player_length/_rail_length
-	var _relative_gradient : Gradient
+		last_player_progress_rail = _player_rail_length
+	else: _player_rail_length = last_player_progress_rail
 	
-	if(Player.global_position.x <= (MinPointRail.x+global_position.x+MarginPlayerGradient) || Player.global_position.y >= (MaxPointRail.y+global_position.y) ):
-		_player_rail_length = 0.0
-	elif(Player.global_position.x > (MinPointRail.x+global_position.x-MarginPlayerGradient) || Player.global_position.y <= (MinPointRail.x+global_position.y+MarginPlayerGradient)):
-		_player_rail_length = 1.0
 	print("Min point: " + str(MinPointRail))
 	print("Max point: " + str(MaxPointRail))
 	print("Length: " + str(_rail_length))
 	print("relative: " + str(_relative_player_length))
 	print(_player_rail_length)
-	if(PlayerSnapped):
-		#_player_rail_length = clamp$"../TextArea/DashTutorial2"f(_player_rail_length, 0.0, 1.0)
-		_relative_gradient = _base_gradient.duplicate()
-		for i in range(_relative_gradient.offsets.size()):
-			var _offset = _relative_gradient.get_offset(i)
-			var _new_offset = _offset*_player_rail_length
-			_relative_gradient.set_offset(i, _new_offset)
-	else:
-		_relative_gradient = InitialGradient
 	
-	gradient = _relative_gradient
+	if(PlayerSnapped):
+		opacity_gradient = 1.0
+	else:
+		opacity_gradient = lerpf(opacity_gradient, 0.0, delta)
+	var _relative_gradient : Gradient = _base_gradient.duplicate()
+	
+	if(opacity_gradient <= .05):
+		gradient = InitialGradient
+		return
+	
+	for i in range(_relative_gradient.offsets.size()):
+		var _offset = _relative_gradient.get_offset(i)
+		var _new_offset = _offset*_player_rail_length
+		_relative_gradient.set_offset(i, _new_offset)
+	if(opacity_gradient > .9):
+		gradient = _relative_gradient
+		return
+	
+	gradient = mix_gradients(InitialGradient, _relative_gradient, opacity_gradient)
 	#texture.set_gradient(_relative_gradient)
+
+func mix_gradients(fst : Gradient, snd : Gradient, grade : float) -> Gradient:
+	if(grade == 0.0): return fst
+	if(grade == 1.0): return snd
+	var _new_gradient : Gradient = fst.duplicate()
+	#Se mezclan los colores del 1er gradiente
+	var _done_points : Array[float] = []
+	for i in range(fst.get_point_count()):
+		var _pos := fst.get_offset(i)
+		var _fst_color = fst.sample(_pos)
+		var _snd_color := snd.sample(_pos)
+		_snd_color.a *= grade
+		
+		var _new_color := _fst_color.blend(_snd_color)
+		_new_gradient.set_color(i, _new_color)
+		_done_points.append(_pos)
+	#Se añaden los pts del segundo
+	for i in range(snd.get_point_count()):
+		var _pos := snd.get_offset(i)
+		if(_pos in _done_points): continue
+		var _fst_color = fst.sample(_pos)
+		var _snd_color := snd.sample(_pos)
+		_snd_color.a *= grade
+		
+		var _new_color := _fst_color.blend(_snd_color)
+		_new_gradient.add_point(_pos, _new_color)
+		_done_points.append(_pos)
+	return _new_gradient
 
 func editor_remove_point() -> void:
 	if(points.size() <= 2): queue_free()
@@ -82,12 +127,14 @@ func editor_remove_point() -> void:
 	if(EditorRailSupport):
 		EditorRailSupport._cache_points()
 		EditorRailSupport.NodeCachePoints.CacheNodes[points.size()].hide()
+	reload_path()
 
 func editor_add_point() -> void:
 	var NewPosition : Vector2 = points[points.size()-1]+MarginNewPointEditor 
 	add_point(NewPosition)
 	if(EditorRailSupport):
 		EditorRailSupport._cache_points()
+	reload_path()
 
 func reload_path() -> void:
 	ReloadedPath = true
@@ -129,7 +176,7 @@ func _ready() -> void:
 var ReloadedPath : bool = false
 
 func _process(delta: float) -> void:
-	update_added_gradient()
+	update_added_gradient(delta)
 	#update_added_gradient()
 	
 	#print("pos: " + str(global_position))

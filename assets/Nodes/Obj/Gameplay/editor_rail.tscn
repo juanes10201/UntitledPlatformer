@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bx7lp0u4fes1s" path="res://assets/Nodes/Obj/Gameplay/rail.gd" id="1_hhj1r"]
 [ext_resource type="Texture2D" uid="uid://ocqr4kaowgws" path="res://icon.svg" id="2_m8gtc"]
+[ext_resource type="Texture2D" uid="uid://cfvmq435xivff" path="res://assets/Sprites/Gameplay/Obj/Rail/rail_new_gradient.tres" id="2_vbpr4"]
 [ext_resource type="Script" uid="uid://c623l5pbeq0ug" path="res://assets/Nodes/LevelEditor/editor_rail_support.gd" id="3_vbpr4"]
 [ext_resource type="Script" uid="uid://qhd10nb4q87i" path="res://assets/Nodes/LevelEditor/cache_nodes.gd" id="4_u37s1"]
 [ext_resource type="FontFile" uid="uid://bphx4hxrs7qgv" path="res://assets/Fonts/AudioNugget.ttf" id="5_p4yj3"]
@@ -40,6 +41,7 @@ FallCooldown = NodePath("FallCooldown")
 MoveRef = NodePath("Path2D/PathFollow2D/MoveRef")
 Path = NodePath("Path2D")
 PathFollow = NodePath("Path2D/PathFollow2D")
+AddedPlayerGradient = ExtResource("2_vbpr4")
 AddPointEditorButton = NodePath("AddPointEditorButton")
 RemovePointEditorButton = NodePath("AddPointEditorButton2")
 
