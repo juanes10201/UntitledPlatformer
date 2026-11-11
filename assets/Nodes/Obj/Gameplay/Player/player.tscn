@@ -1515,6 +1515,71 @@ _data = {
 &"move_up_skew_4": SubResource("Animation_kp2gu")
 }
 
+[sub_resource type="Gradient" id="Gradient_vgvrc"]
+offsets = PackedFloat32Array(0, 0.5004015, 1)
+colors = PackedColorArray(0.84118605, 0.5332419, 0.81833607, 0.6039216, 0.84924674, 0.913463, 0.99182945, 0.83715564, 1, 1, 1, 0.9254902)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_opw6d"]
+gradient = SubResource("Gradient_vgvrc")
+width = 4
+height = 4
+fill_from = Vector2(1, 1)
+fill_to = Vector2(0.52890986, 0.4767773)
+
+[sub_resource type="Curve" id="Curve_uqoun"]
+_data = [Vector2(0.7337942, 1), 0.0, 0.0, 0, 0, Vector2(0.789974, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_y8b5m"]
+curve = SubResource("Curve_uqoun")
+
+[sub_resource type="Gradient" id="Gradient_kp2gu"]
+offsets = PackedFloat32Array(0, 0.23033164)
+colors = PackedColorArray(0.4495595, 0.59829974, 0.95802635, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v5r0p"]
+gradient = SubResource("Gradient_kp2gu")
+
+[sub_resource type="Gradient" id="Gradient_mvdu0"]
+offsets = PackedFloat32Array(0, 0.90805674)
+colors = PackedColorArray(0.38159823, 0.3165485, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_d8cye"]
+gradient = SubResource("Gradient_mvdu0")
+
+[sub_resource type="Curve" id="Curve_3xwkm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8ifkb"]
+curve = SubResource("Curve_3xwkm")
+
+[sub_resource type="Curve" id="Curve_qskwg"]
+_data = [Vector2(0, 0.11681676), 0.0, 0.0, 0, 0, Vector2(0.19792557, 0.7971761), 0.0, 0.0, 0, 0, Vector2(0.43560925, 1), 0.0, 0.0, 0, 0, Vector2(0.6949005, 0.83568704), 0.0, 0.0, 0, 0, Vector2(0.7683664, 0.38639307), 0.0, 0.0, 0, 0, Vector2(0.8764044, 0), 0.0, 0.0, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0]
+point_count = 7
+
+[sub_resource type="CurveTexture" id="CurveTexture_5i8ic"]
+curve = SubResource("Curve_qskwg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kfmes"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(11.44, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(1, -100, 0)
+initial_velocity_min = 37.17
+initial_velocity_max = 105.32
+gravity = Vector3(0, 98, 0)
+linear_accel_min = -100.0
+linear_accel_max = -29.000002
+scale_curve = SubResource("CurveTexture_5i8ic")
+color_ramp = SubResource("GradientTexture1D_d8cye")
+color_initial_ramp = SubResource("GradientTexture1D_v5r0p")
+alpha_curve = SubResource("CurveTexture_y8b5m")
+emission_curve = SubResource("CurveTexture_8ifkb")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.019999977
+
 [node name="Player" type="CharacterBody2D" unique_id=173086588 node_paths=PackedStringArray("MoveShadowSprite") groups=["Player"]]
 position = Vector2(8, 18)
 collision_mask = 8456476
@@ -1698,9 +1763,6 @@ trail_sections = 3
 trail_section_subdivisions = 2
 process_material = SubResource("ParticleProcessMaterial_lgtto")
 
-[node name="AudioWaterSplash" type="AudioStreamPlayer" parent="." unique_id=1650939420]
-stream = ExtResource("28_ygib8")
-
 [node name="DashCooldownTimer" type="Timer" parent="." unique_id=305237702]
 wait_time = 0.1
 one_shot = true
@@ -1755,6 +1817,10 @@ position = Vector2(0.151668, -7.9292)
 rotation = -1.5708
 target_position = Vector2(0.07077122, 7.8483324)
 collision_mask = 67870
+
+[node name="AudioWaterSplash" type="AudioStreamPlayer" parent="." unique_id=1650939420]
+stream = ExtResource("28_ygib8")
+bus = &"Sfx"
 
 [node name="AudioDash" type="AudioStreamPlayer" parent="." unique_id=1026594763]
 stream = SubResource("AudioStreamRandomizer_4mswk")
@@ -1845,9 +1911,11 @@ bus = &"Sfx"
 
 [node name="AudioSandFall" type="AudioStreamPlayer" parent="." unique_id=296994434]
 stream = SubResource("AudioStreamRandomizer_b0a62")
+bus = &"Sfx"
 
 [node name="AudioHeartbeat" type="AudioStreamPlayer" parent="." unique_id=902217343]
 stream = ExtResource("67_opw6d")
+bus = &"Sfx"
 
 [node name="SlamStorageTimer" type="Timer" parent="." unique_id=1553088189]
 one_shot = true
@@ -2012,6 +2080,25 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ScoreTextNode/SampleTextNode" unique_id=1062169361]
 libraries/ = SubResource("AnimationLibrary_mvdu0")
+
+[node name="EnterWaterParticles" type="GPUParticles2D" parent="." unique_id=1448438267]
+top_level = true
+position = Vector2(-1, 5)
+emitting = false
+amount = 12
+texture = SubResource("GradientTexture2D_opw6d")
+lifetime = 1.5
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+trail_enabled = true
+trail_lifetime = 0.24
+trail_sections = 6
+process_material = SubResource("ParticleProcessMaterial_kfmes")
+
+[node name="AudioEnterWater" type="AudioStreamPlayer" parent="." unique_id=1417333369]
+stream = ExtResource("28_ygib8")
+bus = &"Sfx"
 
 [connection signal="area_entered" from="WaterArea" to="." method="_on_water_area_area_entered"]
 [connection signal="area_exited" from="WaterArea" to="." method="_on_water_area_area_exited"]

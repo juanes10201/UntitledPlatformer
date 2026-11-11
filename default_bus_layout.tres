@@ -1,5 +1,22 @@
 [gd_resource type="AudioBusLayout" format=3 uid="uid://cr0pht653ym51"]
 
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_j3pel"]
+resource_name = "Reverb"
+room_size = 0.6
+damping = 0.16
+spread = 0.57
+hipass = 0.09
+wet = 0.15
+
+[sub_resource type="AudioEffectEQ6" id="AudioEffectEQ6_j3pel"]
+resource_name = "EQ6"
+band_db/1000_hz = -1.3
+band_db/3200_hz = -10.2
+band_db/10000_hz = -10.2
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_j3pel"]
+resource_name = "LowPassFilter"
+
 [resource]
 bus/1/name = &"Music"
 bus/1/solo = false
@@ -13,3 +30,9 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0
 bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectReverb_j3pel")
+bus/2/effect/0/enabled = true
+bus/2/effect/1/effect = SubResource("AudioEffectEQ6_j3pel")
+bus/2/effect/1/enabled = true
+bus/2/effect/2/effect = SubResource("AudioEffectLowPassFilter_j3pel")
+bus/2/effect/2/enabled = false

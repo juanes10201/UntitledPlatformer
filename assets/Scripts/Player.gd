@@ -424,6 +424,7 @@ func _shadow_tick() -> void:
 @export var TimerIntroSlam : Timer
 
 func _ready() -> void:
+	_set_on_water_sound_effects(false)
 	if(ShortFormContent):
 		if(Camera):
 			Camera.limit_enabled = false
@@ -815,13 +816,15 @@ func _physics_water(delta: float) -> void:
 			if($EnterWaterParticles):
 				$EnterWaterParticles.emitting = true
 				$EnterWaterParticles.global_position = global_position
+				_play_sound($AudioEnterWater, true, true, 4.0, 1.0, 1.0, 0.0, 1.2)
+				_set_on_water_sound_effects(true)
 			Dashed = false
 		OnWaterInitialSlide = OnWaterInitialSlideTile
-		#if(!OnWater):
-			#_play_sound(AudioWaterSplash, true)
 		OnWater = true
 		#DoubleJumpEnabled = true
 	else:
+		if(OnWater):
+			_set_on_water_sound_effects(false)
 		OnWaterInitialSlide = false
 		OnWater = false
 		#DoubleJumpEnabled = false
@@ -1323,7 +1326,11 @@ func is_near_wall() -> bool:
 
 func _sound_effects_process(delta : float) -> void:
 	if(Time_Left && Time_Left.time_left < 3):
-		_play_sound($AudioHeartbeat, false, false, 20)
+		_play_sound($AudioHeartbeat, false, false, 10)
+
+func _set_on_water_sound_effects(state : bool) -> void:
+	AudioServer.set_bus_effect_enabled(2, 0, state)
+	AudioServer.set_bus_effect_enabled(2, 1, state)
 
 func is_action_pressed(Action : String):
 	if(!EnableMovement): return
