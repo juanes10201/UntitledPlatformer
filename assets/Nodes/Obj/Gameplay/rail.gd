@@ -22,7 +22,7 @@ var PlayerSnapped : bool = false
 @export var EndSpeed : float = 1000.0
 
 @export var AddedPlayerGradient : GradientTexture1D
-@onready var InitialGradient : Gradient = gradient
+@onready var InitialGradient : Gradient = gradient.duplicate()
 
 const AreaCollisionExpand : float = 100.0
 
@@ -35,6 +35,32 @@ const MarginButtonAddNewPointEditor : Vector2 = Vector2(25.0, -25.0)
 @export var AddPointEditorButton : Button
 @export var RemovePointEditorButton : Button
 @onready var EditorRailSupport : Node2D = $EditorRailSupport
+
+var MinPointRail : Vector2 = Vector2(0.0, 0.0)
+var MaxPointRail : Vector2 = Vector2(0.0, 0.0)
+
+func update_added_gradient() -> void:
+	var _base_gradient : Gradient = AddedPlayerGradient.get_gradient()
+	var _gradient_length = AddedPlayerGradient.get_width()
+	
+	var _rail_length = (points[points.size()-1]-points[0]).length()
+	var _relative_player_length = Player.global_position.distance_to(points[0])
+	#Esto marca el pto desde 0.0 a 1.0 en el que se encuentra el jugador
+	var _player_rail_length = 1.0-_relative_player_length/_rail_length
+	var _relative_gradient : Gradient
+	print(_player_rail_length)
+	if(true):
+		#_player_rail_length = clamp$"../TextArea/DashTutorial2"f(_player_rail_length, 0.0, 1.0)
+		_relative_gradient = _base_gradient.duplicate()
+		for i in range(_relative_gradient.offsets.size()):
+			var _offset = _relative_gradient.get_offset(i)
+			var _new_offset = _offset*_player_rail_length
+			_relative_gradient.set_offset(i, _new_offset)
+	else:
+		_relative_gradient = InitialGradient
+	
+	gradient = _relative_gradient
+	#texture.set_gradient(_relative_gradient)
 
 func editor_remove_point() -> void:
 	if(points.size() <= 2): queue_free()
@@ -80,6 +106,8 @@ func reload_path() -> void:
 	
 	InitialCollisionAreaShape.shape.size.x += AreaCollisionExpand
 	InitialCollisionAreaShape.shape.size.y += AreaCollisionExpand
+	MinPointRail = Vector2(min_pos.x, min_pos.y)
+	MaxPointRail = Vector2(max_pos.x, max_pos.y)
 
 func _ready() -> void:
 	reload_path()
@@ -87,6 +115,9 @@ func _ready() -> void:
 var ReloadedPath : bool = false
 
 func _process(delta: float) -> void:
+	update_added_gradient()
+	#update_added_gradient()
+	
 	#print("pos: " + str(global_position))
 	if(Edition.Is_in_editor):
 		if(AddPointEditorButton && RemovePointEditorButton):

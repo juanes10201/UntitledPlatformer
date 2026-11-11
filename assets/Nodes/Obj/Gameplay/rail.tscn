@@ -11,9 +11,16 @@ point_count = 2
 colors = PackedColorArray(0.16082096, 0.10031984, 0.27544695, 1, 0.91397053, 0.60972846, 0.8570899, 1)
 metadata/_snap_count = 2
 
-[sub_resource type="Gradient" id="Gradient_kral6"]
+[sub_resource type="Gradient" id="Gradient_bcufb"]
 offsets = PackedFloat32Array(1)
 colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g8vw3"]
+gradient = SubResource("Gradient_bcufb")
+
+[sub_resource type="Gradient" id="Gradient_kral6"]
+offsets = PackedFloat32Array(0, 0.9906614)
+colors = PackedColorArray(0.9999997, 0.111907385, 0.4592744, 1, 0.26039076, 0.22038656, 0.23603374, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_bcufb"]
 gradient = SubResource("Gradient_kral6")
@@ -30,13 +37,14 @@ width = 4.835
 width_curve = SubResource("Curve_d77xg")
 default_color = Color(0.9597251, 0.5843025, 1, 1)
 gradient = SubResource("Gradient_75dy6")
-texture = SubResource("GradientTexture1D_bcufb")
+texture = SubResource("GradientTexture1D_g8vw3")
 texture_mode = 2
 script = ExtResource("1_u35qx")
 FallCooldown = NodePath("FallCooldown")
 MoveRef = NodePath("Path2D/PathFollow2D/MoveRef")
 Path = NodePath("Path2D")
 PathFollow = NodePath("Path2D/PathFollow2D")
+AddedPlayerGradient = SubResource("GradientTexture1D_bcufb")
 metadata/_edit_horizontal_guides_ = [-105.0]
 
 [node name="Path2D" type="Path2D" parent="." unique_id=2055011182]
