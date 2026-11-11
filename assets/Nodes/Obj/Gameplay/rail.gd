@@ -25,6 +25,7 @@ var PlayerSnapped : bool = false
 @onready var InitialGradient : Gradient = gradient.duplicate()
 
 const AreaCollisionExpand : float = 100.0
+const MarginPlayerGradient : float = 20.0
 
 var CurrentAngle : float = -45.0
 
@@ -43,13 +44,26 @@ func update_added_gradient() -> void:
 	var _base_gradient : Gradient = AddedPlayerGradient.get_gradient()
 	var _gradient_length = AddedPlayerGradient.get_width()
 	
-	var _rail_length = (points[points.size()-1]-points[0]).length()
-	var _relative_player_length = Player.global_position.distance_to(points[0])
+	var _initial_point : Vector2 = points[points.size()-1]
+	var _final_point : Vector2  = points[0]
+	
+	var _rail_length = _initial_point.distance_to(_final_point)
+	var _relative_player_length = (Player.global_position).distance_to(_initial_point+global_position)
 	#Esto marca el pto desde 0.0 a 1.0 en el que se encuentra el jugador
+	
 	var _player_rail_length = 1.0-_relative_player_length/_rail_length
 	var _relative_gradient : Gradient
+	
+	if(Player.global_position.x <= (MinPointRail.x+global_position.x+MarginPlayerGradient) || Player.global_position.y >= (MaxPointRail.y+global_position.y) ):
+		_player_rail_length = 0.0
+	elif(Player.global_position.x > (MinPointRail.x+global_position.x-MarginPlayerGradient) || Player.global_position.y <= (MinPointRail.x+global_position.y+MarginPlayerGradient)):
+		_player_rail_length = 1.0
+	print("Min point: " + str(MinPointRail))
+	print("Max point: " + str(MaxPointRail))
+	print("Length: " + str(_rail_length))
+	print("relative: " + str(_relative_player_length))
 	print(_player_rail_length)
-	if(true):
+	if(PlayerSnapped):
 		#_player_rail_length = clamp$"../TextArea/DashTutorial2"f(_player_rail_length, 0.0, 1.0)
 		_relative_gradient = _base_gradient.duplicate()
 		for i in range(_relative_gradient.offsets.size()):
