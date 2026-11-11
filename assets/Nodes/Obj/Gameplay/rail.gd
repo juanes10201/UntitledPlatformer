@@ -21,6 +21,9 @@ var PlayerSnapped : bool = false
 @onready var InitialCollisionAreaShape = $InitialCollisionArea/CollisionShape2D
 @export var EndSpeed : float = 1000.0
 
+@export var AddedPlayerGradient : GradientTexture1D
+@onready var InitialGradient : Gradient = gradient
+
 const AreaCollisionExpand : float = 100.0
 
 var CurrentAngle : float = -45.0

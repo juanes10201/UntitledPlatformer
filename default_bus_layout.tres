@@ -2,8 +2,7 @@
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_j3pel"]
 resource_name = "Reverb"
-room_size = 0.6
-damping = 0.16
+room_size = 0.7
 spread = 0.57
 hipass = 0.09
 wet = 0.15

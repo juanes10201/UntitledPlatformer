@@ -510,6 +510,13 @@ func _physics_process(delta: float) -> void:
 				Time_Left.paused = false
 	
 	#print(OnWaterInitialSlideTile)
+	if($RailParticles):
+		$RailParticles.emitting = SnappedOnRail
+		$RailParticles2.emitting = SnappedOnRail
+		if(SnappedOnRail):
+			$RailParticles2.modulate.a = lerpf($RailParticles2.modulate.a, 1.0, 1.2*delta)
+		else:
+			$RailParticles2.modulate.a = lerpf($RailParticles2.modulate.a, 0.0, 1.2*delta)
 	if($MovingPlatformRay):
 		$MovingPlatformRay.enabled = StickOnPlatform
 		if($MovingPlatformRay.is_colliding()):

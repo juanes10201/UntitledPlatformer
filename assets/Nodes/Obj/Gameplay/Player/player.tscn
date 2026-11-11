@@ -1580,12 +1580,87 @@ emission_curve = SubResource("CurveTexture_8ifkb")
 hue_variation_min = -2.2351742e-08
 hue_variation_max = 0.019999977
 
+[sub_resource type="Gradient" id="Gradient_opw6d"]
+offsets = PackedFloat32Array(0.0024095406, 1)
+colors = PackedColorArray(0.46420413, 0.39929342, 0.9885859, 1, 1, 0.5764706, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uqoun"]
+gradient = SubResource("Gradient_opw6d")
+width = 3
+height = 4
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Curve" id="Curve_opw6d"]
+_data = [Vector2(0.124459706, 1), 0.0, 0.0, 0, 0, Vector2(0.41832313, 0.5789476), -1.8800471, -1.8800471, 0, 0, Vector2(0.91529804, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_uqoun"]
+curve = SubResource("Curve_opw6d")
+
+[sub_resource type="Curve" id="Curve_kp2gu"]
+_data = [Vector2(0, 0.7201543), 0.0, 0.0, 0, 0, Vector2(0.57389796, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_mvdu0"]
+curve = SubResource("Curve_kp2gu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kp2gu"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(7.29, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+inherit_velocity_ratio = -1.0
+gravity = Vector3(0, 98, 0)
+damping_max = 68.03001
+scale_over_velocity_max = 1000.0
+scale_over_velocity_curve = SubResource("CurveTexture_mvdu0")
+alpha_curve = SubResource("CurveTexture_uqoun")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.09999997
+turbulence_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_uqoun"]
+offsets = PackedFloat32Array(0.0024095406, 1)
+colors = PackedColorArray(0.46420413, 0.39929342, 0.9885859, 1, 1, 0.5764706, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kp2gu"]
+gradient = SubResource("Gradient_uqoun")
+width = 2
+height = 2
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Curve" id="Curve_mvdu0"]
+_data = [Vector2(0.042350806, 1), 0.0, 0.0, 0, 0, Vector2(0.31028512, 0.5532737), -1.8800471, -1.8800471, 0, 0, Vector2(0.82022464, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_3xwkm"]
+curve = SubResource("Curve_mvdu0")
+
+[sub_resource type="Curve" id="Curve_kfmes"]
+_data = [Vector2(0, 0.7201543), 0.0, 0.0, 0, 0, Vector2(0.57389796, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_euqqh"]
+curve = SubResource("Curve_kfmes")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6qx60"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(7.29, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+inherit_velocity_ratio = -0.3
+gravity = Vector3(0, 98, 0)
+damping_max = 68.03001
+scale_over_velocity_curve = SubResource("CurveTexture_euqqh")
+alpha_curve = SubResource("CurveTexture_3xwkm")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.09999997
+
 [node name="Player" type="CharacterBody2D" unique_id=173086588 node_paths=PackedStringArray("MoveShadowSprite") groups=["Player"]]
 position = Vector2(8, 18)
 collision_mask = 8456476
 floor_constant_speed = true
 script = ExtResource("1_uhpgg")
-ShortFormContent = true
 MoveShadowSprite = NodePath("Sprite2D/MoveShadow")
 TimeDeath = 0.4
 
@@ -2099,6 +2174,25 @@ process_material = SubResource("ParticleProcessMaterial_kfmes")
 [node name="AudioEnterWater" type="AudioStreamPlayer" parent="." unique_id=1417333369]
 stream = ExtResource("28_ygib8")
 bus = &"Sfx"
+
+[node name="RailParticles" type="GPUParticles2D" parent="." unique_id=663379400]
+position = Vector2(28, 0)
+emitting = false
+amount = 10
+texture = SubResource("GradientTexture2D_uqoun")
+lifetime = 0.6
+trail_enabled = true
+trail_lifetime = 0.09999999999999999
+process_material = SubResource("ParticleProcessMaterial_kp2gu")
+
+[node name="RailParticles2" type="GPUParticles2D" parent="." unique_id=1401493432]
+emitting = false
+amount = 20
+texture = SubResource("GradientTexture2D_kp2gu")
+lifetime = 0.6
+trail_enabled = true
+trail_lifetime = 1.0
+process_material = SubResource("ParticleProcessMaterial_6qx60")
 
 [connection signal="area_entered" from="WaterArea" to="." method="_on_water_area_area_entered"]
 [connection signal="area_exited" from="WaterArea" to="." method="_on_water_area_area_exited"]
