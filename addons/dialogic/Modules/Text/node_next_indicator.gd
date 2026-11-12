@@ -34,12 +34,17 @@ var texture_rect: TextureRect
 			get_node('Texture').size = _texture_size
 			get_node('Texture').position = -_texture_size
 
+@export var indicator_offset := Vector2(0, 0):
+	set(_indicator_offset):
+		indicator_offset = _indicator_offset
+		if has_node('Texture'):
+			texture_rect.position = indicator_offset
 
 var tween: Tween
 
 func _ready() -> void:
 	add_to_group('dialogic_next_indicator')
-
+	gui_input.connect(_on_gui_input)
 	# Creating TextureRect if missing
 	if not texture_rect:
 		var icon := TextureRect.new()
@@ -57,9 +62,17 @@ func _ready() -> void:
 	visibility_changed.connect(_on_visibility_changed)
 
 
+func _on_gui_input(event: InputEvent) -> void:
+	DialogicUtil.autoload().Inputs.handle_node_gui_input(event)
+
+
 func _on_visibility_changed() -> void:
 	if visible:
 		play_animation(animation, 1.0)
+
+		if indicator_offset != Vector2.ZERO:
+			texture_rect.position = indicator_offset
+
 
 
 func play_animation(current_animation: int, time:float) -> void:

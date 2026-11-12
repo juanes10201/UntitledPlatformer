@@ -43,6 +43,8 @@ var MaxPointRail : Vector2 = Vector2(0.0, 0.0)
 var opacity_gradient : float = 0.0
 var last_player_progress_rail : float
 
+#const offset_gradient_player : float = 0.1 
+
 func update_added_gradient(delta : float) -> void:
 	var _base_gradient : Gradient = AddedPlayerGradient.get_gradient()
 	var _gradient_length = AddedPlayerGradient.get_width()

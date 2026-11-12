@@ -21,7 +21,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="PlatformerGame"
 run/main_scene="res://assets/Nodes/Levels/Preload/initial_credits.tscn"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.svg"
 
@@ -38,9 +38,9 @@ SongPlayer="*res://assets/Nodes/Levels/Preload/SongPlayer.tscn.tscn"
 Edition="*res://assets/Scripts/Global/game_editions.gd"
 LevelManager="*res://assets/Nodes/Levels/Preload/LevelManager.tscn"
 Global="*res://assets/Scripts/Global/global_variables.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 SteamIntegration="*uid://te1b8a1y4six"
 GlobalFunctions="*uid://bpmklfila6ryh"
+Dialogic="*uid://ds2q0uclmolvu"
 ImGuiRoot="*uid://dugmpnsxaagba"
 
 [debug]

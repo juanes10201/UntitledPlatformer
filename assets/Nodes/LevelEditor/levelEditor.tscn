@@ -95,6 +95,7 @@
 [ext_resource type="Script" uid="uid://dulvtfw7ngkfh" path="res://assets/Nodes/LevelEditor/dialog_button_file.gd" id="90_cyxik"]
 [ext_resource type="Script" uid="uid://baav4tg1rfxgu" path="res://assets/Nodes/LevelEditor/dialog_button.gd" id="91_edcu7"]
 [ext_resource type="PackedScene" uid="uid://cn87vu0mc6xb7" path="res://assets/Nodes/Obj/Gameplay/tile_map_layer_water.tscn" id="92_tk1t2"]
+[ext_resource type="Script" uid="uid://3kjd1e6ygogq" path="res://assets/Nodes/LevelEditor/sample_tileset.gd" id="96_cjgrg"]
 
 [sub_resource type="GDScript" id="GDScript_4cp2g"]
 script/source = "extends Sprite2D
@@ -386,7 +387,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("27_5s1o8")
 }],
-"loop": true,
+"loop": 1,
 "name": &"A",
 "speed": 5.0
 }, {
@@ -394,7 +395,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("28_be7jv")
 }],
-"loop": true,
+"loop": 1,
 "name": &"B",
 "speed": 5.0
 }, {
@@ -402,7 +403,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("29_wcgsb")
 }],
-"loop": true,
+"loop": 1,
 "name": &"C",
 "speed": 5.0
 }, {
@@ -410,7 +411,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("30_ej6vm")
 }],
-"loop": true,
+"loop": 1,
 "name": &"D",
 "speed": 5.0
 }, {
@@ -418,7 +419,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("31_oadh4")
 }],
-"loop": true,
+"loop": 1,
 "name": &"P",
 "speed": 5.0
 }, {
@@ -426,7 +427,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("32_x6v6g")
 }],
-"loop": true,
+"loop": 1,
 "name": &"S",
 "speed": 5.0
 }, {
@@ -434,7 +435,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("33_cyxik")
 }],
-"loop": true,
+"loop": 1,
 "name": &"SS",
 "speed": 5.0
 }, {
@@ -442,7 +443,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("34_edcu7")
 }],
-"loop": true,
+"loop": 1,
 "name": &"SSS",
 "speed": 5.0
 }, {
@@ -450,7 +451,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("35_5byy5")
 }],
-"loop": true,
+"loop": 1,
 "name": &"please_dont_sue_me",
 "speed": 5.0
 }]
@@ -500,7 +501,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("40_ehx2g")
 }],
-"loop": true,
+"loop": 1,
 "name": &"1",
 "speed": 5.0
 }, {
@@ -508,7 +509,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("41_a8ud4")
 }],
-"loop": true,
+"loop": 1,
 "name": &"2",
 "speed": 5.0
 }, {
@@ -516,7 +517,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("42_si8cv")
 }],
-"loop": true,
+"loop": 1,
 "name": &"3",
 "speed": 5.0
 }]
@@ -873,22 +874,8 @@ bg_color = Color(0.36850855, 0.11763162, 0.435367, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6xsk"]
 bg_color = Color(0.7411765, 0.38039216, 0.84313726, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wcgsb"]
-texture = ExtResource("48_5s1o8")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_be7jv"]
-texture = ExtResource("49_be7jv")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oadh4"]
-texture = ExtResource("48_5s1o8")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x6v6g"]
-texture = ExtResource("48_5s1o8")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ej6vm"]
-texture = ExtResource("49_be7jv")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5mkwl"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3sq2j"]
+size = Vector2(14, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_goktm"]
 atlas = ExtResource("4_oksxi")
@@ -964,7 +951,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_goktm")
 }],
-"loop": true,
+"loop": 1,
 "name": &"0",
 "speed": 5.0
 }, {
@@ -972,7 +959,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("52_oadh4")
 }],
-"loop": true,
+"loop": 1,
 "name": &"0_1",
 "speed": 5.0
 }, {
@@ -980,7 +967,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oadh4")
 }],
-"loop": true,
+"loop": 1,
 "name": &"0_2",
 "speed": 5.0
 }, {
@@ -988,7 +975,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_x6v6g")
 }],
-"loop": true,
+"loop": 1,
 "name": &"0_3",
 "speed": 5.0
 }, {
@@ -996,7 +983,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bwmk8")
 }],
-"loop": true,
+"loop": 1,
 "name": &"1_0",
 "speed": 5.0
 }, {
@@ -1004,7 +991,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ar0rt")
 }],
-"loop": true,
+"loop": 1,
 "name": &"1_1",
 "speed": 5.0
 }, {
@@ -1012,7 +999,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_crete")
 }],
-"loop": true,
+"loop": 1,
 "name": &"1_2",
 "speed": 5.0
 }, {
@@ -1020,7 +1007,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_i0mup")
 }],
-"loop": true,
+"loop": 1,
 "name": &"2_0",
 "speed": 5.0
 }, {
@@ -1028,7 +1015,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8gf0x")
 }],
-"loop": true,
+"loop": 1,
 "name": &"2_1",
 "speed": 5.0
 }, {
@@ -1036,7 +1023,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_57dd7")
 }],
-"loop": true,
+"loop": 1,
 "name": &"2_2",
 "speed": 5.0
 }, {
@@ -1044,7 +1031,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("10_r7lbo")
 }],
-"loop": true,
+"loop": 1,
 "name": &"3_0",
 "speed": 5.0
 }, {
@@ -1052,7 +1039,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("11_3vt02")
 }],
-"loop": true,
+"loop": 1,
 "name": &"3_1",
 "speed": 5.0
 }, {
@@ -1060,7 +1047,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("56_crete")
 }],
-"loop": true,
+"loop": 1,
 "name": &"3_2",
 "speed": 5.0
 }, {
@@ -1068,7 +1055,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r3h5y")
 }],
-"loop": true,
+"loop": 1,
 "name": &"4_0",
 "speed": 5.0
 }, {
@@ -1076,7 +1063,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("58_57dd7")
 }],
-"loop": true,
+"loop": 1,
 "name": &"4_1",
 "speed": 5.0
 }, {
@@ -1084,7 +1071,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s4mn3")
 }],
-"loop": true,
+"loop": 1,
 "name": &"5_0",
 "speed": 5.0
 }, {
@@ -1092,7 +1079,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pi8wn")
 }],
-"loop": true,
+"loop": 1,
 "name": &"5_1",
 "speed": 5.0
 }, {
@@ -1100,7 +1087,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3vt02")
 }],
-"loop": true,
+"loop": 1,
 "name": &"9",
 "speed": 5.0
 }, {
@@ -1108,7 +1095,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_x3btd")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Select",
 "speed": 5.0
 }, {
@@ -1116,7 +1103,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1pr77")
 }],
-"loop": true,
+"loop": 1,
 "name": &"SizeX",
 "speed": 5.0
 }, {
@@ -1124,7 +1111,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r7lbo")
 }],
-"loop": true,
+"loop": 1,
 "name": &"SizeY",
 "speed": 5.0
 }, {
@@ -1132,7 +1119,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_goktm")
 }],
-"loop": true,
+"loop": 1,
 "name": &"tileset_0",
 "speed": 5.0
 }, {
@@ -1140,7 +1127,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5mkwl")
 }],
-"loop": true,
+"loop": 1,
 "name": &"tileset_1",
 "speed": 5.0
 }, {
@@ -1148,7 +1135,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("52_ej6vm")
 }],
-"loop": true,
+"loop": 1,
 "name": &"tileset_2",
 "speed": 5.0
 }, {
@@ -1156,10 +1143,35 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("53_oadh4")
 }],
-"loop": true,
+"loop": 1,
 "name": &"tileset_3",
 "speed": 5.0
 }]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ay4ap"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pi8wn"]
+
+[sub_resource type="Gradient" id="Gradient_jtl08"]
+colors = PackedColorArray(0.67058825, 0.8039216, 0.6745098, 0.5294118, 0.25253218, 0.87526745, 0.77536225, 0.5137255)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wcgsb"]
+texture = ExtResource("48_5s1o8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_be7jv"]
+texture = ExtResource("49_be7jv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oadh4"]
+texture = ExtResource("48_5s1o8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x6v6g"]
+texture = ExtResource("48_5s1o8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ej6vm"]
+texture = ExtResource("49_be7jv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5mkwl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wcgsb"]
 
@@ -1195,16 +1207,8 @@ bg_color = Color(0.2627451, 0.0627451, 0.3372549, 0.79607844)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ehx2g"]
 bg_color = Color(0.2627451, 0.0627451, 0.3372549, 0.79607844)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3sq2j"]
-size = Vector2(14, 14)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ay4ap"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_md8ho"]
 size = Vector2(16, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pi8wn"]
-
-[sub_resource type="Gradient" id="Gradient_jtl08"]
-colors = PackedColorArray(0.67058825, 0.8039216, 0.6745098, 0.5294118, 0.25253218, 0.87526745, 0.77536225, 0.5137255)
 
 [node name="LevelEditorRework" type="Node2D" unique_id=1519603222]
 
@@ -1369,7 +1373,6 @@ texture = ExtResource("13_s4mn3")
 [node name="ReturnToGameUIText" type="RichTextLabel" parent="LevelEditor/CanvasLayer" unique_id=1385947657]
 visible = false
 material = SubResource("ShaderMaterial_rc8bi")
-layout_direction = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1377,6 +1380,7 @@ offset_top = 264.0
 offset_bottom = -264.0
 grow_horizontal = 2
 grow_vertical = 2
+layout_direction = 1
 theme_override_colors/default_color = Color(0.972549, 0.972549, 0.9764706, 1)
 theme_override_colors/font_outline_color = Color(0.3372549, 0.15686275, 0.74509805, 1)
 theme_override_colors/font_shadow_color = Color(0.65042853, 0.7088434, 1, 0.49411765)
@@ -1563,6 +1567,161 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_3ypha")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_i6xsk")
 toggle_mode = true
 text = "Advanced mode"
+
+[node name="EditorCursor" type="Area2D" parent="LevelEditor" unique_id=303845822 node_paths=PackedStringArray("EditorPlace", "TooltipUi")]
+self_modulate = Color(1, 1, 1, 0.8235294)
+collision_layer = 16777216
+collision_mask = 917504
+script = ExtResource("5_oksxi")
+EditorPlace = NodePath("../EditorPlace")
+TooltipUi = NodePath("../CanvasLayer2/EditorTootlipUi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEditor/EditorCursor" unique_id=1650635620]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_3sq2j")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="LevelEditor/EditorCursor" unique_id=1758188670]
+self_modulate = Color(1, 1, 1, 0.654902)
+z_index = 2
+sprite_frames = SubResource("SpriteFrames_3sq2j")
+animation = &"Select"
+centered = false
+
+[node name="EditorCamera" type="Camera2D" parent="LevelEditor" unique_id=687561907]
+zoom = Vector2(2.08, 2.08)
+limit_enabled = false
+limit_left = -403
+limit_right = 170
+position_smoothing_enabled = true
+script = ExtResource("5_0r4ld")
+
+[node name="EditorPlace" type="Node2D" parent="LevelEditor" unique_id=2086312139 node_paths=PackedStringArray("EditorCursor", "SpriteFill1", "SpriteFill2", "AreaSelectMultiple", "TilesetTempCopy", "EditorDataParser", "RewindTimer")]
+script = ExtResource("7_2gbe2")
+EditorCursor = NodePath("../EditorCursor")
+SpriteFill1 = NodePath("SpriteFill1")
+SpriteFill2 = NodePath("SpriteFill2")
+AreaSelectMultiple = NodePath("EditorUiSelectingMultiple")
+TilesetTempCopy = NodePath("../TileMapTemp")
+EditorDataParser = NodePath("../EditorDataParser")
+RewindTimer = NodePath("RewindTimeout")
+
+[node name="SpriteFill1" type="Sprite2D" parent="LevelEditor/EditorPlace" unique_id=1864769202]
+visible = false
+top_level = true
+position = Vector2(8, 8)
+texture = SubResource("PlaceholderTexture2D_ay4ap")
+centered = false
+
+[node name="SpriteFill2" type="Sprite2D" parent="LevelEditor/EditorPlace" unique_id=574331189]
+visible = false
+top_level = true
+position = Vector2(8, 8)
+texture = SubResource("PlaceholderTexture2D_ay4ap")
+centered = false
+
+[node name="EditorUiSelectingMultiple" type="Area2D" parent="LevelEditor/EditorPlace" unique_id=70446911 groups=["AreaSelectMultiple"]]
+top_level = true
+collision_layer = 131072
+collision_mask = 131072
+monitoring = false
+script = ExtResource("67_j3kmy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEditor/EditorPlace/EditorUiSelectingMultiple" unique_id=1871009534]
+shape = SubResource("RectangleShape2D_pi8wn")
+
+[node name="RewindTimeout" type="Timer" parent="LevelEditor/EditorPlace" unique_id=988877912]
+wait_time = 0.2
+one_shot = true
+
+[node name="EditorInterface" type="Node2D" parent="LevelEditor" unique_id=1790801379 node_paths=PackedStringArray("EditorPlace", "Editor")]
+script = ExtResource("17_r7lbo")
+EditorPlace = NodePath("../EditorPlace")
+Editor = NodePath("..")
+
+[node name="LevelData" type="Node2D" parent="LevelEditor" unique_id=220344016 node_paths=PackedStringArray("LevelEditor") groups=["LevelData"]]
+script = ExtResource("67_aueqc")
+LevelEditor = NodePath("..")
+
+[node name="Player" parent="LevelEditor/LevelData" unique_id=173086588 groups=["CantBeDeletedInEditor"] instance=ExtResource("8_achxd")]
+position = Vector2(33, 1)
+collision_layer = 131081
+Physics = false
+EnemiesPhysics = false
+
+[node name="Camera2D" type="Camera2D" parent="LevelEditor/LevelData/Player" unique_id=409159255]
+position = Vector2(14.5308, -29.4338)
+zoom = Vector2(2.08, 2.08)
+limit_left = -403
+limit_top = -414
+limit_right = 819
+limit_bottom = 414
+position_smoothing_enabled = true
+script = ExtResource("17_3vt02")
+
+[node name="TileMapLayer0" type="TileMapLayer" parent="LevelEditor/LevelData" unique_id=393772500 groups=["Tileset"]]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(16.999998, -16)
+scale = Vector2(1.00384, 1)
+tile_map_data = PackedByteArray("AAAAAAEAAQAAAAAAAAAAAAIAAQAAAAEAAAAAAAMAAQAAAAIAAAABAAEAAQACAAAAAAABAAIAAQACAAEAAAABAAMAAQACAAIAAAA=")
+tile_set = ExtResource("2_iimnb")
+script = ExtResource("3_0r4ld")
+
+[node name="TileMapLayerWater" parent="LevelEditor/LevelData" unique_id=1940844964 instance=ExtResource("92_tk1t2")]
+position = Vector2(-2, 32)
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="LevelEditor/LevelData" unique_id=796603561 groups=["Tileset"]]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(17, -16)
+scale = Vector2(1.00384, 1)
+tile_set = ExtResource("2_iimnb")
+script = ExtResource("3_0r4ld")
+
+[node name="Time_Left" type="Timer" parent="LevelEditor/LevelData" unique_id=30492087 groups=["GameTimer"]]
+wait_time = 7.0
+one_shot = true
+autostart = true
+
+[node name="GameplayObjects" type="Node2D" parent="LevelEditor/LevelData" unique_id=750971089]
+
+[node name="Killbox" parent="LevelEditor/LevelData" unique_id=1386857898 instance=ExtResource("19_i0mup")]
+position = Vector2(-5, 356)
+scale = Vector2(999, 1)
+collision_layer = 1025
+Visible = false
+CanChange = false
+
+[node name="EditorDataParser" type="Node2D" parent="LevelEditor" unique_id=1150111339 node_paths=PackedStringArray("EditorPlace", "LevelEditor", "LevelData", "ParentOriginalNodes")]
+script = ExtResource("75_6jsng")
+EditorPlace = NodePath("../EditorPlace")
+LevelEditor = NodePath("..")
+LevelData = NodePath("../LevelData")
+ParentOriginalNodes = NodePath("ParentOriginalNodes")
+
+[node name="ParentOriginalNodes" type="Node2D" parent="LevelEditor/EditorDataParser" unique_id=1414294560]
+
+[node name="EditorPlayerTrail" type="Line2D" parent="LevelEditor" unique_id=1954549939 node_paths=PackedStringArray("Player", "PointCooldown")]
+visible = false
+top_level = true
+width = 3.105
+default_color = Color(0.9843137, 0.61960787, 0.9647059, 0.69411767)
+gradient = SubResource("Gradient_jtl08")
+script = ExtResource("78_jtl08")
+Player = NodePath("../LevelData/Player")
+PointCooldown = NodePath("PointCooldown")
+
+[node name="PointCooldown" type="Timer" parent="LevelEditor/EditorPlayerTrail" unique_id=1415105858]
+wait_time = 0.1
+one_shot = true
+
+[node name="TileMapTemp" type="TileMapLayer" parent="LevelEditor" unique_id=374456378 groups=["Tileset"]]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(16.999998, -16)
+scale = Vector2(1.00384, 1)
+tile_set = ExtResource("2_iimnb")
+script = ExtResource("3_0r4ld")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="LevelEditor" unique_id=1309150936]
 
@@ -1777,160 +1936,20 @@ access = 2
 root_subfolder = "res://assets/Saved/LevelEditor/"
 filters = PackedStringArray("*.save")
 
-[node name="EditorCursor" type="Area2D" parent="LevelEditor" unique_id=303845822 node_paths=PackedStringArray("EditorPlace", "TooltipUi")]
-self_modulate = Color(1, 1, 1, 0.8235294)
-collision_layer = 16777216
-collision_mask = 917504
-script = ExtResource("5_oksxi")
-EditorPlace = NodePath("../EditorPlace")
-TooltipUi = NodePath("../CanvasLayer2/EditorTootlipUi")
+[node name="SampleTileset" type="Sprite2D" parent="LevelEditor/CanvasLayer2" unique_id=687892094]
+self_modulate = Color(1, 1, 1, 0.5137255)
+position = Vector2(559, 332)
+scale = Vector2(0.82552063, 0.82552063)
+texture = ExtResource("4_oksxi")
+script = ExtResource("96_cjgrg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEditor/EditorCursor" unique_id=1650635620]
-position = Vector2(8, 8)
-shape = SubResource("RectangleShape2D_3sq2j")
+[node name="SelectUpperLeft" type="Sprite2D" parent="LevelEditor/CanvasLayer2/SampleTileset" unique_id=873623915]
+position = Vector2(-291.14197, -166.56158)
+texture = SubResource("PlaceholderTexture2D_md8ho")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="LevelEditor/EditorCursor" unique_id=1758188670]
-self_modulate = Color(1, 1, 1, 0.654902)
-z_index = 2
-sprite_frames = SubResource("SpriteFrames_3sq2j")
-animation = &"Select"
-centered = false
-
-[node name="EditorCamera" type="Camera2D" parent="LevelEditor" unique_id=687561907]
-zoom = Vector2(2.08, 2.08)
-limit_enabled = false
-limit_left = -403
-limit_right = 170
-position_smoothing_enabled = true
-script = ExtResource("5_0r4ld")
-
-[node name="EditorPlace" type="Node2D" parent="LevelEditor" unique_id=2086312139 node_paths=PackedStringArray("EditorCursor", "SpriteFill1", "SpriteFill2", "AreaSelectMultiple", "TilesetTempCopy", "EditorDataParser", "RewindTimer")]
-script = ExtResource("7_2gbe2")
-EditorCursor = NodePath("../EditorCursor")
-SpriteFill1 = NodePath("SpriteFill1")
-SpriteFill2 = NodePath("SpriteFill2")
-AreaSelectMultiple = NodePath("EditorUiSelectingMultiple")
-TilesetTempCopy = NodePath("../TileMapTemp")
-EditorDataParser = NodePath("../EditorDataParser")
-RewindTimer = NodePath("RewindTimeout")
-
-[node name="SpriteFill1" type="Sprite2D" parent="LevelEditor/EditorPlace" unique_id=1864769202]
-visible = false
-top_level = true
-position = Vector2(8, 8)
-texture = SubResource("PlaceholderTexture2D_ay4ap")
-centered = false
-
-[node name="SpriteFill2" type="Sprite2D" parent="LevelEditor/EditorPlace" unique_id=574331189]
-visible = false
-top_level = true
-position = Vector2(8, 8)
-texture = SubResource("PlaceholderTexture2D_ay4ap")
-centered = false
-
-[node name="EditorUiSelectingMultiple" type="Area2D" parent="LevelEditor/EditorPlace" unique_id=70446911 groups=["AreaSelectMultiple"]]
-top_level = true
-collision_layer = 131072
-collision_mask = 131072
-monitoring = false
-script = ExtResource("67_j3kmy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEditor/EditorPlace/EditorUiSelectingMultiple" unique_id=1871009534]
-shape = SubResource("RectangleShape2D_pi8wn")
-
-[node name="RewindTimeout" type="Timer" parent="LevelEditor/EditorPlace" unique_id=988877912]
-wait_time = 0.2
-one_shot = true
-
-[node name="EditorInterface" type="Node2D" parent="LevelEditor" unique_id=1790801379 node_paths=PackedStringArray("EditorPlace", "Editor")]
-script = ExtResource("17_r7lbo")
-EditorPlace = NodePath("../EditorPlace")
-Editor = NodePath("..")
-
-[node name="LevelData" type="Node2D" parent="LevelEditor" unique_id=220344016 node_paths=PackedStringArray("LevelEditor") groups=["LevelData"]]
-script = ExtResource("67_aueqc")
-LevelEditor = NodePath("..")
-
-[node name="Player" parent="LevelEditor/LevelData" unique_id=173086588 groups=["CantBeDeletedInEditor"] instance=ExtResource("8_achxd")]
-position = Vector2(33, 1)
-collision_layer = 131081
-Physics = false
-EnemiesPhysics = false
-
-[node name="Camera2D" type="Camera2D" parent="LevelEditor/LevelData/Player" unique_id=409159255]
-position = Vector2(14.5308, -29.4338)
-zoom = Vector2(2.08, 2.08)
-limit_left = -403
-limit_top = -414
-limit_right = 819
-limit_bottom = 414
-position_smoothing_enabled = true
-script = ExtResource("17_3vt02")
-
-[node name="TileMapLayer0" type="TileMapLayer" parent="LevelEditor/LevelData" unique_id=393772500 groups=["Tileset"]]
-texture_filter = 1
-texture_repeat = 2
-position = Vector2(16.999998, -16)
-scale = Vector2(1.00384, 1)
-tile_map_data = PackedByteArray("AAAAAAEAAQAAAAAAAAAAAAIAAQAAAAEAAAAAAAMAAQAAAAIAAAABAAEAAQACAAAAAAABAAIAAQACAAEAAAABAAMAAQACAAIAAAA=")
-tile_set = ExtResource("2_iimnb")
-script = ExtResource("3_0r4ld")
-
-[node name="TileMapLayerWater" parent="LevelEditor/LevelData" unique_id=1940844964 instance=ExtResource("92_tk1t2")]
-position = Vector2(-2, 32)
-
-[node name="TileMapLayer2" type="TileMapLayer" parent="LevelEditor/LevelData" unique_id=796603561 groups=["Tileset"]]
-texture_filter = 1
-texture_repeat = 2
-position = Vector2(17, -16)
-scale = Vector2(1.00384, 1)
-tile_set = ExtResource("2_iimnb")
-script = ExtResource("3_0r4ld")
-
-[node name="Time_Left" type="Timer" parent="LevelEditor/LevelData" unique_id=30492087 groups=["GameTimer"]]
-wait_time = 7.0
-one_shot = true
-autostart = true
-
-[node name="GameplayObjects" type="Node2D" parent="LevelEditor/LevelData" unique_id=750971089]
-
-[node name="Killbox" parent="LevelEditor/LevelData" unique_id=1386857898 instance=ExtResource("19_i0mup")]
-position = Vector2(-5, 356)
-scale = Vector2(999, 1)
-collision_layer = 1025
-Visible = false
-CanChange = false
-
-[node name="EditorDataParser" type="Node2D" parent="LevelEditor" unique_id=1150111339 node_paths=PackedStringArray("EditorPlace", "LevelEditor", "LevelData", "ParentOriginalNodes")]
-script = ExtResource("75_6jsng")
-EditorPlace = NodePath("../EditorPlace")
-LevelEditor = NodePath("..")
-LevelData = NodePath("../LevelData")
-ParentOriginalNodes = NodePath("ParentOriginalNodes")
-
-[node name="ParentOriginalNodes" type="Node2D" parent="LevelEditor/EditorDataParser" unique_id=1414294560]
-
-[node name="EditorPlayerTrail" type="Line2D" parent="LevelEditor" unique_id=1954549939 node_paths=PackedStringArray("Player", "PointCooldown")]
-visible = false
-top_level = true
-width = 3.105
-default_color = Color(0.9843137, 0.61960787, 0.9647059, 0.69411767)
-gradient = SubResource("Gradient_jtl08")
-script = ExtResource("78_jtl08")
-Player = NodePath("../LevelData/Player")
-PointCooldown = NodePath("PointCooldown")
-
-[node name="PointCooldown" type="Timer" parent="LevelEditor/EditorPlayerTrail" unique_id=1415105858]
-wait_time = 0.1
-one_shot = true
-
-[node name="TileMapTemp" type="TileMapLayer" parent="LevelEditor" unique_id=374456378 groups=["Tileset"]]
-texture_filter = 1
-texture_repeat = 2
-position = Vector2(16.999998, -16)
-scale = Vector2(1.00384, 1)
-tile_set = ExtResource("2_iimnb")
-script = ExtResource("3_0r4ld")
+[node name="SelectUpperDown" type="Sprite2D" parent="LevelEditor/CanvasLayer2/SampleTileset" unique_id=53051844]
+position = Vector2(-245.1104, -183.52057)
+texture = SubResource("PlaceholderTexture2D_md8ho")
 
 [connection signal="mouse_entered" from="LevelEditor/CanvasLayer/ButtonPlusTime" to="LevelEditor" method="_button_hovered"]
 [connection signal="mouse_exited" from="LevelEditor/CanvasLayer/ButtonPlusTime" to="LevelEditor" method="_button_not_hovered"]
@@ -1941,6 +1960,14 @@ script = ExtResource("3_0r4ld")
 [connection signal="mouse_entered" from="LevelEditor/CanvasLayer/AdvancedModeButton" to="LevelEditor" method="_button_hovered"]
 [connection signal="mouse_exited" from="LevelEditor/CanvasLayer/AdvancedModeButton" to="LevelEditor" method="_button_not_hovered"]
 [connection signal="pressed" from="LevelEditor/CanvasLayer/AdvancedModeButton" to="LevelEditor" method="_on_advanced_mode_button_pressed"]
+[connection signal="area_entered" from="LevelEditor/EditorCursor" to="LevelEditor/EditorPlace" method="_on_editor_cursor_area_entered"]
+[connection signal="area_exited" from="LevelEditor/EditorCursor" to="LevelEditor/EditorPlace" method="_on_editor_cursor_area_exited"]
+[connection signal="body_entered" from="LevelEditor/EditorCursor" to="LevelEditor/EditorPlace" method="_on_editor_cursor_body_entered"]
+[connection signal="body_exited" from="LevelEditor/EditorCursor" to="LevelEditor/EditorPlace" method="_on_editor_cursor_body_exited"]
+[connection signal="area_entered" from="LevelEditor/EditorPlace/EditorUiSelectingMultiple" to="LevelEditor/EditorPlace" method="_on_editor_ui_selecting_multiple_area_entered"]
+[connection signal="area_exited" from="LevelEditor/EditorPlace/EditorUiSelectingMultiple" to="LevelEditor/EditorPlace" method="_on_editor_ui_selecting_multiple_area_exited"]
+[connection signal="body_entered" from="LevelEditor/EditorPlace/EditorUiSelectingMultiple" to="LevelEditor/EditorPlace" method="_on_editor_ui_selecting_multiple_body_entered"]
+[connection signal="body_exited" from="LevelEditor/EditorPlace/EditorUiSelectingMultiple" to="LevelEditor/EditorPlace" method="_on_editor_ui_selecting_multiple_body_exited"]
 [connection signal="mouse_entered" from="LevelEditor/CanvasLayer2/EditorTootlipUi/SampleButton" to="LevelEditor" method="_button_hovered"]
 [connection signal="mouse_exited" from="LevelEditor/CanvasLayer2/EditorTootlipUi/SampleButton" to="LevelEditor" method="_button_not_hovered"]
 [connection signal="pressed" from="LevelEditor/CanvasLayer2/EditorTootlipUi/SampleButton" to="LevelEditor/CanvasLayer2/EditorTootlipUi/SampleButton" method="_on_pressed"]
@@ -1973,11 +2000,3 @@ script = ExtResource("3_0r4ld")
 [connection signal="file_selected" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2/EditorSaveFileDialog" to="LevelEditor/EditorDataParser" method="_on_editor_save_file_dialog_file_selected"]
 [connection signal="canceled" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2/EditorLoadFileDialog" to="LevelEditor/EditorDataParser" method="_on_editor_load_file_dialog_canceled"]
 [connection signal="file_selected" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2/EditorLoadFileDialog" to="LevelEditor/EditorDataParser" method="_on_editor_load_file_dialog_file_selected"]
-[connection signal="area_entered" from="LevelEditor/EditorCursor" to="LevelEditor/EditorPlace" method="_on_editor_cursor_area_entered"]
-[connection signal="area_exited" from="LevelEditor/EditorCursor" to="LevelEditor/EditorPlace" method="_on_editor_cursor_area_exited"]
-[connection signal="body_entered" from="LevelEditor/EditorCursor" to="LevelEditor/EditorPlace" method="_on_editor_cursor_body_entered"]
-[connection signal="body_exited" from="LevelEditor/EditorCursor" to="LevelEditor/EditorPlace" method="_on_editor_cursor_body_exited"]
-[connection signal="area_entered" from="LevelEditor/EditorPlace/EditorUiSelectingMultiple" to="LevelEditor/EditorPlace" method="_on_editor_ui_selecting_multiple_area_entered"]
-[connection signal="area_exited" from="LevelEditor/EditorPlace/EditorUiSelectingMultiple" to="LevelEditor/EditorPlace" method="_on_editor_ui_selecting_multiple_area_exited"]
-[connection signal="body_entered" from="LevelEditor/EditorPlace/EditorUiSelectingMultiple" to="LevelEditor/EditorPlace" method="_on_editor_ui_selecting_multiple_body_entered"]
-[connection signal="body_exited" from="LevelEditor/EditorPlace/EditorUiSelectingMultiple" to="LevelEditor/EditorPlace" method="_on_editor_ui_selecting_multiple_body_exited"]

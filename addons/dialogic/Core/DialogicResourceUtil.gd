@@ -106,7 +106,7 @@ static func resource_exists_from_identifier(identifier:String, extension:String)
 ## Editor Only
 static func change_unique_identifier(file_path:String, new_identifier:String) -> void:
 	var directory := get_directory(file_path.get_extension())
-	var key: String = directory.find_key(file_path)
+	var key: Variant = directory.find_key(file_path)
 	while key != null:
 		if key == new_identifier:
 			break
@@ -118,7 +118,7 @@ static func change_unique_identifier(file_path:String, new_identifier:String) ->
 
 static func change_resource_path(old_path:String, new_path:String) -> void:
 	var directory := get_directory(new_path.get_extension())
-	var key: String = directory.find_key(old_path)
+	var key: Variant = directory.find_key(old_path)
 	while key != null:
 		directory[key] = new_path
 		key = directory.find_key(old_path)
@@ -127,7 +127,7 @@ static func change_resource_path(old_path:String, new_path:String) -> void:
 
 static func remove_resource(file_path:String) -> void:
 	var directory := get_directory(file_path.get_extension())
-	var key: String = directory.find_key(file_path)
+	var key: Variant = directory.find_key(file_path)
 	while key != null:
 		directory.erase(key)
 		key = directory.find_key(file_path)
@@ -304,7 +304,7 @@ static func guess_special_resource(type: String, string: String, default := {}, 
 
 	if string.begins_with('res://'):
 		for i in resources.values():
-			if i.path == string:
+			if i.path == string or i.path == string+'c':
 				return i
 		printerr("[Dialogic] Unable to find ", type, " at path '", string, "'.")
 		return default

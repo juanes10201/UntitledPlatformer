@@ -5,18 +5,21 @@ extends DialogicEvent
 ## Event that clears audio & visuals (not variables).
 ## Useful to make sure the scene is clear for a completely new thing.
 
-var time := 1.0
-var step_by_step := true
+@export var time := 1.0
+@export var step_by_step := true
 
-var clear_textbox := true
-var clear_portraits := true
-var clear_style := true
-var clear_music := true
-var clear_portrait_positions := true
-var clear_background := true
+@export var clear_textbox := true
+@export var clear_portraits := true
+@export var clear_style := true
+@export var clear_music := true
+@export var clear_portrait_positions := true
+@export var clear_background := true
 
-################################################################################
-## 						EXECUTE
+## If true Dialogic will not actually switch the style if this is the last
+## event in a timeline, which is very common and unnecessarily resource intensive.
+var auto_avoid_style_change := true
+
+#region EXECUTE
 ################################################################################
 
 func _execute() -> void:
@@ -27,12 +30,14 @@ func _execute() -> void:
 		final_time = min(time, time_per_event)
 
 	if clear_textbox and dialogic.has_subsystem("Text") and dialogic.Text.is_textbox_visible():
-		dialogic.Text.update_dialog_text('')
-		dialogic.Text.hide_textbox(final_time == 0)
+		dialogic.Text.update_dialog_text("", true)
+		if step_by_step:
+			await dialogic.Text.hide_textbox(final_time == 0)
+		else:
+			dialogic.Text.hide_textbox(final_time == 0)
 		dialogic.current_state = dialogic.States.IDLE
-		if step_by_step: await dialogic.get_tree().create_timer(final_time).timeout
 
-	if clear_portraits and dialogic.has_subsystem('Portraits') and len(dialogic.Portraits.get_joined_characters()) != 0:
+	if clear_portraits and dialogic.has_subsystem("Portraits") and len(dialogic.Portraits.get_joined_characters()) != 0:
 		if final_time == 0:
 			dialogic.Portraits.leave_all_characters("Instant", final_time, step_by_step)
 		else:
@@ -40,19 +45,22 @@ func _execute() -> void:
 		if step_by_step: await dialogic.get_tree().create_timer(final_time).timeout
 
 	if clear_background and dialogic.has_subsystem('Backgrounds') and dialogic.Backgrounds.has_background():
-		dialogic.Backgrounds.update_background('', '', final_time)
+		dialogic.Backgrounds.update_background("", "", final_time)
 		if step_by_step: await dialogic.get_tree().create_timer(final_time).timeout
 
-	if clear_music and dialogic.has_subsystem('Audio'):
+	if clear_music and dialogic.has_subsystem("Audio"):
 		dialogic.Audio.stop_all_one_shot_sounds()
 		if dialogic.Audio.is_any_channel_playing():
 			dialogic.Audio.stop_all_channels(final_time)
 			if step_by_step: await dialogic.get_tree().create_timer(final_time).timeout
 
-	if clear_style and dialogic.has_subsystem('Styles'):
-		dialogic.Styles.change_style()
+	if clear_style and dialogic.has_subsystem("Styles"):
+		if auto_avoid_style_change and Dialogic.current_event_idx == Dialogic.current_timeline_events.size()-1:
+			pass
+		else:
+			dialogic.Styles.change_style()
 
-	if clear_portrait_positions and dialogic.has_subsystem('Portraits'):
+	if clear_portrait_positions and dialogic.has_subsystem("Portraits"):
 		dialogic.PortraitContainers.reset_all_containers()
 
 	if not step_by_step:
@@ -60,20 +68,23 @@ func _execute() -> void:
 
 	finish()
 
+#endregion
 
-################################################################################
-## 						INITIALIZE
+
+#region INITIALIZE
 ################################################################################
 
 func _init() -> void:
 	event_name = "Clear"
-	set_default_color('Color9')
+	event_description = "Clears current state like text, background, portraits, style or audio."
+	set_default_color("Color9")
 	event_category = "Other"
 	event_sorting_index = 2
 
+#endregion
 
-################################################################################
-## 						SAVING/LOADING
+
+#region SAVING/LOADING
 ################################################################################
 
 func get_shortcode() -> String:
@@ -93,9 +104,10 @@ func get_shortcode_parameters() -> Dictionary:
 		"style"		: {"property": "clear_style", 		"default": true},
 	}
 
+#endregion
 
-################################################################################
-## 						EDITOR REPRESENTATION
+
+#region EDITOR REPRESENTATION
 ################################################################################
 
 func build_event_editor() -> void:
@@ -112,3 +124,5 @@ func build_event_editor() -> void:
 	add_body_edit('clear_music', ValueType.BOOL_BUTTON, {'icon':load("res://addons/dialogic/Modules/Clear/clear_music.svg"), 'tooltip':'Clear Audio'})
 	add_body_edit('clear_style', ValueType.BOOL_BUTTON, {'icon':load("res://addons/dialogic/Modules/Clear/clear_style.svg"), 'tooltip':'Clear Style'})
 	add_body_edit('clear_portrait_positions', ValueType.BOOL_BUTTON, {'icon':load("res://addons/dialogic/Modules/Clear/clear_positions.svg"), 'tooltip':'Clear Portrait Positions'})
+
+#endregion

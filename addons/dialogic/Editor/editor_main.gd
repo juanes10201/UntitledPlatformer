@@ -19,8 +19,12 @@ func _ready() -> void:
 
 	## REFERENCES
 	editors_manager = $EditorsManager
-	var button: Button = editors_manager.add_icon_button(
-		get_theme_icon("MakeFloating", "EditorIcons"), "Make floating"
+	var button: Button = editors_manager.add_button(
+		get_theme_icon("MakeFloating", "EditorIcons"),
+		"",
+		"Make the dialogic editor floating.",
+		null,
+		editors_manager.ButtonPlacement.TOOLBAR_MAIN
 	)
 	button.pressed.connect(toggle_floating_window)
 
@@ -53,16 +57,17 @@ func _on_sidebar_toggled(sidebar_shown: bool) -> void:
 
 
 func update_theme_additions() -> void:
+	var scale := DialogicUtil.get_editor_scale()
 	add_theme_stylebox_override("panel", DCSS.inline({
 		"background": get_theme_color("base_color", "Editor"),
 		"padding":
-		[5 * DialogicUtil.get_editor_scale(), 5 * DialogicUtil.get_editor_scale()],
+		[5 * scale, 5 * scale],
 		}))
 	var holder_panel := (DCSS.inline({
 		"border-radius": 5,
 		"background": get_theme_color("dark_color_2", "Editor"),
 		"padding":
-		[5 * DialogicUtil.get_editor_scale(), 5 * DialogicUtil.get_editor_scale()],
+		[5 * scale, 5 * scale],
 		}))
 
 	holder_panel.border_width_top = 0
@@ -125,6 +130,23 @@ func update_theme_additions() -> void:
 	side_panel.content_margin_left = 0
 	side_panel.border_color = get_theme_color("contrast_color_2", "Editor")
 	new_theme.set_stylebox("panel", "DialogicPanelB", side_panel)
+
+	new_theme.set_type_variation("DialogicTabs", "TabBar")
+	new_theme.set_color("icon_selected_color", "DialogicTabs", get_theme_color("accent_color", "Editor"))
+	var selected_tab: StyleBoxFlat = get_theme_stylebox("tab_selected", "TabBar").duplicate()
+	selected_tab.bg_color = get_theme_color("background", "Editor")
+	new_theme.set_stylebox("tab_selected", "DialogicTabs", selected_tab)
+	var unselected_tab: StyleBoxFlat = get_theme_stylebox("tab_unselected", "TabBar").duplicate()
+	unselected_tab.bg_color = get_theme_color("disabled_bg_color", "Editor")
+	new_theme.set_stylebox("tab_unselected", "DialogicTabs", unselected_tab)
+
+	new_theme.set_type_variation("DialogicSidebarList", "ItemList")
+	var stylebox: StyleBoxFlat = get_theme_stylebox("panel", "ItemList").duplicate()
+	stylebox.bg_color = get_theme_color("disabled_bg_color", "Editor")
+	new_theme.set_stylebox("panel", "DialogicSidebarList", stylebox)
+
+	new_theme.set_type_variation("DialogicSidebarTree", "Tree")
+	new_theme.set_stylebox("panel", "DialogicSidebarTree", stylebox)
 
 	new_theme.set_type_variation("DialogicEventEdit", "Control")
 	var edit_panel := StyleBoxFlat.new()
@@ -201,7 +223,7 @@ func update_theme_additions() -> void:
 	new_theme.set_constant("separation", "DialogicMegaSeparator", 50)
 
 	new_theme.set_type_variation("DialogicTextEventTextEdit", "CodeEdit")
-	var editor_settings := plugin_reference.get_editor_interface().get_editor_settings()
+	var editor_settings := EditorInterface.get_editor_settings()
 	var text_panel := DCSS.inline({
 				"border-radius": 8,
 				"background":
@@ -256,7 +278,7 @@ func swap_to_floating_window() -> void:
 	window.disable_3d = true
 	window.wrap_controls = true
 	window.popup_centered()
-	plugin_reference.get_editor_interface().set_main_screen_editor("2D")
+	EditorInterface.set_main_screen_editor("2D")
 
 
 ## Removes the main control from the window node and adds it to it's grandparent
@@ -267,7 +289,7 @@ func swap_to_embedded_editor() -> void:
 
 	var window := get_parent()
 	get_parent().remove_child(self)
-	plugin_reference.get_editor_interface().set_main_screen_editor("Dialogic")
+	EditorInterface.set_main_screen_editor("Dialogic")
 	window.get_parent().add_child(self)
 	window.queue_free()
 
@@ -277,16 +299,21 @@ func godot_file_dialog(
 		window_title := "Save",
 		current_file_name := "New_File",
 		saving_something := false,
-		extra_message: String = ""
+		extra_message: String = "",
+		current_dir := "",
 		) -> EditorFileDialog:
 
 	for connection in editor_file_dialog.file_selected.get_connections():
 		editor_file_dialog.file_selected.disconnect(connection.callable)
+	for connection in editor_file_dialog.files_selected.get_connections():
+		editor_file_dialog.files_selected.disconnect(connection.callable)
 	for connection in editor_file_dialog.dir_selected.get_connections():
 		editor_file_dialog.dir_selected.disconnect(connection.callable)
 
 	if mode == EditorFileDialog.FILE_MODE_OPEN_FILE or mode == EditorFileDialog.FILE_MODE_SAVE_FILE:
 		editor_file_dialog.file_selected.connect(callable)
+	elif mode == EditorFileDialog.FILE_MODE_OPEN_FILES:
+		editor_file_dialog.files_selected.connect(callable)
 	elif mode == EditorFileDialog.FILE_MODE_OPEN_DIR:
 		editor_file_dialog.dir_selected.connect(callable)
 	elif mode == EditorFileDialog.FILE_MODE_OPEN_ANY:
@@ -299,6 +326,30 @@ func godot_file_dialog(
 	editor_file_dialog.title = window_title
 	editor_file_dialog.current_file = current_file_name
 	editor_file_dialog.disable_overwrite_warning = !saving_something
+
+	## This system allows storing context-based "last used" folders.
+	## Mainly useful to provide the best folder when clicking on an empty file field.
+	## E.g. a field can be setup as "Background, Image, Asset" and will try to take
+	## the first stored folder. These are stored in the dialogic editor settings.
+	var custom_current_dir := false
+	if current_dir:
+		editor_file_dialog.current_dir = ""
+		if current_dir.begins_with("res://"):
+			editor_file_dialog.current_dir = current_dir
+		else:
+			custom_current_dir = true
+			for type in current_dir.split(","):
+				editor_file_dialog.current_dir = DialogicUtil.get_editor_setting("latest_dir_"+type.strip_edges(), "")
+				if editor_file_dialog.current_dir != "res://":
+					break
+	@warning_ignore("incompatible_ternary")
+	editor_file_dialog.set_meta("current_dir_type", current_dir if custom_current_dir else "")
+
+	if custom_current_dir:
+		editor_file_dialog.file_selected.connect(_on_file_dialog_selected)
+		editor_file_dialog.files_selected.connect(_on_file_dialog_selected)
+		editor_file_dialog.dir_selected.connect(_on_file_dialog_selected)
+
 	if extra_message:
 		editor_file_dialog.get_meta("info_message_label").show()
 		editor_file_dialog.get_meta("info_message_label").text = extra_message
@@ -308,3 +359,15 @@ func godot_file_dialog(
 
 
 	return editor_file_dialog
+
+
+func _on_file_dialog_selected(file:Variant) -> void:
+	var dir_types: String = editor_file_dialog.get_meta("current_dir_type", "")
+	if not dir_types:
+		return
+	var new_path := ""
+	if file is String:
+		new_path = file.get_base_dir()
+
+	for type in dir_types.split(","):
+		DialogicUtil.set_editor_setting("latest_dir_"+type.strip_edges(), new_path)

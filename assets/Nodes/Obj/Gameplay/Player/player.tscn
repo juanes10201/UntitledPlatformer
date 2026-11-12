@@ -372,7 +372,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_b0a62")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Change_Walk",
 "speed": 5.0
 }, {
@@ -380,7 +380,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_8giq1")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Dash",
 "speed": 50.0
 }, {
@@ -388,7 +388,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_0s4h5")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Groundsmash",
 "speed": 5.0
 }, {
@@ -396,7 +396,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_f6fi2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Herofall",
 "speed": 5.0
 }, {
@@ -404,7 +404,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_2dlrs")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle",
 "speed": 5.0
 }, {
@@ -415,7 +415,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vfcmg")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Jump",
 "speed": 10.0
 }, {
@@ -426,7 +426,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b0a62")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Jump_start",
 "speed": 5.0
 }, {
@@ -437,7 +437,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("12_8lo5w")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Rail",
 "speed": 3.0
 }, {
@@ -454,7 +454,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_uqoun")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Slide",
 "speed": 6.0
 }, {
@@ -474,7 +474,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_utmhw")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Switch_gravity",
 "speed": 7.0
 }, {
@@ -491,7 +491,7 @@ animations = [{
 "duration": 1.5,
 "texture": SubResource("AtlasTexture_ckcmk")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Walking",
 "speed": 8.0
 }, {
@@ -499,7 +499,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("11_gu8yx")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Wall_jump",
 "speed": 5.0
 }, {
@@ -507,7 +507,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("15_8e53b")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Water",
 "speed": 5.0
 }, {
@@ -518,7 +518,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("15_2ritr")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Water_Fall",
 "speed": 2.0
 }, {
@@ -526,7 +526,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("16_kpoh8")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Water_Fall_Left",
 "speed": 5.0
 }, {
@@ -534,7 +534,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("17_i03vl")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Water_Fall_Right",
 "speed": 5.0
 }, {
@@ -545,7 +545,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("15_2ritr")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Water_Fall_Start",
 "speed": 2.0
 }, {
@@ -553,7 +553,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_0hfwl")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Water_Left",
 "speed": 5.0
 }, {
@@ -561,7 +561,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_2ritr")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Water_Right",
 "speed": 5.0
 }]
@@ -638,7 +638,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6sg21")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 10.0
 }, {
@@ -661,7 +661,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6sg21")
 }],
-"loop": false,
+"loop": 0,
 "name": &"groundsmash",
 "speed": 10.0
 }]
@@ -773,7 +773,7 @@ animations = [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_kpoh8")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 6.0
 }]
@@ -2182,7 +2182,7 @@ amount = 10
 texture = SubResource("GradientTexture2D_uqoun")
 lifetime = 0.6
 trail_enabled = true
-trail_lifetime = 0.09999999999999999
+trail_lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_kp2gu")
 
 [node name="RailParticles2" type="GPUParticles2D" parent="." unique_id=1401493432]

@@ -121,7 +121,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8vuuc")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -129,7 +129,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ji8qf")
 }],
-"loop": true,
+"loop": 1,
 "name": &"pressed",
 "speed": 5.0
 }]
@@ -148,7 +148,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_reu32")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -156,7 +156,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b5voc")
 }],
-"loop": true,
+"loop": 1,
 "name": &"pressed",
 "speed": 5.0
 }]
@@ -226,7 +226,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w7ae7")
 }],
-"loop": true,
+"loop": 1,
 "name": &"disabled",
 "speed": 5.0
 }, {
@@ -240,7 +240,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w7ae7")
 }],
-"loop": false,
+"loop": 0,
 "name": &"hide",
 "speed": 5.0
 }, {
@@ -260,7 +260,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5d5i3")
 }],
-"loop": false,
+"loop": 0,
 "name": &"show",
 "speed": 5.0
 }]
@@ -309,7 +309,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rebgq")
 }],
-"loop": true,
+"loop": 1,
 "name": &"disabled",
 "speed": 5.0
 }, {
@@ -323,7 +323,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rebgq")
 }],
-"loop": false,
+"loop": 0,
 "name": &"hide",
 "speed": 5.0
 }, {
@@ -343,7 +343,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f1h32")
 }],
-"loop": false,
+"loop": 0,
 "name": &"show",
 "speed": 5.0
 }]
@@ -438,7 +438,7 @@ zoom = Vector2(2.08, 2.08)
 limit_left = -344
 limit_top = -200
 limit_right = 320
-limit_bottom = 272
+limit_bottom = 137
 position_smoothing_enabled = true
 script = ExtResource("7_8m4oy")
 
