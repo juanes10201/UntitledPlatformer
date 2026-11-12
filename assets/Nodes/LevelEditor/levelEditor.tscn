@@ -1956,7 +1956,7 @@ LevelEditor = NodePath("../..")
 position = Vector2(-291.14197, -166.56158)
 texture = SubResource("PlaceholderTexture2D_md8ho")
 
-[node name="SelectUpperDown" type="Sprite2D" parent="LevelEditor/CanvasLayer2/SampleTileset" unique_id=53051844]
+[node name="SelectDownRight" type="Sprite2D" parent="LevelEditor/CanvasLayer2/SampleTileset" unique_id=53051844]
 position = Vector2(-245.1104, -183.52057)
 texture = SubResource("PlaceholderTexture2D_md8ho")
 

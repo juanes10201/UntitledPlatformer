@@ -24,6 +24,8 @@ func _cursor_is_in_pos() -> bool:
 	return _is_in_x && _is_in_y
 
 var Hovering : bool = false
+var SelectingInitialIndex : Vector2i
+var SelectingIndex : Vector2i
 
 func _update_pos() -> void:
 	#if(!LevelEditor.ButtonHovered || Hovering):
@@ -35,24 +37,32 @@ func _update_pos() -> void:
 		
 		var _pos = floor((_pos_cursor-_pivot)/tile_size)*tile_size+_pivot
 		var _index : Vector2i = round((_pos-_pivot)/tile_size)
-		$SelectUpperLeft.global_position = _pos
-		$SelectUpperLeft.show()
 		
-		if(Input.is_action_just_pressed("ui_click")):
-			EditorPlace.CustomTileSelected = true
+		if(Input.is_action_pressed("ui_click")):
+			$SelectDownRight.global_position = _pos
+			$SelectDownRight.show()
+			SelectingIndex = _index
 			EditorPlace.CustomTilesSelected.clear()
-			EditorPlace.CustomTilesSelected.append(_index)
+			EditorPlace.CustomTilesSelected.append(SelectingInitialIndex)
+			EditorPlace.CustomTilesSelected.append(SelectingIndex)
+		if(Input.is_action_just_pressed("ui_click")):
+			$SelectUpperLeft.show()
+			$SelectUpperLeft.global_position = $SelectDownRight.global_position
+			SelectingInitialIndex = _index
+			EditorPlace.CustomTileSelected = true
+		#print("Index: " + str(EditorPlace.CustomTilesSelected))
 		
 	else:
-		$SelectUpperLeft.hide()
+		#$SelectUpperLeft.hide()
+		#$SelectDownRight.hide()
 		if(Hovering): LevelEditor.ButtonHovered = false
 		Hovering = false
-
-func _ready() -> void:
-	pass
 
 func _process(delta: float) -> void:
 	Enabled = LevelEditor.CurrentUiPage == 1
 	visible = Enabled
 	if(Enabled):
 		_update_pos()
+
+func _ready() -> void:
+	pass
