@@ -3,6 +3,7 @@ extends Node2D
 @export var SampleButton : Button
 @export var LevelEditor : Node2D
 @export var EditorCursor : Node2D
+@export var EditorPlace : Node2D
 
 var Buttons : Array[Array] = []
 
@@ -50,6 +51,7 @@ func _setup_button() -> void:
 	#print(Buttons)
 
 func _ready() -> void:
+	RegularSelectorButton.hide()
 	if(SampleButton):
 		SampleButton.hide()
 	_setup_button()
@@ -57,4 +59,19 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	visible = LevelEditor.CurrentUiPage == 0
+
+@export var TilesetSelectorButton : TextureButton
+@export var RegularSelectorButton : TextureButton
+
+func _change_to_tileset_selector() -> void:
+	LevelEditor.go_next_ui_page()
+	TilesetSelectorButton.hide()
+	RegularSelectorButton.show()
+	EditorPlace.change_to_tileset_custom()
+
+func _change_to_regular_selector() -> void:
+	LevelEditor.go_previous_ui_page()
+	TilesetSelectorButton.show()
+	RegularSelectorButton.hide()
+	EditorPlace.change_to_tileset_regular()

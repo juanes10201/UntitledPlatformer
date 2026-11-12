@@ -1,6 +1,9 @@
 extends Sprite2D
 
 @onready var tile_size = 16*scale
+@export var EditorPlace : Node2D
+@export var LevelEditor : Node2D
+var Enabled : bool = false
 
 func _get_initial_pos() -> Vector2:
 	var _center : Vector2 = global_position
@@ -20,8 +23,13 @@ func _cursor_is_in_pos() -> bool:
 	var _is_in_y : bool = _pos_cursor.y >= _fst_pos.y && _pos_cursor.y <= _snd_pos.y 
 	return _is_in_x && _is_in_y
 
+var Hovering : bool = false
+
 func _update_pos() -> void:
+	#if(!LevelEditor.ButtonHovered || Hovering):
 	if(_cursor_is_in_pos()):
+		Hovering = true
+		LevelEditor.ButtonHovered = true
 		var _pos_cursor : Vector2 = get_global_mouse_position()
 		var _pivot : Vector2 = _get_initial_pos() 
 		
@@ -29,11 +37,22 @@ func _update_pos() -> void:
 		var _index : Vector2i = round((_pos-_pivot)/tile_size)
 		$SelectUpperLeft.global_position = _pos
 		$SelectUpperLeft.show()
+		
+		if(Input.is_action_just_pressed("ui_click")):
+			EditorPlace.CustomTileSelected = true
+			EditorPlace.CustomTilesSelected.clear()
+			EditorPlace.CustomTilesSelected.append(_index)
+		
 	else:
 		$SelectUpperLeft.hide()
+		if(Hovering): LevelEditor.ButtonHovered = false
+		Hovering = false
 
 func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	_update_pos()
+	Enabled = LevelEditor.CurrentUiPage == 1
+	visible = Enabled
+	if(Enabled):
+		_update_pos()

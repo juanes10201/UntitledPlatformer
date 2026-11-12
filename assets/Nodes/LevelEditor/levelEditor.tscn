@@ -96,6 +96,7 @@
 [ext_resource type="Script" uid="uid://baav4tg1rfxgu" path="res://assets/Nodes/LevelEditor/dialog_button.gd" id="91_edcu7"]
 [ext_resource type="PackedScene" uid="uid://cn87vu0mc6xb7" path="res://assets/Nodes/Obj/Gameplay/tile_map_layer_water.tscn" id="92_tk1t2"]
 [ext_resource type="Script" uid="uid://3kjd1e6ygogq" path="res://assets/Nodes/LevelEditor/sample_tileset.gd" id="96_cjgrg"]
+[ext_resource type="Texture2D" uid="uid://dol65xtb14rp6" path="res://assets/Sprites/Ui/menus/Editor/select_arrow.png" id="97_n2ls0"]
 
 [sub_resource type="GDScript" id="GDScript_4cp2g"]
 script/source = "extends Sprite2D
@@ -1223,7 +1224,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 9999, 9999)
 script = ExtResource("2_denb7")
 
-[node name="LevelEditor" type="Node2D" parent="." unique_id=1375215272 node_paths=PackedStringArray("Cursor", "TilesetLayers", "EditorCamera", "Time_Left", "Player", "PlayerCamera", "LevelData", "EditorPlayerTrail", "EditorPlace") groups=["LevelEditor"]]
+[node name="LevelEditor" type="Node2D" parent="." unique_id=1375215272 node_paths=PackedStringArray("Cursor", "TilesetLayers", "EditorCamera", "Time_Left", "Player", "PlayerCamera", "LevelData", "EditorPlayerTrail", "EditorPlace", "AddedTilesLayer") groups=["LevelEditor"]]
 script = ExtResource("1_qesh2")
 Cursor = NodePath("EditorCursor")
 SelectableObjects = Array[Array]([["res://assets/Nodes/Obj/Gameplay/Enemie/enemie.tscn", "res://assets/Nodes/Obj/Gameplay/Enemie/enemie_special.tscn", "res://assets/Nodes/Obj/Gameplay/Enemie/enemie_skeleton.tscn"], ["res://assets/Nodes/Obj/Gameplay/falling_sand.tscn", "res://assets/Nodes/Obj/Gameplay/key.tscn", "res://assets/Nodes/Obj/Gameplay/open_box.tscn", "res://assets/Nodes/Obj/Gameplay/editor_rail.tscn"], ["res://assets/Nodes/Obj/Gameplay/kill_box.tscn", "res://assets/Nodes/Obj/Gameplay/kill_box_blue.tscn", "res://assets/Nodes/Obj/Gameplay/laser.tscn"], ["res://assets/Nodes/Obj/Gameplay/float.tscn", "res://assets/Nodes/Obj/Gameplay/Enemie/enemy_fish_editor.tscn", "res://assets/Nodes/Obj/Gameplay/umbrella.tscn"], ["res://assets/Nodes/Obj/Gameplay/flag.tscn", "res://assets/Nodes/Obj/Gameplay/clock.tscn"]])
@@ -1237,6 +1238,7 @@ PlayerCamera = NodePath("LevelData/Player/Camera2D")
 LevelData = NodePath("LevelData")
 EditorPlayerTrail = NodePath("EditorPlayerTrail")
 EditorPlace = NodePath("EditorPlace")
+AddedTilesLayer = NodePath("LevelData/TileMapLayer2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="LevelEditor" unique_id=1210512174]
 layer = 2
@@ -1725,12 +1727,15 @@ script = ExtResource("3_0r4ld")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="LevelEditor" unique_id=1309150936]
 
-[node name="EditorTootlipUi" type="Node2D" parent="LevelEditor/CanvasLayer2" unique_id=552630356 node_paths=PackedStringArray("SampleButton", "LevelEditor", "EditorCursor")]
+[node name="EditorTootlipUi" type="Node2D" parent="LevelEditor/CanvasLayer2" unique_id=552630356 node_paths=PackedStringArray("SampleButton", "LevelEditor", "EditorCursor", "EditorPlace", "TilesetSelectorButton", "RegularSelectorButton")]
 position = Vector2(35, 23)
 script = ExtResource("48_r3h5y")
 SampleButton = NodePath("SampleButton")
 LevelEditor = NodePath("../..")
 EditorCursor = NodePath("../../EditorCursor")
+EditorPlace = NodePath("../../EditorPlace")
+TilesetSelectorButton = NodePath("../TilesetSelectorButton")
+RegularSelectorButton = NodePath("../RegularSelectorButton")
 
 [node name="SampleButton" type="Button" parent="LevelEditor/CanvasLayer2/EditorTootlipUi" unique_id=1585450287 node_paths=PackedStringArray("Icon", "EditorCursor")]
 visible = false
@@ -1876,12 +1881,14 @@ EditorSaveFileDialog = NodePath("../EditorSaveFileDialog")
 EditorLoadFileDialog = NodePath("../EditorLoadFileDialog")
 
 [node name="EditorSaveFileDialog" type="FileDialog" parent="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile" unique_id=24541831]
+oversampling_override = 1.0
 title = "Save the level"
 access = 2
 root_subfolder = "res://assets/Saved/LevelEditor/"
 filters = PackedStringArray("*.save")
 
 [node name="EditorLoadFileDialog" type="FileDialog" parent="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile" unique_id=928096492]
+oversampling_override = 1.0
 title = "Open a File"
 file_mode = 0
 access = 2
@@ -1936,12 +1943,14 @@ access = 2
 root_subfolder = "res://assets/Saved/LevelEditor/"
 filters = PackedStringArray("*.save")
 
-[node name="SampleTileset" type="Sprite2D" parent="LevelEditor/CanvasLayer2" unique_id=687892094]
+[node name="SampleTileset" type="Sprite2D" parent="LevelEditor/CanvasLayer2" unique_id=687892094 node_paths=PackedStringArray("EditorPlace", "LevelEditor")]
 self_modulate = Color(1, 1, 1, 0.5137255)
-position = Vector2(559, 332)
+position = Vector2(266, 206)
 scale = Vector2(0.82552063, 0.82552063)
 texture = ExtResource("4_oksxi")
 script = ExtResource("96_cjgrg")
+EditorPlace = NodePath("../../EditorPlace")
+LevelEditor = NodePath("../..")
 
 [node name="SelectUpperLeft" type="Sprite2D" parent="LevelEditor/CanvasLayer2/SampleTileset" unique_id=873623915]
 position = Vector2(-291.14197, -166.56158)
@@ -1950,6 +1959,24 @@ texture = SubResource("PlaceholderTexture2D_md8ho")
 [node name="SelectUpperDown" type="Sprite2D" parent="LevelEditor/CanvasLayer2/SampleTileset" unique_id=53051844]
 position = Vector2(-245.1104, -183.52057)
 texture = SubResource("PlaceholderTexture2D_md8ho")
+
+[node name="TilesetSelectorButton" type="TextureButton" parent="LevelEditor/CanvasLayer2" unique_id=1093383725]
+modulate = Color(1, 1, 1, 0.7019608)
+offset_left = 531.99994
+offset_top = 55.999992
+offset_right = 1525.0
+offset_bottom = 851.0
+scale = Vector2(0.09, 0.09)
+texture_normal = ExtResource("97_n2ls0")
+
+[node name="RegularSelectorButton" type="TextureButton" parent="LevelEditor/CanvasLayer2" unique_id=1227060279]
+modulate = Color(1, 1, 1, 0.7019608)
+offset_left = 103.99994
+offset_top = 369.00003
+offset_right = 1097.0
+offset_bottom = 1164.0
+scale = Vector2(-0.09, 0.09)
+texture_normal = ExtResource("97_n2ls0")
 
 [connection signal="mouse_entered" from="LevelEditor/CanvasLayer/ButtonPlusTime" to="LevelEditor" method="_button_hovered"]
 [connection signal="mouse_exited" from="LevelEditor/CanvasLayer/ButtonPlusTime" to="LevelEditor" method="_button_not_hovered"]
@@ -2000,3 +2027,9 @@ texture = SubResource("PlaceholderTexture2D_md8ho")
 [connection signal="file_selected" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2/EditorSaveFileDialog" to="LevelEditor/EditorDataParser" method="_on_editor_save_file_dialog_file_selected"]
 [connection signal="canceled" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2/EditorLoadFileDialog" to="LevelEditor/EditorDataParser" method="_on_editor_load_file_dialog_canceled"]
 [connection signal="file_selected" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2/EditorLoadFileDialog" to="LevelEditor/EditorDataParser" method="_on_editor_load_file_dialog_file_selected"]
+[connection signal="mouse_entered" from="LevelEditor/CanvasLayer2/TilesetSelectorButton" to="LevelEditor" method="_button_hovered"]
+[connection signal="mouse_exited" from="LevelEditor/CanvasLayer2/TilesetSelectorButton" to="LevelEditor" method="_button_not_hovered"]
+[connection signal="pressed" from="LevelEditor/CanvasLayer2/TilesetSelectorButton" to="LevelEditor/CanvasLayer2/EditorTootlipUi" method="_change_to_tileset_selector"]
+[connection signal="mouse_entered" from="LevelEditor/CanvasLayer2/RegularSelectorButton" to="LevelEditor" method="_button_hovered"]
+[connection signal="mouse_exited" from="LevelEditor/CanvasLayer2/RegularSelectorButton" to="LevelEditor" method="_button_not_hovered"]
+[connection signal="pressed" from="LevelEditor/CanvasLayer2/RegularSelectorButton" to="LevelEditor/CanvasLayer2/EditorTootlipUi" method="_change_to_regular_selector"]

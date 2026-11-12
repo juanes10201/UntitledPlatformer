@@ -99,6 +99,25 @@ func _convert_coordinates_to_local(pos : Vector2) -> Vector2i:
 	var tile_pos: Vector2i = SelectedTilemap.local_to_map(_pos_local)
 	return tile_pos
 
+var CustomTileSelected : bool = false
+var CustomTilesSelected : Array[Vector2]
+
+func _place_custom_tile_local_pos(pos : Vector2i, id : Vector2i):
+	LevelEditor.AddedTilesLayer.set_cell(pos, 1, id)
+
+func _place_custom_tile_global_pos(pos : Vector2i, id : Vector2i):
+	var _pos_local = SelectedTilemap.to_local(pos)
+	var tile_pos: Vector2i = SelectedTilemap.local_to_map(_pos_local)
+	_place_custom_tile_local_pos(tile_pos, id)
+
+func _erase_tile_custom_local_pos(pos : Vector2i):
+	LevelEditor.AddedTilesLayer.set_cell(pos, -1)
+
+func _erase_tile_custom_global_pos(pos : Vector2i):
+	var _pos_local = SelectedTilemap.to_local(pos)
+	var tile_pos: Vector2i = SelectedTilemap.local_to_map(_pos_local)
+	_erase_tile_custom_local_pos(tile_pos)
+
 func _place_tile_terrain_local_pos(pos : Vector2i, tilemap : TileMapLayer = SelectedTilemap, terrainset : int = EditorCursor.SelectedSubTile, subset : int = 0):
 	if(SelectedTilemap.get_cell_source_id(pos) == -1):
 		GlobalFunctions.record_action(GlobalFunctions.FUNCTIONS.Create_tile_local, pos, pos, SelectedTilemap)
@@ -256,6 +275,27 @@ func _select_multiple_tileset(delta: float):
 			TilesetSelection[1] = SpriteFill2.global_position
 		else: SelectingMultiple = false
 
+const opacity_half_visible_tileset = .5
+func _set_half_visible_tileset(_tileset : TileMapLayer):
+	_tileset.modulate.a = opacity_half_visible_tileset
+func _set_visible_tileset(_tileset : TileMapLayer):
+	_tileset.modulate.a = 1.0
+
+func change_to_tileset_custom() -> void:
+	EditorCursor.SelectedSubNode = EditorCursor.TileTools.Pencil
+	EditorCursor.SelectedNode = 0
+	for _tileset in LevelEditor.TilesetLayers:
+		_set_half_visible_tileset(_tileset)
+	_set_visible_tileset(LevelEditor.AddedTilesLayer)
+
+func change_to_tileset_regular() -> void:
+	EditorCursor.SelectedSubNode = EditorCursor.TileTools.Pencil
+	EditorCursor.SelectedNode = 0
+	CustomTileSelected = false
+	for _tileset in LevelEditor.TilesetLayers:
+		_set_visible_tileset(_tileset)
+	_set_half_visible_tileset(LevelEditor.AddedTilesLayer)
+
 func _tick_tileset(delta: float):
 	if(Input.is_action_just_pressed("ui_paste")):
 		EditorDataParser.LoadDataTiles(SelectedTilemap, EditorDataParser.Clipboard)
@@ -269,11 +309,18 @@ func _tick_tileset(delta: float):
 	
 	_select_multiple_tileset(delta)
 	if(SelectingMultiple || Input.is_action_pressed("ui_editor_multiple_select")): return
-	if(EditorCursor.SelectedSubNode == EditorCursor.TileTools.Pencil):
+	if(EditorCursor.SelectedSubNode == EditorCursor.TileTools.Pencil && !LevelEditor.ButtonHovered):
+		var _global_pos := get_global_mouse_position()
 		if(Input.is_action_pressed("ui_editor_place") ):
-			_place_tile_terrain_global_pos(get_global_mouse_position())
+			if(!CustomTileSelected):
+				_place_tile_terrain_global_pos(_global_pos)
+			else:
+				_place_custom_tile_global_pos(_global_pos, CustomTilesSelected[0])
 		elif(Input.is_action_pressed("ui_editor_erase") ):
-			_erase_tile_terrain_global_pos(get_global_mouse_position())
+			if(!CustomTileSelected):
+				_erase_tile_terrain_global_pos(_global_pos)
+			else:
+				_erase_tile_custom_global_pos(_global_pos)
 	elif(EditorCursor.SelectedSubNode == EditorCursor.TileTools.Rectangle):
 		#Visuales
 		if(PreparingRectangle || PreparingRemoveRectangle):

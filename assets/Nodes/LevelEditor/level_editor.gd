@@ -19,8 +19,12 @@ var IsTileMapSelected : bool = false
 
 var OpenedFileDialog : bool = false
 
+@export var AddedTilesLayer : TileMapLayer
+
 var LevelDataGameplayObjects : Node2D
 var Paused : bool = false
+
+var CurrentUiPage : int = 0
 
 func get_level_data() -> Node2D:
 	if(!LevelData): LevelData = get_node("EditorPlace")
@@ -166,6 +170,9 @@ func set_play_state(state : bool) -> void:
 		if(state):
 			#_cache_editor_elements_values()
 			SaveSnapshotLevelData()
+			for _tileset in TilesetLayers:
+				EditorPlace._set_visible_tileset(_tileset)
+			EditorPlace._set_visible_tileset(AddedTilesLayer)
 		else:
 			_reset_play()
 	Edition.Is_playing_in_editor = state
@@ -228,3 +235,10 @@ func _button_hovered() -> void:
 
 func _button_not_hovered() -> void:
 	ButtonHovered = false
+
+
+func go_next_ui_page() -> void:
+	CurrentUiPage += 1
+
+func go_previous_ui_page() -> void:
+	CurrentUiPage -= 1
