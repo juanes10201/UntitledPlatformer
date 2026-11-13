@@ -210,7 +210,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w7ae7")
 }],
-"loop": true,
+"loop": 1,
 "name": &"disabled",
 "speed": 5.0
 }, {
@@ -224,7 +224,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w7ae7")
 }],
-"loop": false,
+"loop": 0,
 "name": &"hide",
 "speed": 5.0
 }, {
@@ -244,7 +244,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5d5i3")
 }],
-"loop": false,
+"loop": 0,
 "name": &"show",
 "speed": 5.0
 }]
@@ -2040,6 +2040,7 @@ text = "Music by
 Maxi Morales"
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="Credits" unique_id=1636623400]
+visible = false
 offset_left = 1271.7949
 offset_top = 2571.793
 offset_right = 1643.5897
