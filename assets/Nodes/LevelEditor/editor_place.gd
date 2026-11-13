@@ -102,13 +102,13 @@ func _convert_coordinates_to_local(pos : Vector2) -> Vector2i:
 var CustomTileSelected : bool = false
 var CustomTilesSelected : Array[Vector2]
 
-func _place_custom_tile_local_pos(pos : Vector2i, id : Vector2i):
-	LevelEditor.AddedTilesLayer.set_cell(pos, 1, id)
+func _place_custom_tile_local_pos(pos : Vector2i, id : Vector2i, _Tilemap : TileMapLayer = LevelEditor.AddedTilesLayer):
+	_Tilemap.set_cell(pos, 1, id)
 
-func _place_custom_tile_global_pos(pos : Vector2i, id : Vector2i):
+func _place_custom_tile_global_pos(pos : Vector2i, id : Vector2i, _Tilemap : TileMapLayer = LevelEditor.AddedTilesLayer):
 	var _pos_local = SelectedTilemap.to_local(pos)
 	var tile_pos: Vector2i = SelectedTilemap.local_to_map(_pos_local)
-	_place_custom_tile_local_pos(tile_pos, id)
+	_place_custom_tile_local_pos(tile_pos, id, _Tilemap)
 
 
 func _erase_tile_custom_local_pos(pos : Vector2i):
@@ -196,31 +196,40 @@ func _fill_rectangle_local_tileset(pos1 : Vector2i, pos2 : Vector2i, RemoveTiles
 	else:
 		SelectedTilemap.set_cells_terrain_connect(Cells, EditorCursor.SelectedSubTile, -1)
 
-func _fill_rectangle_custom_global_tileset(initial_id : Vector2i, end_id : Vector2i, pos : Vector2i, RemoveTiles : bool = false) -> void:
+func _fill_rectangle_custom_global_tileset(initial_id : Vector2i, end_id : Vector2i, pos : Vector2i, RemoveTiles : bool = false, _Tilemap : TileMapLayer = LevelEditor.AddedTilesLayer) -> void:
 	var _pos_local = SelectedTilemap.to_local(pos)
 	var tile_pos: Vector2i = SelectedTilemap.local_to_map(_pos_local)
-	_fill_rectangle_custom_local_tileset(initial_id, end_id, tile_pos)
+	_fill_rectangle_custom_local_tileset(initial_id, end_id, tile_pos, false, _Tilemap)
 
-func _fill_rectangle_custom_local_tileset(initial_id : Vector2i, end_id : Vector2i, pos : Vector2i, RemoveTiles : bool = false) -> void:
+func _fill_rectangle_custom_local_tileset(initial_id : Vector2i, end_id : Vector2i, pos : Vector2i, RemoveTiles : bool = false, _Tilemap : TileMapLayer = LevelEditor.AddedTilesLayer) -> void:
 	var _delta_pos = Vector2i(0.0, 0.0)
 	var min_pos : Vector2i = initial_id if initial_id < end_id else end_id
 	var max_pos : Vector2i = initial_id if initial_id > end_id else end_id
-	#print("_pos: " + str(_pos))
-	#print("min_pos: " + str(min_pos))
-	#print("max_pos: " + str(max_pos))
-	#Poner cada tile en la lista para luego enviarlo a pintar
 	var Cells : Array[Vector2i]
-	#_place_custom_tile_local_pos(pos, initial_id)
 	for y in range(min_pos.y, max_pos.y+1):
 		for x in range(min_pos.x, max_pos.x+1):
 			var Cell : Vector2i = pos+_delta_pos
 			Cells.append(Cell)
 			var Id : Vector2i = initial_id+_delta_pos
-			_place_custom_tile_local_pos(Cell, Id)
+			_place_custom_tile_local_pos(Cell, Id, _Tilemap)
 			print(Id)
 			_delta_pos.x += 1
 		_delta_pos.y += 1
 		_delta_pos.x = 0
+
+func temp_fill_rectangle_custom_local_tileset(initial_id : Vector2i = Vector2i(-1, -1), end_id : Vector2i = Vector2i(-1, -1)):
+	if(initial_id == Vector2i(-1, -1)):
+		if(CustomTilesSelected.size() > 1):
+			initial_id = CustomTilesSelected[0]
+		else:
+			return
+	if(end_id == Vector2i(-1, -1)):
+		if(CustomTilesSelected.size() >= 2):
+			end_id = CustomTilesSelected[1]
+		else:
+			return
+	TilesetTempCopy.clear()
+	_fill_rectangle_custom_local_tileset(initial_id, end_id, Vector2i(0, 0), false, TilesetTempCopy)
 
 #Angulo de la rampa
 var SlopeAngle : float = 22.5
@@ -322,6 +331,7 @@ func change_to_tileset_regular() -> void:
 	for _tileset in LevelEditor.TilesetLayers:
 		_set_visible_tileset(_tileset)
 	_set_half_visible_tileset(LevelEditor.AddedTilesLayer)
+	TilesetTempCopy.clear()
 
 func change_to_lightning_mode() -> void:
 	EditorCursor.SelectedSubNode = EditorCursor.TileTools.Pencil
@@ -332,6 +342,8 @@ func change_to_lightning_mode() -> void:
 	_set_visible_tileset(LevelEditor.AddedTilesLayer)
 
 func _tick_tileset(delta: float):
+	if(LevelEditor.CurrentUiPage == 1):
+		TilesetTempCopy.global_position = EditorCursor.global_position
 	if(Input.is_action_just_pressed("ui_paste")):
 		EditorDataParser.LoadDataTiles(SelectedTilemap, EditorDataParser.Clipboard)
 	if(Input.is_action_just_pressed("ui_editor_cancel_action")):

@@ -5,6 +5,8 @@ extends Sprite2D
 @export var LevelEditor : Node2D
 var Enabled : bool = false
 
+@onready var HideOpacity = self_modulate.a
+
 func _get_initial_pos() -> Vector2:
 	var _center : Vector2 = global_position
 	var _size : Vector2 = texture.get_size()*scale
@@ -27,9 +29,15 @@ var Hovering : bool = false
 var SelectingInitialIndex : Vector2i
 var SelectingIndex : Vector2i
 
-func _update_pos() -> void:
+@onready var Select : Node2D = $Select
+@onready var SelectDownRight : Node2D = $SelectDownRight
+@onready var SelectUpperLeft : Node2D = $SelectUpperLeft
+
+func _update_pos(delta : float) -> void:
 	#if(!LevelEditor.ButtonHovered || Hovering):
 	if(_cursor_is_in_pos()):
+		if(!Hovering):
+			EditorPlace.TilesetTempCopy.clear()
 		Hovering = true
 		LevelEditor.ButtonHovered = true
 		var _pos_cursor : Vector2 = get_global_mouse_position()
@@ -38,34 +46,37 @@ func _update_pos() -> void:
 		var _pos = floor((_pos_cursor-_pivot)/tile_size)*tile_size+_pivot
 		var _index : Vector2i = round((_pos-_pivot)/tile_size)
 		
-		$Select.global_position = _pos
-		$Select.show()
+		Select.global_position = _pos
+		Select.show()
 		if(Input.is_action_pressed("ui_click")):
-			$SelectDownRight.global_position = _pos
-			$SelectDownRight.show()
+			SelectDownRight.global_position = _pos
+			SelectDownRight.show()
 			SelectingIndex = _index
 			EditorPlace.CustomTilesSelected.clear()
 			EditorPlace.CustomTilesSelected.append(SelectingInitialIndex)
 			EditorPlace.CustomTilesSelected.append(SelectingIndex)
 		if(Input.is_action_just_pressed("ui_click")):
-			$SelectUpperLeft.show()
-			$SelectUpperLeft.global_position = $SelectDownRight.global_position
+			SelectUpperLeft.show()
+			SelectUpperLeft.global_position = SelectDownRight.global_position
 			SelectingInitialIndex = _index
 			EditorPlace.CustomTileSelected = true
 		#print("Index: " + str(EditorPlace.CustomTilesSelected))
-		
+		self_modulate.a = lerpf(self_modulate.a, 1.0, delta*2)
 	else:
-		$Select.hide()
+		self_modulate.a = lerpf(self_modulate.a, HideOpacity, delta*2)
+		Select.hide()
 		#$SelectUpperLeft.hide()
 		#$SelectDownRight.hide()
-		if(Hovering): LevelEditor.ButtonHovered = false
+		if(Hovering):
+			EditorPlace.temp_fill_rectangle_custom_local_tileset()
+			LevelEditor.ButtonHovered = false
 		Hovering = false
 
 func _process(delta: float) -> void:
 	Enabled = LevelEditor.CurrentUiPage == 1
 	visible = Enabled
 	if(Enabled):
-		_update_pos()
+		_update_pos(delta)
 
 func _ready() -> void:
 	pass

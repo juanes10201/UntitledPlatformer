@@ -46,6 +46,13 @@ enum LASER_COLORS{
 	YELLOW = 5
 }
 
+enum LIGHT_ANIMATION_TYPES{
+	none,
+	flickering,
+	slow_burn,
+	fast_burn
+}
+
 enum CHALLENGES{
 	none = 0,
 	inverted_gravity,

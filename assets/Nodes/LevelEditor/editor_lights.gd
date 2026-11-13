@@ -5,6 +5,7 @@ extends Node2D
 @export var TextureScale : float = 3.0
 @export var LightColor : Color = Color.VIOLET
 @onready var Light = get_parent()
+@export var LightAnimation : Global.LIGHT_ANIMATION_TYPES = Global.LIGHT_ANIMATION_TYPES.none
 
 const MaxEnergy = 7.0
 const MaxEnergyWidth = 7.0
@@ -23,6 +24,7 @@ const UnusedZIndex = -1
 const UsedZIndex = 0
 
 func _ready() -> void:
+	LightAnimation = Global.LIGHT_ANIMATION_TYPES.none
 	Energy = Light.energy
 	Height = Light.height
 	TextureScale = Light.texture_scale
@@ -39,11 +41,13 @@ func _tick_debug_lights():
 	if(LevelEditor && LevelEditor.EditorPlace.CollidingBody == self):
 		if(global_position != Light.global_position && LevelEditor.EditorPlace.SelectingBody):
 			Light.global_position = global_position
-	if(Light.color != LightColor || Light.energy != Energy || Light.texture_scale != TextureScale || Light.height != Height):
-		Light.energy = Energy
+	if(LightAnimation != Light.CurrentAnimation || Light.color != LightColor || Light.InitialEnergy != Energy || Light.texture_scale != TextureScale || Light.height != Height):
+		#Light.energy = Energy
+		Light.InitialEnergy = Energy
 		Light.texture_scale = TextureScale
 		Light.color = LightColor
 		Light.height = Height
+		Light.CurrentAnimation = LightAnimation
 		queue_redraw()
 		
 func _setup_lights():

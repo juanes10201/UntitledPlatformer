@@ -1982,7 +1982,7 @@ scale = Vector2(-0.09, 0.09)
 texture_normal = ExtResource("97_n2ls0")
 
 [node name="SampleTileset" type="Sprite2D" parent="LevelEditor/EditorUi/SecondPage" unique_id=687892094 node_paths=PackedStringArray("EditorPlace", "LevelEditor")]
-self_modulate = Color(1, 1, 1, 0.5137255)
+self_modulate = Color(1, 1, 1, 0.53333336)
 position = Vector2(266, 206)
 scale = Vector2(0.82552063, 0.82552063)
 texture = ExtResource("4_oksxi")
