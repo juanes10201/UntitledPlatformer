@@ -80,7 +80,6 @@
 [ext_resource type="Texture2D" uid="uid://cwuu1ueioqy8r" path="res://assets/Sprites/Ui/menus/Editor/ChangeTileButton.png" id="71_be7jv"]
 [ext_resource type="Script" uid="uid://csy2mohpgw8mq" path="res://assets/Nodes/LevelEditor/ui_top_button.gd" id="74_edcu7"]
 [ext_resource type="Script" uid="uid://bj1n0pp1a8sc2" path="res://assets/Nodes/LevelEditor/editor_data_parser.gd" id="75_6jsng"]
-[ext_resource type="PackedScene" uid="uid://ds4ttbr2k68g4" path="res://assets/Nodes/Obj/Gameplay/EditorLight.tscn" id="75_a8ud4"]
 [ext_resource type="FontFile" uid="uid://cyhethdmcdauq" path="res://assets/Fonts/Beta.ttf" id="75_cyxik"]
 [ext_resource type="StyleBox" uid="uid://c1g4khjf3kje4" path="res://assets/Sprites/Ui/Style/editor_tooltip.tres" id="75_si8cv"]
 [ext_resource type="Texture2D" uid="uid://bpbooy4d8qxqx" path="res://assets/Sprites/Gameplay/Editor/TilesetGrid.png" id="76_7uchq"]
@@ -1699,9 +1698,6 @@ scale = Vector2(999, 1)
 collision_layer = 1025
 Visible = false
 CanChange = false
-
-[node name="PointLight2D59" parent="LevelEditor/LevelData" unique_id=609401544 groups=["Editor Light"] instance=ExtResource("75_a8ud4")]
-position = Vector2(73, -46)
 
 [node name="EditorDataParser" type="Node2D" parent="LevelEditor" unique_id=1150111339 node_paths=PackedStringArray("EditorPlace", "LevelEditor", "LevelData", "ParentOriginalNodes")]
 script = ExtResource("75_6jsng")

@@ -73,6 +73,12 @@ func ImGuiShowProperty(property) -> bool:
 	#all other data types
 	else:
 		match property.type:
+			TYPE_COLOR:
+				var col: Color = AnalizedBody.get(property.name)
+				var arr := [col.r, col.g, col.b, col.a]
+				if(ImGui.ColorEdit4(property.name, arr)):
+					AnalizedBody.set(property.name, Color(arr[0], arr[1], arr[2], arr[3]))
+					ChangedValue = true
 			TYPE_BOOL:
 				var arr := [AnalizedBody.get(property.name)]
 				if(ImGui.Checkbox(property.name, arr )):
