@@ -38,6 +38,8 @@ func _update_pos() -> void:
 		var _pos = floor((_pos_cursor-_pivot)/tile_size)*tile_size+_pivot
 		var _index : Vector2i = round((_pos-_pivot)/tile_size)
 		
+		$Select.global_position = _pos
+		$Select.show()
 		if(Input.is_action_pressed("ui_click")):
 			$SelectDownRight.global_position = _pos
 			$SelectDownRight.show()
@@ -53,6 +55,7 @@ func _update_pos() -> void:
 		#print("Index: " + str(EditorPlace.CustomTilesSelected))
 		
 	else:
+		$Select.hide()
 		#$SelectUpperLeft.hide()
 		#$SelectDownRight.hide()
 		if(Hovering): LevelEditor.ButtonHovered = false

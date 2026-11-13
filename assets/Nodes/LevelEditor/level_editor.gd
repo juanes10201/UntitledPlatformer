@@ -242,3 +242,6 @@ func go_next_ui_page() -> void:
 
 func go_previous_ui_page() -> void:
 	CurrentUiPage -= 1
+
+func set_page_editor(page : int) -> void:
+	CurrentUiPage = page

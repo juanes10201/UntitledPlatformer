@@ -84,6 +84,7 @@
 [ext_resource type="StyleBox" uid="uid://c1g4khjf3kje4" path="res://assets/Sprites/Ui/Style/editor_tooltip.tres" id="75_si8cv"]
 [ext_resource type="Texture2D" uid="uid://bpbooy4d8qxqx" path="res://assets/Sprites/Gameplay/Editor/TilesetGrid.png" id="76_7uchq"]
 [ext_resource type="StyleBox" uid="uid://detwiv6e07ln8" path="res://assets/Sprites/Ui/Style/editor_tooltip_pressed.tres" id="76_gm2v4"]
+[ext_resource type="Script" uid="uid://bdmdcm5v8jvkq" path="res://assets/Nodes/LevelEditor/editor_ui.gd" id="77_ehx2g"]
 [ext_resource type="StyleBox" uid="uid://tyidw7l8o2ls" path="res://assets/Sprites/Ui/Style/editor_tooltip_hover.tres" id="77_fvxto"]
 [ext_resource type="StyleBox" uid="uid://du6vdt1eyk2je" path="res://assets/Sprites/Ui/Style/editor_tooltip_focus.tres" id="78_4pocn"]
 [ext_resource type="Script" uid="uid://b4bm8emwrhku" path="res://assets/Nodes/LevelEditor/editor_player_trail.gd" id="78_jtl08"]
@@ -1157,6 +1158,18 @@ size = Vector2(16, 16)
 [sub_resource type="Gradient" id="Gradient_jtl08"]
 colors = PackedColorArray(0.67058825, 0.8039216, 0.6745098, 0.5294118, 0.25253218, 0.87526745, 0.77536225, 0.5137255)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5byy5"]
+bg_color = Color(0.12349733, 0.016299738, 0.16389638, 0.45490196)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjgrg"]
+bg_color = Color(0.39607844, 0.11372549, 0.5019608, 0.79607844)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n2ls0"]
+bg_color = Color(0.2627451, 0.0627451, 0.3372549, 0.79607844)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ehx2g"]
+bg_color = Color(0.2627451, 0.0627451, 0.3372549, 0.79607844)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wcgsb"]
 texture = ExtResource("48_5s1o8")
 
@@ -1195,18 +1208,6 @@ texture = ExtResource("49_be7jv")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cjgrg"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n2ls0"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5byy5"]
-bg_color = Color(0.12349733, 0.016299738, 0.16389638, 0.45490196)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjgrg"]
-bg_color = Color(0.39607844, 0.11372549, 0.5019608, 0.79607844)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n2ls0"]
-bg_color = Color(0.2627451, 0.0627451, 0.3372549, 0.79607844)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ehx2g"]
-bg_color = Color(0.2627451, 0.0627451, 0.3372549, 0.79607844)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_md8ho"]
 size = Vector2(16, 16)
@@ -1576,7 +1577,7 @@ collision_layer = 16777216
 collision_mask = 917504
 script = ExtResource("5_oksxi")
 EditorPlace = NodePath("../EditorPlace")
-TooltipUi = NodePath("../CanvasLayer2/EditorTootlipUi")
+TooltipUi = NodePath("../EditorUi/FirstPage/EditorTootlipUi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEditor/EditorCursor" unique_id=1650635620]
 position = Vector2(8, 8)
@@ -1725,91 +1726,13 @@ scale = Vector2(1.00384, 1)
 tile_set = ExtResource("2_iimnb")
 script = ExtResource("3_0r4ld")
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="LevelEditor" unique_id=1309150936]
+[node name="EditorUi" type="CanvasLayer" parent="LevelEditor" unique_id=1309150936 node_paths=PackedStringArray("LevelEditor", "NodePages", "EditorPlace")]
+script = ExtResource("77_ehx2g")
+LevelEditor = NodePath("..")
+NodePages = [NodePath("FirstPage"), NodePath("SecondPage"), NodePath("ThirdPage")]
+EditorPlace = NodePath("../EditorPlace")
 
-[node name="EditorTootlipUi" type="Node2D" parent="LevelEditor/CanvasLayer2" unique_id=552630356 node_paths=PackedStringArray("SampleButton", "LevelEditor", "EditorCursor", "EditorPlace", "TilesetSelectorButton", "RegularSelectorButton")]
-position = Vector2(35, 23)
-script = ExtResource("48_r3h5y")
-SampleButton = NodePath("SampleButton")
-LevelEditor = NodePath("../..")
-EditorCursor = NodePath("../../EditorCursor")
-EditorPlace = NodePath("../../EditorPlace")
-TilesetSelectorButton = NodePath("../TilesetSelectorButton")
-RegularSelectorButton = NodePath("../RegularSelectorButton")
-
-[node name="SampleButton" type="Button" parent="LevelEditor/CanvasLayer2/EditorTootlipUi" unique_id=1585450287 node_paths=PackedStringArray("Icon", "EditorCursor")]
-visible = false
-offset_top = 29.0
-offset_right = 81.0
-offset_bottom = 110.0
-theme_override_font_sizes/font_size = 44
-theme_override_styles/normal = SubResource("StyleBoxTexture_wcgsb")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_be7jv")
-theme_override_styles/hover = SubResource("StyleBoxTexture_oadh4")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_x6v6g")
-theme_override_styles/focus = SubResource("StyleBoxTexture_ej6vm")
-script = ExtResource("49_ay4ap")
-Icon = NodePath("icon")
-EditorCursor = NodePath("../../../EditorCursor")
-
-[node name="icon" type="AnimatedSprite2D" parent="LevelEditor/CanvasLayer2/EditorTootlipUi/SampleButton" unique_id=1095463373]
-z_index = 2
-material = SubResource("ShaderMaterial_5mkwl")
-position = Vector2(41, 40)
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_3sq2j")
-animation = &"0"
-
-[node name="Button_Tile_Tooltip0" type="Button" parent="LevelEditor/CanvasLayer2" unique_id=768333151]
-offset_left = 136.0
-offset_top = 579.0
-offset_right = 200.0
-offset_bottom = 623.0
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = SubResource("StyleBoxEmpty_wcgsb")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ej6vm")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_oadh4")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_x6v6g")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_cyxik")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_edcu7")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5byy5")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_uefb1")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_tk1t2")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_cjgrg")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_n2ls0")
-text = ">"
-
-[node name="Button_Tile_Tooltip1" type="Button" parent="LevelEditor/CanvasLayer2" unique_id=845095758]
-offset_left = 11.0
-offset_top = 580.0
-offset_right = 75.0
-offset_bottom = 623.0
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = SubResource("StyleBoxEmpty_wcgsb")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ej6vm")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_oadh4")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_x6v6g")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_cyxik")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_edcu7")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5byy5")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_uefb1")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_tk1t2")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_cjgrg")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_n2ls0")
-text = "<"
-
-[node name="EditorTooltipSubTileIcon" type="AnimatedSprite2D" parent="LevelEditor/CanvasLayer2" unique_id=1501288034 node_paths=PackedStringArray("EditorCursor")]
-z_index = 2
-material = SubResource("ShaderMaterial_5mkwl")
-position = Vector2(85.000015, 579)
-scale = Vector2(2.8125, 2.8125)
-sprite_frames = SubResource("SpriteFrames_3sq2j")
-animation = &"0"
-centered = false
-script = ExtResource("70_5mcbv")
-EditorCursor = NodePath("../../EditorCursor")
-
-[node name="bewaretext" type="Sprite2D" parent="LevelEditor/CanvasLayer2" unique_id=826419488]
+[node name="bewaretext" type="Sprite2D" parent="LevelEditor/EditorUi" unique_id=826419488]
 visible = false
 z_index = 5
 position = Vector2(379.00003, 285.00003)
@@ -1817,7 +1740,7 @@ scale = Vector2(0.17543074, 0.17543074)
 texture = ExtResource("78_se0cg")
 script = ExtResource("79_tiw5i")
 
-[node name="PlayButton" type="Button" parent="LevelEditor/CanvasLayer2/bewaretext" unique_id=307723154]
+[node name="PlayButton" type="Button" parent="LevelEditor/EditorUi/bewaretext" unique_id=307723154]
 z_index = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -1838,15 +1761,10 @@ ADITIONAL_ARGUMENT = "res://assets/Nodes/Ui/select_level_world1.tscn"
 HoverDif = 20.0
 FadeTransition = true
 
-[node name="ChangeTileButton" type="Sprite2D" parent="LevelEditor/CanvasLayer2" unique_id=740325995]
-position = Vector2(116, 602)
-scale = Vector2(0.27706707, 0.27706707)
-texture = ExtResource("71_be7jv")
-
-[node name="UiTopButton" type="Node2D" parent="LevelEditor/CanvasLayer2" unique_id=1932085772]
+[node name="UiTopButton" type="Node2D" parent="LevelEditor/EditorUi" unique_id=1932085772]
 script = ExtResource("74_edcu7")
 
-[node name="DialogButtonFile" type="Button" parent="LevelEditor/CanvasLayer2/UiTopButton" unique_id=232809497 node_paths=PackedStringArray("SampleButton", "LevelEditor")]
+[node name="DialogButtonFile" type="Button" parent="LevelEditor/EditorUi/UiTopButton" unique_id=232809497 node_paths=PackedStringArray("SampleButton", "LevelEditor")]
 z_index = 3
 offset_right = 154.0
 offset_bottom = 36.0
@@ -1861,7 +1779,7 @@ Options = Array[int]([3, 1, 2, 4])
 SampleButton = NodePath("DialogButtonSample")
 LevelEditor = NodePath("../../..")
 
-[node name="DialogButtonSample" type="Button" parent="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile" unique_id=1333627898 node_paths=PackedStringArray("LevelData", "LevelDataParser", "EditorSaveFileDialog", "EditorLoadFileDialog")]
+[node name="DialogButtonSample" type="Button" parent="LevelEditor/EditorUi/UiTopButton/DialogButtonFile" unique_id=1333627898 node_paths=PackedStringArray("LevelData", "LevelDataParser", "EditorSaveFileDialog", "EditorLoadFileDialog")]
 visible = false
 layout_mode = 0
 offset_top = 36.0
@@ -1880,14 +1798,14 @@ LevelDataParser = NodePath("../../../../EditorDataParser")
 EditorSaveFileDialog = NodePath("../EditorSaveFileDialog")
 EditorLoadFileDialog = NodePath("../EditorLoadFileDialog")
 
-[node name="EditorSaveFileDialog" type="FileDialog" parent="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile" unique_id=24541831]
+[node name="EditorSaveFileDialog" type="FileDialog" parent="LevelEditor/EditorUi/UiTopButton/DialogButtonFile" unique_id=24541831]
 oversampling_override = 1.0
 title = "Save the level"
 access = 2
 root_subfolder = "res://assets/Saved/LevelEditor/"
 filters = PackedStringArray("*.save")
 
-[node name="EditorLoadFileDialog" type="FileDialog" parent="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile" unique_id=928096492]
+[node name="EditorLoadFileDialog" type="FileDialog" parent="LevelEditor/EditorUi/UiTopButton/DialogButtonFile" unique_id=928096492]
 oversampling_override = 1.0
 title = "Open a File"
 file_mode = 0
@@ -1895,7 +1813,7 @@ access = 2
 root_subfolder = "res://assets/Saved/LevelEditor/"
 filters = PackedStringArray("*.save")
 
-[node name="DialogButtonFile2" type="Button" parent="LevelEditor/CanvasLayer2/UiTopButton" unique_id=636797682 node_paths=PackedStringArray("SampleButton", "LevelEditor")]
+[node name="DialogButtonFile2" type="Button" parent="LevelEditor/EditorUi/UiTopButton" unique_id=636797682 node_paths=PackedStringArray("SampleButton", "LevelEditor")]
 z_index = 3
 offset_left = 154.0
 offset_right = 308.0
@@ -1911,7 +1829,7 @@ Options = Array[int]([5, 6, 7, 8])
 SampleButton = NodePath("DialogButtonSample")
 LevelEditor = NodePath("../../..")
 
-[node name="DialogButtonSample" type="Button" parent="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2" unique_id=763858789 node_paths=PackedStringArray("LevelData", "LevelDataParser", "EditorSaveFileDialog", "EditorLoadFileDialog")]
+[node name="DialogButtonSample" type="Button" parent="LevelEditor/EditorUi/UiTopButton/DialogButtonFile2" unique_id=763858789 node_paths=PackedStringArray("LevelData", "LevelDataParser", "EditorSaveFileDialog", "EditorLoadFileDialog")]
 visible = false
 layout_mode = 0
 offset_top = 36.0
@@ -1930,37 +1848,31 @@ LevelDataParser = NodePath("../../../../EditorDataParser")
 EditorSaveFileDialog = NodePath("../EditorSaveFileDialog")
 EditorLoadFileDialog = NodePath("../EditorLoadFileDialog")
 
-[node name="EditorSaveFileDialog" type="FileDialog" parent="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2" unique_id=2040261395]
+[node name="EditorSaveFileDialog" type="FileDialog" parent="LevelEditor/EditorUi/UiTopButton/DialogButtonFile2" unique_id=2040261395]
 title = "Save the level"
 access = 2
 root_subfolder = "res://assets/Saved/LevelEditor/"
 filters = PackedStringArray("*.save")
 
-[node name="EditorLoadFileDialog" type="FileDialog" parent="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2" unique_id=926862663]
+[node name="EditorLoadFileDialog" type="FileDialog" parent="LevelEditor/EditorUi/UiTopButton/DialogButtonFile2" unique_id=926862663]
 title = "Open a File"
 file_mode = 0
 access = 2
 root_subfolder = "res://assets/Saved/LevelEditor/"
 filters = PackedStringArray("*.save")
 
-[node name="SampleTileset" type="Sprite2D" parent="LevelEditor/CanvasLayer2" unique_id=687892094 node_paths=PackedStringArray("EditorPlace", "LevelEditor")]
-self_modulate = Color(1, 1, 1, 0.5137255)
-position = Vector2(266, 206)
-scale = Vector2(0.82552063, 0.82552063)
-texture = ExtResource("4_oksxi")
-script = ExtResource("96_cjgrg")
-EditorPlace = NodePath("../../EditorPlace")
-LevelEditor = NodePath("../..")
+[node name="FirstPage" type="Node2D" parent="LevelEditor/EditorUi" unique_id=320070814]
 
-[node name="SelectUpperLeft" type="Sprite2D" parent="LevelEditor/CanvasLayer2/SampleTileset" unique_id=873623915]
-position = Vector2(-291.14197, -166.56158)
-texture = SubResource("PlaceholderTexture2D_md8ho")
+[node name="TilesetSelectorButton2" type="TextureButton" parent="LevelEditor/EditorUi/FirstPage" unique_id=420273943]
+modulate = Color(1, 1, 1, 0.7019608)
+offset_left = 630.0
+offset_top = 55.999996
+offset_right = 1623.0
+offset_bottom = 851.0
+scale = Vector2(0.09, 0.09)
+texture_normal = ExtResource("97_n2ls0")
 
-[node name="SelectDownRight" type="Sprite2D" parent="LevelEditor/CanvasLayer2/SampleTileset" unique_id=53051844]
-position = Vector2(-245.1104, -183.52057)
-texture = SubResource("PlaceholderTexture2D_md8ho")
-
-[node name="TilesetSelectorButton" type="TextureButton" parent="LevelEditor/CanvasLayer2" unique_id=1093383725]
+[node name="TilesetSelectorButton" type="TextureButton" parent="LevelEditor/EditorUi/FirstPage" unique_id=1093383725]
 modulate = Color(1, 1, 1, 0.7019608)
 offset_left = 531.99994
 offset_top = 55.999992
@@ -1969,7 +1881,94 @@ offset_bottom = 851.0
 scale = Vector2(0.09, 0.09)
 texture_normal = ExtResource("97_n2ls0")
 
-[node name="RegularSelectorButton" type="TextureButton" parent="LevelEditor/CanvasLayer2" unique_id=1227060279]
+[node name="EditorTootlipUi" type="Node2D" parent="LevelEditor/EditorUi/FirstPage" unique_id=552630356 node_paths=PackedStringArray("SampleButton", "LevelEditor", "EditorCursor", "EditorPlace")]
+position = Vector2(35, 23)
+script = ExtResource("48_r3h5y")
+SampleButton = NodePath("SampleButton")
+LevelEditor = NodePath("../../..")
+EditorCursor = NodePath("../../../EditorCursor")
+EditorPlace = NodePath("../../../EditorPlace")
+
+[node name="SampleButton" type="Button" parent="LevelEditor/EditorUi/FirstPage/EditorTootlipUi" unique_id=1585450287 node_paths=PackedStringArray("Icon", "EditorCursor")]
+visible = false
+offset_top = 29.0
+offset_right = 81.0
+offset_bottom = 110.0
+theme_override_font_sizes/font_size = 44
+theme_override_styles/normal = SubResource("StyleBoxTexture_wcgsb")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_be7jv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_oadh4")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_x6v6g")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ej6vm")
+script = ExtResource("49_ay4ap")
+Icon = NodePath("icon")
+EditorCursor = NodePath("../../../../EditorCursor")
+
+[node name="icon" type="AnimatedSprite2D" parent="LevelEditor/EditorUi/FirstPage/EditorTootlipUi/SampleButton" unique_id=1095463373]
+z_index = 2
+material = SubResource("ShaderMaterial_5mkwl")
+position = Vector2(41, 40)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_3sq2j")
+animation = &"0"
+
+[node name="Button_Tile_Tooltip0" type="Button" parent="LevelEditor/EditorUi/FirstPage" unique_id=768333151]
+offset_left = 136.0
+offset_top = 579.0
+offset_right = 200.0
+offset_bottom = 623.0
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wcgsb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ej6vm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oadh4")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_x6v6g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cyxik")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_edcu7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5byy5")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_uefb1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tk1t2")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_cjgrg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n2ls0")
+text = ">"
+
+[node name="Button_Tile_Tooltip1" type="Button" parent="LevelEditor/EditorUi/FirstPage" unique_id=845095758]
+offset_left = 11.0
+offset_top = 580.0
+offset_right = 75.0
+offset_bottom = 623.0
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wcgsb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ej6vm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oadh4")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_x6v6g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cyxik")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_edcu7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5byy5")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_uefb1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tk1t2")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_cjgrg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n2ls0")
+text = "<"
+
+[node name="EditorTooltipSubTileIcon" type="AnimatedSprite2D" parent="LevelEditor/EditorUi/FirstPage" unique_id=1501288034 node_paths=PackedStringArray("EditorCursor")]
+z_index = 2
+material = SubResource("ShaderMaterial_5mkwl")
+position = Vector2(85.000015, 579)
+scale = Vector2(2.8125, 2.8125)
+sprite_frames = SubResource("SpriteFrames_3sq2j")
+animation = &"0"
+centered = false
+script = ExtResource("70_5mcbv")
+EditorCursor = NodePath("../../../EditorCursor")
+
+[node name="ChangeTileButton" type="Sprite2D" parent="LevelEditor/EditorUi/FirstPage" unique_id=740325995]
+position = Vector2(116, 602)
+scale = Vector2(0.27706707, 0.27706707)
+texture = ExtResource("71_be7jv")
+
+[node name="SecondPage" type="Node2D" parent="LevelEditor/EditorUi" unique_id=669079454]
+
+[node name="RegularSelectorButton" type="TextureButton" parent="LevelEditor/EditorUi/SecondPage" unique_id=1227060279]
 modulate = Color(1, 1, 1, 0.7019608)
 offset_left = 103.99994
 offset_top = 369.00003
@@ -1977,6 +1976,29 @@ offset_right = 1097.0
 offset_bottom = 1164.0
 scale = Vector2(-0.09, 0.09)
 texture_normal = ExtResource("97_n2ls0")
+
+[node name="SampleTileset" type="Sprite2D" parent="LevelEditor/EditorUi/SecondPage" unique_id=687892094 node_paths=PackedStringArray("EditorPlace", "LevelEditor")]
+self_modulate = Color(1, 1, 1, 0.5137255)
+position = Vector2(266, 206)
+scale = Vector2(0.82552063, 0.82552063)
+texture = ExtResource("4_oksxi")
+script = ExtResource("96_cjgrg")
+EditorPlace = NodePath("../../../EditorPlace")
+LevelEditor = NodePath("../../..")
+
+[node name="SelectUpperLeft" type="Sprite2D" parent="LevelEditor/EditorUi/SecondPage/SampleTileset" unique_id=873623915]
+position = Vector2(-291.14197, -166.56158)
+texture = SubResource("PlaceholderTexture2D_md8ho")
+
+[node name="SelectDownRight" type="Sprite2D" parent="LevelEditor/EditorUi/SecondPage/SampleTileset" unique_id=53051844]
+position = Vector2(-245.1104, -183.52057)
+texture = SubResource("PlaceholderTexture2D_md8ho")
+
+[node name="Select" type="Sprite2D" parent="LevelEditor/EditorUi/SecondPage/SampleTileset" unique_id=533957444]
+position = Vector2(-245.1104, -183.52057)
+texture = SubResource("PlaceholderTexture2D_md8ho")
+
+[node name="ThirdPage" type="Node2D" parent="LevelEditor/EditorUi" unique_id=304302921]
 
 [connection signal="mouse_entered" from="LevelEditor/CanvasLayer/ButtonPlusTime" to="LevelEditor" method="_button_hovered"]
 [connection signal="mouse_exited" from="LevelEditor/CanvasLayer/ButtonPlusTime" to="LevelEditor" method="_button_not_hovered"]
@@ -1995,41 +2017,44 @@ texture_normal = ExtResource("97_n2ls0")
 [connection signal="area_exited" from="LevelEditor/EditorPlace/EditorUiSelectingMultiple" to="LevelEditor/EditorPlace" method="_on_editor_ui_selecting_multiple_area_exited"]
 [connection signal="body_entered" from="LevelEditor/EditorPlace/EditorUiSelectingMultiple" to="LevelEditor/EditorPlace" method="_on_editor_ui_selecting_multiple_body_entered"]
 [connection signal="body_exited" from="LevelEditor/EditorPlace/EditorUiSelectingMultiple" to="LevelEditor/EditorPlace" method="_on_editor_ui_selecting_multiple_body_exited"]
-[connection signal="mouse_entered" from="LevelEditor/CanvasLayer2/EditorTootlipUi/SampleButton" to="LevelEditor" method="_button_hovered"]
-[connection signal="mouse_exited" from="LevelEditor/CanvasLayer2/EditorTootlipUi/SampleButton" to="LevelEditor" method="_button_not_hovered"]
-[connection signal="pressed" from="LevelEditor/CanvasLayer2/EditorTootlipUi/SampleButton" to="LevelEditor/CanvasLayer2/EditorTootlipUi/SampleButton" method="_on_pressed"]
-[connection signal="mouse_entered" from="LevelEditor/CanvasLayer2/Button_Tile_Tooltip0" to="LevelEditor" method="_button_hovered"]
-[connection signal="mouse_exited" from="LevelEditor/CanvasLayer2/Button_Tile_Tooltip0" to="LevelEditor" method="_button_not_hovered"]
-[connection signal="pressed" from="LevelEditor/CanvasLayer2/Button_Tile_Tooltip0" to="LevelEditor/EditorCursor" method="_on_button_tile_tooltip_0_pressed"]
-[connection signal="mouse_entered" from="LevelEditor/CanvasLayer2/Button_Tile_Tooltip1" to="LevelEditor" method="_button_hovered"]
-[connection signal="mouse_exited" from="LevelEditor/CanvasLayer2/Button_Tile_Tooltip1" to="LevelEditor" method="_button_not_hovered"]
-[connection signal="pressed" from="LevelEditor/CanvasLayer2/Button_Tile_Tooltip1" to="LevelEditor/EditorCursor" method="_on_button_tile_tooltip_1_pressed"]
-[connection signal="button_down" from="LevelEditor/CanvasLayer2/bewaretext/PlayButton" to="LevelEditor/CanvasLayer2/bewaretext" method="_on_play_button_button_down"]
-[connection signal="mouse_entered" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile" to="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile" to="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile" method="_on_mouse_exited"]
-[connection signal="pressed" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile" to="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile" method="_on_pressed"]
-[connection signal="mouse_entered" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile/DialogButtonSample" to="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile/DialogButtonSample" to="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile" method="_on_mouse_exited"]
-[connection signal="pressed" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile/DialogButtonSample" to="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile" method="_on_dialog_button_sample_pressed"]
-[connection signal="pressed" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile/DialogButtonSample" to="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile/DialogButtonSample" method="_on_pressed"]
-[connection signal="canceled" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile/EditorSaveFileDialog" to="LevelEditor/EditorDataParser" method="_on_editor_save_file_dialog_canceled"]
-[connection signal="file_selected" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile/EditorSaveFileDialog" to="LevelEditor/EditorDataParser" method="_on_editor_save_file_dialog_file_selected"]
-[connection signal="canceled" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile/EditorLoadFileDialog" to="LevelEditor/EditorDataParser" method="_on_editor_load_file_dialog_canceled"]
-[connection signal="file_selected" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile/EditorLoadFileDialog" to="LevelEditor/EditorDataParser" method="_on_editor_load_file_dialog_file_selected"]
-[connection signal="mouse_entered" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2" to="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2" to="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2" method="_on_mouse_exited"]
-[connection signal="pressed" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2" to="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2" method="_on_pressed"]
-[connection signal="mouse_entered" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2/DialogButtonSample" to="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2/DialogButtonSample" to="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2" method="_on_mouse_exited"]
-[connection signal="pressed" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2/DialogButtonSample" to="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2" method="_on_dialog_button_sample_pressed"]
-[connection signal="pressed" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2/DialogButtonSample" to="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2/DialogButtonSample" method="_on_pressed"]
-[connection signal="canceled" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2/EditorSaveFileDialog" to="LevelEditor/EditorDataParser" method="_on_editor_save_file_dialog_canceled"]
-[connection signal="file_selected" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2/EditorSaveFileDialog" to="LevelEditor/EditorDataParser" method="_on_editor_save_file_dialog_file_selected"]
-[connection signal="canceled" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2/EditorLoadFileDialog" to="LevelEditor/EditorDataParser" method="_on_editor_load_file_dialog_canceled"]
-[connection signal="file_selected" from="LevelEditor/CanvasLayer2/UiTopButton/DialogButtonFile2/EditorLoadFileDialog" to="LevelEditor/EditorDataParser" method="_on_editor_load_file_dialog_file_selected"]
-[connection signal="mouse_entered" from="LevelEditor/CanvasLayer2/TilesetSelectorButton" to="LevelEditor" method="_button_hovered"]
-[connection signal="mouse_exited" from="LevelEditor/CanvasLayer2/TilesetSelectorButton" to="LevelEditor" method="_button_not_hovered"]
-[connection signal="pressed" from="LevelEditor/CanvasLayer2/TilesetSelectorButton" to="LevelEditor/CanvasLayer2/EditorTootlipUi" method="_change_to_tileset_selector"]
-[connection signal="mouse_entered" from="LevelEditor/CanvasLayer2/RegularSelectorButton" to="LevelEditor" method="_button_hovered"]
-[connection signal="mouse_exited" from="LevelEditor/CanvasLayer2/RegularSelectorButton" to="LevelEditor" method="_button_not_hovered"]
-[connection signal="pressed" from="LevelEditor/CanvasLayer2/RegularSelectorButton" to="LevelEditor/CanvasLayer2/EditorTootlipUi" method="_change_to_regular_selector"]
+[connection signal="button_down" from="LevelEditor/EditorUi/bewaretext/PlayButton" to="LevelEditor/EditorUi/bewaretext" method="_on_play_button_button_down"]
+[connection signal="mouse_entered" from="LevelEditor/EditorUi/UiTopButton/DialogButtonFile" to="LevelEditor/EditorUi/UiTopButton/DialogButtonFile" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LevelEditor/EditorUi/UiTopButton/DialogButtonFile" to="LevelEditor/EditorUi/UiTopButton/DialogButtonFile" method="_on_mouse_exited"]
+[connection signal="pressed" from="LevelEditor/EditorUi/UiTopButton/DialogButtonFile" to="LevelEditor/EditorUi/UiTopButton/DialogButtonFile" method="_on_pressed"]
+[connection signal="mouse_entered" from="LevelEditor/EditorUi/UiTopButton/DialogButtonFile/DialogButtonSample" to="LevelEditor/EditorUi/UiTopButton/DialogButtonFile" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LevelEditor/EditorUi/UiTopButton/DialogButtonFile/DialogButtonSample" to="LevelEditor/EditorUi/UiTopButton/DialogButtonFile" method="_on_mouse_exited"]
+[connection signal="pressed" from="LevelEditor/EditorUi/UiTopButton/DialogButtonFile/DialogButtonSample" to="LevelEditor/EditorUi/UiTopButton/DialogButtonFile" method="_on_dialog_button_sample_pressed"]
+[connection signal="pressed" from="LevelEditor/EditorUi/UiTopButton/DialogButtonFile/DialogButtonSample" to="LevelEditor/EditorUi/UiTopButton/DialogButtonFile/DialogButtonSample" method="_on_pressed"]
+[connection signal="canceled" from="LevelEditor/EditorUi/UiTopButton/DialogButtonFile/EditorSaveFileDialog" to="LevelEditor/EditorDataParser" method="_on_editor_save_file_dialog_canceled"]
+[connection signal="file_selected" from="LevelEditor/EditorUi/UiTopButton/DialogButtonFile/EditorSaveFileDialog" to="LevelEditor/EditorDataParser" method="_on_editor_save_file_dialog_file_selected"]
+[connection signal="canceled" from="LevelEditor/EditorUi/UiTopButton/DialogButtonFile/EditorLoadFileDialog" to="LevelEditor/EditorDataParser" method="_on_editor_load_file_dialog_canceled"]
+[connection signal="file_selected" from="LevelEditor/EditorUi/UiTopButton/DialogButtonFile/EditorLoadFileDialog" to="LevelEditor/EditorDataParser" method="_on_editor_load_file_dialog_file_selected"]
+[connection signal="mouse_entered" from="LevelEditor/EditorUi/UiTopButton/DialogButtonFile2" to="LevelEditor/EditorUi/UiTopButton/DialogButtonFile2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LevelEditor/EditorUi/UiTopButton/DialogButtonFile2" to="LevelEditor/EditorUi/UiTopButton/DialogButtonFile2" method="_on_mouse_exited"]
+[connection signal="pressed" from="LevelEditor/EditorUi/UiTopButton/DialogButtonFile2" to="LevelEditor/EditorUi/UiTopButton/DialogButtonFile2" method="_on_pressed"]
+[connection signal="mouse_entered" from="LevelEditor/EditorUi/UiTopButton/DialogButtonFile2/DialogButtonSample" to="LevelEditor/EditorUi/UiTopButton/DialogButtonFile2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="LevelEditor/EditorUi/UiTopButton/DialogButtonFile2/DialogButtonSample" to="LevelEditor/EditorUi/UiTopButton/DialogButtonFile2" method="_on_mouse_exited"]
+[connection signal="pressed" from="LevelEditor/EditorUi/UiTopButton/DialogButtonFile2/DialogButtonSample" to="LevelEditor/EditorUi/UiTopButton/DialogButtonFile2" method="_on_dialog_button_sample_pressed"]
+[connection signal="pressed" from="LevelEditor/EditorUi/UiTopButton/DialogButtonFile2/DialogButtonSample" to="LevelEditor/EditorUi/UiTopButton/DialogButtonFile2/DialogButtonSample" method="_on_pressed"]
+[connection signal="canceled" from="LevelEditor/EditorUi/UiTopButton/DialogButtonFile2/EditorSaveFileDialog" to="LevelEditor/EditorDataParser" method="_on_editor_save_file_dialog_canceled"]
+[connection signal="file_selected" from="LevelEditor/EditorUi/UiTopButton/DialogButtonFile2/EditorSaveFileDialog" to="LevelEditor/EditorDataParser" method="_on_editor_save_file_dialog_file_selected"]
+[connection signal="canceled" from="LevelEditor/EditorUi/UiTopButton/DialogButtonFile2/EditorLoadFileDialog" to="LevelEditor/EditorDataParser" method="_on_editor_load_file_dialog_canceled"]
+[connection signal="file_selected" from="LevelEditor/EditorUi/UiTopButton/DialogButtonFile2/EditorLoadFileDialog" to="LevelEditor/EditorDataParser" method="_on_editor_load_file_dialog_file_selected"]
+[connection signal="mouse_entered" from="LevelEditor/EditorUi/FirstPage/TilesetSelectorButton2" to="LevelEditor" method="_button_hovered"]
+[connection signal="mouse_exited" from="LevelEditor/EditorUi/FirstPage/TilesetSelectorButton2" to="LevelEditor" method="_button_not_hovered"]
+[connection signal="pressed" from="LevelEditor/EditorUi/FirstPage/TilesetSelectorButton2" to="LevelEditor/EditorUi" method="_change_to_lights_selector"]
+[connection signal="mouse_entered" from="LevelEditor/EditorUi/FirstPage/TilesetSelectorButton" to="LevelEditor" method="_button_hovered"]
+[connection signal="mouse_exited" from="LevelEditor/EditorUi/FirstPage/TilesetSelectorButton" to="LevelEditor" method="_button_not_hovered"]
+[connection signal="pressed" from="LevelEditor/EditorUi/FirstPage/TilesetSelectorButton" to="LevelEditor/EditorUi" method="_change_to_tileset_selector"]
+[connection signal="mouse_entered" from="LevelEditor/EditorUi/FirstPage/EditorTootlipUi/SampleButton" to="LevelEditor" method="_button_hovered"]
+[connection signal="mouse_exited" from="LevelEditor/EditorUi/FirstPage/EditorTootlipUi/SampleButton" to="LevelEditor" method="_button_not_hovered"]
+[connection signal="pressed" from="LevelEditor/EditorUi/FirstPage/EditorTootlipUi/SampleButton" to="LevelEditor/EditorUi/FirstPage/EditorTootlipUi/SampleButton" method="_on_pressed"]
+[connection signal="mouse_entered" from="LevelEditor/EditorUi/FirstPage/Button_Tile_Tooltip0" to="LevelEditor" method="_button_hovered"]
+[connection signal="mouse_exited" from="LevelEditor/EditorUi/FirstPage/Button_Tile_Tooltip0" to="LevelEditor" method="_button_not_hovered"]
+[connection signal="pressed" from="LevelEditor/EditorUi/FirstPage/Button_Tile_Tooltip0" to="LevelEditor/EditorCursor" method="_on_button_tile_tooltip_0_pressed"]
+[connection signal="mouse_entered" from="LevelEditor/EditorUi/FirstPage/Button_Tile_Tooltip1" to="LevelEditor" method="_button_hovered"]
+[connection signal="mouse_exited" from="LevelEditor/EditorUi/FirstPage/Button_Tile_Tooltip1" to="LevelEditor" method="_button_not_hovered"]
+[connection signal="pressed" from="LevelEditor/EditorUi/FirstPage/Button_Tile_Tooltip1" to="LevelEditor/EditorCursor" method="_on_button_tile_tooltip_1_pressed"]
+[connection signal="mouse_entered" from="LevelEditor/EditorUi/SecondPage/RegularSelectorButton" to="LevelEditor" method="_button_hovered"]
+[connection signal="mouse_exited" from="LevelEditor/EditorUi/SecondPage/RegularSelectorButton" to="LevelEditor" method="_button_not_hovered"]
+[connection signal="pressed" from="LevelEditor/EditorUi/SecondPage/RegularSelectorButton" to="LevelEditor/EditorUi" method="_change_to_regular_selector"]
