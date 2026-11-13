@@ -13,6 +13,7 @@ var ButtonYDif = 80.0
 func _update_view() -> void:
 	#print("Update view")
 	for i in range(Buttons.size()):
+		if i == 6: continue
 		for y in range(Buttons[i].size()):
 			Buttons[i][y].ButtonNode = i
 			Buttons[i][y].ButtonSubNode = y
@@ -37,6 +38,7 @@ func _add_new_button(i: int, y: int) -> void:
 func _setup_button() -> void:
 	Buttons.append([])
 	for i in range(EditorCursor.TileTools.size()):
+		if i == 6: continue
 		var New := SampleButton.duplicate()
 		add_child(New)
 		Buttons[0].append(New)

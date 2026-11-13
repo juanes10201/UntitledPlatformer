@@ -162,6 +162,7 @@ Laser=""
 CdBoss=""
 RailNodes=""
 CantBeDeletedInEditor=""
+"Editor Light"=""
 
 [input]
 

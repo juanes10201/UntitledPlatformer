@@ -17,6 +17,7 @@ func _ready() -> void:
 		queue_free()
 
 func _process(delta: float) -> void:
+	if(Edition.Is_in_editor && !Edition.Is_playing_in_editor): return
 	if(CurrentAnimation == AnimationTypes.slow_burn || CurrentAnimation == AnimationTypes.fast_burn):
 		if(Step == 0):
 			energy = lerpf(energy, 0, 1*delta if CurrentAnimation == AnimationTypes.fast_burn else .5*delta)

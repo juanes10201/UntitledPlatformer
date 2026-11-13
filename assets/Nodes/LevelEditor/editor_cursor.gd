@@ -15,6 +15,7 @@ var GridSizeSmall : int = 8
 @export var TooltipUi : Node2D
 
 var SelectedSubTile : int = 0
+var SelectingLights : bool = false
 
 enum TileTools{
 	Pencil = 0,

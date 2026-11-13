@@ -23,3 +23,4 @@ func _change_to_regular_selector() -> void:
 
 func _change_to_lights_selector() -> void:
 	LevelEditor.set_page_editor(2)
+	EditorPlace.change_to_lightning_mode()

@@ -80,6 +80,7 @@
 [ext_resource type="Texture2D" uid="uid://cwuu1ueioqy8r" path="res://assets/Sprites/Ui/menus/Editor/ChangeTileButton.png" id="71_be7jv"]
 [ext_resource type="Script" uid="uid://csy2mohpgw8mq" path="res://assets/Nodes/LevelEditor/ui_top_button.gd" id="74_edcu7"]
 [ext_resource type="Script" uid="uid://bj1n0pp1a8sc2" path="res://assets/Nodes/LevelEditor/editor_data_parser.gd" id="75_6jsng"]
+[ext_resource type="PackedScene" uid="uid://ds4ttbr2k68g4" path="res://assets/Nodes/Obj/Gameplay/EditorLight.tscn" id="75_a8ud4"]
 [ext_resource type="FontFile" uid="uid://cyhethdmcdauq" path="res://assets/Fonts/Beta.ttf" id="75_cyxik"]
 [ext_resource type="StyleBox" uid="uid://c1g4khjf3kje4" path="res://assets/Sprites/Ui/Style/editor_tooltip.tres" id="75_si8cv"]
 [ext_resource type="Texture2D" uid="uid://bpbooy4d8qxqx" path="res://assets/Sprites/Gameplay/Editor/TilesetGrid.png" id="76_7uchq"]
@@ -98,8 +99,6 @@
 [ext_resource type="PackedScene" uid="uid://cn87vu0mc6xb7" path="res://assets/Nodes/Obj/Gameplay/tile_map_layer_water.tscn" id="92_tk1t2"]
 [ext_resource type="Script" uid="uid://3kjd1e6ygogq" path="res://assets/Nodes/LevelEditor/sample_tileset.gd" id="96_cjgrg"]
 [ext_resource type="Texture2D" uid="uid://dol65xtb14rp6" path="res://assets/Sprites/Ui/menus/Editor/select_arrow.png" id="97_n2ls0"]
-[ext_resource type="Script" uid="uid://dbfv5o1s01x06" path="res://assets/Scripts/DynamicLightAnimation.gd" id="99_si8cv"]
-[ext_resource type="Script" uid="uid://ck52rbjix7tp1" path="res://assets/Nodes/LevelEditor/editor_lights.gd" id="100_gm2v4"]
 
 [sub_resource type="GDScript" id="GDScript_4cp2g"]
 script/source = "extends Sprite2D
@@ -881,6 +880,9 @@ bg_color = Color(0.7411765, 0.38039216, 0.84313726, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3sq2j"]
 size = Vector2(14, 14)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_si8cv"]
+light_mode = 1
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_goktm"]
 atlas = ExtResource("4_oksxi")
 region = Rect2(0, 0, 16, 16)
@@ -1214,17 +1216,6 @@ texture = ExtResource("49_be7jv")
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_md8ho"]
 size = Vector2(16, 16)
 
-[sub_resource type="Gradient" id="Gradient_jfyc5"]
-offsets = PackedFloat32Array(0, 0.65238094)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_fvxto"]
-gradient = SubResource("Gradient_jfyc5")
-fill = 1
-fill_from = Vector2(0.48290598, 0.517094)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_md8ho"]
-
 [node name="LevelEditorRework" type="Node2D" unique_id=1519603222]
 
 [node name="Grid" type="Sprite2D" parent="." unique_id=1845255170]
@@ -1241,7 +1232,7 @@ script = ExtResource("2_denb7")
 [node name="LevelEditor" type="Node2D" parent="." unique_id=1375215272 node_paths=PackedStringArray("Cursor", "TilesetLayers", "EditorCamera", "Time_Left", "Player", "PlayerCamera", "LevelData", "EditorPlayerTrail", "EditorPlace", "AddedTilesLayer") groups=["LevelEditor"]]
 script = ExtResource("1_qesh2")
 Cursor = NodePath("EditorCursor")
-SelectableObjects = Array[Array]([["res://assets/Nodes/Obj/Gameplay/Enemie/enemie.tscn", "res://assets/Nodes/Obj/Gameplay/Enemie/enemie_special.tscn", "res://assets/Nodes/Obj/Gameplay/Enemie/enemie_skeleton.tscn"], ["res://assets/Nodes/Obj/Gameplay/falling_sand.tscn", "res://assets/Nodes/Obj/Gameplay/key.tscn", "res://assets/Nodes/Obj/Gameplay/open_box.tscn", "res://assets/Nodes/Obj/Gameplay/editor_rail.tscn"], ["res://assets/Nodes/Obj/Gameplay/kill_box.tscn", "res://assets/Nodes/Obj/Gameplay/kill_box_blue.tscn", "res://assets/Nodes/Obj/Gameplay/laser.tscn"], ["res://assets/Nodes/Obj/Gameplay/float.tscn", "res://assets/Nodes/Obj/Gameplay/Enemie/enemy_fish_editor.tscn", "res://assets/Nodes/Obj/Gameplay/umbrella.tscn"], ["res://assets/Nodes/Obj/Gameplay/flag.tscn", "res://assets/Nodes/Obj/Gameplay/clock.tscn"]])
+SelectableObjects = Array[Array]([["res://assets/Nodes/Obj/Gameplay/Enemie/enemie.tscn", "res://assets/Nodes/Obj/Gameplay/Enemie/enemie_special.tscn", "res://assets/Nodes/Obj/Gameplay/Enemie/enemie_skeleton.tscn"], ["res://assets/Nodes/Obj/Gameplay/falling_sand.tscn", "res://assets/Nodes/Obj/Gameplay/key.tscn", "res://assets/Nodes/Obj/Gameplay/open_box.tscn", "res://assets/Nodes/Obj/Gameplay/editor_rail.tscn"], ["res://assets/Nodes/Obj/Gameplay/kill_box.tscn", "res://assets/Nodes/Obj/Gameplay/kill_box_blue.tscn", "res://assets/Nodes/Obj/Gameplay/laser.tscn"], ["res://assets/Nodes/Obj/Gameplay/float.tscn", "res://assets/Nodes/Obj/Gameplay/Enemie/enemy_fish_editor.tscn", "res://assets/Nodes/Obj/Gameplay/umbrella.tscn"], ["res://assets/Nodes/Obj/Gameplay/flag.tscn", "res://assets/Nodes/Obj/Gameplay/clock.tscn"], ["res://assets/Nodes/Obj/Gameplay/EditorLight.tscn"]])
 SelectableAutotiles = Array[int]([0, 1, 2, 3])
 AutotileTilemapLayers = Array[int]([0, 2, 0, 0])
 TilesetLayers = [NodePath("LevelData/TileMapLayer0"), NodePath("LevelData/TileMapLayer2"), NodePath("LevelData/TileMapLayerWater")]
@@ -1599,6 +1590,7 @@ shape = SubResource("RectangleShape2D_3sq2j")
 [node name="Sprite" type="AnimatedSprite2D" parent="LevelEditor/EditorCursor" unique_id=1758188670]
 self_modulate = Color(1, 1, 1, 0.654902)
 z_index = 2
+material = SubResource("CanvasItemMaterial_si8cv")
 sprite_frames = SubResource("SpriteFrames_3sq2j")
 animation = &"Select"
 centered = false
@@ -1707,6 +1699,9 @@ scale = Vector2(999, 1)
 collision_layer = 1025
 Visible = false
 CanChange = false
+
+[node name="PointLight2D59" parent="LevelEditor/LevelData" unique_id=609401544 groups=["Editor Light"] instance=ExtResource("75_a8ud4")]
+position = Vector2(73, -46)
 
 [node name="EditorDataParser" type="Node2D" parent="LevelEditor" unique_id=1150111339 node_paths=PackedStringArray("EditorPlace", "LevelEditor", "LevelData", "ParentOriginalNodes")]
 script = ExtResource("75_6jsng")
@@ -2013,22 +2008,23 @@ texture = SubResource("PlaceholderTexture2D_md8ho")
 
 [node name="ThirdPage" type="Node2D" parent="LevelEditor/EditorUi" unique_id=304302921]
 
-[node name="PointLight2D59" type="PointLight2D" parent="." unique_id=24892488]
-position = Vector2(80, -51)
-scale = Vector2(1.5259811, 1.4260539)
-color = Color(0.9766763, 0.33209845, 0.99999994, 1)
-energy = 0.7
-texture = SubResource("GradientTexture2D_fvxto")
-texture_scale = 2.57
-height = 13.0
-script = ExtResource("99_si8cv")
+[node name="RegularSelectorButton" type="TextureButton" parent="LevelEditor/EditorUi/ThirdPage" unique_id=1185858605]
+modulate = Color(1, 1, 1, 0.7019608)
+offset_left = 103.99994
+offset_top = 369.00003
+offset_right = 1097.0
+offset_bottom = 1164.0
+scale = Vector2(-0.09, 0.09)
+texture_normal = ExtResource("97_n2ls0")
 
-[node name="EditorLights" type="Area2D" parent="PointLight2D59" unique_id=1346658139]
-z_index = -1
-script = ExtResource("100_gm2v4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PointLight2D59/EditorLights" unique_id=2037196393]
-shape = SubResource("RectangleShape2D_md8ho")
+[node name="RichTextLabel" type="RichTextLabel" parent="LevelEditor/EditorUi/ThirdPage" unique_id=1201211157]
+offset_left = 11.0
+offset_top = 618.0
+offset_right = 970.0
+offset_bottom = 651.0
+theme_override_fonts/normal_font = ExtResource("38_cjgrg")
+theme_override_font_sizes/normal_font_size = 31
+text = "Keep in mind that Godot only supports 16 lights reflecting the same object"
 
 [connection signal="mouse_entered" from="LevelEditor/CanvasLayer/ButtonPlusTime" to="LevelEditor" method="_button_hovered"]
 [connection signal="mouse_exited" from="LevelEditor/CanvasLayer/ButtonPlusTime" to="LevelEditor" method="_button_not_hovered"]
@@ -2088,3 +2084,6 @@ shape = SubResource("RectangleShape2D_md8ho")
 [connection signal="mouse_entered" from="LevelEditor/EditorUi/SecondPage/RegularSelectorButton" to="LevelEditor" method="_button_hovered"]
 [connection signal="mouse_exited" from="LevelEditor/EditorUi/SecondPage/RegularSelectorButton" to="LevelEditor" method="_button_not_hovered"]
 [connection signal="pressed" from="LevelEditor/EditorUi/SecondPage/RegularSelectorButton" to="LevelEditor/EditorUi" method="_change_to_regular_selector"]
+[connection signal="mouse_entered" from="LevelEditor/EditorUi/ThirdPage/RegularSelectorButton" to="LevelEditor" method="_button_hovered"]
+[connection signal="mouse_exited" from="LevelEditor/EditorUi/ThirdPage/RegularSelectorButton" to="LevelEditor" method="_button_not_hovered"]
+[connection signal="pressed" from="LevelEditor/EditorUi/ThirdPage/RegularSelectorButton" to="LevelEditor/EditorUi" method="_change_to_regular_selector"]

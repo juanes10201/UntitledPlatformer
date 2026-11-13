@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://ds4ttbr2k68g4"]
+
+[ext_resource type="Script" uid="uid://dbfv5o1s01x06" path="res://assets/Scripts/DynamicLightAnimation.gd" id="1_n4il8"]
+[ext_resource type="Script" uid="uid://ck52rbjix7tp1" path="res://assets/Nodes/LevelEditor/editor_lights.gd" id="2_5ingi"]
+
+[sub_resource type="Gradient" id="Gradient_jfyc5"]
+offsets = PackedFloat32Array(0, 0.65238094)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fvxto"]
+gradient = SubResource("Gradient_jfyc5")
+fill = 1
+fill_from = Vector2(0.48290598, 0.517094)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md8ho"]
+
+[node name="PointLight2D59" type="PointLight2D" unique_id=609401544]
+scale = Vector2(1.5259811, 1.4260539)
+color = Color(0.9766763, 0.33209845, 0.99999994, 1)
+energy = 0.7
+texture = SubResource("GradientTexture2D_fvxto")
+texture_scale = 2.57
+height = 13.0
+script = ExtResource("1_n4il8")
+
+[node name="EditorLights" type="Area2D" parent="." unique_id=1583737979 groups=["Editor Light"]]
+z_index = -1
+collision_layer = 131072
+collision_mask = 0
+script = ExtResource("2_5ingi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EditorLights" unique_id=1112269975]
+shape = SubResource("RectangleShape2D_md8ho")
