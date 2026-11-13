@@ -98,6 +98,8 @@
 [ext_resource type="PackedScene" uid="uid://cn87vu0mc6xb7" path="res://assets/Nodes/Obj/Gameplay/tile_map_layer_water.tscn" id="92_tk1t2"]
 [ext_resource type="Script" uid="uid://3kjd1e6ygogq" path="res://assets/Nodes/LevelEditor/sample_tileset.gd" id="96_cjgrg"]
 [ext_resource type="Texture2D" uid="uid://dol65xtb14rp6" path="res://assets/Sprites/Ui/menus/Editor/select_arrow.png" id="97_n2ls0"]
+[ext_resource type="Script" uid="uid://dbfv5o1s01x06" path="res://assets/Scripts/DynamicLightAnimation.gd" id="99_si8cv"]
+[ext_resource type="Script" uid="uid://ck52rbjix7tp1" path="res://assets/Nodes/LevelEditor/editor_lights.gd" id="100_gm2v4"]
 
 [sub_resource type="GDScript" id="GDScript_4cp2g"]
 script/source = "extends Sprite2D
@@ -1212,6 +1214,17 @@ texture = ExtResource("49_be7jv")
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_md8ho"]
 size = Vector2(16, 16)
 
+[sub_resource type="Gradient" id="Gradient_jfyc5"]
+offsets = PackedFloat32Array(0, 0.65238094)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fvxto"]
+gradient = SubResource("Gradient_jfyc5")
+fill = 1
+fill_from = Vector2(0.48290598, 0.517094)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md8ho"]
+
 [node name="LevelEditorRework" type="Node2D" unique_id=1519603222]
 
 [node name="Grid" type="Sprite2D" parent="." unique_id=1845255170]
@@ -1999,6 +2012,23 @@ position = Vector2(-245.1104, -183.52057)
 texture = SubResource("PlaceholderTexture2D_md8ho")
 
 [node name="ThirdPage" type="Node2D" parent="LevelEditor/EditorUi" unique_id=304302921]
+
+[node name="PointLight2D59" type="PointLight2D" parent="." unique_id=24892488]
+position = Vector2(80, -51)
+scale = Vector2(1.5259811, 1.4260539)
+color = Color(0.9766763, 0.33209845, 0.99999994, 1)
+energy = 0.7
+texture = SubResource("GradientTexture2D_fvxto")
+texture_scale = 2.57
+height = 13.0
+script = ExtResource("99_si8cv")
+
+[node name="EditorLights" type="Area2D" parent="PointLight2D59" unique_id=1346658139]
+z_index = -1
+script = ExtResource("100_gm2v4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointLight2D59/EditorLights" unique_id=2037196393]
+shape = SubResource("RectangleShape2D_md8ho")
 
 [connection signal="mouse_entered" from="LevelEditor/CanvasLayer/ButtonPlusTime" to="LevelEditor" method="_button_hovered"]
 [connection signal="mouse_exited" from="LevelEditor/CanvasLayer/ButtonPlusTime" to="LevelEditor" method="_button_not_hovered"]

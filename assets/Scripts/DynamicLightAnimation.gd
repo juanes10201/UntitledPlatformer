@@ -10,13 +10,12 @@ enum AnimationTypes{
 var Step : int = 0
 @export var CurrentAnimation : AnimationTypes = AnimationTypes.none
 
-# Called when the node enters the scene tree for the first time.
+@onready var EditorLights : Node2D = $EditorLights
+
 func _ready() -> void:
-	if(!Edition.LightsEnabled): queue_free()
-	#pass # Replace with function body.
+	if(!Edition.LightsEnabled && !Edition.Is_in_editor):
+		queue_free()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if(CurrentAnimation == AnimationTypes.slow_burn || CurrentAnimation == AnimationTypes.fast_burn):
 		if(Step == 0):
