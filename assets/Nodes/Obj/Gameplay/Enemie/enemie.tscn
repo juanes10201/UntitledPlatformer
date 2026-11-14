@@ -221,7 +221,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hwgxp")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Air",
 "speed": 10.0
 }, {
@@ -229,7 +229,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_c4dyi")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Cleaning",
 "speed": 5.0
 }, {
@@ -243,7 +243,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xxbrk")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle",
 "speed": 5.0
 }, {
@@ -257,7 +257,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fujvc")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Laser",
 "speed": 5.0
 }, {
@@ -280,7 +280,7 @@ animations = [{
 "duration": 1.2,
 "texture": SubResource("AtlasTexture_mxkeg")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Walking",
 "speed": 6.0
 }]

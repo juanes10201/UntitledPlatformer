@@ -185,6 +185,8 @@ func _Enemie_Shoot_Sprite_Shader() -> void:
 
 @export var grab_grid : float = 8.0
 func _process(delta: float) -> void:
+	if(!Player): Player = SaveGame.get_player()
+	print(Player)
 	#print("Current direction: " + str(direction))
 	#print("Enemy direction: " + str(InitialEnemyDirection))
 	if(RetroStyle):
@@ -244,9 +246,8 @@ func _process(delta: float) -> void:
 			
 			
 			#region Trigger Player GroundSmash
-			for child in get_parent().get_children():
-				if child.is_in_group("Player") && !child.EnemyGroundSlamTimer.is_stopped(): 
-					_on_player_ground_smash_signal(child, child.GroundsmashNeedEnemiesOnGround)
+			if Player && !Player.EnemyGroundSlamTimer.is_stopped(): 
+				_on_player_ground_smash_signal(Player, Player.GroundsmashNeedEnemiesOnGround)
 			#endregion
 			#region Gravity
 			if (!_is_on_floor() &&  velocity.y < MAX_FALL_SPEED):

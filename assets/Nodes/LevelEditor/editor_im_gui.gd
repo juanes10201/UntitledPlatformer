@@ -49,9 +49,30 @@ func _ready() -> void:
 
 func SetupImGui() -> void:
 	print("Loading ImGui!")
-	var Style = ImGui.GetStyle()
 	FontPointers = ImGuiGD.GetFontPtrs()
-
+	var Style = ImGui.GetStyle()
+	Style.WindowRounding = 12.0
+	var cols = Style.Colors
+	cols[ImGui.Col_WindowBg] = Color("11032bad")
+	cols[ImGui.Col_TitleBg] = Color("330d5ecd")
+	cols[ImGui.Col_TitleBgActive] = Color("44147bd9")
+	cols[ImGui.Col_TitleBgCollapsed] = Color("300b59af")
+	cols[ImGui.Col_Button] = Color("44147bff")
+	cols[ImGui.Col_Tab] = Color("44147bff")
+	cols[ImGui.Col_Header] = Color("44147bff")
+	cols[ImGui.Col_MenuBarBg] = Color("44147bff")
+	cols[ImGui.Col_ButtonActive] = Color("44147bff")
+	cols[ImGui.Col_ButtonHovered] = Color("44147bff")
+	cols[ImGui.Col_Separator] = Color("44147bff")
+	cols[ImGui.Col_SliderGrab] = Color("44147bff")
+	cols[ImGui.Col_SliderGrabActive] = Color("44147bff")
+	cols[ImGui.Col_Border] = Color("44147bff")
+	cols[ImGui.Col_FrameBg] = Color("330c5e9d")
+	cols[ImGui.Col_FrameBgActive] = Color("50188e9d")
+	cols[ImGui.Col_FrameBgHovered] = Color("330c5ebc")
+	cols[ImGui.Col_BorderShadow] = Color("340d6072")
+	cols[ImGui.Col_CheckMark] = Color("cfbcfcff")
+	Style.Colors = cols
 
 func DrawImGuiTitle(txt : String) -> void: 
 	ImGui.PushFont(FontPointers[1])
@@ -133,9 +154,7 @@ func AnalizeBodyTick() -> void:
 	else:
 		if(AnalizedBody):
 			DrawImGuiTitle("Inspecting " + str(AnalizedBody.name))
-			print("Properties ")
 			for property in AnalizedBody.get_property_list() :
-				print(property.name)
 				#En caso de ser una variable @Export
 				if((property.usage & PROPERTY_USAGE_EDITOR
 				&& property.usage & PROPERTY_USAGE_SCRIPT_VARIABLE)
@@ -144,7 +163,9 @@ func AnalizeBodyTick() -> void:
 					if(LastImGuiTitle == InternalVariablesCategoryName):
 						continue
 					if(!DrawedImGuiTitle):
+						#ImGui.PushFont(FontPointers[1])
 						var section_open = ImGui.CollapsingHeader(LastImGuiTitle)
+						#ImGui.PopFont()
 						OpenedCategories[LastImGuiTitle] = section_open
 						DrawedImGuiTitle = true
 					if(OpenedCategories[LastImGuiTitle]):
