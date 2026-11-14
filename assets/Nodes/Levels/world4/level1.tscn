@@ -126,7 +126,7 @@ tile_map_data = PackedByteArray("AADN/+v/AQAYABUAAADN/+z/AQAYABYAAADN/+3/AQAYABc
 tile_set = ExtResource("9_6wy71")
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="TileMapLayer2" unique_id=1017849124 groups=["Tileset"]]
-tile_map_data = PackedByteArray("AADN/+v/AQAYABUAAADN/+z/AQAYABYAAADN/+3/AQAYABcAAADz/+j/AgAAAAYAAADz/+n/AgAAAAcAAADz/+r/AgAAAAgAAAD0/+j/AgABAAYAAAD0/+n/AgABAAcAAAD0/+r/AgABAAgAAAD1/+j/AgACAAYAAAD1/+n/AgACAAcAAAD1/+r/AgACAAgAAAD2/+j/AgADAAYAAAD2/+n/AgADAAcAAAD2/+r/AgADAAgAAAD3/+j/AgAEAAYAAAD3/+n/AgAEAAcAAAD3/+r/AgAEAAgAAAD4/+j/AgAFAAYAAAD4/+n/AgAFAAcAAAD4/+r/AgAFAAgAAAD5/+j/AgAGAAYAAAD5/+n/AgAGAAcAAAD5/+r/AgAGAAgAAAA=")
+tile_map_data = PackedByteArray("AADN/+v/AQAYABUAAADN/+z/AQAYABYAAADN/+3/AQAYABcAAADz/9//AgAAAAYAAADz/+D/AgAAAAcAAADz/+H/AgAAAAgAAAD0/9//AgABAAYAAAD0/+D/AgABAAcAAAD0/+H/AgABAAgAAAD1/9//AgACAAYAAAD1/+D/AgACAAcAAAD1/+H/AgACAAgAAAD2/9//AgADAAYAAAD2/+D/AgADAAcAAAD2/+H/AgADAAgAAAD3/9//AgAEAAYAAAD3/+D/AgAEAAcAAAD3/+H/AgAEAAgAAAD4/9//AgAFAAYAAAD4/+D/AgAFAAcAAAD4/+H/AgAFAAgAAAD5/9//AgAGAAYAAAD5/+D/AgAGAAcAAAD5/+H/AgAGAAgAAAA=")
 tile_set = ExtResource("9_6wy71")
 
 [node name="WindSand" type="Line2D" parent="." unique_id=424187687 node_paths=PackedStringArray("Path", "RailedNodes") groups=["RailNodes"]]

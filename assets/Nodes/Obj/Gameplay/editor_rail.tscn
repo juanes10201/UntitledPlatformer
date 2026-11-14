@@ -30,20 +30,20 @@ resource_local_to_scene = true
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ehx2g"]
 size = Vector2(16, 16)
 
-[node name="EditorRail" type="Line2D" unique_id=618184540 node_paths=PackedStringArray("FallCooldown", "MoveRef", "Path", "PathFollow", "AddPointEditorButton", "RemovePointEditorButton")]
+[node name="EditorRail" type="Line2D" unique_id=618184540 node_paths=PackedStringArray("AddPointEditorButton", "RemovePointEditorButton", "FallCooldown", "MoveRef", "Path", "PathFollow")]
 points = PackedVector2Array(0, 0, 45, 0)
 width = 4.835
 width_curve = SubResource("Curve_d77xg")
 default_color = Color(0.9597251, 0.5843025, 1, 1)
 gradient = SubResource("Gradient_75dy6")
 script = ExtResource("1_hhj1r")
+AddPointEditorButton = NodePath("AddPointEditorButton")
+RemovePointEditorButton = NodePath("RemovePointEditorButton")
 FallCooldown = NodePath("FallCooldown")
 MoveRef = NodePath("Path2D/PathFollow2D/MoveRef")
 Path = NodePath("Path2D")
 PathFollow = NodePath("Path2D/PathFollow2D")
 AddedPlayerGradient = ExtResource("2_vbpr4")
-AddPointEditorButton = NodePath("AddPointEditorButton")
-RemovePointEditorButton = NodePath("AddPointEditorButton2")
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1897470310]
 curve = SubResource("Curve2D_t0ac7")
@@ -90,6 +90,7 @@ debug_color = Color(0, 0.63529414, 0.44313726, 0.44705883)
 texture = SubResource("PlaceholderTexture2D_ehx2g")
 
 [node name="AddPointEditorButton" type="Button" parent="." unique_id=813742231]
+z_index = 1
 offset_left = 27.0
 offset_top = -41.0
 offset_right = 53.0
@@ -99,10 +100,13 @@ theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = ExtResource("6_mvn1b")
 theme_override_styles/pressed = ExtResource("7_40v7l")
 theme_override_styles/focus = ExtResource("8_4nln2")
+action_mode = 0
+keep_pressed_outside = true
 text = "+"
 script = ExtResource("9_qkm1r")
 
-[node name="AddPointEditorButton2" type="Button" parent="." unique_id=1952545345]
+[node name="RemovePointEditorButton" type="Button" parent="." unique_id=1952545345]
+z_index = 1
 offset_left = 57.0
 offset_top = -9.0
 offset_right = 83.0
@@ -112,6 +116,8 @@ theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = ExtResource("6_mvn1b")
 theme_override_styles/pressed = ExtResource("7_40v7l")
 theme_override_styles/focus = ExtResource("8_4nln2")
+action_mode = 0
+keep_pressed_outside = true
 text = "-"
 script = ExtResource("9_qkm1r")
 type = 1
@@ -120,5 +126,5 @@ type = 1
 [connection signal="body_exited" from="InitialCollisionArea" to="." method="_on_initial_collision_area_body_exited"]
 [connection signal="mouse_entered" from="AddPointEditorButton" to="AddPointEditorButton" method="_mouse_entered_button_ui"]
 [connection signal="mouse_exited" from="AddPointEditorButton" to="AddPointEditorButton" method="_mouse_exited_button_ui"]
-[connection signal="mouse_entered" from="AddPointEditorButton2" to="AddPointEditorButton2" method="_mouse_entered_button_ui"]
-[connection signal="mouse_exited" from="AddPointEditorButton2" to="AddPointEditorButton2" method="_mouse_exited_button_ui"]
+[connection signal="mouse_entered" from="RemovePointEditorButton" to="RemovePointEditorButton" method="_mouse_entered_button_ui"]
+[connection signal="mouse_exited" from="RemovePointEditorButton" to="RemovePointEditorButton" method="_mouse_exited_button_ui"]

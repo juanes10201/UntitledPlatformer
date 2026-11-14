@@ -4,6 +4,8 @@ var PointAmount = 0
 @onready var Rail = get_parent()
 @export var NodeCachePoints : Node2D
 @export var SampleCachePoint : Node2D
+@onready var AddPointButton : Button = $"../AddPointEditorButton"
+@onready var RemovePointButton : Button = $"../RemovePointEditorButton"
 
 var cache_global_pos : Vector2
 
@@ -41,4 +43,6 @@ func _process(delta: float) -> void:
 				CachePoint.modulate.a = OpacityShowPoint
 			else:
 				CachePoint.modulate.a = OpacityHidePoint
+			AddPointButton.visible = !Edition.Is_playing_in_editor
+			RemovePointButton.visible = !Edition.Is_playing_in_editor
 			#print("Asdsdjo")

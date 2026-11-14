@@ -186,7 +186,6 @@ func _Enemie_Shoot_Sprite_Shader() -> void:
 @export var grab_grid : float = 8.0
 func _process(delta: float) -> void:
 	if(!Player): Player = SaveGame.get_player()
-	print(Player)
 	#print("Current direction: " + str(direction))
 	#print("Enemy direction: " + str(InitialEnemyDirection))
 	if(RetroStyle):

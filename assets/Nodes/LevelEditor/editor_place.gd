@@ -571,6 +571,13 @@ const RewindTimerWaitLess : float = .05
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if(LevelEditor.CurrentUiPage == 1):
+		EditorCursor.SelectedSubNode = EditorCursor.TileTools.Pencil
+		EditorCursor.SelectedNode = 0
+	elif(LevelEditor.CurrentUiPage == 2):
+		EditorCursor.SelectedSubNode = EditorCursor.TileTools.Pencil
+		EditorCursor.SelectedNode = 6
+		EditorCursor.SelectingLights = true
 	if(ImGui.IsWindowHovered(ImGui.HoveredFlags_AnyWindow) || LevelEditor.ButtonHovered): return
 	
 	if(Input.is_action_just_pressed("ui_editor_load_file")):

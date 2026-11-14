@@ -1,5 +1,6 @@
 extends Node2D
 
+@export_group("Light")
 @export var Energy : float = 1.0
 @export var Height : int = 13
 @export var TextureScale : float = 3.0

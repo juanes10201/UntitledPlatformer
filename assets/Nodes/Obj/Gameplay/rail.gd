@@ -73,11 +73,11 @@ func update_added_gradient(delta : float) -> void:
 		last_player_progress_rail = _player_rail_length
 	else: _player_rail_length = last_player_progress_rail
 	
-	print("Min point: " + str(MinPointRail))
-	print("Max point: " + str(MaxPointRail))
-	print("Length: " + str(_rail_length))
-	print("relative: " + str(_relative_player_length))
-	print(_player_rail_length)
+	#print("Min point: " + str(MinPointRail))
+	#print("Max point: " + str(MaxPointRail))
+	#print("Length: " + str(_rail_length))
+	#print("relative: " + str(_relative_player_length))
+	#print(_player_rail_length)
 	
 	if(PlayerSnapped):
 		opacity_gradient = 1.0
