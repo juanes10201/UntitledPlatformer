@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ImGuiConfig" format=3 uid="uid://dqoyjbibcphgl"]
 
 [ext_resource type="Script" uid="uid://cp1mhxh3qrya8" path="res://addons/imgui-godot/scripts/ImGuiConfig.gd" id="1_t8c0q"]
-[ext_resource type="FontFile" uid="uid://du1fhb4w0oxp8" path="res://assets/Fonts/pixelart/Coder's Crux.otf" id="1_vsaik"]
+[ext_resource type="FontFile" uid="uid://bbbkhj0mb6x51" path="res://assets/Fonts/Nebulous Content.otf" id="1_vsaik"]
 [ext_resource type="Script" uid="uid://c8iwbh67o8skd" path="res://addons/imgui-godot/scripts/ImGuiFont.gd" id="2_fam1s"]
 
 [sub_resource type="Resource" id="Resource_uvbn0"]

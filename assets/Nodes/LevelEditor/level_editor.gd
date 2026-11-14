@@ -19,7 +19,8 @@ var IsTileMapSelected : bool = false
 
 var OpenedFileDialog : bool = false
 
-@export var AddedTilesLayer : TileMapLayer
+@export var AddedTilesLayers : Array[TileMapLayer]
+var CurrentAddedTileLayer : int = 1
 
 var LevelDataGameplayObjects : Node2D
 var Paused : bool = false
@@ -43,69 +44,70 @@ func _get_all_nodes(node: Node) -> Array:
 var LevelDataRecursiveNodePaths : Dictionary = {}
 var SelfRecursiveNodePaths : Dictionary = {}
 
+func StoreNodeReferences(node : Node, StoreArray : Dictionary) -> void:
+	for prop in node.get_property_list():
+		if prop.usage & PROPERTY_USAGE_SCRIPT_VARIABLE == 0:
+			continue
+		var _val = node.get(prop.name)
+		if _val && _val is Node && _val.is_inside_tree() && !(_val in LevelDataRecursiveNodePaths):
+			#Se guarda que la posicion del asset del puntero dado es la del dicc
+			StoreVarReference(_val, StoreArray)
+			var _path = _val.get_path()
+
+func StoreVarReference(val, StoreArray : Dictionary) -> void:
+	var path = val.get_path()
+	StoreArray[val] = path
+
+func StoreArrayReference(array, StoreArray : Dictionary) -> void:
+	for _element in array:
+		StoreVarReference(_element, StoreArray)
+
 func SaveSnapshotLevelDataPaths() -> void:
 	LevelDataRecursiveNodePaths = {}
 	SelfRecursiveNodePaths = {}
 	var LevelDataChildNodes : Array = _get_all_nodes(self) 
-	#LevelDataChildNodes.append(_get_all_nodes(get_level_data_gameplay_objects_node() ) )
-	#LevelDataChildNodes.append(self)
+	LevelDataChildNodes.append(self)
 	for _node in LevelDataChildNodes:
-		for prop in _node.get_property_list():
-			if prop.usage & PROPERTY_USAGE_SCRIPT_VARIABLE == 0:
-				continue
-			var _val = _node.get(prop.name)
-			if _val && _val is Node && _val.is_inside_tree() && !(_val in LevelDataRecursiveNodePaths):
-				var _path = _val.get_path()
-				#Se guarda que la posicion del asset del puntero dado es la del dicc
-				LevelDataRecursiveNodePaths[_val] = _path
+		StoreNodeReferences(_node, LevelDataRecursiveNodePaths)
 	for prop in get_property_list():
-		#if(prop.usage & PROPERTY_USAGE_EDITOR && prop.usage & PROPERTY_USAGE_SCRIPT_VARIABLE):
-		var _val = get(prop.name)
-		if _val && _val is Node && _val.is_inside_tree() && !(_val in SelfRecursiveNodePaths):
-			var _path = _val.get_path()
-			SelfRecursiveNodePaths[_val] = _path
-	for TilesetLayer in TilesetLayers:
-		if(TilesetLayer):
-			var _path = TilesetLayer.get_path()
-			SelfRecursiveNodePaths[TilesetLayer] = _path
-	#print("Saved Paths: " + str(SelfRecursiveNodePaths))
+		StoreNodeReferences(self, SelfRecursiveNodePaths)
+	StoreArrayReference(TilesetLayers, SelfRecursiveNodePaths)
+	StoreArrayReference(AddedTilesLayers, SelfRecursiveNodePaths)
+	
+func LoadNodeDataPaths(_Node : Node, Paths : Dictionary) -> void:
+	for prop in _Node.get_property_list():
+		LoadPropertyDataPaths(prop, _Node, Paths)
+
+func LoadArrayDataPaths(Arr : Array, Paths : Dictionary) -> void:
+	for i in range(Arr.size()):
+		var _OriginalNode : TileMapLayer = Arr[i]
+		if(_OriginalNode in Paths):
+			var _NewNodePointer = get_node(Paths[_OriginalNode] )
+			Arr[i] = _NewNodePointer
+
+func LoadPropertyDataPaths(prop, _Node : Node, Paths : Dictionary) -> void:
+	var _val = _Node.get(prop.name)
+	if _val && _val is Node && _val in Paths:
+		var _path = Paths[_val]
+		if has_node(_path):
+			_Node.set(prop.name, get_node(_path))
 
 func LoadSnapshotLevelDataPaths() -> void:
-	#print("leveldata: " + str(LevelData))
 	var LevelDataChildNodes : Array = _get_all_nodes(self)
-	#LevelDataChildNodes.append(self)
 	for _node in LevelDataChildNodes:
-		for prop in _node.get_property_list():
-			var _val = _node.get(prop.name)
-			#if _val && _val is Node && _val.is_inside_tree() && _val in LevelDataRecursiveNodePaths:
-			#	var _new_node_ref : Node = get_node(LevelDataRecursiveNodePaths[_val])
-			#	_node.set(prop.name, _new_node_ref)
-				#print("Loaded node: "  + str(_new_node_ref) + " from " + str(_node))
-			if _val && _val is Node && _val in LevelDataRecursiveNodePaths:
-				var _path = LevelDataRecursiveNodePaths[_val]
-				if has_node(_path):
-					_node.set(prop.name, get_node(_path))
-	for prop in get_property_list():
-		var _val = get(prop.name)
-		if _val && _val is Node && _val in SelfRecursiveNodePaths:
-			var _new_node_ref : Node = get_node(SelfRecursiveNodePaths[_val])
-			set(prop.name, _new_node_ref)
+		LoadNodeDataPaths(_node, LevelDataRecursiveNodePaths)
+	LoadNodeDataPaths(self, SelfRecursiveNodePaths)
 	
 	for child in get_children():
 		if(child.is_in_group("LevelData")):
 			LevelData = child
-	 
-	for i in range(TilesetLayers.size()):
-		var TilesetLayer : TileMapLayer = TilesetLayers[i]
-		if(TilesetLayer in SelfRecursiveNodePaths):
-			var _node = get_node(SelfRecursiveNodePaths[TilesetLayer] )
-			TilesetLayers[i] = _node
+	
+	LoadArrayDataPaths(TilesetLayers, SelfRecursiveNodePaths)
+	LoadArrayDataPaths(AddedTilesLayers, SelfRecursiveNodePaths)
+	
 	EditorPlace.SelectedTilemap = TilesetLayers[0]
 	
 	LevelDataRecursiveNodePaths = {}
-	#Player = get_node("LevelData/Player")
-	#Time_Left = get_node("LevelData/Time_Left")
-	#PlayerCamera = get_node()
 	if(Player):
 		Player.Sprite.show()
 
@@ -168,11 +170,12 @@ func _process(delta: float) -> void:
 func set_play_state(state : bool) -> void:
 	if(!Paused):
 		if(state):
+			var _AddedTilesLayer : TileMapLayer = AddedTilesLayers[CurrentAddedTileLayer]
 			#_cache_editor_elements_values()
 			SaveSnapshotLevelData()
 			for _tileset in TilesetLayers:
 				EditorPlace._set_visible_tileset(_tileset)
-			EditorPlace._set_visible_tileset(AddedTilesLayer)
+			EditorPlace._set_visible_tileset(_AddedTilesLayer)
 		else:
 			_reset_play()
 	Edition.Is_playing_in_editor = state

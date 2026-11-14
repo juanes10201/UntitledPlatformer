@@ -127,7 +127,7 @@ audio/type_sound_bus="Sfx"
 
 [display]
 
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 window/quality/use_taa=false
 
 [editor_plugins]

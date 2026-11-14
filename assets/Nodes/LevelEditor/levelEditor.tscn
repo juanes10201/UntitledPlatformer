@@ -98,6 +98,22 @@
 [ext_resource type="PackedScene" uid="uid://cn87vu0mc6xb7" path="res://assets/Nodes/Obj/Gameplay/tile_map_layer_water.tscn" id="92_tk1t2"]
 [ext_resource type="Script" uid="uid://3kjd1e6ygogq" path="res://assets/Nodes/LevelEditor/sample_tileset.gd" id="96_cjgrg"]
 [ext_resource type="Texture2D" uid="uid://dol65xtb14rp6" path="res://assets/Sprites/Ui/menus/Editor/select_arrow.png" id="97_n2ls0"]
+[ext_resource type="FontFile" uid="uid://fqse3r3bukwu" path="res://assets/Fonts/pixelart/BoutiqueBitmap9x9_1.5.ttf" id="99_a8ud4"]
+[ext_resource type="Script" uid="uid://bo1n75ug0avwh" path="res://assets/Nodes/LevelEditor/change_z_index.gd" id="99_si8cv"]
+[ext_resource type="PackedScene" uid="uid://xjx2k63akbn3" path="res://assets/Nodes/Levels/Preload/levels_default.tscn" id="101_gm2v4"]
+
+[sub_resource type="Environment" id="Environment_fvxto"]
+background_mode = 3
+glow_enabled = true
+glow_levels/3 = 0.0
+glow_levels/6 = 0.97
+glow_intensity = 0.21
+glow_strength = 1.27
+glow_bloom = 0.03
+glow_hdr_threshold = 1.29
+adjustment_enabled = true
+adjustment_brightness = 1.05
+adjustment_saturation = 1.15
 
 [sub_resource type="GDScript" id="GDScript_4cp2g"]
 script/source = "extends Sprite2D
@@ -1228,13 +1244,13 @@ region_enabled = true
 region_rect = Rect2(0, 0, 9999, 9999)
 script = ExtResource("2_denb7")
 
-[node name="LevelEditor" type="Node2D" parent="." unique_id=1375215272 node_paths=PackedStringArray("Cursor", "TilesetLayers", "EditorCamera", "Time_Left", "Player", "PlayerCamera", "LevelData", "EditorPlayerTrail", "EditorPlace", "AddedTilesLayer") groups=["LevelEditor"]]
+[node name="LevelEditor" type="Node2D" parent="." unique_id=1375215272 node_paths=PackedStringArray("Cursor", "TilesetLayers", "EditorCamera", "Time_Left", "Player", "PlayerCamera", "LevelData", "EditorPlayerTrail", "EditorPlace", "AddedTilesLayers") groups=["LevelEditor"]]
 script = ExtResource("1_qesh2")
 Cursor = NodePath("EditorCursor")
 SelectableObjects = Array[Array]([["res://assets/Nodes/Obj/Gameplay/Enemie/enemie.tscn", "res://assets/Nodes/Obj/Gameplay/Enemie/enemie_special.tscn", "res://assets/Nodes/Obj/Gameplay/Enemie/enemie_skeleton.tscn"], ["res://assets/Nodes/Obj/Gameplay/falling_sand.tscn", "res://assets/Nodes/Obj/Gameplay/key.tscn", "res://assets/Nodes/Obj/Gameplay/open_box.tscn", "res://assets/Nodes/Obj/Gameplay/editor_rail.tscn"], ["res://assets/Nodes/Obj/Gameplay/kill_box.tscn", "res://assets/Nodes/Obj/Gameplay/kill_box_blue.tscn", "res://assets/Nodes/Obj/Gameplay/laser.tscn"], ["res://assets/Nodes/Obj/Gameplay/float.tscn", "res://assets/Nodes/Obj/Gameplay/Enemie/enemy_fish_editor.tscn", "res://assets/Nodes/Obj/Gameplay/umbrella.tscn"], ["res://assets/Nodes/Obj/Gameplay/flag.tscn", "res://assets/Nodes/Obj/Gameplay/clock.tscn"], ["res://assets/Nodes/Obj/Gameplay/EditorLight.tscn"]])
 SelectableAutotiles = Array[int]([0, 1, 2, 3])
 AutotileTilemapLayers = Array[int]([0, 2, 0, 0])
-TilesetLayers = [NodePath("LevelData/TileMapLayer0"), NodePath("LevelData/TileMapLayer2"), NodePath("LevelData/TileMapLayerWater")]
+TilesetLayers = [NodePath("LevelData/TileMapLayer0"), NodePath("LevelData/AddedTileMapLayer"), NodePath("LevelData/TileMapLayerWater")]
 EditorCamera = NodePath("EditorCamera")
 Time_Left = NodePath("LevelData/Time_Left")
 Player = NodePath("LevelData/Player")
@@ -1242,7 +1258,10 @@ PlayerCamera = NodePath("LevelData/Player/Camera2D")
 LevelData = NodePath("LevelData")
 EditorPlayerTrail = NodePath("EditorPlayerTrail")
 EditorPlace = NodePath("EditorPlace")
-AddedTilesLayer = NodePath("LevelData/TileMapLayer2")
+AddedTilesLayers = [NodePath("LevelData/AddedTileMapLayer"), NodePath("LevelData/AddedTileMapLayer2")]
+
+[node name="WorldEnvironment" parent="LevelEditor" unique_id=1383689085 instance=ExtResource("101_gm2v4")]
+environment = SubResource("Environment_fvxto")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="LevelEditor" unique_id=1210512174]
 layer = 2
@@ -1677,7 +1696,16 @@ script = ExtResource("3_0r4ld")
 [node name="TileMapLayerWater" parent="LevelEditor/LevelData" unique_id=1940844964 instance=ExtResource("92_tk1t2")]
 position = Vector2(-2, 32)
 
-[node name="TileMapLayer2" type="TileMapLayer" parent="LevelEditor/LevelData" unique_id=796603561 groups=["Tileset"]]
+[node name="AddedTileMapLayer" type="TileMapLayer" parent="LevelEditor/LevelData" unique_id=796603561 groups=["Tileset"]]
+z_index = -1
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(17, -16)
+scale = Vector2(1.00384, 1)
+tile_set = ExtResource("2_iimnb")
+script = ExtResource("3_0r4ld")
+
+[node name="AddedTileMapLayer2" type="TileMapLayer" parent="LevelEditor/LevelData" unique_id=276165004 groups=["Tileset"]]
 texture_filter = 1
 texture_repeat = 2
 position = Vector2(17, -16)
@@ -1916,59 +1944,59 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_3sq2j")
 animation = &"0"
 
-[node name="Button_Tile_Tooltip0" type="Button" parent="LevelEditor/EditorUi/FirstPage" unique_id=768333151]
-offset_left = 136.0
-offset_top = 579.0
-offset_right = 200.0
-offset_bottom = 623.0
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = SubResource("StyleBoxEmpty_wcgsb")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ej6vm")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_oadh4")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_x6v6g")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_cyxik")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_edcu7")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5byy5")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_uefb1")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_tk1t2")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_cjgrg")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_n2ls0")
-text = ">"
-
-[node name="Button_Tile_Tooltip1" type="Button" parent="LevelEditor/EditorUi/FirstPage" unique_id=845095758]
-offset_left = 11.0
-offset_top = 580.0
-offset_right = 75.0
-offset_bottom = 623.0
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = SubResource("StyleBoxEmpty_wcgsb")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ej6vm")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_oadh4")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_x6v6g")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_cyxik")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_edcu7")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5byy5")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_uefb1")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_tk1t2")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_cjgrg")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_n2ls0")
-text = "<"
-
-[node name="EditorTooltipSubTileIcon" type="AnimatedSprite2D" parent="LevelEditor/EditorUi/FirstPage" unique_id=1501288034 node_paths=PackedStringArray("EditorCursor")]
-z_index = 2
-material = SubResource("ShaderMaterial_5mkwl")
-position = Vector2(85.000015, 579)
-scale = Vector2(2.8125, 2.8125)
-sprite_frames = SubResource("SpriteFrames_3sq2j")
-animation = &"0"
-centered = false
-script = ExtResource("70_5mcbv")
-EditorCursor = NodePath("../../../EditorCursor")
-
 [node name="ChangeTileButton" type="Sprite2D" parent="LevelEditor/EditorUi/FirstPage" unique_id=740325995]
 position = Vector2(116, 602)
 scale = Vector2(0.27706707, 0.27706707)
 texture = ExtResource("71_be7jv")
+
+[node name="Button_Tile_Tooltip0" type="Button" parent="LevelEditor/EditorUi/FirstPage/ChangeTileButton" unique_id=768333151]
+offset_left = 72.18469
+offset_top = -83.01245
+offset_right = 314.00342
+offset_bottom = 68.57544
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wcgsb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ej6vm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oadh4")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_x6v6g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cyxik")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_edcu7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5byy5")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_uefb1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tk1t2")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_cjgrg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n2ls0")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button_Tile_Tooltip1" type="Button" parent="LevelEditor/EditorUi/FirstPage/ChangeTileButton" unique_id=845095758]
+offset_left = -378.96964
+offset_top = -79.40332
+offset_right = -111.88626
+offset_bottom = 64.96631
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wcgsb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ej6vm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oadh4")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_x6v6g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cyxik")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_edcu7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5byy5")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_uefb1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tk1t2")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_cjgrg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n2ls0")
+metadata/_edit_use_anchors_ = true
+
+[node name="EditorTooltipSubTileIcon" type="AnimatedSprite2D" parent="LevelEditor/EditorUi/FirstPage/ChangeTileButton" unique_id=1501288034 node_paths=PackedStringArray("EditorCursor")]
+z_index = 2
+material = SubResource("ShaderMaterial_5mkwl")
+position = Vector2(-111.8862, -83.01245)
+scale = Vector2(10.150972, 10.150972)
+sprite_frames = SubResource("SpriteFrames_3sq2j")
+animation = &"0"
+centered = false
+script = ExtResource("70_5mcbv")
+EditorCursor = NodePath("../../../../EditorCursor")
 
 [node name="SecondPage" type="Node2D" parent="LevelEditor/EditorUi" unique_id=669079454]
 
@@ -1980,6 +2008,15 @@ offset_right = 1097.0
 offset_bottom = 1164.0
 scale = Vector2(-0.09, 0.09)
 texture_normal = ExtResource("97_n2ls0")
+
+[node name="TextZIndex" type="RichTextLabel" parent="LevelEditor/EditorUi/SecondPage" unique_id=1201211157]
+offset_left = 68.0
+offset_top = 558.0
+offset_right = 193.0
+offset_bottom = 591.0
+theme_override_fonts/normal_font = ExtResource("38_cjgrg")
+theme_override_font_sizes/normal_font_size = 31
+text = "Z Index"
 
 [node name="SampleTileset" type="Sprite2D" parent="LevelEditor/EditorUi/SecondPage" unique_id=687892094 node_paths=PackedStringArray("EditorPlace", "LevelEditor")]
 self_modulate = Color(1, 1, 1, 0.53333336)
@@ -2002,7 +2039,71 @@ texture = SubResource("PlaceholderTexture2D_md8ho")
 position = Vector2(-245.1104, -183.52057)
 texture = SubResource("PlaceholderTexture2D_md8ho")
 
+[node name="ChangeZIndex" type="Sprite2D" parent="LevelEditor/EditorUi/SecondPage" unique_id=1838646369 node_paths=PackedStringArray("EditorPlace", "LevelEditor")]
+position = Vector2(116, 602)
+scale = Vector2(0.27706707, 0.27706707)
+texture = ExtResource("71_be7jv")
+script = ExtResource("99_si8cv")
+EditorPlace = NodePath("../../../EditorPlace")
+LevelEditor = NodePath("../../..")
+
+[node name="Button_Tile_Tooltip0" type="Button" parent="LevelEditor/EditorUi/SecondPage/ChangeZIndex" unique_id=939762009]
+offset_left = 72.18469
+offset_top = -83.01245
+offset_right = 314.00342
+offset_bottom = 68.57544
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wcgsb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ej6vm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oadh4")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_x6v6g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cyxik")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_edcu7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5byy5")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_uefb1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tk1t2")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_cjgrg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n2ls0")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button_Tile_Tooltip1" type="Button" parent="LevelEditor/EditorUi/SecondPage/ChangeZIndex" unique_id=577008928]
+offset_left = -378.96964
+offset_top = -79.40332
+offset_right = -111.88626
+offset_bottom = 64.96631
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wcgsb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ej6vm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oadh4")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_x6v6g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cyxik")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_edcu7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5byy5")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_uefb1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tk1t2")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_cjgrg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n2ls0")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextZIndex" type="RichTextLabel" parent="LevelEditor/EditorUi/SecondPage/ChangeZIndex" unique_id=290014404]
+offset_left = -72.18469
+offset_top = -64.96634
+offset_right = 36.092346
+offset_bottom = 86.62155
+theme_override_fonts/normal_font = ExtResource("99_a8ud4")
+theme_override_font_sizes/normal_font_size = 112
+text = "1"
+
 [node name="ThirdPage" type="Node2D" parent="LevelEditor/EditorUi" unique_id=304302921]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LevelEditor/EditorUi/ThirdPage" unique_id=1503908257]
+offset_left = 11.0
+offset_top = 618.0
+offset_right = 970.0
+offset_bottom = 651.0
+theme_override_fonts/normal_font = ExtResource("38_cjgrg")
+theme_override_font_sizes/normal_font_size = 31
+text = "Keep in mind that Godot only supports 16 lights reflecting the same object"
 
 [node name="RegularSelectorButton" type="TextureButton" parent="LevelEditor/EditorUi/ThirdPage" unique_id=1185858605]
 modulate = Color(1, 1, 1, 0.7019608)
@@ -2012,15 +2113,6 @@ offset_right = 1097.0
 offset_bottom = 1164.0
 scale = Vector2(-0.09, 0.09)
 texture_normal = ExtResource("97_n2ls0")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="LevelEditor/EditorUi/ThirdPage" unique_id=1201211157]
-offset_left = 11.0
-offset_top = 618.0
-offset_right = 970.0
-offset_bottom = 651.0
-theme_override_fonts/normal_font = ExtResource("38_cjgrg")
-theme_override_font_sizes/normal_font_size = 31
-text = "Keep in mind that Godot only supports 16 lights reflecting the same object"
 
 [connection signal="mouse_entered" from="LevelEditor/CanvasLayer/ButtonPlusTime" to="LevelEditor" method="_button_hovered"]
 [connection signal="mouse_exited" from="LevelEditor/CanvasLayer/ButtonPlusTime" to="LevelEditor" method="_button_not_hovered"]
@@ -2071,15 +2163,19 @@ text = "Keep in mind that Godot only supports 16 lights reflecting the same obje
 [connection signal="mouse_entered" from="LevelEditor/EditorUi/FirstPage/EditorTootlipUi/SampleButton" to="LevelEditor" method="_button_hovered"]
 [connection signal="mouse_exited" from="LevelEditor/EditorUi/FirstPage/EditorTootlipUi/SampleButton" to="LevelEditor" method="_button_not_hovered"]
 [connection signal="pressed" from="LevelEditor/EditorUi/FirstPage/EditorTootlipUi/SampleButton" to="LevelEditor/EditorUi/FirstPage/EditorTootlipUi/SampleButton" method="_on_pressed"]
-[connection signal="mouse_entered" from="LevelEditor/EditorUi/FirstPage/Button_Tile_Tooltip0" to="LevelEditor" method="_button_hovered"]
-[connection signal="mouse_exited" from="LevelEditor/EditorUi/FirstPage/Button_Tile_Tooltip0" to="LevelEditor" method="_button_not_hovered"]
-[connection signal="pressed" from="LevelEditor/EditorUi/FirstPage/Button_Tile_Tooltip0" to="LevelEditor/EditorCursor" method="_on_button_tile_tooltip_0_pressed"]
-[connection signal="mouse_entered" from="LevelEditor/EditorUi/FirstPage/Button_Tile_Tooltip1" to="LevelEditor" method="_button_hovered"]
-[connection signal="mouse_exited" from="LevelEditor/EditorUi/FirstPage/Button_Tile_Tooltip1" to="LevelEditor" method="_button_not_hovered"]
-[connection signal="pressed" from="LevelEditor/EditorUi/FirstPage/Button_Tile_Tooltip1" to="LevelEditor/EditorCursor" method="_on_button_tile_tooltip_1_pressed"]
+[connection signal="mouse_entered" from="LevelEditor/EditorUi/FirstPage/ChangeTileButton/Button_Tile_Tooltip0" to="LevelEditor" method="_button_hovered"]
+[connection signal="mouse_exited" from="LevelEditor/EditorUi/FirstPage/ChangeTileButton/Button_Tile_Tooltip0" to="LevelEditor" method="_button_not_hovered"]
+[connection signal="pressed" from="LevelEditor/EditorUi/FirstPage/ChangeTileButton/Button_Tile_Tooltip0" to="LevelEditor/EditorCursor" method="_on_button_tile_tooltip_0_pressed"]
+[connection signal="mouse_entered" from="LevelEditor/EditorUi/FirstPage/ChangeTileButton/Button_Tile_Tooltip1" to="LevelEditor" method="_button_hovered"]
+[connection signal="mouse_exited" from="LevelEditor/EditorUi/FirstPage/ChangeTileButton/Button_Tile_Tooltip1" to="LevelEditor" method="_button_not_hovered"]
+[connection signal="pressed" from="LevelEditor/EditorUi/FirstPage/ChangeTileButton/Button_Tile_Tooltip1" to="LevelEditor/EditorCursor" method="_on_button_tile_tooltip_1_pressed"]
 [connection signal="mouse_entered" from="LevelEditor/EditorUi/SecondPage/RegularSelectorButton" to="LevelEditor" method="_button_hovered"]
 [connection signal="mouse_exited" from="LevelEditor/EditorUi/SecondPage/RegularSelectorButton" to="LevelEditor" method="_button_not_hovered"]
 [connection signal="pressed" from="LevelEditor/EditorUi/SecondPage/RegularSelectorButton" to="LevelEditor/EditorUi" method="_change_to_regular_selector"]
+[connection signal="mouse_entered" from="LevelEditor/EditorUi/SecondPage/ChangeZIndex/Button_Tile_Tooltip0" to="LevelEditor" method="_button_hovered"]
+[connection signal="mouse_exited" from="LevelEditor/EditorUi/SecondPage/ChangeZIndex/Button_Tile_Tooltip0" to="LevelEditor" method="_button_not_hovered"]
+[connection signal="pressed" from="LevelEditor/EditorUi/SecondPage/ChangeZIndex/Button_Tile_Tooltip0" to="LevelEditor/EditorUi/SecondPage/ChangeZIndex" method="_next_z_index"]
+[connection signal="pressed" from="LevelEditor/EditorUi/SecondPage/ChangeZIndex/Button_Tile_Tooltip1" to="LevelEditor/EditorUi/SecondPage/ChangeZIndex" method="_previous_z_index"]
 [connection signal="mouse_entered" from="LevelEditor/EditorUi/ThirdPage/RegularSelectorButton" to="LevelEditor" method="_button_hovered"]
 [connection signal="mouse_exited" from="LevelEditor/EditorUi/ThirdPage/RegularSelectorButton" to="LevelEditor" method="_button_not_hovered"]
 [connection signal="pressed" from="LevelEditor/EditorUi/ThirdPage/RegularSelectorButton" to="LevelEditor/EditorUi" method="_change_to_regular_selector"]

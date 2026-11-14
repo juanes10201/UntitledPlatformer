@@ -102,17 +102,16 @@ func _convert_coordinates_to_local(pos : Vector2) -> Vector2i:
 var CustomTileSelected : bool = false
 var CustomTilesSelected : Array[Vector2]
 
-func _place_custom_tile_local_pos(pos : Vector2i, id : Vector2i, _Tilemap : TileMapLayer = LevelEditor.AddedTilesLayer):
+func _place_custom_tile_local_pos(pos : Vector2i, id : Vector2i, _Tilemap : TileMapLayer = LevelEditor.AddedTilesLayers[LevelEditor.CurrentAddedTileLayer]):
 	_Tilemap.set_cell(pos, 1, id)
 
-func _place_custom_tile_global_pos(pos : Vector2i, id : Vector2i, _Tilemap : TileMapLayer = LevelEditor.AddedTilesLayer):
+func _place_custom_tile_global_pos(pos : Vector2i, id : Vector2i, _Tilemap : TileMapLayer = LevelEditor.AddedTilesLayers[LevelEditor.CurrentAddedTileLayer]):
 	var _pos_local = SelectedTilemap.to_local(pos)
 	var tile_pos: Vector2i = SelectedTilemap.local_to_map(_pos_local)
 	_place_custom_tile_local_pos(tile_pos, id, _Tilemap)
 
-
 func _erase_tile_custom_local_pos(pos : Vector2i):
-	LevelEditor.AddedTilesLayer.set_cell(pos, -1)
+	LevelEditor.AddedTilesLayers[LevelEditor.CurrentAddedTileLayer].set_cell(pos, -1)
 
 func _erase_tile_custom_global_pos(pos : Vector2i):
 	var _pos_local = SelectedTilemap.to_local(pos)
@@ -196,12 +195,12 @@ func _fill_rectangle_local_tileset(pos1 : Vector2i, pos2 : Vector2i, RemoveTiles
 	else:
 		SelectedTilemap.set_cells_terrain_connect(Cells, EditorCursor.SelectedSubTile, -1)
 
-func _fill_rectangle_custom_global_tileset(initial_id : Vector2i, end_id : Vector2i, pos : Vector2i, RemoveTiles : bool = false, _Tilemap : TileMapLayer = LevelEditor.AddedTilesLayer) -> void:
+func _fill_rectangle_custom_global_tileset(initial_id : Vector2i, end_id : Vector2i, pos : Vector2i, RemoveTiles : bool = false, _Tilemap : TileMapLayer = LevelEditor.AddedTilesLayers[LevelEditor.CurrentAddedTileLayer]) -> void:
 	var _pos_local = SelectedTilemap.to_local(pos)
 	var tile_pos: Vector2i = SelectedTilemap.local_to_map(_pos_local)
 	_fill_rectangle_custom_local_tileset(initial_id, end_id, tile_pos, false, _Tilemap)
 
-func _fill_rectangle_custom_local_tileset(initial_id : Vector2i, end_id : Vector2i, pos : Vector2i, RemoveTiles : bool = false, _Tilemap : TileMapLayer = LevelEditor.AddedTilesLayer) -> void:
+func _fill_rectangle_custom_local_tileset(initial_id : Vector2i, end_id : Vector2i, pos : Vector2i, RemoveTiles : bool = false, _Tilemap : TileMapLayer = LevelEditor.AddedTilesLayers[LevelEditor.CurrentAddedTileLayer]) -> void:
 	var _delta_pos = Vector2i(0.0, 0.0)
 	var min_pos : Vector2i = initial_id if initial_id < end_id else end_id
 	var max_pos : Vector2i = initial_id if initial_id > end_id else end_id
@@ -317,12 +316,23 @@ func _set_half_visible_tileset(_tileset : TileMapLayer):
 func _set_visible_tileset(_tileset : TileMapLayer):
 	_tileset.modulate.a = 1.0
 
+func go_next_custom_tileset() -> void:
+	LevelEditor.CurrentAddedTileLayer += 1
+	if(LevelEditor.CurrentAddedTileLayer >= LevelEditor.AddedTilesLayers.size()):
+		LevelEditor.CurrentAddedTileLayer = 0
+
+func go_previous_custom_tileset() -> void:
+	LevelEditor.CurrentAddedTileLayer -= 1
+	if(LevelEditor.CurrentAddedTileLayer < 0):
+		LevelEditor.CurrentAddedTileLayer = LevelEditor.AddedTilesLayers.size()-1
+
 func change_to_tileset_custom() -> void:
 	EditorCursor.SelectedSubNode = EditorCursor.TileTools.Pencil
 	EditorCursor.SelectedNode = 0
 	for _tileset in LevelEditor.TilesetLayers:
 		_set_half_visible_tileset(_tileset)
-	_set_visible_tileset(LevelEditor.AddedTilesLayer)
+	for _tileset in LevelEditor.AddedTilesLayers:
+		_set_visible_tileset(_tileset)
 
 func change_to_tileset_regular() -> void:
 	EditorCursor.SelectedSubNode = EditorCursor.TileTools.Pencil
@@ -330,7 +340,8 @@ func change_to_tileset_regular() -> void:
 	CustomTileSelected = false
 	for _tileset in LevelEditor.TilesetLayers:
 		_set_visible_tileset(_tileset)
-	_set_half_visible_tileset(LevelEditor.AddedTilesLayer)
+	for _tileset in LevelEditor.AddedTilesLayers:
+		_set_half_visible_tileset(_tileset)
 	TilesetTempCopy.clear()
 
 func change_to_lightning_mode() -> void:
@@ -339,7 +350,9 @@ func change_to_lightning_mode() -> void:
 	EditorCursor.SelectingLights = true
 	for _tileset in LevelEditor.TilesetLayers:
 		_set_visible_tileset(_tileset)
-	_set_visible_tileset(LevelEditor.AddedTilesLayer)
+	for _tileset in LevelEditor.AddedTilesLayers:
+		_set_visible_tileset(_tileset)
+	#_set_visible_tileset(LevelEditor.AddedTilesLayer)
 
 func _tick_tileset(delta: float):
 	if(LevelEditor.CurrentUiPage == 1):

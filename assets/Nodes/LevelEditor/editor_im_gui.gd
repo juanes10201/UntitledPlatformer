@@ -41,9 +41,12 @@ func _calculate_multiple() -> void:
 			##Resetear los elementos para volver a precalcular todo
 			##SelectingMultipleRepeatedElements = {}
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	SetupImGui()
+
+func SetupImGui() -> void:
+	var Style = ImGui.GetStyle()
+	Style
 
 func AnalizeBody(Body : Node2D) -> void:
 	if(EditorPlace.SelectedNodes && EditorPlace.SelectingMultiple):
