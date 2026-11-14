@@ -115,6 +115,8 @@ func ImGuiShowProperty(property) -> bool:
 	return ChangedValue
 
 var LastImGuiTitle : String = ""
+var DrawedImGuiTitle : bool = false
+var OpenedCategories : Dictionary[String, bool] = {}
 func AnalizeBodyTick() -> void:
 	#If selected multiple elements
 	if(EditorPlace.SelectingMultiple):
@@ -126,14 +128,16 @@ func AnalizeBodyTick() -> void:
 				#En caso de ser una variable @Export
 				if(property.usage & PROPERTY_USAGE_EDITOR && property.usage & PROPERTY_USAGE_SCRIPT_VARIABLE):
 					######Esto cambia dependiendo del tipo d variable######
-					if(LastImGuiTitle != ""):
-						DrawImGuiTitle(LastImGuiTitle)
-					LastImGuiTitle = ""
-					ImGuiShowProperty(property)
+					if(!DrawedImGuiTitle):
+						var section_open = ImGui.CollapsingHeader(LastImGuiTitle)
+						OpenedCategories[LastImGuiTitle] = section_open
+						DrawedImGuiTitle = true
+					if(OpenedCategories[LastImGuiTitle]):
+						ImGuiShowProperty(property)
 				elif(property.usage & PROPERTY_USAGE_GROUP):#PROPERTY_USAGE_CATEGORY):# || property.usage & PROPERTY_USAGE_GROUP):
 					#Si esta documentada por Godot entonces no es una categoria propia
 					LastImGuiTitle = property.name
-					#DrawImGuiTitle(property.name)
+					DrawedImGuiTitle = false
 
 func _process(delta):
 	ImGui.Begin("Node Parameters")
