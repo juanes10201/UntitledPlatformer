@@ -232,7 +232,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qt3l5")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -291,7 +291,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("20_kyjvb")
 }],
-"loop": false,
+"loop": 0,
 "name": &"get_orb",
 "speed": 15.0
 }, {
@@ -596,7 +596,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("102_oaw68")
 }],
-"loop": true,
+"loop": 1,
 "name": &"orb",
 "speed": 15.0
 }, {
@@ -649,7 +649,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("136_esqse")
 }],
-"loop": false,
+"loop": 0,
 "name": &"respawn_orb",
 "speed": 15.0
 }]

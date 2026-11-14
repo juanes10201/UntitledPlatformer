@@ -112,11 +112,20 @@ func ImGuiShowProperty(property) -> bool:
 				if(ImGui.InputFloat(property.name, arr )):
 					AnalizedBody.set(property.name, arr[0])
 					ChangedValue = true
+			TYPE_VECTOR2:
+				var v : Vector2 = AnalizedBody.get(property.name)
+				var arr := [v.x, v.y]
+				if(ImGui.InputFloat2(property.name, arr)):
+					AnalizedBody.set(property.name, Vector2(arr[0], arr[1]) )
+					ChangedValue = true
 	return ChangedValue
 
 var LastImGuiTitle : String = ""
 var DrawedImGuiTitle : bool = false
 var OpenedCategories : Dictionary[String, bool] = {}
+const InternalVariablesCategoryName : String = "Internal"
+@export var GeneralVariables : Array[String] = []
+
 func AnalizeBodyTick() -> void:
 	#If selected multiple elements
 	if(EditorPlace.SelectingMultiple):
@@ -124,10 +133,16 @@ func AnalizeBodyTick() -> void:
 	else:
 		if(AnalizedBody):
 			DrawImGuiTitle("Inspecting " + str(AnalizedBody.name))
+			print("Properties ")
 			for property in AnalizedBody.get_property_list() :
+				print(property.name)
 				#En caso de ser una variable @Export
-				if(property.usage & PROPERTY_USAGE_EDITOR && property.usage & PROPERTY_USAGE_SCRIPT_VARIABLE):
+				if((property.usage & PROPERTY_USAGE_EDITOR
+				&& property.usage & PROPERTY_USAGE_SCRIPT_VARIABLE)
+				|| property.name in GeneralVariables):
 					######Esto cambia dependiendo del tipo d variable######
+					if(LastImGuiTitle == InternalVariablesCategoryName):
+						continue
 					if(!DrawedImGuiTitle):
 						var section_open = ImGui.CollapsingHeader(LastImGuiTitle)
 						OpenedCategories[LastImGuiTitle] = section_open

@@ -1,16 +1,17 @@
 extends RigidBody2D
-
+@export_group("General")
 @export var Activate_on_color : Global.LASER_COLORS = Global.LASER_COLORS.NONE
-@export var can_be_pushed : bool = false
+@export var is_falling : bool = false
+@export var MAX_SPEED : float = 300.0
+@export var GravityDirection : Global.GravityDirections = Global.GravityDirections.MAIN
+
+@export_group("Physics variables")
 #@export var push_force : float = 80.0
 @export var wait_time : float = 0.1
 
-@export var GravityDirection : Global.GravityDirections = Global.GravityDirections.MAIN
 @onready var CurrentGravityDirection : Global.GravityDirections = GravityDirection
 
 @onready var MoveParticles = $MoveParticles
-
-@export var is_falling : bool = false
 var was_falling : bool = is_falling
 
 var is_playing : bool = false
@@ -24,12 +25,10 @@ var OriginalPos = Vector2(0, 0)
 var editable = preload("res://assets/Scripts/default_object.gd").new()
 var Hovering : bool = false
 var StatePlaying : bool = false
-@export var CanHover : bool = false
 @onready var Player = SaveGame.get_player()
 
 @onready var Sprite = $Sprite2D
 
-@export var MAX_SPEED : float = 300.0
 @onready var RetroTimer = $RetroTimer
 @onready var RetroTimerMove = $RetroTimerMove
 var paused : bool = false
@@ -67,16 +66,6 @@ func _ready() -> void:
 		$Sprite2D2.hide()
 		$SpriteRetro.show()
 
-func _input(event):
-	if(Edition.Is_in_editor && CanHover):
-		if event is InputEventMouseButton:
-			if event.button_index == MOUSE_BUTTON_LEFT:
-				if(event.pressed && editable.Editor_Hover_Check(self.position.x, self.position.y, get_global_mouse_position())):
-					$"../".Is_Hovering = true
-					Hovering = true
-				else:
-					$"../".Is_Hovering = false
-					Hovering = false
 
 @export var grab_grid : float = 8.0
 func _process(delta: float) -> void:
@@ -97,12 +86,6 @@ func _process(delta: float) -> void:
 	elif(Edition.Is_in_editor && !Edition.Is_playing_in_editor):
 		OriginalPos = self.position
 	is_playing = Edition.Is_playing_in_editor
-	if(Edition.Is_in_editor && CanHover && Hovering):
-		if(Edition.IsErasingInEditor):
-			self.queue_free()
-		position = get_global_mouse_position()
-		self.position.x = (floor(self.position.x/grab_grid)*grab_grid)+16.0
-		self.position.y = (floor(self.position.y/grab_grid)*grab_grid)+10.0
 	#if(is_falling && Edition.Is_in_editor && !Edition.Is_playing_in_editor):
 	#	set_falling(false)
 	#	self.position = OriginalPos

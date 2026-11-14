@@ -1,5 +1,6 @@
 extends Area2D
 
+@export_group("General")
 @export var PushVelocity : float = -320.0
 @export var Rotation : float = 0.0
 @onready var Sprite : AnimatedSprite2D = $Sprite 

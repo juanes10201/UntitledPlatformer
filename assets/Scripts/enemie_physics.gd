@@ -1,16 +1,13 @@
 extends CharacterBody2D
 
 #region Setup variables
-@export_group("Custom")
-@export var RetroStyle : bool = false
+@export_group("General")
 @export var Activate_on_color : Global.LASER_COLORS = Global.LASER_COLORS.NONE
-@export var enemy_type : float = 0
 @export var EnemyDirection : Directions = Directions.RIGHT
-@export var distance : float = 100
 @export var GravityDirection : Global.GravityDirections = Global.GravityDirections.MAIN
 @export var TimeToShoot : float = 1.0
 
-@export_group("Physics")
+@export_group("Physics variables")
 @export var Enemy_burst_speed : float = 300.0
 @export var SPEED : float = 150.0
 @export var JUMP_VELOCITY : float = -370.0
@@ -22,6 +19,9 @@ extends CharacterBody2D
 @export var Can_BeGroundSmash : bool = true
 @export var EnabledPhysics : bool = true
 
+@export_group("Internal")
+@export var enemy_type : float = 0
+@export var RetroStyle : bool = false
 #For editor
 enum Directions{
 	RIGHT,

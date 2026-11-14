@@ -1663,6 +1663,7 @@ one_shot = true
 script = ExtResource("17_r7lbo")
 EditorPlace = NodePath("../EditorPlace")
 Editor = NodePath("..")
+GeneralVariables = Array[String](["global_position", "scale", "rotation", "z_index"])
 
 [node name="LevelData" type="Node2D" parent="LevelEditor" unique_id=220344016 node_paths=PackedStringArray("LevelEditor") groups=["LevelData"]]
 script = ExtResource("67_aueqc")

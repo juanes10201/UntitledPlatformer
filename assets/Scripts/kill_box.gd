@@ -1,8 +1,16 @@
 extends Area2D
 
+@export_group("General")
 @export var Visible : bool = true
 @onready var Sprite = $AnimatedSprite2D
 
+@export_group("Lava")
+@export var AditionalAction = Actions.none
+@export var lavaMovDif : float = 10
+@export var LavaMoveDirection : LavaDirections = LavaDirections.Up
+@export var LavaGoBack : bool = true
+
+@export_group("Internal")
 @onready var Player = $"../Player" if $"../Player" else $"../../Player"
 @export var Type = Global.KillBoxTypes.Red
 @export var CanChange = true
@@ -13,17 +21,13 @@ enum Actions{
 	none,
 	raise_up_on_key
 }
-@export var AditionalAction = Actions.none
 
-@export var lavaMovDif : float = 10
 var posygoto : float = position.y - lavaMovDif
 @onready var LavaTimer = $LavaTimer
 enum LavaDirections{
 	Up = 1,
 	Down = -1
 }
-@export var LavaMoveDirection : LavaDirections = LavaDirections.Up
-@export var LavaGoBack : bool = true
 
 @onready var OriginalZIndex = z_index
 

@@ -1,27 +1,34 @@
 extends Line2D
 
+@export_group("General")
+@export var KickDirection : Global.GravityDirections = Global.GravityDirections.MAIN
+
+@export_group("Physics variables")
+@export var DistanceCollide : int = 7
+@export var MoveSpeed : float = 700
+@export var OnWaterSpeedMult : float = 0.8
+@export var PlayerMovOffset : Vector2 = Vector2(0.0, -5.0)
+@export var EndWithSlam : bool = false
+@export var KickMult : float = 30
+@export var EndSpeed : float = 1000.0
+
+@export_group("Internal")
+@export var AddPointEditorButton : Button
+@export var RemovePointEditorButton : Button
 @export var FallCooldown : Timer
 @export var MoveRef : Node2D
 @export var Path : Path2D
 @export var PathFollow : PathFollow2D
+@export var AddedPlayerGradient : GradientTexture1D
+
 @onready var Player = SaveGame.get_player()
 var PlayerDistance : Vector2
-@export var DistanceCollide : int = 7
 var PlayerOffset : float
-@export var MoveSpeed : float = 700
-@export var OnWaterSpeedMult : float = 0.8
-@export var PlayerMovOffset : Vector2 = Vector2(0.0, -5.0)
 var PlayerSnapped : bool = false
-@export var EndWithSlam : bool = false
 
-@export var KickDirection : Global.GravityDirections = Global.GravityDirections.MAIN
-
-@export var KickMult : float = 30
 @onready var InitialCollisionArea = $InitialCollisionArea
 @onready var InitialCollisionAreaShape = $InitialCollisionArea/CollisionShape2D
-@export var EndSpeed : float = 1000.0
 
-@export var AddedPlayerGradient : GradientTexture1D
 @onready var InitialGradient : Gradient = gradient.duplicate()
 
 const AreaCollisionExpand : float = 100.0
@@ -33,8 +40,6 @@ var NormalizedVel : Vector2
 
 const MarginNewPointEditor : Vector2 = Vector2(20.0, 0.0)
 const MarginButtonAddNewPointEditor : Vector2 = Vector2(25.0, -25.0)
-@export var AddPointEditorButton : Button
-@export var RemovePointEditorButton : Button
 @onready var EditorRailSupport : Node2D = $EditorRailSupport
 
 var MinPointRail : Vector2 = Vector2(0.0, 0.0)

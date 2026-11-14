@@ -1,5 +1,6 @@
 extends Area2D
 
+@export_group("Aditional Actions")
 @onready var Player : ClassPlayer = SaveGame.get_player()
 @export var AditionalAction : GlobalFunctions.FUNCTIONS = GlobalFunctions.FUNCTIONS.none
 @export var AditionalActionArgument : float
@@ -9,9 +10,10 @@ extends Area2D
 @onready var Light : PointLight2D = $"PointLight2D"
 
 @onready var TimerRespawn : Timer = $"TimerRespawn"
-
+@export_group("Respawn")
 @export var Respawn : bool = false
 @export var RespawnTime : float = 1.0
+@export_group("Internal")
 
 @export var TakeKey : bool = true
 
