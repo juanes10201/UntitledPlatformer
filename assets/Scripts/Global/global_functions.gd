@@ -32,7 +32,8 @@ enum EDITOR_TOOLTIP_FUNCTIONS{
 	Undo,
 	Redo,
 	Copy,
-	Paste
+	Paste,
+	Config
 }
 
 #Uso un array de array, donde el primer sub-elemento de cada elemento contendra el nombre, el resto los valores cambiados

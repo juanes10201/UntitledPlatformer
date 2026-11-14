@@ -76,6 +76,7 @@
 [ext_resource type="Texture2D" uid="uid://bdjw0a04khk1c" path="res://assets/Sprites/Gameplay/Items/clock-sheet.png" id="61_5mcbv"]
 [ext_resource type="Script" uid="uid://dwb6qrpd7mion" path="res://assets/Nodes/LevelEditor/editor_level_data.gd" id="67_aueqc"]
 [ext_resource type="Script" uid="uid://cpevb4sucnhyw" path="res://assets/Nodes/LevelEditor/editor_ui_selecting_multiple.gd" id="67_j3kmy"]
+[ext_resource type="Script" uid="uid://cvaca317wnf7v" path="res://assets/Nodes/LevelEditor/editor_settings.gd" id="69_fvxto"]
 [ext_resource type="Script" uid="uid://c61a1j6oepgig" path="res://assets/Nodes/LevelEditor/editor_tooltip_sub_tile_icon.gd" id="70_5mcbv"]
 [ext_resource type="Texture2D" uid="uid://cwuu1ueioqy8r" path="res://assets/Sprites/Ui/menus/Editor/ChangeTileButton.png" id="71_be7jv"]
 [ext_resource type="Script" uid="uid://csy2mohpgw8mq" path="res://assets/Nodes/LevelEditor/ui_top_button.gd" id="74_edcu7"]
@@ -101,6 +102,11 @@
 [ext_resource type="FontFile" uid="uid://fqse3r3bukwu" path="res://assets/Fonts/pixelart/BoutiqueBitmap9x9_1.5.ttf" id="99_a8ud4"]
 [ext_resource type="Script" uid="uid://bo1n75ug0avwh" path="res://assets/Nodes/LevelEditor/change_z_index.gd" id="99_si8cv"]
 [ext_resource type="PackedScene" uid="uid://xjx2k63akbn3" path="res://assets/Nodes/Levels/Preload/levels_default.tscn" id="101_gm2v4"]
+[ext_resource type="Script" uid="uid://cjwm1k77jguun" path="res://assets/Nodes/LevelEditor/editor_bgs.gd" id="103_0upj3"]
+[ext_resource type="Texture2D" uid="uid://l5gcewxed7vs" path="res://assets/Sprites/Gameplay/Bg/grid.png" id="103_m5bm5"]
+[ext_resource type="Script" uid="uid://bfjuhdt66v471" path="res://assets/Scripts/grid_bg.gd" id="104_g7juv"]
+[ext_resource type="PackedScene" uid="uid://d06c0odgtyuhm" path="res://assets/Nodes/Levels/world2/bg.tscn" id="105_g7juv"]
+[ext_resource type="PackedScene" uid="uid://hu3v1yc12ded" path="res://assets/Nodes/Levels/world1_bside/bg.tscn" id="106_o1dl0"]
 
 [sub_resource type="Environment" id="Environment_fvxto"]
 background_mode = 3
@@ -1231,6 +1237,44 @@ texture = ExtResource("49_be7jv")
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_md8ho"]
 size = Vector2(16, 16)
 
+[sub_resource type="Animation" id="Animation_wh1ld"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-755, -863)]
+}
+
+[sub_resource type="Animation" id="Animation_6ubuh"]
+resource_name = "move"
+length = 40.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 21.2, 39.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-755, -863), Vector2(-493, -367), Vector2(-755, -863)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o1dl0"]
+_data = {
+&"RESET": SubResource("Animation_wh1ld"),
+&"move": SubResource("Animation_6ubuh")
+}
+
 [node name="LevelEditorRework" type="Node2D" unique_id=1519603222]
 
 [node name="Grid" type="Sprite2D" parent="." unique_id=1845255170]
@@ -1244,7 +1288,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 9999, 9999)
 script = ExtResource("2_denb7")
 
-[node name="LevelEditor" type="Node2D" parent="." unique_id=1375215272 node_paths=PackedStringArray("Cursor", "TilesetLayers", "EditorCamera", "Time_Left", "Player", "PlayerCamera", "LevelData", "EditorPlayerTrail", "EditorPlace", "AddedTilesLayers") groups=["LevelEditor"]]
+[node name="LevelEditor" type="Node2D" parent="." unique_id=1375215272 node_paths=PackedStringArray("Cursor", "TilesetLayers", "EditorCamera", "Time_Left", "Player", "PlayerCamera", "LevelData", "EditorPlayerTrail", "EditorPlace", "AddedTilesLayers", "BgNodes", "EditorBgs", "_EditorInterface") groups=["LevelEditor"]]
 script = ExtResource("1_qesh2")
 Cursor = NodePath("EditorCursor")
 SelectableObjects = Array[Array]([["res://assets/Nodes/Obj/Gameplay/Enemie/enemie.tscn", "res://assets/Nodes/Obj/Gameplay/Enemie/enemie_special.tscn", "res://assets/Nodes/Obj/Gameplay/Enemie/enemie_skeleton.tscn"], ["res://assets/Nodes/Obj/Gameplay/falling_sand.tscn", "res://assets/Nodes/Obj/Gameplay/key.tscn", "res://assets/Nodes/Obj/Gameplay/open_box.tscn", "res://assets/Nodes/Obj/Gameplay/editor_rail.tscn"], ["res://assets/Nodes/Obj/Gameplay/kill_box.tscn", "res://assets/Nodes/Obj/Gameplay/kill_box_blue.tscn", "res://assets/Nodes/Obj/Gameplay/laser.tscn"], ["res://assets/Nodes/Obj/Gameplay/float.tscn", "res://assets/Nodes/Obj/Gameplay/Enemie/enemy_fish_editor.tscn", "res://assets/Nodes/Obj/Gameplay/umbrella.tscn"], ["res://assets/Nodes/Obj/Gameplay/flag.tscn", "res://assets/Nodes/Obj/Gameplay/clock.tscn"], ["res://assets/Nodes/Obj/Gameplay/EditorLight.tscn"]])
@@ -1259,6 +1303,9 @@ LevelData = NodePath("LevelData")
 EditorPlayerTrail = NodePath("EditorPlayerTrail")
 EditorPlace = NodePath("EditorPlace")
 AddedTilesLayers = [NodePath("LevelData/AddedTileMapLayer"), NodePath("LevelData/AddedTileMapLayer2")]
+BgNodes = [NodePath("EditorBgs/World1Bg"), NodePath("EditorBgs/World2Bg"), NodePath("EditorBgs/World1BsideBg")]
+EditorBgs = NodePath("EditorBgs")
+_EditorInterface = NodePath("EditorInterface")
 
 [node name="WorldEnvironment" parent="LevelEditor" unique_id=1383689085 instance=ExtResource("101_gm2v4")]
 environment = SubResource("Environment_fvxto")
@@ -1659,11 +1706,16 @@ shape = SubResource("RectangleShape2D_pi8wn")
 wait_time = 0.2
 one_shot = true
 
-[node name="EditorInterface" type="Node2D" parent="LevelEditor" unique_id=1790801379 node_paths=PackedStringArray("EditorPlace", "Editor")]
+[node name="EditorInterface" type="Node2D" parent="LevelEditor" unique_id=1790801379 node_paths=PackedStringArray("LevelEditor", "EditorPlace", "Editor", "ConfigNode")]
 script = ExtResource("17_r7lbo")
+LevelEditor = NodePath("..")
 EditorPlace = NodePath("../EditorPlace")
 Editor = NodePath("..")
 GeneralVariables = Array[String](["position", "scale", "rotation", "z_index"])
+ConfigNode = NodePath("EditorConfigVariables")
+
+[node name="EditorConfigVariables" type="Node2D" parent="LevelEditor/EditorInterface" unique_id=385394177]
+script = ExtResource("69_fvxto")
 
 [node name="LevelData" type="Node2D" parent="LevelEditor" unique_id=220344016 node_paths=PackedStringArray("LevelEditor") groups=["LevelData"]]
 script = ExtResource("67_aueqc")
@@ -1808,11 +1860,11 @@ theme_override_styles/hover = ExtResource("77_fvxto")
 theme_override_styles/focus = ExtResource("78_4pocn")
 text = "File"
 script = ExtResource("90_cyxik")
-Options = Array[int]([3, 1, 2, 4])
+Options = Array[int]([3, 1, 2, 9, 4])
 SampleButton = NodePath("DialogButtonSample")
 LevelEditor = NodePath("../../..")
 
-[node name="DialogButtonSample" type="Button" parent="LevelEditor/EditorUi/UiTopButton/DialogButtonFile" unique_id=1333627898 node_paths=PackedStringArray("LevelData", "LevelDataParser", "EditorSaveFileDialog", "EditorLoadFileDialog")]
+[node name="DialogButtonSample" type="Button" parent="LevelEditor/EditorUi/UiTopButton/DialogButtonFile" unique_id=1333627898 node_paths=PackedStringArray("LevelData", "LevelDataParser", "LevelEditor", "EditorSaveFileDialog", "EditorLoadFileDialog")]
 visible = false
 layout_mode = 0
 offset_top = 36.0
@@ -1828,6 +1880,7 @@ text = "Placeholder"
 script = ExtResource("91_edcu7")
 LevelData = NodePath("../../../../LevelData")
 LevelDataParser = NodePath("../../../../EditorDataParser")
+LevelEditor = NodePath("../../../..")
 EditorSaveFileDialog = NodePath("../EditorSaveFileDialog")
 EditorLoadFileDialog = NodePath("../EditorLoadFileDialog")
 
@@ -1862,7 +1915,7 @@ Options = Array[int]([5, 6, 7, 8])
 SampleButton = NodePath("DialogButtonSample")
 LevelEditor = NodePath("../../..")
 
-[node name="DialogButtonSample" type="Button" parent="LevelEditor/EditorUi/UiTopButton/DialogButtonFile2" unique_id=763858789 node_paths=PackedStringArray("LevelData", "LevelDataParser", "EditorSaveFileDialog", "EditorLoadFileDialog")]
+[node name="DialogButtonSample" type="Button" parent="LevelEditor/EditorUi/UiTopButton/DialogButtonFile2" unique_id=763858789 node_paths=PackedStringArray("LevelData", "LevelDataParser", "LevelEditor", "EditorSaveFileDialog", "EditorLoadFileDialog")]
 visible = false
 layout_mode = 0
 offset_top = 36.0
@@ -1878,6 +1931,7 @@ text = "Placeholder"
 script = ExtResource("91_edcu7")
 LevelData = NodePath("../../../../LevelData")
 LevelDataParser = NodePath("../../../../EditorDataParser")
+LevelEditor = NodePath("../../../..")
 EditorSaveFileDialog = NodePath("../EditorSaveFileDialog")
 EditorLoadFileDialog = NodePath("../EditorLoadFileDialog")
 
@@ -2114,6 +2168,32 @@ offset_right = 1097.0
 offset_bottom = 1164.0
 scale = Vector2(-0.09, 0.09)
 texture_normal = ExtResource("97_n2ls0")
+
+[node name="EditorBgs" type="Node2D" parent="LevelEditor" unique_id=2028505209 node_paths=PackedStringArray("LevelEditor", "ConfigVar")]
+script = ExtResource("103_0upj3")
+LevelEditor = NodePath("..")
+ConfigVar = NodePath("../EditorInterface/EditorConfigVariables")
+
+[node name="World1Bg" type="Sprite2D" parent="LevelEditor/EditorBgs" unique_id=1946735351]
+visible = false
+texture_repeat = 2
+position = Vector2(-755, -863)
+texture = ExtResource("103_m5bm5")
+centered = false
+region_enabled = true
+region_rect = Rect2(0.078, 0.149, 1000, 1000)
+script = ExtResource("104_g7juv")
+Show = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelEditor/EditorBgs/World1Bg" unique_id=2123886979]
+libraries/ = SubResource("AnimationLibrary_o1dl0")
+
+[node name="World2Bg" parent="LevelEditor/EditorBgs" unique_id=813197947 instance=ExtResource("105_g7juv")]
+visible = false
+
+[node name="World1BsideBg" parent="LevelEditor/EditorBgs" unique_id=1535254603 instance=ExtResource("106_o1dl0")]
+visible = false
+Show = false
 
 [connection signal="mouse_entered" from="LevelEditor/CanvasLayer/ButtonPlusTime" to="LevelEditor" method="_button_hovered"]
 [connection signal="mouse_exited" from="LevelEditor/CanvasLayer/ButtonPlusTime" to="LevelEditor" method="_button_not_hovered"]

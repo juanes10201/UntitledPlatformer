@@ -21,7 +21,7 @@ func _ready() -> void:
 	if(get_parent() is Parallax2D): get_parent().show()
 	z_index = -5
 	if($AnimationPlayer): $AnimationPlayer.play(PlayAnimation)
-	if(Show):
+	if(Show && !Edition.Is_in_editor):
 		self.show()
 	else:
 		self.hide()
@@ -29,6 +29,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if(Edition.Is_in_editor):
+		if(!Edition.Is_playing_in_editor || !Show):
+			hide()
+			$AnimationPlayer.stop()
+		else:
+			show()
+			$AnimationPlayer.play()
 	#if(objetive_move.x != first_pos.x && objetive_move.y != first_pos.y):
 	position.x = move_toward(first_pos.x, objetive_move.x, move*delta)
 	position.y = move_toward(first_pos.y, objetive_move.y, move*delta)

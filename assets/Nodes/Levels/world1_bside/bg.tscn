@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://hu3v1yc12ded"]
 
 [ext_resource type="Shader" uid="uid://bb1qro3ncdkil" path="res://assets/Shader/bg-bside.gdshader" id="1_hrfns"]
+[ext_resource type="Script" uid="uid://iqu412b3n0cn" path="res://assets/Nodes/Levels/world1_bside/bg_world1_bside.gd" id="1_mhidr"]
 [ext_resource type="Texture2D" uid="uid://l5gcewxed7vs" path="res://assets/Sprites/Gameplay/Bg/grid.png" id="2_mhidr"]
 [ext_resource type="Script" uid="uid://bfjuhdt66v471" path="res://assets/Scripts/grid_bg.gd" id="3_ssj0n"]
 
@@ -55,6 +56,7 @@ _data = {
 
 [node name="Parallax2D" type="Parallax2D" unique_id=1535254603]
 scroll_scale = Vector2(0.1, 0.1)
+script = ExtResource("1_mhidr")
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=6104661]
 texture_repeat = 2
@@ -67,6 +69,7 @@ offset = Vector2(500, 0)
 region_enabled = true
 region_rect = Rect2(0.078, 0.149, 1000, 1000)
 script = ExtResource("3_ssj0n")
+Show = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Bg" unique_id=1120770041]
 libraries/ = SubResource("AnimationLibrary_0i2pc")

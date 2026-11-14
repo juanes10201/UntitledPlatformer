@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var LevelEditor : Node2D
 @export var EditorPlace : Node2D
 var AnalizedBody : Node2D = null
 @export var Editor : Node2D
@@ -85,6 +86,7 @@ func DrawImGuiSubTitle(txt : String) -> void:
 	ImGui.PopFont()
 
 func AnalizeBody(Body : Node2D) -> void:
+	EditorPlace.LastCollidedBody = Body
 	if(EditorPlace.SelectedNodes && EditorPlace.SelectingMultiple):
 		AnalizedBody = EditorPlace.SelectedNodes[0]
 	else:
@@ -147,18 +149,24 @@ var OpenedCategories : Dictionary[String, bool] = {}
 const InternalVariablesCategoryName : String = "Internal"
 @export var GeneralVariables : Array[String] = []
 
-func AnalizeBodyTick() -> void:
+const FlagHasGeneralVariables : String = "EditorHasGeneralVariables"
+
+func LoadConfig() -> void:
+	AnalizeBody(ConfigNode)
+
+func AnalizeBodyTick(body : Node2D = AnalizedBody) -> void:
 	#If selected multiple elements
 	if(EditorPlace.SelectingMultiple):
 		_calculate_multiple()
-	else:
-		if(AnalizedBody):
-			DrawImGuiTitle("Inspecting " + str(AnalizedBody.name))
-			for property in AnalizedBody.get_property_list() :
+	else:		
+		if(body):
+			DrawImGuiTitle("Inspecting " + str(body.name))
+			for property in body.get_property_list() :
+				var AllowedGeneralVariables : bool = !(FlagHasGeneralVariables in body && !body.EditorHasGeneralVariables)
 				#En caso de ser una variable @Export
 				if((property.usage & PROPERTY_USAGE_EDITOR
 				&& property.usage & PROPERTY_USAGE_SCRIPT_VARIABLE)
-				|| property.name in GeneralVariables):
+				|| (property.name in GeneralVariables && AllowedGeneralVariables) ):
 					######Esto cambia dependiendo del tipo d variable######
 					if(LastImGuiTitle == InternalVariablesCategoryName):
 						continue
@@ -175,7 +183,7 @@ func AnalizeBodyTick() -> void:
 					LastImGuiTitle = property.name
 					DrawedImGuiTitle = false
 
-func _process(delta):
+func _analyse_node_tick() -> void:
 	ImGui.Begin("Node Parameters")
 	AnalizeBodyTick()
 	ImGui.End()
@@ -183,3 +191,15 @@ func _process(delta):
 		AnalizeAdvancedBodyTick()
 	if(EditorPlace.LastCollidedBody != AnalizedBody):
 		AnalizeBody(EditorPlace.LastCollidedBody)
+
+@export var ConfigNode : Node2D
+#func _config_ui_tick() -> void:
+#	ImGui.Begin("Config")
+#	AnalizeBodyTick(ConfigNode)
+#	ImGui.End()
+
+func _process(delta):
+	#if(!LevelEditor.OpenedConfig):
+	_analyse_node_tick()
+	#else:
+	#	_config_ui_tick()

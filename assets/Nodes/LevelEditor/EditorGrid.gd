@@ -8,5 +8,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if(Edition.Is_in_editor): show()
+	if(Edition.Is_in_editor && !Edition.Is_playing_in_editor): show()
 	else: hide()

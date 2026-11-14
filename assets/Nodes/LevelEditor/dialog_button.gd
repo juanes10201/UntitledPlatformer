@@ -2,6 +2,7 @@ extends Button
 @export var Type : GlobalFunctions.EDITOR_TOOLTIP_FUNCTIONS = GlobalFunctions.EDITOR_TOOLTIP_FUNCTIONS.none
 @export var LevelData : Node2D
 @export var LevelDataParser : Node2D
+@export var LevelEditor : Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,6 +22,10 @@ func _on_pressed() -> void:
 
 func EditorTooltipExit() -> void:
 	get_tree().change_scene_to_file("res://assets/Nodes/Ui/main_menu_w_level_preview.tscn")
+
+func EditorTooltipConfig() -> void:
+	print("Opening Config...")
+	LevelEditor.OpenConfig()
 
 func EditorTooltipOpen() -> void:
 	print("Loading file...")

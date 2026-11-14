@@ -27,6 +27,13 @@ var Paused : bool = false
 
 var CurrentUiPage : int = 0
 
+@export var BgNodes : Array[Node2D]
+@export var EditorBgs : Node2D
+@export var _EditorInterface : Node2D
+
+func OpenConfig() -> void:
+	_EditorInterface.LoadConfig()
+
 func get_level_data() -> Node2D:
 	if(!LevelData): LevelData = get_node("EditorPlace")
 	return LevelData
@@ -140,15 +147,6 @@ func _reset_play() -> void:
 		if(SnapshotLevelData):
 			SnapshotLevelData.free()
 		SnapshotLevelData = null
-		#print("\nNew tileset layers: " + str(TilesetLayers))
-	#for i in range(SaveGame.get_player().LASERS_ENABLED.size()):
-	#	SaveGame.get_player().LASERS_ENABLED[i] = false
-	#if(Player):
-	#	EditorCamera.position = Player.position
-	#	Player.editor_reset()
-	#for child in get_children():
-	#	if(child.is_in_group("Enemie") || child.is_in_group("sand") || child.is_in_group("Laser")):
-	#		child.editor_reset()
 
 func _ready() -> void:
 	Edition.Is_in_editor = true
@@ -156,6 +154,7 @@ func _ready() -> void:
 	Time_Left.paused = true
 	if(Player):
 		Player._set_time_state(false, false)
+	EditorBgs.reload_bg()
 	
 func _process(delta: float) -> void:
 	if(OpenedFileDialog && !GlobalFunctions.OpenedFileDialog):
@@ -170,6 +169,7 @@ func _process(delta: float) -> void:
 func set_play_state(state : bool) -> void:
 	if(!Paused):
 		if(state):
+			EditorBgs.reload_bg()
 			var _AddedTilesLayer : TileMapLayer = AddedTilesLayers[CurrentAddedTileLayer]
 			#_cache_editor_elements_values()
 			SaveSnapshotLevelData()
