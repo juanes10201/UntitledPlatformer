@@ -10,11 +10,13 @@ var SelectingMultipleAnalize : Array[Dictionary] = []
 var SelectingMultipleAmount : int = 0
 
 func _calculate_multiple() -> void:
-	if((!SelectingMultipleRepeatedElements || SelectingMultipleAmount != EditorPlace.SelectedNodes.size()) && EditorPlace.SelectedNodes):
+	if((!SelectingMultipleRepeatedElements
+	|| SelectingMultipleAmount != EditorPlace.SelectedNodes.size())
+	&& EditorPlace.SelectedNodes):
 		SelectingMultipleAnalize = []
 		SelectingMultipleAmount = EditorPlace.SelectedNodes.size()
 		var ExampleNode : Node2D = EditorPlace.SelectedNodes[0]
-		#Crear un diccionario que contenga todos los puntos que esten
+		#Crear un diccionario que contenga todos los Nodos que esten
 		for property in ExampleNode.get_property_list() :
 			if(property.usage & PROPERTY_USAGE_EDITOR && property.usage & PROPERTY_USAGE_SCRIPT_VARIABLE):
 				SelectingMultipleRepeatedElements.set(property.name, 0)
@@ -40,13 +42,26 @@ func _calculate_multiple() -> void:
 			
 			##Resetear los elementos para volver a precalcular todo
 			##SelectingMultipleRepeatedElements = {}
+var FontPointers : Array = []
 
 func _ready() -> void:
 	SetupImGui()
 
 func SetupImGui() -> void:
+	print("Loading ImGui!")
 	var Style = ImGui.GetStyle()
-	Style
+	FontPointers = ImGuiGD.GetFontPtrs()
+
+
+func DrawImGuiTitle(txt : String) -> void: 
+	ImGui.PushFont(FontPointers[1])
+	ImGui.Text(txt)
+	ImGui.PopFont()
+
+func DrawImGuiSubTitle(txt : String) -> void: 
+	ImGui.PushFont(FontPointers[2])
+	ImGui.Text(txt)
+	ImGui.PopFont()
 
 func AnalizeBody(Body : Node2D) -> void:
 	if(EditorPlace.SelectedNodes && EditorPlace.SelectingMultiple):
@@ -99,22 +114,26 @@ func ImGuiShowProperty(property) -> bool:
 					ChangedValue = true
 	return ChangedValue
 
+var LastImGuiTitle : String = ""
 func AnalizeBodyTick() -> void:
 	#If selected multiple elements
 	if(EditorPlace.SelectingMultiple):
 		_calculate_multiple()
 	else:
 		if(AnalizedBody):
-			ImGui.Text("Inspecting " + str(AnalizedBody.name))
+			DrawImGuiTitle("Inspecting " + str(AnalizedBody.name))
 			for property in AnalizedBody.get_property_list() :
+				#En caso de ser una variable @Export
 				if(property.usage & PROPERTY_USAGE_EDITOR && property.usage & PROPERTY_USAGE_SCRIPT_VARIABLE):
 					######Esto cambia dependiendo del tipo d variable######
+					if(LastImGuiTitle != ""):
+						DrawImGuiTitle(LastImGuiTitle)
+					LastImGuiTitle = ""
 					ImGuiShowProperty(property)
-							#_:
-							#	ImGui.Text(property.name + ": " + str(AnalizedBody.get(property.name)))
-
-#func AddPropertyUi(Property) -> void:
-#	
+				elif(property.usage & PROPERTY_USAGE_GROUP):#PROPERTY_USAGE_CATEGORY):# || property.usage & PROPERTY_USAGE_GROUP):
+					#Si esta documentada por Godot entonces no es una categoria propia
+					LastImGuiTitle = property.name
+					#DrawImGuiTitle(property.name)
 
 func _process(delta):
 	ImGui.Begin("Node Parameters")
