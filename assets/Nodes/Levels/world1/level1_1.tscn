@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cykeyxkv73jjt" path="res://assets/Nodes/Obj/Gameplay/falling_sand.tscn" id="16_oq6ls"]
 [ext_resource type="AudioStream" uid="uid://dsvfo3erylgm" path="res://assets/Sounds/Tutorial/voicetutorial.wav" id="17_jlc0c"]
 [ext_resource type="Script" uid="uid://dbfv5o1s01x06" path="res://assets/Scripts/DynamicLightAnimation.gd" id="17_kdsa1"]
+[ext_resource type="Script" uid="uid://bwlaywm6phpo1" path="res://assets/Scripts/text_jitterclick_explain.gd" id="21_scat7"]
 
 [sub_resource type="Animation" id="Animation_wh1ld"]
 length = 0.001
@@ -493,15 +494,17 @@ ReadFromReplay = true
 
 [node name="DashTutorial2" type="RichTextLabel" parent="Tutorial" unique_id=669944912 node_paths=PackedStringArray("TextDelay", "VoiceDelay", "Voice")]
 material = SubResource("CanvasItemMaterial_kdsa1")
-offset_left = -105.38501
-offset_top = -21.650604
-offset_right = 36.61499
-offset_bottom = 50.349396
+offset_left = -126.0
+offset_top = -33.0
+offset_right = 16.0
+offset_bottom = 39.0
 theme_override_fonts/normal_font = ExtResource("12_fneve")
-text = "
-Usa        para escalar
+text = "Te cuento
 
-Mantene apretado
+MANTENE        para
+               escalar
+
+MANTENE apretado
 para saltar mas alto"
 fit_content = true
 script = ExtResource("16_8fc2q")
@@ -523,10 +526,15 @@ one_shot = true
 stream = ExtResource("17_jlc0c")
 volume_db = -20.0
 
+[node name="TextJitterclickExplain" type="Node2D" parent="Tutorial/DashTutorial2" unique_id=133987305]
+script = ExtResource("21_scat7")
+AltText = "Jajaj. No te me olvides de que manteniendo apretado saltas mas alto
+Jijo"
+
 [node name="DashButton3" type="AnimatedSprite2D" parent="Tutorial" unique_id=1005240315]
 self_modulate = Color(1, 1, 1, 0.8627451)
 use_parent_material = true
-position = Vector2(2, 6)
+position = Vector2(5, 7)
 sprite_frames = SubResource("SpriteFrames_8fc2q")
 script = ExtResource("14_oq6ls")
 ReadFromReplay = true

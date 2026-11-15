@@ -1745,13 +1745,14 @@ script = ExtResource("18_suqse")
 [node name="DashTutorial2" type="RichTextLabel" parent="TextArea" unique_id=1884284594 node_paths=PackedStringArray("TextDelay", "VoiceDelay", "Voice")]
 material = SubResource("CanvasItemMaterial_suqse")
 offset_left = 12.0
-offset_top = -25.0
+offset_top = -31.0
 offset_right = 154.0
-offset_bottom = 47.0
+offset_bottom = 50.0
 theme_override_fonts/normal_font = ExtResource("16_uug2w")
 text = "
-Bienvenido a las pruebas Speedtest. Soy Holow, asistente de carreras.
-En este trayecto vas a aprender las mecanicas de tu traje"
+Como va querido?
+Me imagino que mejoraste desde la ultima vez.
+Por las dudas te voy a hacer recordar mientras pases por el circuito"
 fit_content = true
 script = ExtResource("17_3oydu")
 TextDelay = NodePath("TextDelay")

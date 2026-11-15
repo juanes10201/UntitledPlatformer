@@ -2,7 +2,7 @@
 extends TileMapLayer
 
 @onready var Player = $"../Player"
-
+@export_group("Water Level")
 @export var WaterLevel : float = 0.0
 @onready var WaterLevelGoTo : float = WaterLevel
 

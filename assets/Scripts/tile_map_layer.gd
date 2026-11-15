@@ -2,6 +2,7 @@
 extends TileMapLayer
 
 @onready var Player = $"../Player"
+@export_group("Shading")
 @export var ShadowShader : bool = false
 @export var IsShadedSubtile : bool = false
 @export_tool_button("Redraw Neighbor Map", "Callable")
@@ -102,6 +103,9 @@ func update_neighbor_map() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	#if(Edition.Is_in_editor):
+	#	ShadowShader
+	
 	#var _tile_size = material.get_shader_parameter("chunk_size")
 	
 	#var sides := PackedInt32Array()
