@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://b7j8834feho55"]
+[gd_scene format=4 uid="uid://c31hupxbursfi"]
 
 [ext_resource type="Texture2D" uid="uid://l5gcewxed7vs" path="res://assets/Sprites/Gameplay/Bg/grid.png" id="1_infck"]
 [ext_resource type="Script" uid="uid://bfjuhdt66v471" path="res://assets/Scripts/grid_bg.gd" id="2_up3lq"]
@@ -114,22 +114,6 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_y6xr4")
 fill = 1
 fill_from = Vector2(0.48290598, 0.517094)
-
-[sub_resource type="GDScript" id="GDScript_kdu5x"]
-script/source = "extends CanvasLayer
-@export var ShowFadeIn : bool = true
-@export var ShowFadeOut : bool = false
-@export var ShowTimer : bool = true
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
 
 [sub_resource type="Environment" id="Environment_vmlh1"]
 background_mode = 3
@@ -445,9 +429,6 @@ script = ExtResource("6_a5x1v")
 top_level = true
 position = Vector2(-323, -97)
 
-[node name="CanvasLayer" parent="." unique_id=407845698 instance=ExtResource("7_n014a")]
-script = SubResource("GDScript_kdu5x")
-
 [node name="Time_Left" type="Timer" parent="." unique_id=2147052346 groups=["GameTimer"]]
 wait_time = 10.0
 one_shot = true
@@ -562,3 +543,5 @@ MAX_SPEED = 200.0
 [node name="falling_sand4" parent="." unique_id=888209280 instance=ExtResource("16_oq6ls")]
 position = Vector2(6, -232)
 MAX_SPEED = 200.0
+
+[node name="CanvasLayer" parent="." unique_id=1210512174 instance=ExtResource("7_n014a")]

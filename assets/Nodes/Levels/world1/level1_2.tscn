@@ -118,22 +118,6 @@ gradient = SubResource("Gradient_jfyc5")
 fill = 1
 fill_from = Vector2(0.48290598, 0.517094)
 
-[sub_resource type="GDScript" id="GDScript_kdu5x"]
-script/source = "extends CanvasLayer
-@export var ShowFadeIn : bool = true
-@export var ShowFadeOut : bool = false
-@export var ShowTimer : bool = true
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
 [sub_resource type="Environment" id="Environment_vmlh1"]
 background_mode = 3
 glow_enabled = true
@@ -368,9 +352,6 @@ script = ExtResource("6_7ulu0")
 top_level = true
 position = Vector2(-277, -166)
 
-[node name="CanvasLayer" parent="." unique_id=1540651817 instance=ExtResource("7_s26qe")]
-script = SubResource("GDScript_kdu5x")
-
 [node name="Time_Left" type="Timer" parent="." unique_id=2101749522 groups=["GameTimer"]]
 wait_time = 15.0
 one_shot = true
@@ -396,3 +377,5 @@ Visible = false
 [node name="Tutorial" type="Node2D" parent="." unique_id=1976593334]
 material = SubResource("ShaderMaterial_oq6ls")
 position = Vector2(-187.61499, -148.3494)
+
+[node name="CanvasLayer" parent="." unique_id=1210512174 instance=ExtResource("7_s26qe")]

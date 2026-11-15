@@ -75,29 +75,6 @@ _data = {
 &"move": SubResource("Animation_6ubuh")
 }
 
-[sub_resource type="GDScript" id="GDScript_kdu5x"]
-script/source = "extends CanvasLayer
-@export var ShowFadeIn : bool = true
-@export var ShowFadeOut : bool = false
-@export var ShowTimer : bool = true
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ipb16"]
-shader = ExtResource("9_oqo4y")
-shader_parameter/blur_size = 4.0
-shader_parameter/max_alpha = 0.6
-shader_parameter/shadow_color = Color(0, 0, 0, 1)
-shader_parameter/extend_px = 0.0
-
 [sub_resource type="Environment" id="Environment_vmlh1"]
 background_mode = 3
 glow_enabled = true
@@ -299,19 +276,19 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../CanvasLayer/Snes_borders:scale")
+tracks/1/path = NodePath("../../CanvasLayer2/Sprite2D9:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.93333334),
+"times": PackedFloat32Array(0, 0.56666666),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0.600926, 0.6009259), Vector2(0.806, 0.601)]
+"values": [Vector2(275, 604), Vector2(275, 680.67)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../../CanvasLayer/Sprite2D9:modulate")
+tracks/2/path = NodePath("../../CanvasLayer2/Sprite2D9:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -323,26 +300,14 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../../CanvasLayer/Sprite2D9:position")
+tracks/3/path = NodePath("../../CanvasLayer2/Snes_borders:scale")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.56666666),
+"times": PackedFloat32Array(0, 0.93333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(275, 604), Vector2(275, 680.67)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../../CanvasLayer/Codebar:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.26666665, 0.76666665),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Vector2(0.600926, 0.6009259), Vector2(0.806, 0.601)]
 }
 
 [sub_resource type="Animation" id="Animation_ifi6f"]
@@ -362,19 +327,19 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../CanvasLayer/Snes_borders:scale")
+tracks/1/path = NodePath("../../CanvasLayer2/Sprite2D9:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.600926, 0.6009259)]
+"values": [Vector2(275, 604)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../../CanvasLayer/Sprite2D9:modulate")
+tracks/2/path = NodePath("../../CanvasLayer2/Sprite2D9:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -386,26 +351,14 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../../CanvasLayer/Sprite2D9:position")
+tracks/3/path = NodePath("../../CanvasLayer2/Snes_borders:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(275, 604)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../../CanvasLayer/Codebar:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(0.600926, 0.6009259)]
 }
 
 [sub_resource type="Animation" id="Animation_wjktn"]
@@ -737,6 +690,13 @@ _data = {
 &"Start_wishlist": SubResource("Animation_1gu5b")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ipb16"]
+shader = ExtResource("9_oqo4y")
+shader_parameter/blur_size = 4.0
+shader_parameter/max_alpha = 0.6
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/extend_px = 0.0
+
 [node name="Node2D" type="Node2D" unique_id=148865740]
 position = Vector2(0, -1)
 
@@ -788,31 +748,6 @@ texture_repeat = 2
 tile_map_data = PackedByteArray("AADy//L/AQAWAAwAAADy//P/AQAWAAwAAADy//T/AQAWAAwAAADy//X/AQAWAAwAAADy//j/AQAWAAwAAADy//n/AQAWAAwAAADy//b/AQAWAAwAAADy//f/AQAWAAwAAAD5//r/AQASAAsAAAD6//r/AQATAAsAAAD7//r/AQAUAAsAAAAEAPn/AQAVAAwAAAAEAPj/AQAVAAwAAAAEAPf/AQAVAAwAAAAEAPb/AQAVAAwAAAAEAPX/AQAVAAwAAAADAPn/AQAVAAwAAAADAPj/AQAVAAwAAAADAPf/AQAVAAwAAAADAPb/AQAVAAwAAAADAPX/AQAVAAwAAAD6//P/AQAQAA8AAAD6//T/AQAQABAAAAD6//X/AQAQABEAAAD7//P/AQARAA8AAAD7//T/AQARABAAAAD7//X/AQARABEAAAD8//P/AQAcABMAAAD8//T/AQAcABQAAAD9//P/AQAdABMAAAD9//T/AQAdABQAAAD+//P/AQAeABMAAAD+//T/AQAeABQAAAD6//b/AQAYABMAAAD6//f/AQAYABQAAAD7//b/AQAZABMAAAD7//f/AQAZABQAAAD6//j/AQAbABMAAAD6//n/AQAbABQAAAD7//L/AQAKAA8AAAD8//L/AQALAA8AAAD9//L/AQAMAA8AAAD+//L/AQANAA8AAAD+//X/AQAaABEAAAD+//b/AQAaABIAAAD///X/AQAbABEAAAD///b/AQAbABIAAAD8//X/AQAaABEAAAD8//b/AQAaABIAAAD9//X/AQAbABEAAAD9//b/AQAbABIAAAD0//X/AQASAAoAAAD0//b/AQASAAoAAAD0//f/AQASAAoAAAD0//j/AQASAAoAAAD0//n/AQASAAoAAAD1//X/AQASAAoAAAD1//b/AQASAAoAAAD1//f/AQASAAoAAAD1//j/AQASAAoAAAD1//n/AQASAAoAAADz//L/AQASAAoAAADz//P/AQASAAoAAADz//T/AQASAAoAAADz//X/AQASAAoAAADz//b/AQASAAoAAADz//f/AQASAAoAAADz//j/AQASAAoAAADz//n/AQASAAoAAAD0//L/AQASAAoAAAD0//P/AQASAAoAAAD0//T/AQASAAoAAAD1//L/AQASAAoAAAD1//P/AQASAAoAAAD1//T/AQASAAoAAAD2//L/AQASAAoAAAD2//P/AQASAAoAAAD2//T/AQASAAoAAAD2//X/AQASAAoAAAD2//b/AQASAAoAAAD2//f/AQASAAoAAAD2//j/AQASAAoAAAD2//n/AQASAAoAAAD4//L/AQAFABAAAAD4//b/AQAYABEAAAD4//f/AQAYABIAAAD5//L/AQAGABAAAAD5//P/AQAPAA8AAAD5//T/AQAPABAAAAD5//X/AQAPABEAAAD5//b/AQAZABEAAAD5//f/AQAZABIAAAD5//j/AQAaABMAAAD5//n/AQAaABQAAAA=")
 tile_set = ExtResource("3_ipq53")
 script = ExtResource("2_ubfur")
-
-[node name="CanvasLayer" parent="." unique_id=1211982132 instance=ExtResource("7_c7hpj")]
-script = SubResource("GDScript_kdu5x")
-
-[node name="LogoText" parent="CanvasLayer" index="12" unique_id=1669258455]
-theme_override_constants/line_separation = -120
-theme_override_font_sizes/normal_font_size = 289
-
-[node name="Snes_borders" type="Sprite2D" parent="CanvasLayer" unique_id=500099975]
-visible = false
-z_index = 2
-position = Vector2(576.8889, 324.5)
-scale = Vector2(0.600926, 0.6009259)
-texture = ExtResource("7_frsgj")
-script = ExtResource("8_mo53l")
-
-[node name="Sprite2D9" type="Sprite2D" parent="CanvasLayer" unique_id=1757431525]
-position = Vector2(275, 604)
-texture = ExtResource("10_7qp8e")
-
-[node name="Sprite2D10" type="Sprite2D" parent="CanvasLayer/Sprite2D9" unique_id=36031909]
-z_index = -1
-material = SubResource("ShaderMaterial_ipb16")
-position = Vector2(5, 5)
-texture = ExtResource("10_7qp8e")
 
 [node name="Time_Left" type="Timer" parent="." unique_id=891190019 groups=["GameTimer"]]
 wait_time = 20.0
@@ -1729,7 +1664,7 @@ script = ExtResource("10_qs57u")
 CurrentAnimation = 1
 
 [node name="PointLight2D32" type="PointLight2D" parent="TextArea/LightsHidePlayer" unique_id=1079403460]
-position = Vector2(83.125, 105.125)
+position = Vector2(83, 106)
 scale = Vector2(1.453125, 1.453125)
 color = Color(0.9999998, 0.5040591, 0.20226169, 1)
 energy = 0.76
@@ -1739,7 +1674,7 @@ height = 13.0
 script = ExtResource("10_qs57u")
 
 [node name="PointLight2D98" type="PointLight2D" parent="TextArea/LightsHidePlayer" unique_id=1941034738]
-position = Vector2(103.125, 79.125)
+position = Vector2(116, 87)
 scale = Vector2(1.453125, 1.453125)
 color = Color(0.26651847, 0.72782826, 0.85654485, 1)
 energy = 0.76
@@ -1769,7 +1704,7 @@ height = 13.0
 script = ExtResource("10_qs57u")
 
 [node name="PointLight2D100" type="PointLight2D" parent="TextArea/LightsHidePlayer" unique_id=370350250]
-position = Vector2(-2, 138)
+position = Vector2(12, 136)
 scale = Vector2(1.453125, 1.453125)
 color = Color(0.94444615, 0.53255206, 0.47606444, 1)
 energy = 0.76
@@ -1888,6 +1823,7 @@ script = ExtResource("10_qs57u")
 
 [node name="AudioLights" type="AudioStreamPlayer" parent="TextArea/LightsPlayerInteract" unique_id=1668222825]
 stream = ExtResource("27_r3f2c")
+volume_db = 10.0
 bus = &"Sfx"
 
 [node name="KillBox5" parent="." unique_id=1092945235 instance=ExtResource("12_wjktn")]
@@ -2049,7 +1985,7 @@ ReplayMilisecDelay = 3000.0
 RecordedLocation = "res://assets/Replays/intro_level7.json"
 
 [node name="Enemie10" parent="." unique_id=1044905873 instance=ExtResource("12_ifi6f")]
-position = Vector2(-238, -842)
+position = Vector2(-154, -842)
 EnemyDirection = 2
 Enemy_burst_speed = 400.0
 Max_groundsmash_distance = 100.0
@@ -2219,10 +2155,31 @@ height = 133.0
 script = ExtResource("10_qs57u")
 CurrentAnimation = 1
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1105383042]
+
+[node name="Snes_borders" type="Sprite2D" parent="CanvasLayer2" unique_id=500099975]
+visible = false
+z_index = 2
+position = Vector2(576.8889, 324.5)
+scale = Vector2(0.600926, 0.6009259)
+texture = ExtResource("7_frsgj")
+script = ExtResource("8_mo53l")
+
+[node name="Sprite2D9" type="Sprite2D" parent="CanvasLayer2" unique_id=1757431525]
+position = Vector2(275, 604)
+texture = ExtResource("10_7qp8e")
+
+[node name="Sprite2D10" type="Sprite2D" parent="CanvasLayer2/Sprite2D9" unique_id=36031909]
+z_index = -1
+material = SubResource("ShaderMaterial_ipb16")
+position = Vector2(5, 5)
+texture = ExtResource("10_7qp8e")
+
+[node name="CanvasLayer" parent="." unique_id=1210512174 instance=ExtResource("7_c7hpj")]
+
 [connection signal="body_entered" from="TextArea" to="TextArea" method="_on_body_entered"]
 [connection signal="timeout" from="Player/TimerIntroSlam" to="Player" method="_on_timer_intro_slam_timeout"]
 [connection signal="Dialog_Ended" from="CharacterBody2D3" to="Player" method="_dialog_intro_end"]
 
-[editable path="CanvasLayer"]
 [editable path="Enemie4"]
 [editable path="CharacterBody2D3"]

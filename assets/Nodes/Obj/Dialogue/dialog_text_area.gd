@@ -4,6 +4,7 @@ extends Area2D
 @export var HideObject : Node2D
 @export var AutoActivate : bool = false
 @export var AutoTime : float = 1.0
+var Activated : bool = false
 
 func _ready() -> void:
 	if(AutoActivate):
@@ -11,7 +12,8 @@ func _ready() -> void:
 		_on_body_entered(SaveGame.get_player())
 
 func _on_body_entered(body: Node2D) -> void:
-	if(body && body.is_in_group("Player")):
+	if(!Activated && body && body.is_in_group("Player")):
+		Activated = true
 		if(Text):
 			Text.animate()
 		if(ShowObject): ShowObject.enter()

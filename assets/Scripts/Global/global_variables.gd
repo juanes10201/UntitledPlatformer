@@ -1,5 +1,10 @@
 extends Node
 
+
+enum TRANSITION_TYPES{
+	FADE,
+	LIGHTS
+}
 enum ReplayStates{
 	REPLAY,
 	RECORD,

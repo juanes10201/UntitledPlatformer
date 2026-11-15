@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cfa7sxsc3ppdn"]
 
+[ext_resource type="Script" uid="uid://byxpm8b2a5gwr" path="res://assets/Scripts/InGameUi.gd" id="1_1c8j7"]
 [ext_resource type="Texture2D" uid="uid://dk8qs15tgkthx" path="res://assets/Sprites/Ui/Bg/Transition.png" id="1_q21sl"]
 [ext_resource type="FontFile" uid="uid://d3ebca3t4i171" path="res://assets/Fonts/Ace Futurism.ttf" id="2_2ft35"]
 [ext_resource type="Shader" uid="uid://vf7wbaxmykte" path="res://assets/Nodes/Obj/blur.gdshader" id="3_mqpl3"]
+[ext_resource type="AudioStream" uid="uid://der41flrt5mvd" path="res://assets/Sounds/turn_lights.wav" id="3_xuunc"]
 [ext_resource type="FontFile" uid="uid://brwm536qpt5yh" path="res://assets/Fonts/Big Old Boldy.otf" id="4_1c8j7"]
 [ext_resource type="Script" uid="uid://n4qwd5l56oy4" path="res://assets/Scripts/UI_time_text.gd" id="5_xuunc"]
 [ext_resource type="Texture2D" uid="uid://d1y21fe855ulp" path="res://assets/Sprites/Ui/ray-time.png" id="6_jmym5"]
@@ -48,6 +50,7 @@
 [sub_resource type="GDScript" id="GDScript_4cp2g"]
 script/source = "extends Sprite2D
 
+var TransitionType : Global.TRANSITION_TYPES
 @export var MoveAmount : float = 6
 var FadeOut : bool = false
 @export var XGoTo : float = 774.382
@@ -56,20 +59,28 @@ var FadeOut : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var _canvaslayer : CanvasLayer = get_parent()
+	if(\"TransitionType\" in _canvaslayer):
+		TransitionType = _canvaslayer.TransitionType
 	if(DefaultStart):
 		fade_out()
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#print(visible)
 	if(FadeOut):
-		self.position.x += (XGoTo-self.position.x) * MoveAmount * delta
-		if(self.position.x >= XGoTo-XDif && self.position.x <= XGoTo+XDif): self.hide()
+		if(TransitionType == Global.TRANSITION_TYPES.FADE):
+			self.position.x += (XGoTo-self.position.x) * MoveAmount * delta
+			if(self.position.x >= XGoTo-XDif && self.position.x <= XGoTo+XDif): self.hide()
 
 func fade_out():
 	show()
-	FadeOut = true
+	if(TransitionType == Global.TRANSITION_TYPES.LIGHTS):
+		await get_tree().create_timer(1.5).timeout
+		if($AudioLights): $AudioLights.play()
+		hide()
+	elif(TransitionType == Global.TRANSITION_TYPES.FADE):
+		FadeOut = true
 "
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b8w0x"]
@@ -101,7 +112,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("25_vythc")
 }],
-"loop": true,
+"loop": 1,
 "name": &"A",
 "speed": 5.0
 }, {
@@ -109,7 +120,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("26_7loux")
 }],
-"loop": true,
+"loop": 1,
 "name": &"B",
 "speed": 5.0
 }, {
@@ -117,7 +128,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("27_c46g6")
 }],
-"loop": true,
+"loop": 1,
 "name": &"C",
 "speed": 5.0
 }, {
@@ -125,7 +136,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("28_rg6jp")
 }],
-"loop": true,
+"loop": 1,
 "name": &"D",
 "speed": 5.0
 }, {
@@ -133,7 +144,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("29_wp1qq")
 }],
-"loop": true,
+"loop": 1,
 "name": &"P",
 "speed": 5.0
 }, {
@@ -141,7 +152,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("30_urpvt")
 }],
-"loop": true,
+"loop": 1,
 "name": &"S",
 "speed": 5.0
 }, {
@@ -149,7 +160,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("31_eja3l")
 }],
-"loop": true,
+"loop": 1,
 "name": &"SS",
 "speed": 5.0
 }, {
@@ -157,7 +168,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("32_6xibn")
 }],
-"loop": true,
+"loop": 1,
 "name": &"SSS",
 "speed": 5.0
 }, {
@@ -165,7 +176,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("33_iane6")
 }],
-"loop": true,
+"loop": 1,
 "name": &"please_dont_sue_me",
 "speed": 5.0
 }]
@@ -215,7 +226,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("38_1phkn")
 }],
-"loop": true,
+"loop": 1,
 "name": &"1",
 "speed": 5.0
 }, {
@@ -223,7 +234,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("39_iyy10")
 }],
-"loop": true,
+"loop": 1,
 "name": &"2",
 "speed": 5.0
 }, {
@@ -231,7 +242,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("40_kica1")
 }],
-"loop": true,
+"loop": 1,
 "name": &"3",
 "speed": 5.0
 }]
@@ -653,6 +664,7 @@ corner_radius_bottom_left = 52
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1210512174]
 layer = 2
+script = ExtResource("1_1c8j7")
 
 [node name="TransitionOut" type="Sprite2D" parent="." unique_id=311747729]
 visible = false
@@ -670,6 +682,11 @@ texture = ExtResource("1_q21sl")
 script = SubResource("GDScript_4cp2g")
 XGoTo = -900.0
 DefaultStart = true
+
+[node name="AudioLights" type="AudioStreamPlayer" parent="TransitionIn" unique_id=1116763533]
+stream = ExtResource("3_xuunc")
+volume_db = 10.0
+bus = &"Sfx"
 
 [node name="ui_text_seg" type="RichTextLabel" parent="." unique_id=845003184]
 offset_left = 532.0
@@ -764,7 +781,6 @@ texture = ExtResource("11_4yb8t")
 [node name="ReturnToGameUIText" type="RichTextLabel" parent="." unique_id=1385947657]
 visible = false
 material = SubResource("ShaderMaterial_rc8bi")
-layout_direction = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -772,6 +788,7 @@ offset_top = 264.0
 offset_bottom = -264.0
 grow_horizontal = 2
 grow_vertical = 2
+layout_direction = 1
 theme_override_colors/default_color = Color(0.972549, 0.972549, 0.9764706, 1)
 theme_override_colors/font_outline_color = Color(0.3372549, 0.15686275, 0.74509805, 1)
 theme_override_colors/font_shadow_color = Color(0.65042853, 0.7088434, 1, 0.49411765)

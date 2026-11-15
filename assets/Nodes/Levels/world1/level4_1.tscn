@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://dsvfo3erylgm" path="res://assets/Sounds/Tutorial/voicetutorial.wav" id="20_uuxf6"]
 [ext_resource type="PackedScene" uid="uid://knd01tan0qom" path="res://assets/Nodes/Obj/Npc/npc.tscn" id="21_t2kv6"]
 [ext_resource type="PackedScene" uid="uid://bygxx5ppwysc3" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie_special.tscn" id="22_d0qva"]
+[ext_resource type="Script" uid="uid://b08vhqf120t8y" path="res://assets/Scripts/play_anim_area.gd" id="23_ljvcf"]
 
 [sub_resource type="Animation" id="Animation_wh1ld"]
 length = 0.001
@@ -227,10 +228,96 @@ size = Vector2(25.5, 175)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ex3gg"]
 size = Vector2(120, 21)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcqw6"]
+size = Vector2(20, 152)
+
+[sub_resource type="Animation" id="Animation_0eh2n"]
+resource_name = "Intro"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.79999995, 1.9333332, 2.5666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(369.48932, -75.40048), Vector2(465.975, -95.09)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:limit_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.83333325),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [170]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:zoom")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.83333325, 1.4666667, 1.9666666, 2.3779087, 2.6999998, 3.0666666, 3.3999999, 3.7333333, 4.067387, 4.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2.08, 2.08), Vector2(2.06, 2.06), Vector2(2.08, 2.08), Vector2(2.08, 2.08), Vector2(2.2714126, 2.2714126), Vector2(2.305, 2.305), Vector2(2.305, 2.305), Vector2(2.125, 2.125), Vector2(2.125, 2.125), Vector2(2.2714126, 2.2714126)]
+}
+
+[sub_resource type="Animation" id="Animation_qe6c3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:limit_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [170]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:zoom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.08, 2.08)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0eh2n"]
+_data = {
+&"Intro": SubResource("Animation_0eh2n"),
+&"RESET": SubResource("Animation_qe6c3")
+}
+
 [node name="Node2D" type="Node2D" unique_id=421737780]
 position = Vector2(0, -1)
-
-[node name="CanvasLayer" parent="." unique_id=676133477 instance=ExtResource("12_8csto")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1168903723]
 visible = false
@@ -712,6 +799,7 @@ Visible = false
 [node name="Player" parent="." unique_id=1028629522 instance=ExtResource("2_snkaw")]
 position = Vector2(-285, -18)
 CountTime = false
+Physics = false
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1011893001]
 position = Vector2(30, 26.053)
@@ -754,8 +842,24 @@ EnemyDirection = 1
 position = Vector2(456, -231)
 EnemyDirection = 1
 
+[node name="CanvasLayer" parent="." unique_id=1210512174 instance=ExtResource("12_8csto")]
+TransitionType = 1
+
+[node name="PlayAnimArea" type="Area2D" parent="." unique_id=1024472172]
+position = Vector2(-241, -14)
+script = ExtResource("23_ljvcf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayAnimArea" unique_id=1767870453]
+position = Vector2(0, -39)
+shape = SubResource("RectangleShape2D_gcqw6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayAnimArea" unique_id=60007920]
+root_node = NodePath("../../Player")
+libraries/ = SubResource("AnimationLibrary_0eh2n")
+
 [connection signal="body_entered" from="TextArea" to="TextArea" method="_on_body_entered"]
 [connection signal="body_entered" from="TextArea/EraseText" to="TextArea" method="_on_erase_text_body_entered"]
 [connection signal="body_entered" from="TextArea2" to="TextArea2" method="_on_body_entered"]
+[connection signal="body_entered" from="PlayAnimArea" to="PlayAnimArea" method="_on_body_entered"]
 
 [editable path="Key"]
