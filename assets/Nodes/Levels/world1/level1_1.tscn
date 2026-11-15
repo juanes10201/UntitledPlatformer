@@ -526,10 +526,18 @@ one_shot = true
 stream = ExtResource("17_jlc0c")
 volume_db = -20.0
 
-[node name="TextJitterclickExplain" type="Node2D" parent="Tutorial/DashTutorial2" unique_id=133987305]
+[node name="TextJitterclickExplain" type="Node2D" parent="Tutorial/DashTutorial2" unique_id=133987305 node_paths=PackedStringArray("Buttons")]
 script = ExtResource("21_scat7")
-AltText = "Jajaj. No te me olvides de que manteniendo apretado saltas mas alto
-Jijo"
+AltText = "Jajaj. En lugar de spammear MANTENE apretado el boton de Salto para saltar mas alto"
+AltAltText = "Sos un BOLUDO. 3 VECES puse
+MANTENE APRETADO en
+mayuscula para que vayas y
+jitterclickes. :dios"
+Buttons = [NodePath("../../DashButton2"), NodePath("../../DashButton"), NodePath("../../DashButton3")]
+
+[node name="JitterclickTimer" type="Timer" parent="Tutorial/DashTutorial2/TextJitterclickExplain" unique_id=1527342254]
+wait_time = 0.7
+one_shot = true
 
 [node name="DashButton3" type="AnimatedSprite2D" parent="Tutorial" unique_id=1005240315]
 self_modulate = Color(1, 1, 1, 0.8627451)
