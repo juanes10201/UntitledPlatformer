@@ -8,3 +8,9 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	$AnimationPlayer.play("BodyEntered")
+
+func play_anim_boss_preview() -> void:
+	$AnimationPlayer.play("BossPreview")
+
+func play_anim_low_light() -> void:
+	$AnimationPlayer.play("LowLight")

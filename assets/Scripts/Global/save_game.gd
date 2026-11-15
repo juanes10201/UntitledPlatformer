@@ -324,6 +324,9 @@ func GetPlayerUserName() -> String:
 	if(!name): name = "Player: "
 	return name
 
+func play_function_node_group(group : String, function : String) -> void:
+	get_group_node(group).call(function)
+
 func boss_slime_play_anim(anim : String) -> void:
 	get_boss().play_anim(anim)
 

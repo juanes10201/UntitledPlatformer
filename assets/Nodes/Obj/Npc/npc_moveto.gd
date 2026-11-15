@@ -48,8 +48,10 @@ func _ready() -> void:
 	DialogueTrigger.RecordOnlyOnce = RecordOnlyOnce
 	if(ActivateTimed):
 		await get_tree().create_timer(ActivateTime).timeout
-		DialogueTrigger.start_dialog()
-	
+		StartDialog()
+
+func StartDialog() -> void:
+	DialogueTrigger.start_dialog()
 
 func _physics_process(delta: float) -> void:
 	if(!Enabled): queue_free()

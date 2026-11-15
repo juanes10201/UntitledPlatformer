@@ -1,0 +1,16 @@
+NewsGuy1: YA comenzara la competencia SPEEDTEST..!
+Telephone: ...!
+Telephone: Ah si, casi me olvido.
+Telephone: ........Acabamos de recibir informacion exclusiva...
+Telephone: ESTE! AÑO! EL! FORMATO! SERA! EN! FORMA! DE!
+do SaveGame.play_function_node_group("PlayAnimArea", "play_anim_low_light")
+Telephone: TORNEO!
+NewsGuy1: ...No entiendo....
+Telephone: ...Ademas de competir por tiempos. Los participantes tendran que enfrentarse en duelos...!
+NewsGuy1: Duelos de?
+do SaveGame.play_function_node_group("PlayAnimArea", "play_anim_boss_preview")
+Telephone: DUELOS! A! MUERTE!
+NewsGuy1: Ahh. Claro. Como la del 89
+Telephone: Si maso menos. Salteando todo lo de la masacre
+NewsGuy1: Tiene sentido...! De todas formas seguiremos transmitiendo la competencia..!
+NewsGuy1: No se lo pierdan!
