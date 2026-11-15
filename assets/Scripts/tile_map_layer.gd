@@ -5,9 +5,14 @@ extends TileMapLayer
 @export_group("Shading")
 @export var ShadowShader : bool = false
 @export var IsShadedSubtile : bool = false
+@export var AddedOfset : Vector2 = Vector2(0.0, 0.0)
+var LoadedShadeShader : bool = false
 @export_tool_button("Redraw Neighbor Map", "Callable")
 var update_neighbor_map_action: Callable:
 	get: return update_neighbor_map
+@export_tool_button("Reset Neighbor Map", "Callable")
+var reset_neighbor_map_action: Callable:
+	get: return reset_neighbor_map
 
 enum PosBorderX{
 	None = 0,
@@ -38,12 +43,15 @@ func _generate_map_image() -> ImageTexture:
 	var _tileset_rect2i : Rect2i = get_used_rect()
 	var _tileset_size : Vector2i = _tileset_rect2i.size
 	var _image = Image.create_empty(_tileset_size.x, _tileset_size.y, false, Image.FORMAT_RGBA8)
+	var _tileset_offset = AddedOfset #Vector2(1.0, -1.0)#position#Vector2i(round(position.x), round(position.y))
+	var _tileset_origin = Vector2(_tileset_rect2i.position)+_tileset_offset
+	print("Tileset offset: " + str(_tileset_origin))
 	if(material):
 		material.set_shader_parameter("map_size", Vector2(_tileset_rect2i.size))
-		material.set_shader_parameter("map_origin", Vector2(_tileset_rect2i.position))# - Vector2(1.0, 1.0) )
+		material.set_shader_parameter("map_origin", _tileset_origin)# - Vector2(1.0, 1.0) )
 		material.set_shader_parameter("cell_size", Vector2(tile_set.tile_size))
 	
-	for _tile in get_used_cells():
+	for _tile in get_used_cells():		
 		var _tile_pos = _tile-_tileset_rect2i.position
 		var _tile_border_x : PosBorderX = PosBorderX.None
 		var _tile_border_y : PosBorderY = PosBorderY.None
@@ -93,6 +101,7 @@ func _generate_map_image() -> ImageTexture:
 	return ImageTexture.create_from_image(_image)
 
 func update_neighbor_map() -> void:
+	LoadedShadeShader = true
 	print("Updating the neighbor map")
 	var _map_image : ImageTexture = _generate_map_image()
 	var _map_image_material := material as ShaderMaterial  
@@ -100,11 +109,18 @@ func update_neighbor_map() -> void:
 	
 	print("Updated the neighbor map!")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func reset_neighbor_map() -> void:
+	LoadedShadeShader = false
+	var _unused_image = Image.create_empty(0, 0, false, Image.FORMAT_RGBA8)
+	var _unused_image_texture : ImageTexture = ImageTexture.create_from_image(_unused_image)
+	material.set_shader_parameter("border_map", _unused_image_texture)
+
 func _process(delta: float) -> void:
-	pass
-	#if(Edition.Is_in_editor):
-	#	ShadowShader
+	if(!Engine.is_editor_hint() && Edition.Is_in_editor ):
+		if(!LoadedShadeShader && ShadowShader):
+			update_neighbor_map()
+		elif(LoadedShadeShader && !ShadowShader):
+			reset_neighbor_map()
 	
 	#var _tile_size = material.get_shader_parameter("chunk_size")
 	

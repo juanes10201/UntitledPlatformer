@@ -79,6 +79,7 @@
 [ext_resource type="Script" uid="uid://cvaca317wnf7v" path="res://assets/Nodes/LevelEditor/editor_settings.gd" id="69_fvxto"]
 [ext_resource type="Script" uid="uid://c61a1j6oepgig" path="res://assets/Nodes/LevelEditor/editor_tooltip_sub_tile_icon.gd" id="70_5mcbv"]
 [ext_resource type="Texture2D" uid="uid://cwuu1ueioqy8r" path="res://assets/Sprites/Ui/menus/Editor/ChangeTileButton.png" id="71_be7jv"]
+[ext_resource type="Material" uid="uid://cl764gnfyncri" path="res://assets/Nodes/Obj/Gameplay/Tileset/ShaderWorld2Lightning.tres" id="73_2431d"]
 [ext_resource type="Script" uid="uid://csy2mohpgw8mq" path="res://assets/Nodes/LevelEditor/ui_top_button.gd" id="74_edcu7"]
 [ext_resource type="Script" uid="uid://bj1n0pp1a8sc2" path="res://assets/Nodes/LevelEditor/editor_data_parser.gd" id="75_6jsng"]
 [ext_resource type="FontFile" uid="uid://cyhethdmcdauq" path="res://assets/Fonts/Beta.ttf" id="75_cyxik"]
@@ -1740,11 +1741,13 @@ script = ExtResource("17_3vt02")
 [node name="TileMapLayer0" type="TileMapLayer" parent="LevelEditor/LevelData" unique_id=393772500 groups=["Tileset"]]
 texture_filter = 1
 texture_repeat = 2
+material = ExtResource("73_2431d")
 position = Vector2(16.999998, -16)
 scale = Vector2(1.00384, 1)
 tile_map_data = PackedByteArray("AAAAAAEAAQAAAAAAAAAAAAIAAQAAAAEAAAAAAAMAAQAAAAIAAAABAAEAAQACAAAAAAABAAIAAQACAAEAAAABAAMAAQACAAIAAAA=")
 tile_set = ExtResource("2_iimnb")
 script = ExtResource("3_0r4ld")
+AddedOfset = Vector2(1, -1)
 
 [node name="TileMapLayerWater" parent="LevelEditor/LevelData" unique_id=1940844964 instance=ExtResource("92_tk1t2")]
 position = Vector2(-2, 32)
@@ -1757,6 +1760,7 @@ position = Vector2(17, -16)
 scale = Vector2(1.00384, 1)
 tile_set = ExtResource("2_iimnb")
 script = ExtResource("3_0r4ld")
+AddedOfset = null
 
 [node name="AddedTileMapLayer2" type="TileMapLayer" parent="LevelEditor/LevelData" unique_id=276165004 groups=["Tileset"]]
 texture_filter = 1
@@ -1765,6 +1769,7 @@ position = Vector2(17, -16)
 scale = Vector2(1.00384, 1)
 tile_set = ExtResource("2_iimnb")
 script = ExtResource("3_0r4ld")
+AddedOfset = null
 
 [node name="Time_Left" type="Timer" parent="LevelEditor/LevelData" unique_id=30492087 groups=["GameTimer"]]
 wait_time = 7.0
@@ -1810,6 +1815,7 @@ position = Vector2(16.999998, -16)
 scale = Vector2(1.00384, 1)
 tile_set = ExtResource("2_iimnb")
 script = ExtResource("3_0r4ld")
+AddedOfset = null
 
 [node name="EditorUi" type="CanvasLayer" parent="LevelEditor" unique_id=1309150936 node_paths=PackedStringArray("LevelEditor", "NodePages", "EditorPlace")]
 script = ExtResource("77_ehx2g")

@@ -478,7 +478,7 @@ position = Vector2(-199, -205)
 [node name="DashButton2" type="AnimatedSprite2D" parent="Tutorial" unique_id=823325995]
 self_modulate = Color(1, 1, 1, 0.8627451)
 use_parent_material = true
-position = Vector2(-71, -6)
+position = Vector2(-51, 0)
 sprite_frames = SubResource("SpriteFrames_kdsa1")
 script = ExtResource("14_oq6ls")
 ReadFromReplay = true
@@ -487,17 +487,17 @@ ButtonToPress = "ui_right"
 [node name="DashButton" type="AnimatedSprite2D" parent="Tutorial" unique_id=169715356]
 self_modulate = Color(1, 1, 1, 0.8627451)
 use_parent_material = true
-position = Vector2(-56.38501, -13.650604)
+position = Vector2(-36.38501, -7.6506042)
 sprite_frames = SubResource("SpriteFrames_8fc2q")
 script = ExtResource("14_oq6ls")
 ReadFromReplay = true
 
 [node name="DashTutorial2" type="RichTextLabel" parent="Tutorial" unique_id=669944912 node_paths=PackedStringArray("TextDelay", "VoiceDelay", "Voice")]
 material = SubResource("CanvasItemMaterial_kdsa1")
-offset_left = -126.0
-offset_top = -33.0
-offset_right = 16.0
-offset_bottom = 39.0
+offset_left = -106.0
+offset_top = -27.0
+offset_right = 36.0
+offset_bottom = 45.0
 theme_override_fonts/normal_font = ExtResource("12_fneve")
 text = "Te cuento
 
@@ -542,7 +542,7 @@ one_shot = true
 [node name="DashButton3" type="AnimatedSprite2D" parent="Tutorial" unique_id=1005240315]
 self_modulate = Color(1, 1, 1, 0.8627451)
 use_parent_material = true
-position = Vector2(5, 7)
+position = Vector2(1, 19)
 sprite_frames = SubResource("SpriteFrames_8fc2q")
 script = ExtResource("14_oq6ls")
 ReadFromReplay = true
