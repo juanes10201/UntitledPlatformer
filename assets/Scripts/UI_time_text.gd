@@ -71,11 +71,11 @@ func _process(delta: float) -> void:
 		RaySprite.show()
 		$"../ui_text_seg".show()
 		self.show()
-		self.modulate.a = 0.0
-		RaySprite.modulate.a = 0.0
+		#self.modulate.a = 0.0
+		#RaySprite.modulate.a = 0.0
 	AddSize = lerpf(AddSize, 0, 1*delta)
-	self.modulate.a = lerpf(self.modulate.a, 1, 1*delta)
-	RaySprite.modulate.a = lerpf(RaySprite.modulate.a, 1, 1*delta)
+	self.modulate.a = lerpf(self.modulate.a, 1.0, 1*delta)
+	RaySprite.modulate.a = lerpf(RaySprite.modulate.a, 1.0, 1*delta)
 	
 	TickShake(delta)
 	#region Counter juice

@@ -1,5 +1,6 @@
 extends Area2D
 
+signal picked_by_player
 @export_group("Aditional Actions")
 @onready var Player : ClassPlayer = SaveGame.get_player()
 @export var AditionalAction : GlobalFunctions.FUNCTIONS = GlobalFunctions.FUNCTIONS.none
@@ -62,6 +63,8 @@ func _on_body_entered(body: Node2D) -> void:
 		else: LevelManager.AddStyle(0, "Got Key", 1.0, global_position, Global.ALL_DIRECTIONS.up)
 
 func set_key_state(state : bool, PlayAction : bool):
+	if(state):
+		emit_signal("picked_by_player")
 	if(!Respawn):
 		Sprite.visible = !state
 	elif(state):

@@ -1641,8 +1641,8 @@ shape = SubResource("RectangleShape2D_3oydu")
 script = ExtResource("26_hsvuh")
 
 [node name="LightHidePlayer" type="PointLight2D" parent="TextArea/LightsHidePlayer" unique_id=1289398966]
-position = Vector2(147, 75)
-scale = Vector2(3.5646424, 1.4260539)
+position = Vector2(224, 25.287155)
+scale = Vector2(3.5646424, 1.1499345)
 color = Color(0.66161335, 0.6540278, 0.6350574, 1)
 energy = 1.95
 blend_mode = 1
