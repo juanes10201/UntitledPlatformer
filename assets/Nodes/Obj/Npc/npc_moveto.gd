@@ -37,6 +37,8 @@ var InDialogue : bool = false
 @export var MaxDistance : float = 250.0
 
 @export var DialogueTrigger: Node
+@export var ReEnablePlayerPhysics : bool = true
+@export var PlayAnim : bool = false
 
 func _ready() -> void:
 	if(!MainSprite): MainSprite = $Sprite
@@ -88,8 +90,10 @@ func _physics_process(delta: float) -> void:
 func _on_timeline_ended():
 	if(OnlyOnce && HideAnim):
 		Done = true
-	if(!Player.PlayIntro):
+	if(!Player.PlayIntro && ReEnablePlayerPhysics):
 		Player._pause_game_no_menu(false)
+		if(PlayAnim):
+			Player.play_anim_npc("Exit")
 	Move = true
 	Dialogic.timeline_ended.disconnect(_on_timeline_ended)
 	InDialogue = false

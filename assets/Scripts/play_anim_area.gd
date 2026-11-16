@@ -1,10 +1,12 @@
 extends Area2D
 @export var PlayInitialAnim : bool = true
-
+@export var PlaySound : AudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if(PlayInitialAnim): $AnimationPlayer.play("Intro")
+	if(PlaySound):
+		PlaySound.play()
 
 func _on_body_entered(body: Node2D) -> void:
 	$AnimationPlayer.play("BodyEntered")

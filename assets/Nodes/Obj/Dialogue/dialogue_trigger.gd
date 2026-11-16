@@ -30,6 +30,9 @@ func start_dialog() -> void:
 		Dialogic.timeline_ended.connect(get_parent()._on_timeline_ended)
 		get_parent().Move = false
 		get_parent().InDialogue = true
+		if(get_parent().PlayAnim):
+			var _Player = SaveGame.get_player()
+			_Player.play_anim_npc("Intro")
 
 func _process(delta: float) -> void:
 	if((!NeedAction || Input.is_action_just_pressed("player_dialog_confirm")) && PlayerEntered && Dialogic.current_timeline == null):

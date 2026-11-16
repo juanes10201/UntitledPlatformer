@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://d1ji315fcqjjv" path="res://assets/Nodes/Particles/ambientparticles.tscn" id="12_8k6xd"]
 [ext_resource type="Script" uid="uid://cyxm73atp4f5a" path="res://assets/Nodes/Obj/Ui/style_add_box.gd" id="13_8qno2"]
 [ext_resource type="PackedScene" uid="uid://cykeyxkv73jjt" path="res://assets/Nodes/Obj/Gameplay/falling_sand.tscn" id="13_y7odo"]
-[ext_resource type="Script" uid="uid://dbfv5o1s01x06" path="res://assets/Scripts/DynamicLightAnimation.gd" id="17_nmuvd"]
 [ext_resource type="Script" uid="uid://b57tkpeubibqo" path="res://assets/Nodes/Levels/world1/clock_cutscene_player.gd" id="18_vrsy5"]
 [ext_resource type="PackedScene" uid="uid://knd01tan0qom" path="res://assets/Nodes/Obj/Npc/npc.tscn" id="19_ej814"]
 
@@ -111,6 +110,15 @@ _data = {
 &"move2": SubResource("Animation_b10uo")
 }
 
+[sub_resource type="Gradient" id="Gradient_qbwi5"]
+offsets = PackedFloat32Array(0, 0.5314685, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rrb62"]
+gradient = SubResource("Gradient_qbwi5")
+fill_from = Vector2(0, 0.20512821)
+fill_to = Vector2(1, 0.9145299)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clfjp"]
 size = Vector2(22, 55)
 
@@ -145,10 +153,10 @@ tracks/1/path = NodePath("../../Player/Camera2D:offset")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.033333335, 0.13333334),
+"times": PackedFloat32Array(0.033333335, 0.76666665),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(272.205, 0)]
+"values": [Vector2(0, 0), Vector2(35.835, -36.09)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -157,10 +165,10 @@ tracks/2/path = NodePath("../../Player:Physics")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.06666668, 0.56666666),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.1, 0.46666667, 1.0666667, 1.7666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [true, false]
+"values": [true, false, false, false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -184,7 +192,105 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0.03333334, 0.13333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [134, 616]
+"values": [134, 392]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../Player/Camera2D:enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../MoveNodesTo/CharacterBody2D3")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.46666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"StartDialog"
+}]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../../Player/LightHidePlayerBig:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../../Player/LightHidePlayerBig:energy")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.2, 0.36666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 2.2, 2.2, 0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../../Player:CanMoveCamera")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.033333335, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../../Player/Camera2D:zoom")
+tracks/10/interp = 2
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.36666667, 0.76666665),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.08, 2.08), Vector2(3.34, 3.34)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../../Player:CountTime")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../../Player/Camera2D:limit_left")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-339, -64]
 }
 
 [sub_resource type="Animation" id="Animation_ej814"]
@@ -216,50 +322,134 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../../Player/Camera2D:offset")
+tracks/2/path = NodePath("../../Player:Physics")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
+"update": 1,
+"values": [true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../../Player:Physics")
+tracks/3/path = NodePath("../../MoveNodesTo:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../../MoveNodesTo:position")
+tracks/4/path = NodePath("../../Player/Camera2D:limit_right")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
+"update": 1,
+"values": [134]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../../Player/Camera2D:limit_right")
+tracks/5/path = NodePath("../../Player/Camera2D:enabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [134]
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../Player/LightHidePlayerBig:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../../Player/LightHidePlayerBig:energy")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.2]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../../Player:CanMoveCamera")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../../Player/Camera2D:zoom")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.08, 2.08)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../../Player/Camera2D:offset")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../../Player:CountTime")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../../Player/Camera2D:limit_left")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-339]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ej814"]
@@ -400,7 +590,30 @@ zoom = Vector2(2.08, 2.08)
 limit_left = -339
 limit_top = -392
 limit_right = 134
-limit_bottom = 390
+limit_bottom = 376
+limit_smoothed = true
+position_smoothing_enabled = true
+script = ExtResource("6_kymax")
+
+[node name="LightHidePlayerBig" type="PointLight2D" parent="Player" unique_id=849948249]
+visible = false
+position = Vector2(47.464417, -30.783216)
+scale = Vector2(3.2212684, 1.9290583)
+color = Color(0.66849446, 0.8039501, 0.9457992, 1)
+energy = 2.2
+blend_mode = 1
+texture = SubResource("GradientTexture2D_rrb62")
+texture_scale = 4.22
+height = 1143.0
+
+[node name="CameraCutscene" type="Camera2D" parent="." unique_id=1583317426]
+position = Vector2(245.605, 233.241)
+enabled = false
+zoom = Vector2(2.08, 2.08)
+limit_left = -505
+limit_top = -462
+limit_right = 880
+limit_bottom = 634
 limit_smoothed = true
 position_smoothing_enabled = true
 script = ExtResource("6_kymax")
@@ -438,7 +651,6 @@ blend_mode = 1
 texture = SubResource("GradientTexture2D_8d70q")
 texture_scale = 4.22
 height = 133.0
-script = ExtResource("17_nmuvd")
 
 [node name="ClockCutscenePlayer" type="Node2D" parent="Area2D" unique_id=1799539093]
 script = ExtResource("18_vrsy5")
@@ -615,8 +827,9 @@ position = Vector2(202, 201)
 position = Vector2(82, -311)
 
 [node name="KillBox16" parent="MoveNodesCutscene" unique_id=1950258524 instance=ExtResource("10_l76dq")]
-position = Vector2(-8, 161)
-scale = Vector2(8.285, 2)
+z_index = 1
+position = Vector2(-11, 161)
+scale = Vector2(8.005, 2)
 
 [node name="Flag" type="Area2D" parent="MoveNodesCutscene" unique_id=878597859]
 position = Vector2(-17, 238)
@@ -658,11 +871,12 @@ tile_map_data = PackedByteArray("AAD4/w4AAQAbAA0AAAD4/w8AAQAbAA4AAAD4/xAAAQAbAA8
 tile_set = ExtResource("4_kpjie")
 
 [node name="CharacterBody2D3" parent="MoveNodesTo" unique_id=1377833310 groups=["NpcCutscene"] instance=ExtResource("19_ej814")]
-position = Vector2(528, 241)
+position = Vector2(566.62, 240)
 NeedToInteract = false
 SeePlayerDirection = false
 Dialogue_Action = "intro_game_news1"
 CutOnMaxDistance = false
+ReEnablePlayerPhysics = false
 
 [node name="CollisionShape2D" parent="MoveNodesTo/CharacterBody2D3" index="1" unique_id=535974750]
 position = Vector2(-4.4349594, -1)

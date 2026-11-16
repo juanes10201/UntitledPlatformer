@@ -67,6 +67,7 @@ var DoubleJumped : bool = false
 #region Export variables
 @export var IsMainPlayer : bool = true
 @export var RetroStyle : bool = false
+@export var CanMoveCamera : bool = true
 @export var PlayIntro : bool = false
 var juice : bool = true
 @export var Styleometter : bool = true 
@@ -214,6 +215,10 @@ enum AirSides{
 var AirState : AirSides = AirSides.NONE
 
 #endregion
+
+func play_anim_npc(Anim : String) -> void:
+	if($AnimNpcInteract):
+		$AnimNpcInteract.play(Anim)
 
 func _play_dash_particles():
 	if(Particles):
@@ -426,7 +431,7 @@ func _shadow_tick() -> void:
 func _ready() -> void:
 	_set_on_water_sound_effects(false)
 	if(ShortFormContent):
-		if(Camera):
+		if(Camera && CanMoveCamera):
 			Camera.limit_enabled = false
 			Camera.position = Vector2(0.0, 0.0)
 			Camera.offset = Vector2(0.0, -20.0)
@@ -494,7 +499,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if(PlayIntro && EndedDialogIntro && !IntroAnim.is_playing()):
 		TimerIntroSlam.start()
-		$Camera2D/AnimationPlayer.play("End")
+		if(CanMoveCamera):
+			$Camera2D/AnimationPlayer.play("End")
 		EndedDialogIntro = false
 	
 	if(!Paused):
@@ -1363,7 +1369,7 @@ func Reset_Groundsmash(ThrowEnemies : bool = true, Visuals: bool = true, ResetVe
 		ParticlesLanding.play("groundsmash")
 		ParticlesLanding.show()
 		AudioGroundsmash.play()
-		if(Camera && "Shake" in Camera): Camera.Shake(10.0, 10.0)
+		if(CanMoveCamera && Camera && "Shake" in Camera): Camera.Shake(10.0, 10.0)
 		Sprite.JuiceStretchLogic.stretch_size(Vector2(1.6, .4), Vector2(1.0, 1.0), .3, true, false, Tween.EASE_IN_OUT, Tween.TRANS_CUBIC, Sprite.JuiceStretchLogic.OffsetDirections.Down, false)
 	PressingGroundSmash = Input.is_action_pressed("player_slide")
 	GroundSmash = false
