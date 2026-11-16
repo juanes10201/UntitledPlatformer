@@ -658,7 +658,7 @@ offset_top = -24.0
 offset_right = 84.0
 offset_bottom = 30.0
 theme_override_fonts/normal_font = ExtResource("15_drd3g")
-text = "Intenta patinar con
+text = "Intenta PATINAR con
 
 el escudo usando"
 fit_content = true
@@ -739,7 +739,7 @@ offset_top = -13.0
 offset_right = 69.0
 offset_bottom = 24.0
 theme_override_fonts/normal_font = ExtResource("15_drd3g")
-text = "Decente, ahora intenta hacer un Slam.
+text = "Meh, ahora intenta hacer un SLAM.
 
 Usando:"
 fit_content = true
@@ -804,8 +804,7 @@ offset_right = 140.0
 offset_bottom = 44.0
 theme_override_fonts/normal_font = ExtResource("15_drd3g")
 text = "
-Para ser un principante
-no es mediocre. Segui intentando"
+Si fueses un principante diria que no es mediocre. Pero te diria que ya pasamos eso"
 fit_content = true
 script = ExtResource("16_b5voc")
 TextDelay = NodePath("TextDelay")

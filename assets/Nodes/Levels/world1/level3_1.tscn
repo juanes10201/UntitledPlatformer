@@ -75,7 +75,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r7rt8")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -83,7 +83,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oq6ls")
 }],
-"loop": true,
+"loop": 1,
 "name": &"pressed",
 "speed": 5.0
 }]
@@ -102,7 +102,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n4n2d")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -110,7 +110,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fneve")
 }],
-"loop": true,
+"loop": 1,
 "name": &"pressed",
 "speed": 5.0
 }]
@@ -241,9 +241,9 @@ offset_right = -106.600006
 offset_bottom = -59.0
 theme_override_fonts/normal_font = ExtResource("13_k0btq")
 text = "
-Mantene apretado      para 
+MANTENE apretado      para 
 
-hacer un salto mas alto"
+hacer un salto MAS alto"
 fit_content = true
 script = ExtResource("13_njdfe")
 Animate = true
