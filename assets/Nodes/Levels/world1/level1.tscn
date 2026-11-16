@@ -1664,7 +1664,7 @@ script = ExtResource("10_qs57u")
 CurrentAnimation = 1
 
 [node name="PointLight2D32" type="PointLight2D" parent="TextArea/LightsHidePlayer" unique_id=1079403460]
-position = Vector2(83, 106)
+position = Vector2(89, 98)
 scale = Vector2(1.453125, 1.453125)
 color = Color(0.9999998, 0.5040591, 0.20226169, 1)
 energy = 0.76
