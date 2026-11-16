@@ -36,7 +36,7 @@ animations = [{
 [node name="Killbox" type="Area2D" unique_id=1386857898 groups=["Killbox"]]
 texture_repeat = 2
 collision_layer = 132097
-collision_mask = 1029
+collision_mask = 1573
 script = ExtResource("1_rifmj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1341047252]

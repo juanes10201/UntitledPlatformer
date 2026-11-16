@@ -149,7 +149,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8vuuc")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -157,7 +157,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ji8qf")
 }],
-"loop": true,
+"loop": 1,
 "name": &"pressed",
 "speed": 5.0
 }]
@@ -176,7 +176,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_reu32")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -184,7 +184,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b5voc")
 }],
-"loop": true,
+"loop": 1,
 "name": &"pressed",
 "speed": 5.0
 }]
@@ -227,7 +227,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w7ae7")
 }],
-"loop": true,
+"loop": 1,
 "name": &"disabled",
 "speed": 5.0
 }, {
@@ -241,7 +241,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w7ae7")
 }],
-"loop": false,
+"loop": 0,
 "name": &"hide",
 "speed": 5.0
 }, {
@@ -261,7 +261,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5d5i3")
 }],
-"loop": false,
+"loop": 0,
 "name": &"show",
 "speed": 5.0
 }]
@@ -629,6 +629,8 @@ scale = Vector2(4.035, 1)
 [node name="KillBox3" parent="." unique_id=637693483 instance=ExtResource("4_7hvvm")]
 position = Vector2(-313, -126)
 scale = Vector2(1, 4)
+collision_layer = 132096
+collision_mask = 1573
 
 [node name="falling_sand" parent="." unique_id=1412653966 instance=ExtResource("13_ypkjn")]
 position = Vector2(-448, -327)
