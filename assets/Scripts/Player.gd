@@ -198,7 +198,7 @@ var PlayedSwitchedGravityAnimation : bool = false
 @export var Particles : bool = true
 @export var ParticlesHitText : bool = true
 
-@onready var Time_Left : Timer = $"../Time_Left"
+@onready var Time_Left : Timer = SaveGame.get_group_node("GameTimer")
 
 var KickSpeed : Vector2 = Vector2(0.0,0.0)
 @onready var KickTimer : Timer = $KickTimer
@@ -732,7 +732,7 @@ func _fade_sound(body):
 	tween_fade_sound.tween_callback(body.stop)
 #endregion
 
-@onready var OriginalWaitTime : float = Time_Left.wait_time
+@onready var OriginalWaitTime : float = Time_Left.wait_time if Time_Left else 0.0
 const MaxWaitTime : float = 999999.0
 
 func _set_time_state(State : bool, ChangeWaitTime : bool = true):

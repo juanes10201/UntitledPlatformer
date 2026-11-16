@@ -86,6 +86,6 @@ func _process(delta: float) -> void:
 		
 func _on_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("Player") || body.is_in_group("Enemie")):
-		if(!body.is_in_group("Boss") && (Player.EnabledKillBox == Type || !CanChange)):
+		if(!body.is_in_group("Boss") && ((body.is_in_group("Player") && body.EnabledKillBox == Type) || !CanChange)):
 			body.On_Death()
 		
