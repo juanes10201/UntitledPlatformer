@@ -20,6 +20,8 @@ func detected_jitterclick():
 	_hide_buttons()
 	TutorialParent.text = ""
 	TutorialParent.OgText = AltText
+	TutorialParent.Animate = true
+	TutorialParent.JumpCharacterAmount *= 2
 	DetectedShitterclick = true
 
 func _process(delta: float) -> void:

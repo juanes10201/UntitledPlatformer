@@ -493,6 +493,7 @@ Animate = true
 TextDelay = NodePath("TextDelay")
 VoiceDelay = NodePath("VoiceDelay")
 Voice = NodePath("Voice")
+JumpCharacterAmount = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="TextDelay" type="Timer" parent="Tutorial/DashTutorial2" unique_id=1039926505]
@@ -509,7 +510,9 @@ volume_db = -20.0
 
 [node name="TextJitterclickExplain" type="Node2D" parent="Tutorial/DashTutorial2" unique_id=133987305 node_paths=PackedStringArray("Buttons")]
 script = ExtResource("21_scat7")
-AltText = "Jajaj. En lugar de spammear MANTENE apretado el boton de Salto para saltar mas alto"
+AltText = "En lugar de spammear MANTENE apretado
+para saltar mas alto
+jajaja"
 AltAltText = "Sos un BOLUDO. 3 VECES puse
 MANTENE APRETADO en
 mayuscula para que vayas y

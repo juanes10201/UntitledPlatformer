@@ -16,6 +16,16 @@
 "sound_path": "res://assets/Sounds/Voices/Reporter/InGame",
 "volume_base": 12.0,
 "volume_variance": 0.0
+},
+"Tired": {
+"mode": 0,
+"name": "Tired",
+"pitch_base": 0.9,
+"pitch_variance": 0.1,
+"skip_characters": 2.0,
+"sound_path": "res://assets/Sounds/Voices/Reporter/2.wav",
+"volume_base": 0.0,
+"volume_variance": 0.0
 }
 },
 "style": "FaceShow",
