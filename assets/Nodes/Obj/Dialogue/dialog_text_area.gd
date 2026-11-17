@@ -13,14 +13,16 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if(!Activated && body && body.is_in_group("Player")):
-		Activated = true
-		if(Text):
-			Text.animate()
-		if(ShowObject): ShowObject.enter()
-		await get_tree().create_timer(.5).timeout
-		if(HideObject): HideObject.exit()
-		if($Hologram && $Hologram.animation != "show"): $Hologram.play("show")
+		play_text()
 
+func play_text() -> void:
+	Activated = true
+	if(Text):
+		Text.animate()
+	if(ShowObject): ShowObject.enter()
+	await get_tree().create_timer(.5).timeout
+	if(HideObject): HideObject.exit()
+	if($Hologram && $Hologram.animation != "show"): $Hologram.play("show")
 
 func _on_erase_text_body_entered(body: Node2D) -> void:
 	if(body && body.is_in_group("Player")):

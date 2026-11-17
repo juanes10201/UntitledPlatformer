@@ -22,9 +22,9 @@
 [ext_resource type="Script" uid="uid://b7kp4oyo8y484" path="res://assets/Nodes/Obj/Ui/text_tutorial_anim.gd" id="19_khvyn"]
 [ext_resource type="AudioStream" uid="uid://dsvfo3erylgm" path="res://assets/Sounds/Tutorial/voicetutorial.wav" id="20_uuxf6"]
 [ext_resource type="PackedScene" uid="uid://knd01tan0qom" path="res://assets/Nodes/Obj/Npc/npc.tscn" id="21_t2kv6"]
-[ext_resource type="Texture2D" uid="uid://c03ftkncoxxb5" path="res://assets/Sprites/Ui/Screenshot/7.png" id="21_wt64i"]
 [ext_resource type="PackedScene" uid="uid://bygxx5ppwysc3" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie_special.tscn" id="22_d0qva"]
 [ext_resource type="Script" uid="uid://b08vhqf120t8y" path="res://assets/Scripts/play_anim_area.gd" id="23_ljvcf"]
+[ext_resource type="Texture2D" uid="uid://uv7igg1ieva4" path="res://assets/Sprites/Ui/Crt/Crt6_alt1.png" id="24_wowiw"]
 [ext_resource type="Texture2D" uid="uid://c8tu3dmoyiyrf" path="res://assets/Sprites/Gameplay/Bg/border-4-3-ratio.png" id="25_wt64i"]
 [ext_resource type="Script" uid="uid://g35fwd1dftrg" path="res://assets/Nodes/Levels/world5_bside/gameboy/gb_borders.gd" id="26_l8tgm"]
 [ext_resource type="Texture2D" uid="uid://c51a5mg64cthq" path="res://assets/Sprites/Gameplay/Bosses/news.png" id="27_wowiw"]
@@ -515,7 +515,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../PlayAnimArea/SneakPeakSprite:visible")
+tracks/7/path = NodePath("../PlayAnimArea/Snes_borders/SneakPeakSprite:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -527,7 +527,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../PlayAnimArea/SneakPeakSprite:modulate")
+tracks/8/path = NodePath("../PlayAnimArea/Snes_borders/SneakPeakSprite:modulate")
 tracks/8/interp = 2
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -559,6 +559,18 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.598049, 0.565586, 0.741277, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../PlayAnimArea/Snes_borders:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.7666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.45691457), Color(1, 1, 1, 0.6509804)]
 }
 
 [sub_resource type="Animation" id="Animation_wt64i"]
@@ -651,7 +663,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../PlayAnimArea/SneakPeakSprite:visible")
+tracks/7/path = NodePath("../PlayAnimArea/Snes_borders/SneakPeakSprite:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -663,7 +675,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../PlayAnimArea/SneakPeakSprite:modulate")
+tracks/8/path = NodePath("../PlayAnimArea/Snes_borders/SneakPeakSprite:modulate")
 tracks/8/interp = 2
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -695,6 +707,18 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../PlayAnimArea/Snes_borders:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.36666664, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.6509804), Color(1, 1, 1, 0.6509804), Color(1, 1, 1, 0.45691457), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_5kqd8"]
@@ -823,7 +847,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("../PlayAnimArea/SneakPeakSprite:visible")
+tracks/10/path = NodePath("../PlayAnimArea/Snes_borders/SneakPeakSprite:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -943,6 +967,18 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../PlayAnimArea/Snes_borders:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.13333334),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_0wa00"]
@@ -1146,7 +1182,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("../PlayAnimArea/SneakPeakSprite:visible")
+tracks/8/path = NodePath("../PlayAnimArea/Snes_borders/SneakPeakSprite:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -1158,7 +1194,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("../PlayAnimArea/SneakPeakSprite:modulate")
+tracks/9/path = NodePath("../PlayAnimArea/Snes_borders/SneakPeakSprite:modulate")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -1227,6 +1263,18 @@ tracks/14/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../PlayAnimArea/Snes_borders:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0eh2n"]
 _data = {
@@ -1237,6 +1285,13 @@ _data = {
 &"LowLight": SubResource("Animation_0wa00"),
 &"RESET": SubResource("Animation_qe6c3")
 }
+
+[sub_resource type="Gradient" id="Gradient_5l5lc"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hj8ko"]
+gradient = SubResource("Gradient_5l5lc")
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0eh2n"]
 light_mode = 1
@@ -1783,7 +1838,6 @@ position = Vector2(456, -231)
 EnemyDirection = 1
 
 [node name="CanvasLayer" parent="." unique_id=1210512174 instance=ExtResource("12_8csto")]
-TransitionType = 1
 
 [node name="PlayAnimArea" type="Area2D" parent="." unique_id=1024472172 groups=["PlayAnimArea"]]
 position = Vector2(-241, -14)
@@ -1809,13 +1863,20 @@ texture = SubResource("GradientTexture2D_wt64i")
 texture_scale = 4.22
 height = 133.0
 
-[node name="SneakPeakSprite" type="Sprite2D" parent="PlayAnimArea" unique_id=2078400649]
+[node name="Snes_borders" type="Sprite2D" parent="PlayAnimArea" unique_id=1648881463]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(507.16714, -39.112286)
+scale = Vector2(5.8385277, 3.9410093)
+texture = SubResource("GradientTexture2D_hj8ko")
+script = ExtResource("26_l8tgm")
+
+[node name="SneakPeakSprite" type="Sprite2D" parent="PlayAnimArea/Snes_borders" unique_id=2078400649]
 visible = false
 modulate = Color(1, 1, 1, 0.6509804)
 material = SubResource("CanvasItemMaterial_0eh2n")
-position = Vector2(509, -44.000004)
-scale = Vector2(0.17, 0.17)
-texture = ExtResource("21_wt64i")
+position = Vector2(0.3139263, 2.5659122)
+scale = Vector2(0.03710981, 0.05497746)
+texture = ExtResource("24_wowiw")
 
 [node name="CharacterBody2D3" parent="." unique_id=1377833310 groups=["NpcCutscene"] instance=ExtResource("21_t2kv6")]
 position = Vector2(226, -53)
