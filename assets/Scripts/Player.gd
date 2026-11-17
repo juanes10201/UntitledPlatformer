@@ -495,13 +495,22 @@ func _ready() -> void:
 	
 #region Physics proccess
 
+var EndedSecondDialog : bool = false
+var PlayedSecondDialog : bool = false
+var FinishedIntro : bool = false
+
 @onready var IntroAnim : AnimationPlayer = $Camera2D/AnimationPlayer
 func _physics_process(delta: float) -> void:
-	if(PlayIntro && EndedDialogIntro && !IntroAnim.is_playing()):
-		TimerIntroSlam.start()
-		if(CanMoveCamera):
+	if(!FinishedIntro && PlayIntro):
+		if(EndedSecondDialog):
+			TimerIntroSlam.start()
 			$Camera2D/AnimationPlayer.play("End")
-		EndedDialogIntro = false
+			FinishedIntro = true
+		if(!PlayedSecondDialog && EndedDialogIntro && !IntroAnim.is_playing()):
+			if(CanMoveCamera):
+				PlayedSecondDialog = true
+				$TimerIntro2ndDialog.start()
+			EndedDialogIntro = false
 	
 	if(!Paused):
 		LevelManager.world_timer_tick(delta)
@@ -802,6 +811,7 @@ const pause_menu_path : String = "res://assets/Nodes/Obj/Ui/pause_menu.tscn"
 const next_world_ui_path : String = "res://assets/Nodes/Obj/Ui/next_world_menu.tscn"
 
 func spawn_next_world_ui() -> void:
+	print("Spawning Next World Ui")
 	_pause_game_no_menu(true)
 	spawn_ui_element(next_world_ui_path)
 
@@ -1433,3 +1443,6 @@ func _dialog_intro_end() -> void:
 	#pass
 	if(PlayIntro):
 		EndedDialogIntro = true
+
+func _second_dialog_intro_end() -> void:
+	EndedSecondDialog = true

@@ -2,6 +2,7 @@ extends Node
 
 
 enum TRANSITION_TYPES{
+	NONE,
 	FADE,
 	LIGHTS
 }

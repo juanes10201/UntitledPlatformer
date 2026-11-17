@@ -171,12 +171,19 @@ func change_to_next_level_with_completion_ui() -> void:
 	print("Global level: " + str(Global.Level))
 	print("Bside: " + str(Global.BSide))
 	if(Global.Level+1 >= get_level_paths(Global.BSide)[get_world_order(Global.BSide)[Global.World]].size() ):
+		print("Going to next world")
 		var _player = SaveGame.get_player()
 		if(_player):
 			_player.spawn_next_world_ui()
 	else:
+		print("Going to next level")
 		change_to_next_level()
 
+func get_next_level_path() -> String:
+	if(Global.Level+1 >= get_level_paths(Global.BSide)[get_world_order(Global.BSide)[Global.World]].size() ):
+		return LevelManager.get_level_path(0, LevelManager.get_world_order(Global.BSide)[Global.World+1], Global.BSide)
+	return LevelManager.get_level_path(Global.Level+1, LevelManager.get_world_order(Global.BSide)[Global.World], Global.BSide)
+	
 func change_to_next_level() -> void:
 	if(Global.Level+1 >= get_level_paths(Global.BSide)[get_world_order(Global.BSide)[Global.World]].size() ):
 		if(Global.World < BossesLevelPath.size()):

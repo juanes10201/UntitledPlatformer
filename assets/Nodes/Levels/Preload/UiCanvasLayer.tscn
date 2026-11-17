@@ -62,6 +62,8 @@ func _ready() -> void:
 	var _canvaslayer : CanvasLayer = get_parent()
 	if(\"TransitionType\" in _canvaslayer):
 		TransitionType = _canvaslayer.TransitionType
+	if(TransitionType == Global.TRANSITION_TYPES.NONE):
+		queue_free()
 	if(DefaultStart):
 		fade_out()
 

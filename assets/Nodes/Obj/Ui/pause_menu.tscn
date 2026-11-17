@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://l4jvo6ayxlkp"]
 
 [ext_resource type="Script" uid="uid://b40hrfks2w7u6" path="res://assets/Scripts/PauseMenuLogic.gd" id="1_lmvks"]
-[ext_resource type="Texture2D" uid="uid://be1h2ja4pyni1" path="res://assets/Sprites/Deprecated/screenshot.png" id="2_p57sw"]
-[ext_resource type="Texture2D" uid="uid://47858xfywjlf" path="res://md_images/SteamImages/Screenshots/1.png" id="2_ud0gp"]
 [ext_resource type="Texture2D" uid="uid://dk8qs15tgkthx" path="res://assets/Sprites/Ui/Bg/Transition.png" id="3_aiwrn"]
 [ext_resource type="Texture2D" uid="uid://b60whtdipdvhj" path="res://assets/Sprites/Ui/menus/Pause/bg.png" id="3_k4rge"]
 [ext_resource type="Script" uid="uid://0xbub3erkcxb" path="res://assets/Scripts/PauseMenuTransition.gd" id="4_37ts2"]
@@ -935,7 +933,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("17_t7vvl")
 }],
-"loop": true,
+"loop": 1,
 "name": &"A",
 "speed": 5.0
 }, {
@@ -943,7 +941,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("18_fmfnn")
 }],
-"loop": true,
+"loop": 1,
 "name": &"B",
 "speed": 5.0
 }, {
@@ -951,7 +949,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("19_lsnvj")
 }],
-"loop": true,
+"loop": 1,
 "name": &"C",
 "speed": 5.0
 }, {
@@ -959,7 +957,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("20_1jvlq")
 }],
-"loop": true,
+"loop": 1,
 "name": &"D",
 "speed": 5.0
 }, {
@@ -967,7 +965,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("21_ud0gp")
 }],
-"loop": true,
+"loop": 1,
 "name": &"P",
 "speed": 5.0
 }, {
@@ -975,7 +973,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("22_aiwrn")
 }],
-"loop": true,
+"loop": 1,
 "name": &"S",
 "speed": 5.0
 }, {
@@ -983,7 +981,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("23_ewgas")
 }],
-"loop": true,
+"loop": 1,
 "name": &"SS",
 "speed": 5.0
 }, {
@@ -991,7 +989,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("24_nxd5a")
 }],
-"loop": true,
+"loop": 1,
 "name": &"SSS",
 "speed": 5.0
 }, {
@@ -999,7 +997,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("25_els7t")
 }],
-"loop": true,
+"loop": 1,
 "name": &"please_dont_sue_me",
 "speed": 5.0
 }]
@@ -1008,21 +1006,10 @@ animations = [{
 layer = 2
 script = ExtResource("1_lmvks")
 
-[node name="1" type="Sprite2D" parent="." unique_id=242848483]
-visible = false
-position = Vector2(655, 346)
-texture = ExtResource("2_ud0gp")
-
 [node name="Transition2" type="Sprite2D" parent="." unique_id=2040440450]
 visible = false
 position = Vector2(-807, 448)
 texture = ExtResource("3_aiwrn")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1337696596]
-visible = false
-position = Vector2(589, 323)
-scale = Vector2(0.635, 0.635)
-texture = ExtResource("2_p57sw")
 
 [node name="Transition" type="Sprite2D" parent="." unique_id=346364958]
 position = Vector2(574.93427, 322.74997)

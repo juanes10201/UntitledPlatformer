@@ -20,7 +20,7 @@ func _ready() -> void:
 		LevelManager.set_global_with_complete_level_path(scene_path)
 	
 	if(!Edition.Is_in_editor):
-		NextScene = LevelManager.get_level_path(Global.Level+1, LevelManager.get_world_order(Global.BSide)[Global.World], Global.BSide)
+		NextScene = LevelManager.get_next_level_path()
 		if(NextScene != ""):
 			ResourceLoader.load_threaded_request(NextScene)
 	#print("NextScene" + str(NextScene) )
@@ -46,14 +46,16 @@ func _input(event):
 var CompletedLevel : bool = false
 
 @onready var FadeOut = $"../CanvasLayer/TransitionOut" if $"../CanvasLayer/TransitionOut" else $"../../CanvasLayer/TransitionOut"  
+var ChangedToNextScene : bool = false
 
 func _process(delta: float) -> void:
-	if(!Edition.Is_in_editor):
+	if(!Edition.Is_in_editor && !ChangedToNextScene):
 		var status = ResourceLoader.load_threaded_get_status(NextScene, progress)
 		if(NextScene != "" && CompletedLevel && !Edition.Is_in_editor):
 			if(status == ResourceLoader.THREAD_LOAD_LOADED):
 				#var scene = ResourceLoader.load_threaded_get(NextScene)
 				LevelManager.change_to_next_level_with_completion_ui()
+				ChangedToNextScene = true
 				#get_tree().change_scene_to_file(NextScene)
 		
 	
@@ -88,7 +90,7 @@ func _on_body_entered(body):
 				
 				#print("A")
 				SaveGame.SaveLevelRecord(_lvl, _world, completed_time)
-				print("Going to next level")
+				#print("Going to next level")
 				if(FadeOut):
 					FadeOut.FadeOut = true
 				CompletedLevel = true
