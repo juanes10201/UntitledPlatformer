@@ -318,7 +318,7 @@ func array_to_vec2(arr: Array) -> Array[Vector2]:
 		out.append(Vector2(a[0], a[1]))
 	return out
 
-var ResUiReplay = preload("res://assets/Nodes/Ui/ui_replay.tscn")
+var ResUiReplay = load("res://assets/Nodes/Ui/ui_replay.tscn")
 
 func _load_replay_ui() -> void:	
 	if (ResUiReplay != null):

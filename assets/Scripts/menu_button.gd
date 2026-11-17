@@ -13,7 +13,7 @@ extends Button
 @onready var original_size : Vector2 = self.size
 @onready var ControlNode = $"../../pause_menu"
 @onready var SelectedSprite = $SelectedSprite
-@onready var Player : ClassPlayer = SaveGame.get_player()
+@onready var Player : Node2D = SaveGame.get_player()
 @export var IsPixelartButton : bool = false
 
 @export var FadeTransition : bool = false

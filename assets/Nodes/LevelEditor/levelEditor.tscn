@@ -1760,7 +1760,6 @@ position = Vector2(17, -16)
 scale = Vector2(1.00384, 1)
 tile_set = ExtResource("2_iimnb")
 script = ExtResource("3_0r4ld")
-AddedOfset = null
 
 [node name="AddedTileMapLayer2" type="TileMapLayer" parent="LevelEditor/LevelData" unique_id=276165004 groups=["Tileset"]]
 texture_filter = 1
@@ -1769,7 +1768,6 @@ position = Vector2(17, -16)
 scale = Vector2(1.00384, 1)
 tile_set = ExtResource("2_iimnb")
 script = ExtResource("3_0r4ld")
-AddedOfset = null
 
 [node name="Time_Left" type="Timer" parent="LevelEditor/LevelData" unique_id=30492087 groups=["GameTimer"]]
 wait_time = 7.0
@@ -1815,7 +1813,6 @@ position = Vector2(16.999998, -16)
 scale = Vector2(1.00384, 1)
 tile_set = ExtResource("2_iimnb")
 script = ExtResource("3_0r4ld")
-AddedOfset = null
 
 [node name="EditorUi" type="CanvasLayer" parent="LevelEditor" unique_id=1309150936 node_paths=PackedStringArray("LevelEditor", "NodePages", "EditorPlace")]
 script = ExtResource("77_ehx2g")

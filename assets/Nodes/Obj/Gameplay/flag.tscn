@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c8n3a0sy27p6i" path="res://assets/Scripts/flag.gd" id="1_gl5pl"]
 [ext_resource type="Texture2D" uid="uid://dj6fpitwbxqbk" path="res://assets/Premade/brackeys_platformer_assets/sprites/coin.png" id="2_5d660"]
+[ext_resource type="Texture2D" uid="uid://b6270h5m4qv0x" path="res://assets/Sprites/Gameplay/Obj/flag.png" id="3_k8pgl"]
 [ext_resource type="Texture2D" uid="uid://cc6sao5m1uf1p" path="res://assets/Sprites/particles/light3.png" id="3_klgg3"]
 [ext_resource type="Shader" uid="uid://c2lmrj8xyngdv" path="res://assets/Shader/Godray.gdshader" id="4_arfwt"]
 
@@ -63,6 +64,59 @@ shader_parameter/opacity = 0.325
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_t3s8q"]
 gradient = SubResource("Gradient_qs57u")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k8pgl"]
+light_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8pgl"]
+atlas = ExtResource("3_k8pgl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3hur"]
+atlas = ExtResource("3_k8pgl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inkva"]
+atlas = ExtResource("3_k8pgl")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5742t"]
+atlas = ExtResource("3_k8pgl")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swmsv"]
+atlas = ExtResource("3_k8pgl")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bmra"]
+atlas = ExtResource("3_k8pgl")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_md8ho"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8pgl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3hur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_inkva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5742t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swmsv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bmra")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 3.0
+}]
+
 [node name="Flag" type="Area2D" unique_id=893668377]
 position = Vector2(82, -35)
 collision_layer = 131073
@@ -89,3 +143,8 @@ material = SubResource("ShaderMaterial_ek208")
 position = Vector2(45, -38)
 scale = Vector2(2.75599, 2.55839)
 texture = SubResource("GradientTexture2D_t3s8q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=585775462]
+visible = false
+material = SubResource("CanvasItemMaterial_k8pgl")
+sprite_frames = SubResource("SpriteFrames_md8ho")

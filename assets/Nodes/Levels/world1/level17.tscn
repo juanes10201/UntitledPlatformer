@@ -9,14 +9,11 @@
 [ext_resource type="Script" uid="uid://cq42f2j2x22je" path="res://assets/Scripts/time_left.gd" id="7_ee68v"]
 [ext_resource type="PackedScene" uid="uid://cfa7sxsc3ppdn" path="res://assets/Nodes/Levels/Preload/UiCanvasLayer.tscn" id="7_mct8e"]
 [ext_resource type="PackedScene" uid="uid://xjx2k63akbn3" path="res://assets/Nodes/Levels/Preload/levels_default.tscn" id="9_kjh2y"]
-[ext_resource type="Texture2D" uid="uid://dj6fpitwbxqbk" path="res://assets/Premade/brackeys_platformer_assets/sprites/coin.png" id="9_rrb62"]
-[ext_resource type="Texture2D" uid="uid://cc6sao5m1uf1p" path="res://assets/Sprites/particles/light3.png" id="10_ej814"]
 [ext_resource type="PackedScene" uid="uid://dmnyy0uuvc0jk" path="res://assets/Nodes/Obj/Gameplay/kill_box.tscn" id="10_l76dq"]
-[ext_resource type="Shader" uid="uid://c2lmrj8xyngdv" path="res://assets/Shader/Godray.gdshader" id="11_svtgq"]
 [ext_resource type="PackedScene" uid="uid://d1ji315fcqjjv" path="res://assets/Nodes/Particles/ambientparticles.tscn" id="12_8k6xd"]
 [ext_resource type="Script" uid="uid://cyxm73atp4f5a" path="res://assets/Nodes/Obj/Ui/style_add_box.gd" id="13_8qno2"]
 [ext_resource type="PackedScene" uid="uid://cykeyxkv73jjt" path="res://assets/Nodes/Obj/Gameplay/falling_sand.tscn" id="13_y7odo"]
-[ext_resource type="Script" uid="uid://b57tkpeubibqo" path="res://assets/Nodes/Levels/world1/clock_cutscene_player.gd" id="18_vrsy5"]
+[ext_resource type="PackedScene" uid="uid://cba0dn710x26" path="res://assets/Nodes/Obj/Gameplay/flag.tscn" id="17_nai04"]
 [ext_resource type="PackedScene" uid="uid://knd01tan0qom" path="res://assets/Nodes/Obj/Npc/npc.tscn" id="19_ej814"]
 [ext_resource type="Script" uid="uid://dbfv5o1s01x06" path="res://assets/Scripts/DynamicLightAnimation.gd" id="19_svtgq"]
 
@@ -130,354 +127,6 @@ _data = {
 &"move2": SubResource("Animation_b10uo")
 }
 
-[sub_resource type="Gradient" id="Gradient_qbwi5"]
-offsets = PackedFloat32Array(0, 0.5314685, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_rrb62"]
-gradient = SubResource("Gradient_qbwi5")
-fill_from = Vector2(0, 0.20512821)
-fill_to = Vector2(1, 0.9145299)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_clfjp"]
-size = Vector2(22, 55)
-
-[sub_resource type="Gradient" id="Gradient_4fey2"]
-offsets = PackedFloat32Array(0, 0.52097905, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_8d70q"]
-gradient = SubResource("Gradient_4fey2")
-fill_from = Vector2(0.508547, 0)
-fill_to = Vector2(1, 1)
-
-[sub_resource type="Animation" id="Animation_rrb62"]
-resource_name = "Play"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../../MoveNodesCutscene:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../../Player/Camera2D:offset")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.033333335, 0.13333334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(304.65, -66.315)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../Player:Physics")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.1, 0.46666667, 1.0666667, 1.7666667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [true, false, false, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../../MoveNodesTo:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = false
-tracks/4/path = NodePath("../../Player/Camera2D:limit_right")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.03333334, 0.13333334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [134, 569]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../../Player/Camera2D:enabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/6/type = "method"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../../MoveNodesTo/CharacterBody2D3")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0.46666667),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"StartDialog"
-}]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("../../Player/LightHidePlayerBig:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("../../Player/LightHidePlayerBig:energy")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 2.2, 2.2]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("../../Player:CanMoveCamera")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0.033333335, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("../../Player/Camera2D:zoom")
-tracks/10/interp = 2
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0.03333333, 0.13333334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(2.08, 2.08), Vector2(3.105, 3.105)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("../../Player:CountTime")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0.033333335),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = false
-tracks/12/path = NodePath("../../Player/Camera2D:limit_left")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.13333334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [-339, -64]
-}
-
-[sub_resource type="Animation" id="Animation_ej814"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../../Player:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-138, 103)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../../MoveNodesCutscene:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../Player:Physics")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../../MoveNodesTo:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../../Player/Camera2D:limit_right")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [134]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../../Player/Camera2D:enabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../../Player/LightHidePlayerBig:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("../../Player/LightHidePlayerBig:energy")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [2.2]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("../../Player:CanMoveCamera")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("../../Player/Camera2D:zoom")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2.08, 2.08)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("../../Player/Camera2D:offset")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("../../Player:CountTime")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("../../Player/Camera2D:limit_left")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [-339]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ej814"]
-_data = {
-&"Play": SubResource("Animation_rrb62"),
-&"RESET": SubResource("Animation_ej814")
-}
-
 [sub_resource type="Gradient" id="Gradient_cn2ev"]
 offsets = PackedFloat32Array(0, 0.65238094)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -486,61 +135,6 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_cn2ev")
 fill = 1
 fill_from = Vector2(0.48290598, 0.517094)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r0xch"]
-atlas = ExtResource("9_rrb62")
-region = Rect2(2.28713, 2.28569, 11.511, 11.7884)
-
-[sub_resource type="GDScript" id="GDScript_qmtqk"]
-script/source = "extends Sprite2D
-
-@export var _LEVEL_TO_CHANGE : String = \"level2\"
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
-[sub_resource type="Gradient" id="Gradient_kxf5n"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_n4n2d"]
-gradient = SubResource("Gradient_kxf5n")
-fill_from = Vector2(1, 1)
-fill_to = Vector2(0, 0)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ek208"]
-shader = ExtResource("11_svtgq")
-shader_parameter/blend_mode = 0
-shader_parameter/noiseTex = SubResource("GradientTexture2D_n4n2d")
-shader_parameter/angle = 0.68
-shader_parameter/position = 0.195
-shader_parameter/spread = 0.095
-shader_parameter/cutoff = 0.302
-shader_parameter/falloff = 0.2
-shader_parameter/edge_fade = 0.14
-shader_parameter/speed = 1.0
-shader_parameter/ray1_density = 8.0
-shader_parameter/ray2_density = 30.0
-shader_parameter/ray2_intensity = 0.3
-shader_parameter/ray_color = Color(1, 0.9, 0.65, 0.8)
-shader_parameter/hdr = true
-shader_parameter/seed = 3.985
-shader_parameter/pixelSizeScale = 1.0
-shader_parameter/quantize_colors = true
-shader_parameter/color_levels = 4
-shader_parameter/dither = false
-shader_parameter/dither_strength = 0.197
-shader_parameter/opacity = 0.325
-
-[sub_resource type="Gradient" id="Gradient_qs57u"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_t3s8q"]
-gradient = SubResource("Gradient_qs57u")
 
 [sub_resource type="Gradient" id="Gradient_pggsu"]
 offsets = PackedFloat32Array(0, 0.65238094)
@@ -568,6 +162,15 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_8vuuc")
 fill = 1
 fill_from = Vector2(0.48290598, 0.517094)
+
+[sub_resource type="Gradient" id="Gradient_qbwi5"]
+offsets = PackedFloat32Array(0, 0.5314685, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rrb62"]
+gradient = SubResource("Gradient_qbwi5")
+fill_from = Vector2(0, 0.20512821)
+fill_to = Vector2(1, 0.9145299)
 
 [node name="Node2D" type="Node2D" unique_id=834029177]
 position = Vector2(0, -1)
@@ -678,55 +281,6 @@ position = Vector2(-168, 17)
 scale = Vector2(1.775, 1)
 script = ExtResource("13_8qno2")
 StyleTypeAdd = 5
-
-[node name="Player" parent="." unique_id=1027895221 instance=ExtResource("5_844n7")]
-position = Vector2(-138, 103)
-
-[node name="LightHidePlayerBig" type="PointLight2D" parent="Player" unique_id=849948249]
-visible = false
-position = Vector2(71.232185, -30.783218)
-scale = Vector2(3.3972738, 1.9290583)
-color = Color(0.66849446, 0.8039501, 0.9457992, 1)
-energy = 2.2
-blend_mode = 1
-texture = SubResource("GradientTexture2D_rrb62")
-texture_scale = 4.22
-height = 1143.0
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=18932086]
-zoom = Vector2(2.08, 2.08)
-limit_left = -339
-limit_top = -392
-limit_right = 134
-limit_bottom = 376
-limit_smoothed = true
-position_smoothing_enabled = true
-script = ExtResource("6_kymax")
-
-[node name="Area2D" type="Area2D" parent="." unique_id=604143965]
-position = Vector2(-60, 239)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=880344176]
-position = Vector2(0, 2.5)
-shape = SubResource("RectangleShape2D_clfjp")
-
-[node name="LightHidePlayer" type="PointLight2D" parent="Area2D" unique_id=1955866125]
-visible = false
-position = Vector2(169, -25)
-scale = Vector2(2.2098722, 1.3163414)
-energy = 1.4
-blend_mode = 1
-texture = SubResource("GradientTexture2D_8d70q")
-texture_scale = 4.22
-height = 133.0
-
-[node name="ClockCutscenePlayer" type="Node2D" parent="Area2D" unique_id=1799539093]
-script = ExtResource("18_vrsy5")
-FrameFreezeAmount = 0.05
-EndInGroundsmash = false
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D/ClockCutscenePlayer" unique_id=938275600]
-libraries/ = SubResource("AnimationLibrary_ej814")
 
 [node name="MoveNodesCutscene" type="Node2D" parent="." unique_id=212160671]
 
@@ -900,29 +454,6 @@ z_index = 1
 position = Vector2(-11, 161)
 scale = Vector2(8.005, 2)
 
-[node name="Flag" type="Area2D" parent="MoveNodesCutscene" unique_id=878597859]
-position = Vector2(-17, 238)
-collision_layer = 131073
-
-[node name="Sprite2D" type="Sprite2D" parent="MoveNodesCutscene/Flag" unique_id=1637069242]
-position = Vector2(-3, 1)
-texture = SubResource("AtlasTexture_r0xch")
-script = SubResource("GDScript_qmtqk")
-
-[node name="PointLight2D" type="PointLight2D" parent="MoveNodesCutscene/Flag" unique_id=2015092853]
-visible = false
-scale = Vector2(1.00384, 1)
-color = Color(0.809302, 0.528971, 0.270935, 1)
-energy = 0.3
-texture = ExtResource("10_ej814")
-
-[node name="Sprite2D2" type="Sprite2D" parent="MoveNodesCutscene/Flag" unique_id=1432912982]
-visible = false
-material = SubResource("ShaderMaterial_ek208")
-position = Vector2(45, -38)
-scale = Vector2(2.75599, 2.55839)
-texture = SubResource("GradientTexture2D_t3s8q")
-
 [node name="MoveNodesTo" type="Node2D" parent="." unique_id=1235612260]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="MoveNodesTo" unique_id=705579656 groups=["Tileset"]]
@@ -1040,7 +571,33 @@ texture = SubResource("GradientTexture2D_nmuvd")
 texture_scale = 1.72
 height = 13.0
 
+[node name="Flag" parent="." unique_id=893668377 instance=ExtResource("17_nai04")]
+position = Vector2(-19, 245)
+
+[node name="Player" parent="." unique_id=1027895221 instance=ExtResource("5_844n7")]
+position = Vector2(-139, -285)
+
+[node name="LightHidePlayerBig" type="PointLight2D" parent="Player" unique_id=849948249]
+visible = false
+position = Vector2(71.232185, -30.783218)
+scale = Vector2(3.3972738, 1.9290583)
+color = Color(0.66849446, 0.8039501, 0.9457992, 1)
+energy = 2.2
+blend_mode = 1
+texture = SubResource("GradientTexture2D_rrb62")
+texture_scale = 4.22
+height = 1143.0
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=18932086]
+zoom = Vector2(2.08, 2.08)
+limit_left = -339
+limit_top = -392
+limit_right = 134
+limit_bottom = 376
+limit_smoothed = true
+position_smoothing_enabled = true
+script = ExtResource("6_kymax")
+
 [connection signal="body_entered" from="StyleAddBox" to="StyleAddBox" method="_on_body_entered"]
-[connection signal="body_entered" from="Area2D" to="Area2D/ClockCutscenePlayer" method="_on_area_2d_body_entered"]
 
 [editable path="MoveNodesTo/CharacterBody2D3"]
