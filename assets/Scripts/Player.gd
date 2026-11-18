@@ -499,6 +499,9 @@ var EndedSecondDialog : bool = false
 var PlayedSecondDialog : bool = false
 var FinishedIntro : bool = false
 
+func set_music_state(state : SongPlayer.MusicStates):
+	SongPlayer.MusicState = state
+
 @onready var IntroAnim : AnimationPlayer = $Camera2D/AnimationPlayer
 func _physics_process(delta: float) -> void:
 	if(!FinishedIntro && PlayIntro):

@@ -1,6 +1,6 @@
 NewsGuy1: VISTE lo de SPEEDTEST?
 Telephone: decime
-NewsGuy1: NO VISTE los NUMEROS? REVISA YA los NUMEROS
+NewsGuy1: NO VISTE los NUMEROS? REVISA YA los RATINGS
 Telephone: ya se, los numeros llevan cayendo decadas.
 Telephone: habra que pensar algo nuevo para evitar que nos rajen
 NewsGuy1: REVISA LOS PUTOS NUMEROS PORFAVOR
@@ -12,3 +12,12 @@ Telephone: bancame,[pause=0.2] voy a pedir que arreglen las tablas
 NewsGuy1: NO VISTE NADA???? [pause=0.2]ABSOLUTAMENTE NADA??????????????
 Telephone: que
 NewsGuy1: ????????????????
+NewsGuy1: NADA????
+Telephone: tenes demasiado tiempo al pedo
+NewsGuy1: estan TODOS. Y DIGO ABSOLUTAMENTE TODOS
+do SaveGame.play_function_node_group("PlayAnimArea", "play_anim_low_light")
+NewsGuy1: MIRANDO SPEEDTEST
+NewsGuy1: POR ESTE TIPO... mira esto
+Telephone: decime el nombre al menos
+NewsGuy1: SE LLAMA....[aa=0.02]
+do SaveGame.play_function_node_group("2ndPlayAnimArea", "play_anim_end_dialog")
