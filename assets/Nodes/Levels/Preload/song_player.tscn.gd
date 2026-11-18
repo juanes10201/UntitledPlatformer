@@ -4,8 +4,10 @@ extends Node2D
 enum MusicStates{
 	ingame,
 	menu,
-	boss1
+	boss1,
+	cutsceneSynth
 }
+@export var StatesSongs : Dictionary[MusicStates, AudioStreamPlayer] = {}
 var MusicState = MusicStates.ingame
 
 @onready var SongBoss1 = $SongBoss1
@@ -31,6 +33,15 @@ func _play_song(Song):
 			if(Child != Song && Child is AudioStreamPlayer || Child is AudioStreamPlayer2D || Child is AudioStreamPlayer3D):
 				Child.stop()
 		Song.play()
+
+func _play_song_state(State : MusicStates):
+	_play_song(StatesSongs[State])
+
+func set_music_state(_State : MusicStates):
+	MusicState = _State
+
+func _play_song_current_state():
+	_play_song_state(MusicState)
 #endregion
 
 func _play_sound_end_level():
@@ -46,11 +57,12 @@ func _play_global_sound(Sound):
 
 func _song_tick() -> void:
 	if(PlayMusic):
-		match MusicState:
-			MusicStates.boss1:
-				_play_song(SongBoss1)
-			MusicStates.ingame:
-				_play_song(SongInGame)
-			MusicStates.menu:
-				_play_song(SongMenu)
+		_play_song_current_state()
+		#match MusicState:
+		#	MusicStates.boss1:
+		#		_play_song(SongBoss1)
+		#	MusicStates.ingame:
+		#		_play_song(SongInGame)
+		#	MusicStates.menu:
+		#		_play_song(SongMenu)
 #endregion

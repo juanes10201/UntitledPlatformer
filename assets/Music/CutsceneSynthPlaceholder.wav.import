@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://oy1s3lnlgnd6"
-path="res://.godot/imported/synth.wav-adcfd51ba1728839fc13605026d6858c.sample"
+path="res://.godot/imported/CutsceneSynthPlaceholder.wav-1c1d86b2ab873a155a3718d5a2c4a492.sample"
 
 [deps]
 
-source_file="res://assets/Music/synth.wav"
-dest_files=["res://.godot/imported/synth.wav-adcfd51ba1728839fc13605026d6858c.sample"]
+source_file="res://assets/Music/CutsceneSynthPlaceholder.wav"
+dest_files=["res://.godot/imported/CutsceneSynthPlaceholder.wav-1c1d86b2ab873a155a3718d5a2c4a492.sample"]
 
 [params]
 

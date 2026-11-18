@@ -7,9 +7,16 @@
 [ext_resource type="AudioStream" uid="uid://5odsrlxbpbat" path="res://assets/Sounds/death.wav" id="5_7olny"]
 [ext_resource type="AudioStream" uid="uid://cq8f2wmvvgrgh" path="res://assets/Sounds/completelevel.wav" id="6_i05w6"]
 [ext_resource type="AudioStream" uid="uid://bn632hbv8as5u" path="res://assets/Sounds/wah_test.wav" id="7_oyca0"]
+[ext_resource type="AudioStream" uid="uid://oy1s3lnlgnd6" path="res://assets/Music/CutsceneSynthPlaceholder.wav" id="8_v5xgs"]
 
-[node name="SongPlayer_tscn" type="Node2D" unique_id=359652332]
+[node name="SongPlayer_tscn" type="Node2D" unique_id=359652332 node_paths=PackedStringArray("StatesSongs")]
 script = ExtResource("1_wkvdr")
+StatesSongs = {
+0: NodePath("SongInGame"),
+1: NodePath("SongMenu"),
+2: NodePath("SongBoss1"),
+3: NodePath("AudioCutsceneSynth")
+}
 
 [node name="SongInGame" type="AudioStreamPlayer" parent="." unique_id=2057856058]
 stream = ExtResource("2_7olny")
@@ -33,3 +40,6 @@ stream = ExtResource("6_i05w6")
 
 [node name="AudioNewLevel" type="AudioStreamPlayer" parent="." unique_id=994908693]
 stream = ExtResource("7_oyca0")
+
+[node name="AudioCutsceneSynth" type="AudioStreamPlayer" parent="." unique_id=218208051]
+stream = ExtResource("8_v5xgs")
