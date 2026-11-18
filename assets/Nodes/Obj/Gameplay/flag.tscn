@@ -127,6 +127,7 @@ position = Vector2(1, 3)
 shape = SubResource("RectangleShape2D_sbb13")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1637069242]
+visible = false
 texture = SubResource("AtlasTexture_r0xch")
 script = SubResource("GDScript_qmtqk")
 
@@ -145,6 +146,5 @@ scale = Vector2(2.75599, 2.55839)
 texture = SubResource("GradientTexture2D_t3s8q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=585775462]
-visible = false
 material = SubResource("CanvasItemMaterial_k8pgl")
 sprite_frames = SubResource("SpriteFrames_md8ho")

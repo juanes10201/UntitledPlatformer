@@ -1,3 +1,10 @@
-NewsGuy1: YA vamos 5 horas de SPEEDTEST
-Telephone: Como especial del programa! HABILITAREMOS UN NUMERO ESPECIAL
-Telephone: QUEREMOS SABER. QUE PIENSAN USTEDES. LA AUDIENCIA
+NewsGuy1: YA PASAMOS LAS 1RAS 6 HORAS CUBRIENDO
+NewsGuy1: ...SPEEDTEST!
+Telephone: Como especial de esta siendo la SPEEDTEST mas vista de la ultima decada
+Telephone: HAREMOS UN PROGRAMA ESPECIAL....
+Telephone: QUEREMOS SABER. QUE PIENSAN USTEDES.
+Telephone: LA AUDIENCIA
+Telephone: llamen YA a +0 34 123 594
+audio "res://assets/Sounds/phone-ring.wav"
+[wait time="4.0"]
+Npc1: Hola.

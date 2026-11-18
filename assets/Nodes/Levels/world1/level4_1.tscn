@@ -572,6 +572,30 @@ tracks/11/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.45691457), Color(1, 1, 1, 0.6509804)]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../CanvasLayer2:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../PlayAnimArea/Snes_borders:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_wt64i"]
 resource_name = "EndBossPreview"
@@ -1275,6 +1299,18 @@ tracks/15/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../CanvasLayer2:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0eh2n"]
 _data = {
@@ -1838,6 +1874,7 @@ position = Vector2(456, -231)
 EnemyDirection = 1
 
 [node name="CanvasLayer" parent="." unique_id=1210512174 instance=ExtResource("12_8csto")]
+TransitionType = 2
 
 [node name="PlayAnimArea" type="Area2D" parent="." unique_id=1024472172 groups=["PlayAnimArea"]]
 position = Vector2(-241, -14)
@@ -1958,7 +1995,6 @@ texture = ExtResource("25_wt64i")
 script = ExtResource("26_l8tgm")
 
 [node name="Sprite2D9" type="Sprite2D" parent="CanvasLayer2" unique_id=178395238]
-visible = false
 position = Vector2(275, 604)
 texture = ExtResource("27_wowiw")
 

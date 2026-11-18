@@ -12,3 +12,6 @@ func _ready() -> void:
 	CRT.material.set_shader_parameter("resolution", Res)
 	if(Edition.CrtFilter && EnableCrt): CRT.show()
 	else: CRT.hide()
+
+func _process(delta: float) -> void:
+	CRT.visible = EnableCrt

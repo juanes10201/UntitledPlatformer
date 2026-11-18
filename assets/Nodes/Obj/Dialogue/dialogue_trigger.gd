@@ -24,6 +24,7 @@ func start_dialog() -> void:
 	print("Started dialog; Action: " + str(Action))
 	TimeDone += 1
 	if(RecordOnlyOnce): SaveGame.SetDialogue(RecordDialogueId)
+	if(OnlyOnce && TimeDone > 1): return 
 	if(PauseGame): Player._pause_game_no_menu()
 	Dialogic.start(Action)
 	if(get_parent().is_in_group("Npc")):
