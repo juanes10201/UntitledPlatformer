@@ -128,6 +128,29 @@ gradient = SubResource("Gradient_85htg")
 fill = 1
 fill_from = Vector2(0.48290598, 0.517094)
 
+[sub_resource type="Gradient" id="Gradient_1q4f0"]
+offsets = PackedFloat32Array(0, 0.8980392, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hb323"]
+gradient = SubResource("Gradient_1q4f0")
+
+[sub_resource type="Gradient" id="Gradient_hb323"]
+offsets = PackedFloat32Array(0, 0.14117648, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4mcuy"]
+gradient = SubResource("Gradient_hb323")
+fill_from = Vector2(0, 0.02991453)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_4mcuy"]
+offsets = PackedFloat32Array(0, 0.8980392, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2wj24"]
+gradient = SubResource("Gradient_4mcuy")
+
 [node name="Node2D" type="Node2D" unique_id=1482903351]
 position = Vector2(-211, -1)
 
@@ -356,3 +379,57 @@ height = 13.0
 position = Vector2(-101, -35)
 points = PackedVector2Array(-6, -2, 0, -2, 7, -10, 40, -14, 59, -31, 66, -34)
 MoveSpeed = 600
+
+[node name="LightHidePlayer14" type="PointLight2D" parent="." unique_id=1878375856]
+position = Vector2(-128.93425, -26.999998)
+rotation = -3.1415927
+scale = Vector2(0.2395418, 1.4343132)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.55
+blend_mode = 1
+texture = SubResource("GradientTexture2D_hb323")
+texture_scale = 4.22
+height = 108.0
+
+[node name="LightHidePlayer15" type="PointLight2D" parent="." unique_id=269550950]
+position = Vector2(66.54925, 75.55725)
+rotation = -3.1415927
+scale = Vector2(0.4065236, 0.993279)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.55
+blend_mode = 1
+texture = SubResource("GradientTexture2D_hb323")
+texture_scale = 4.22
+height = 108.0
+
+[node name="LightHidePlayer16" type="PointLight2D" parent="." unique_id=1926237481]
+position = Vector2(-78.355255, -298)
+rotation = -3.1415927
+scale = Vector2(0.3623989, 0.5802989)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.65
+blend_mode = 1
+texture = SubResource("GradientTexture2D_hb323")
+texture_scale = 4.22
+height = 108.0
+
+[node name="LightHidePlayer19" type="PointLight2D" parent="." unique_id=902366904]
+position = Vector2(101.93749, -31.10617)
+scale = Vector2(0.59287995, 0.16953371)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.3
+blend_mode = 1
+texture = SubResource("GradientTexture2D_4mcuy")
+texture_scale = 4.22
+height = 108.0
+
+[node name="LightHidePlayer13" type="PointLight2D" parent="." unique_id=307338673]
+position = Vector2(187.93462, 180.5447)
+rotation = 1.553343
+scale = Vector2(0.19923271, 1.3007926)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.55
+blend_mode = 1
+texture = SubResource("GradientTexture2D_2wj24")
+texture_scale = 4.22
+height = 153.0

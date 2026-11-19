@@ -439,9 +439,20 @@ texture_scale = 4.22
 height = 153.0
 
 [node name="LightHidePlayer18" type="PointLight2D" parent="." unique_id=1432343540]
-position = Vector2(120.54551, 162.60048)
+position = Vector2(123.6501, 174.08752)
 rotation = 1.5707964
-scale = Vector2(0.2356907, 0.7769488)
+scale = Vector2(0.15062672, 0.7999391)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.5
+blend_mode = 1
+texture = SubResource("GradientTexture2D_1q4f0")
+texture_scale = 4.22
+height = 153.0
+
+[node name="LightHidePlayer32" type="PointLight2D" parent="." unique_id=341563549]
+position = Vector2(492, 187)
+rotation = 1.5707964
+scale = Vector2(0.15062672, 1.4241803)
 color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
 energy = 0.5
 blend_mode = 1
