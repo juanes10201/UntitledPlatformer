@@ -630,7 +630,6 @@ scale = Vector2(4.035, 1)
 position = Vector2(-313, -126)
 scale = Vector2(1, 4)
 collision_layer = 132096
-collision_mask = 1573
 
 [node name="falling_sand" parent="." unique_id=1412653966 instance=ExtResource("13_ypkjn")]
 position = Vector2(-448, -327)
@@ -702,6 +701,7 @@ one_shot = true
 [node name="Voice" type="AudioStreamPlayer" parent="TextArea/DashTutorial2" unique_id=1052416743]
 stream = ExtResource("23_kkda2")
 volume_db = -20.0
+bus = &"Sfx"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TextArea" unique_id=1871303326]
 position = Vector2(-147.125, 31.875)

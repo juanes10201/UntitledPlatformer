@@ -21,6 +21,7 @@ func _on_pressed() -> void:
 @export var EditorLoadFileDialog : FileDialog
 
 func EditorTooltipExit() -> void:
+	Edition.Is_in_editor = false
 	get_tree().change_scene_to_file("res://assets/Nodes/Ui/main_menu_w_level_preview.tscn")
 
 func EditorTooltipConfig() -> void:

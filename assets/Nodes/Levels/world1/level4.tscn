@@ -679,6 +679,7 @@ one_shot = true
 [node name="Voice" type="AudioStreamPlayer" parent="TimeStop/Tutorial/Text" unique_id=15493176]
 stream = ExtResource("17_6niov")
 volume_db = -20.0
+bus = &"Sfx"
 
 [node name="DashButton" type="AnimatedSprite2D" parent="TimeStop/Tutorial" unique_id=1289626703]
 use_parent_material = true
@@ -760,6 +761,7 @@ one_shot = true
 [node name="Voice" type="AudioStreamPlayer" parent="TimeStop2/Tutorial/Text" unique_id=1109843202]
 stream = ExtResource("17_6niov")
 volume_db = -20.0
+bus = &"Sfx"
 
 [node name="DashButton" type="AnimatedSprite2D" parent="TimeStop2/Tutorial" unique_id=91861213]
 use_parent_material = true
@@ -823,6 +825,7 @@ one_shot = true
 [node name="Voice" type="AudioStreamPlayer" parent="TextArea/DashTutorial2" unique_id=268305601]
 stream = ExtResource("17_6niov")
 volume_db = -20.0
+bus = &"Sfx"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TextArea" unique_id=549413172]
 position = Vector2(158.625, -7.625)

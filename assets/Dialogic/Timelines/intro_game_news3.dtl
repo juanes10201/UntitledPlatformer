@@ -1,23 +1,23 @@
 NewsGuy1: VISTE lo de SPEEDTEST?
 Telephone: decime
-NewsGuy1: NO VISTE los NUMEROS? REVISA YA los RATINGS
-Telephone: ya se, los numeros llevan cayendo decadas.
+NewsGuy1: NO viste NADA[pause=0.1] de los NUMEROS?? REVISA YA los RATINGS
+Telephone: sisi, ya se, los numeros llevan cayendo decadas.
 Telephone: habra que pensar algo nuevo para evitar que nos rajen
-NewsGuy1: REVISA LOS PUTOS NUMEROS PORFAVOR
+NewsGuy1: REVISA los PUTOS NUMEROS PORFAVOR
 Telephone: uh che bueno, si te pone contento...[pause=0.5] dejame ver
-Telephone: uhhhh............ okey
+Telephone: uhhhh............[pause=0.5]okey(?)
 Telephone: no sabia que podia pasar esto
 Telephone: los numeros bajaron tanto que se fueron para arriba(????????)
-Telephone: bancame,[pause=0.2] voy a pedir que arreglen las tablas
+Telephone: bancame,[pause=0.2] que pido que arreglen las tablas
 NewsGuy1: NO VISTE NADA???? [pause=0.2]ABSOLUTAMENTE NADA??????????????
 Telephone: que
 NewsGuy1: ????????????????
 NewsGuy1: NADA????
-Telephone: tenes demasiado tiempo al pedo
+Telephone: estas realmente muy al pedo
 NewsGuy1: estan TODOS. Y DIGO ABSOLUTAMENTE TODOS
 do SaveGame.play_function_node_group("PlayAnimArea", "play_anim_low_light")
 NewsGuy1: MIRANDO SPEEDTEST
 NewsGuy1: POR ESTE TIPO... mira esto
 Telephone: decime el nombre al menos
-NewsGuy1: SE LLAMA....[aa=0.02]
+NewsGuy1: [speed=2]Bueno. SE LLAMA....[aa=0.02]
 do SaveGame.play_function_node_group("2ndPlayAnimArea", "play_anim_end_dialog")

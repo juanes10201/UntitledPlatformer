@@ -163,7 +163,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w7ae7")
 }],
-"loop": true,
+"loop": 1,
 "name": &"disabled",
 "speed": 5.0
 }, {
@@ -177,7 +177,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w7ae7")
 }],
-"loop": false,
+"loop": 0,
 "name": &"hide",
 "speed": 5.0
 }, {
@@ -197,7 +197,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5d5i3")
 }],
-"loop": false,
+"loop": 0,
 "name": &"show",
 "speed": 5.0
 }]
@@ -219,7 +219,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tbb0o")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -227,7 +227,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jx7m1")
 }],
-"loop": true,
+"loop": 1,
 "name": &"pressed",
 "speed": 5.0
 }]
@@ -246,7 +246,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1jr0n")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -254,7 +254,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_usbao")
 }],
-"loop": true,
+"loop": 1,
 "name": &"pressed",
 "speed": 5.0
 }]
@@ -615,6 +615,7 @@ one_shot = true
 [node name="Voice" type="AudioStreamPlayer" parent="TextArea/DashTutorial2" unique_id=1564316300]
 stream = ExtResource("18_oc802")
 volume_db = -20.0
+bus = &"Sfx"
 
 [node name="DashButton" type="AnimatedSprite2D" parent="TextArea/DashTutorial2" unique_id=682594889]
 use_parent_material = true

@@ -26,7 +26,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	_song_tick()
 
+
+var paused : bool = false
 #region Play song
+func pause_current_song() -> void:
+	StatesSongs[MusicState].stop()
+	paused = true
+
+func resume_current_song() -> void:
+	paused = true
+
 func _play_song(Song):
 	if(Song && !Song.playing):
 		for Child in get_children():
@@ -56,7 +65,7 @@ func _play_global_sound(Sound):
 #region Songs
 
 func _song_tick() -> void:
-	if(PlayMusic):
+	if(PlayMusic && !paused):
 		_play_song_current_state()
 		#match MusicState:
 		#	MusicStates.boss1:

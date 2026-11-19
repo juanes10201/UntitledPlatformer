@@ -36,6 +36,8 @@ func _process(delta: float) -> void:
 		else:
 			show()
 			$AnimationPlayer.play()
+	else:
+		visible = Show
 	#if(objetive_move.x != first_pos.x && objetive_move.y != first_pos.y):
 	position.x = move_toward(first_pos.x, objetive_move.x, move*delta)
 	position.y = move_toward(first_pos.y, objetive_move.y, move*delta)

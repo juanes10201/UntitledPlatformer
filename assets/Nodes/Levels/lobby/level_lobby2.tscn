@@ -1498,6 +1498,8 @@ colors = PackedColorArray(0, 0, 0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_7p8tm"]
 gradient = SubResource("Gradient_i7d6c")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_13lo3"]
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sw3el"]
 shader = ExtResource("32_a4ssk")
 shader_parameter/blend_mode = 23
@@ -1510,9 +1512,9 @@ shader_parameter/opacity = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a4ssk"]
 shader = ExtResource("32_a4ssk")
-shader_parameter/blend_mode = 20
-shader_parameter/base_source = 0
-shader_parameter/layer_source = 1
+shader_parameter/blend_mode = 23
+shader_parameter/base_source = 1
+shader_parameter/layer_source = 0
 shader_parameter/blend_color = Color(1, 1, 1, 1)
 shader_parameter/blend_uv_scale = Vector2(1, 1)
 shader_parameter/blend_uv_offset = Vector2(0, 0)
@@ -3654,14 +3656,14 @@ script = ExtResource("32_101q1")
 
 [node name="Sprite3" type="Sprite2D" parent="CrtPhotos" unique_id=1557847284]
 visible = false
-modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_13lo3")
 position = Vector2(-444.99997, -61.000042)
 scale = Vector2(0.31875005, 0.31875002)
 texture = ExtResource("30_v0wky")
 
 [node name="Sprite2" type="Sprite2D" parent="CrtPhotos" unique_id=117596324]
 visible = false
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0.416003)
 position = Vector2(-444.99997, -61.000042)
 scale = Vector2(0.31875005, 0.31875002)
 texture = ExtResource("29_5l5lc")
@@ -3788,6 +3790,7 @@ shape = SubResource("RectangleShape2D_xj11r")
 
 [node name="Player" parent="." unique_id=1652695725 instance=ExtResource("25_rxeeo")]
 visible = false
+modulate = Color(1, 1, 1, 0)
 position = Vector2(-467, -42.76)
 Styleometter = false
 CountTime = false

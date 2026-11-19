@@ -197,7 +197,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r81r5")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 3.0
 }, {
@@ -217,7 +217,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j6v67")
 }],
-"loop": true,
+"loop": 1,
 "name": &"left",
 "speed": 3.0
 }, {
@@ -237,7 +237,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jkaot")
 }],
-"loop": true,
+"loop": 1,
 "name": &"right",
 "speed": 3.0
 }]
@@ -1243,7 +1243,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_aqpf3")
 }],
-"loop": false,
+"loop": 0,
 "name": &"explode",
 "speed": 12.0
 }, {
@@ -1251,7 +1251,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ackkf")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 1.0
 }, {
@@ -1280,7 +1280,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2wu8p")
 }],
-"loop": false,
+"loop": 0,
 "name": &"move_left",
 "speed": 12.0
 }, {
@@ -1309,7 +1309,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qyjpv")
 }],
-"loop": false,
+"loop": 0,
 "name": &"move_right",
 "speed": 12.0
 }]
@@ -3451,12 +3451,12 @@ scale = Vector2(2.005, 11.175)
 
 [node name="KillBox16" parent="." unique_id=485189864 instance=ExtResource("11_3k3gd")]
 z_index = 1
-position = Vector2(-553.00006, 133.00002)
+position = Vector2(-553.0001, 130.00002)
 scale = Vector2(0.805, 14.31)
 
 [node name="KillBox17" parent="." unique_id=1898222798 instance=ExtResource("11_3k3gd")]
 z_index = 1
-position = Vector2(-553, 411)
+position = Vector2(-552.99994, 413.99997)
 scale = Vector2(0.805, 14.31)
 
 [node name="KillBox4" parent="." unique_id=1933633694 instance=ExtResource("11_3k3gd")]
@@ -3666,8 +3666,11 @@ position = Vector2(135.00002, 123)
 scale = Vector2(1.91, 1.55)
 
 [node name="Key7" parent="." unique_id=1906301517 instance=ExtResource("13_f6viy")]
-position = Vector2(-552, 270)
+position = Vector2(-552, 271)
 AditionalAction = 1
+
+[node name="CollisionShape2D" parent="Key7" index="1" unique_id=1893467045]
+scale = Vector2(1, 1.76)
 
 [node name="KillBox7" parent="." unique_id=1295531796 instance=ExtResource("18_xdos2")]
 modulate = Color(1, 1, 1, 0)
@@ -3743,3 +3746,4 @@ CurrentAnimation = 1
 [editable path="CanvasLayer"]
 [editable path="Boss"]
 [editable path="Player"]
+[editable path="Key7"]

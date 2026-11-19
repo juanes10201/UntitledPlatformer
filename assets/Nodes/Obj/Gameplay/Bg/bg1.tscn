@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://b3e6jq4nqnmph"]
+
+[ext_resource type="Texture2D" uid="uid://l5gcewxed7vs" path="res://assets/Sprites/Gameplay/Bg/grid.png" id="1_3upcb"]
+[ext_resource type="Script" uid="uid://d4ler4t4mfg0x" path="res://assets/Nodes/Obj/Gameplay/Bg/bg_1.gd" id="1_arnbj"]
+[ext_resource type="Script" uid="uid://bfjuhdt66v471" path="res://assets/Scripts/grid_bg.gd" id="2_arnbj"]
+[ext_resource type="Texture2D" uid="uid://b3gaejlvs121s" path="res://assets/Sprites/Gameplay/Bg/testcity.png" id="4_o7b63"]
+
+[sub_resource type="Animation" id="Animation_wh1ld"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-755, -863)]
+}
+
+[sub_resource type="Animation" id="Animation_6ubuh"]
+resource_name = "move"
+length = 40.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 21.2, 39.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-755, -2863), Vector2(-493, -2367), Vector2(-755, -2863)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0i2pc"]
+_data = {
+&"RESET": SubResource("Animation_wh1ld"),
+&"move": SubResource("Animation_6ubuh")
+}
+
+[node name="Parallax2D" type="Node2D" unique_id=781850622]
+script = ExtResource("1_arnbj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1084380882]
+
+[node name="ParallaxBg" type="Parallax2D" parent="." unique_id=394288704]
+scroll_scale = Vector2(0.7, 0.7)
+
+[node name="Bg" type="Sprite2D" parent="ParallaxBg" unique_id=2064973825]
+texture_repeat = 2
+position = Vector2(-755, -863)
+texture = ExtResource("1_3upcb")
+centered = false
+region_enabled = true
+region_rect = Rect2(0.078, 0.149, 1151.87, 9999)
+script = ExtResource("2_arnbj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBg/Bg" unique_id=814840483]
+libraries/ = SubResource("AnimationLibrary_0i2pc")
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=695609074]
+scroll_scale = Vector2(0.8, 0.8)
+scroll_offset = Vector2(-40, -512)
+repeat_size = Vector2(62.865, 0)
+repeat_times = 49
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=1508897322]
+modulate = Color(1, 1, 1, 0.8745098)
+position = Vector2(83, 583)
+scale = Vector2(0.022, 0.055)
+texture = ExtResource("4_o7b63")

@@ -259,6 +259,12 @@ gradient = SubResource("Gradient_31wbi")
 fill = 1
 fill_from = Vector2(0.48290598, 0.517094)
 
+[sub_resource type="Gradient" id="Gradient_wu174"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gw5y2"]
+gradient = SubResource("Gradient_wu174")
+fill_to = Vector2(0, 1)
+
 [node name="Node2D" type="Node2D" unique_id=1637754269]
 position = Vector2(0, -1)
 
@@ -389,6 +395,7 @@ one_shot = true
 [node name="Voice" type="AudioStreamPlayer" parent="TimeStop/Tutorial/Text" unique_id=543477118]
 stream = ExtResource("20_2fmst")
 volume_db = -20.0
+bus = &"Sfx"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimeStop" unique_id=2070531935]
 position = Vector2(-6.1971865, 4)
@@ -568,6 +575,30 @@ position = Vector2(-280, -183)
 position = Vector2(-95, -401)
 scale = Vector2(58.64, 1)
 Visible = false
+
+[node name="LightHidePlayer6" type="PointLight2D" parent="." unique_id=1629383798]
+position = Vector2(-344, 167)
+rotation = 1.5882496
+scale = Vector2(2.4334254, 0.5797006)
+color = Color(1.8289685e-06, 0.96876377, 0.5075044, 1)
+energy = 1.15
+blend_mode = 1
+texture = SubResource("GradientTexture2D_gw5y2")
+texture_scale = 4.22
+height = 153.0
+script = ExtResource("20_4vq8n")
+
+[node name="LightHidePlayer7" type="PointLight2D" parent="." unique_id=215766835]
+position = Vector2(106.000015, 149)
+rotation = -1.5446163
+scale = Vector2(3.7691884, 0.8603342)
+color = Color(1.8289685e-06, 0.96876377, 0.5075044, 1)
+energy = 0.6
+blend_mode = 1
+texture = SubResource("GradientTexture2D_gw5y2")
+texture_scale = 4.22
+height = 103.0
+script = ExtResource("20_4vq8n")
 
 [connection signal="body_entered" from="TimeStop" to="TimeStop" method="_on_body_entered"]
 [connection signal="body_entered" from="TimeStop/StopRemover" to="TimeStop" method="_on_stop_remover_body_entered"]

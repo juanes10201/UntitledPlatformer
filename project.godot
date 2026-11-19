@@ -128,6 +128,9 @@ audio/channel_defaults={
 }
 }
 audio/type_sound_bus="Sfx"
+animations/join_default="Fade In"
+animations/leave_default="Fade Out"
+animations/cross_fade_default="Fade Cross"
 
 [display]
 
@@ -136,7 +139,7 @@ window/quality/use_taa=false
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg", "res://addons/imgui-godot/plugin.cfg", "res://addons/virtual_joystick/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg", "res://addons/godotsteam/plugin.cfg", "res://addons/imgui-godot/plugin.cfg", "res://addons/virtual_joystick/plugin.cfg")
 
 [filesystem]
 
@@ -490,5 +493,5 @@ environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 
 [steam]
 
-initialization/app_id=3822390
-initialization/initialize_on_startup=true
+initialization/app_data/app_id=3822390
+initialization/processes/initialize_on_startup=true

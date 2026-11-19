@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://djb38p8yphhv7" path="res://assets/Music/260220_mainmenu_v0.wav" id="3_tlcfd"]
 [ext_resource type="AudioStream" uid="uid://icc3ivk04e40" path="res://assets/Music/TestBoss.wav" id="4_i05w6"]
 [ext_resource type="AudioStream" uid="uid://5odsrlxbpbat" path="res://assets/Sounds/death.wav" id="5_7olny"]
-[ext_resource type="AudioStream" uid="uid://cq8f2wmvvgrgh" path="res://assets/Sounds/completelevel.wav" id="6_i05w6"]
+[ext_resource type="AudioStream" uid="uid://bsgi66qrf2rq6" path="res://assets/Sounds/completelevel-lowerdb.wav" id="6_v5xgs"]
 [ext_resource type="AudioStream" uid="uid://bn632hbv8as5u" path="res://assets/Sounds/wah_test.wav" id="7_oyca0"]
 [ext_resource type="AudioStream" uid="uid://oy1s3lnlgnd6" path="res://assets/Music/CutsceneSynthPlaceholder.wav" id="8_v5xgs"]
 
@@ -20,7 +20,6 @@ StatesSongs = {
 
 [node name="SongInGame" type="AudioStreamPlayer" parent="." unique_id=2057856058]
 stream = ExtResource("2_7olny")
-volume_db = -5.0
 bus = &"Music"
 
 [node name="SongMenu" type="AudioStreamPlayer" parent="." unique_id=2017170225]
@@ -36,7 +35,9 @@ stream = ExtResource("5_7olny")
 bus = &"Sfx"
 
 [node name="AudioCompleteLevel" type="AudioStreamPlayer" parent="." unique_id=400413956]
-stream = ExtResource("6_i05w6")
+stream = ExtResource("6_v5xgs")
+volume_db = -80.0
+bus = &"Sfx"
 
 [node name="AudioNewLevel" type="AudioStreamPlayer" parent="." unique_id=994908693]
 stream = ExtResource("7_oyca0")

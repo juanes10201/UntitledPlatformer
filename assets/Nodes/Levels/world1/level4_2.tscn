@@ -515,6 +515,7 @@ one_shot = true
 [node name="Voice" type="AudioStreamPlayer" parent="TimeStop/Tutorial/Text" unique_id=1619803042]
 stream = ExtResource("23_0rvih")
 volume_db = -20.0
+bus = &"Sfx"
 
 [node name="DashButton" type="AnimatedSprite2D" parent="TimeStop/Tutorial" unique_id=83063924]
 use_parent_material = true

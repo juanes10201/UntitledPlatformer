@@ -502,6 +502,9 @@ var FinishedIntro : bool = false
 func set_music_state(state : SongPlayer.MusicStates):
 	SongPlayer.MusicState = state
 
+func pause_music() -> void:
+	SongPlayer.pause_current_song()
+
 @onready var IntroAnim : AnimationPlayer = $Camera2D/AnimationPlayer
 func _physics_process(delta: float) -> void:
 	if(!FinishedIntro && PlayIntro):
@@ -759,8 +762,8 @@ func _set_time_state(State : bool, ChangeWaitTime : bool = true):
 		if(Time_Left.wait_time > OriginalWaitTime):
 			Time_Left.wait_time = OriginalWaitTime
 			Time_Left.start()
-	elif(Global.Selected_Challenge != Global.CHALLENGES.speedrun):
-		if(ChangeWaitTime):
+	elif(Time_Left && Global.Selected_Challenge != Global.CHALLENGES.speedrun):
+		if( ChangeWaitTime):
 			Time_Left.wait_time = MaxWaitTime
 			Time_Left.start()
 		else:

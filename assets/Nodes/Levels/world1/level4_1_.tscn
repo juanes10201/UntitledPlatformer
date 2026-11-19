@@ -1621,6 +1621,7 @@ one_shot = true
 [node name="Voice" type="AudioStreamPlayer" parent="TextArea/DashTutorial2" unique_id=104615005]
 stream = ExtResource("20_uuxf6")
 volume_db = -20.0
+bus = &"Sfx"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TextArea" unique_id=189780999]
 position = Vector2(-92.125, 56.375)
@@ -1672,6 +1673,7 @@ one_shot = true
 [node name="Voice" type="AudioStreamPlayer" parent="TextArea2/DashTutorial2" unique_id=945219166]
 stream = ExtResource("20_uuxf6")
 volume_db = -20.0
+bus = &"Sfx"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TextArea2" unique_id=845021148]
 position = Vector2(58, 77.5)
