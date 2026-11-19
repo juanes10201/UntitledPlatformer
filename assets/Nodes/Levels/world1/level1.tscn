@@ -2158,9 +2158,20 @@ height = 153.0
 script = ExtResource("10_qs57u")
 
 [node name="LightHidePlayer13" type="PointLight2D" parent="." unique_id=721657838]
-position = Vector2(-319, -495)
-scale = Vector2(0.8414174, 0.6923875)
-color = Color(0, 0.93487036, 0.8590562, 1)
+position = Vector2(-320, -470.75)
+scale = Vector2(0.8414174, 0.82012725)
+color = Color(2.5027991e-06, 0.9408742, 0.7961613, 1)
+energy = 0.45
+blend_mode = 1
+texture = SubResource("GradientTexture2D_8jkc0")
+texture_scale = 4.22
+height = 153.0
+script = ExtResource("10_qs57u")
+
+[node name="LightHidePlayer14" type="PointLight2D" parent="." unique_id=1390110266]
+position = Vector2(162, -453.00003)
+scale = Vector2(0.8414174, 0.82012725)
+color = Color(2.5027991e-06, 0.9408742, 0.7961613, 1)
 energy = 0.45
 blend_mode = 1
 texture = SubResource("GradientTexture2D_8jkc0")
