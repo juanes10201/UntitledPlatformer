@@ -931,6 +931,54 @@ tracks/14/keys = {
 "method": &"play_text"
 }]
 }
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../LightHidePlayer10:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../LightHidePlayer9:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("../ShowPlayerLights:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("../ShowPlayerLights/LightHidePlayer11:energy")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(2.3333333, 2.4666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.65]
+}
 
 [sub_resource type="Animation" id="Animation_0eh2n"]
 resource_name = "Intro"
@@ -1460,6 +1508,54 @@ tracks/18/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("../LightHidePlayer10:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("../LightHidePlayer9:visible")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("../ShowPlayerLights:visible")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("../ShowPlayerLights/LightHidePlayer11:energy")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.65]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0eh2n"]
 _data = {
@@ -1504,6 +1600,13 @@ shader_parameter/roll_line_amount = 0.3
 shader_parameter/roll_speed = 0.6440004105899995
 shader_parameter/scan_line_strength = -9.4669998796825
 shader_parameter/pixel_strength = -2.94799995003
+
+[sub_resource type="Gradient" id="Gradient_nk3nm"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5kqd8"]
+gradient = SubResource("Gradient_nk3nm")
+fill_from = Vector2(0, 0.017094018)
+fill_to = Vector2(0, 1)
 
 [node name="Node2D" type="Node2D" unique_id=421737780]
 position = Vector2(0, -1)
@@ -1556,7 +1659,8 @@ texture_scale = 1.2
 height = 13.0
 
 [node name="PointLight2D94" type="PointLight2D" parent="Lights" unique_id=288492953]
-position = Vector2(59.182785, 47.483875)
+position = Vector2(64.10667, 52.314827)
+scale = Vector2(0.9007878, 0.5512629)
 color = Color(0.89405394, 0.43319535, 1, 1)
 energy = 1.15
 texture = SubResource("GradientTexture2D_ljvcf")
@@ -1585,7 +1689,8 @@ script = ExtResource("5_a4wmf")
 CurrentAnimation = 1
 
 [node name="PointLight2D97" type="PointLight2D" parent="Lights" unique_id=827995043]
-position = Vector2(24.91182, 42.680428)
+position = Vector2(41.427956, 46.809456)
+scale = Vector2(0.5500126, 0.5500126)
 color = Color(0.9999996, 0.5954225, 0.1976102, 1)
 energy = 1.15
 texture = SubResource("GradientTexture2D_ljvcf")
@@ -1653,9 +1758,10 @@ script = ExtResource("5_a4wmf")
 CurrentAnimation = 1
 
 [node name="PointLight2D100" type="PointLight2D" parent="Lights" unique_id=2058869387]
-position = Vector2(11.836548, -6.1797867)
+position = Vector2(13.212904, -20.631401)
+scale = Vector2(0.4374843, 0.4374843)
 color = Color(1, 0.56879485, 0.53285605, 1)
-energy = 1.15
+energy = 2.25
 texture = SubResource("GradientTexture2D_ljvcf")
 texture_scale = 1.72
 height = 13.0
@@ -1696,19 +1802,8 @@ texture_scale = 2.02
 height = 13.0
 script = ExtResource("5_a4wmf")
 
-[node name="PointLight2D50" type="PointLight2D" parent="Lights" unique_id=7563849]
-position = Vector2(-44.59355, 48.185802)
-scale = Vector2(1.0501375, 0.9813704)
-color = Color(0.95429975, 0.54115075, 0, 1)
-energy = 1.05
-texture = SubResource("GradientTexture2D_y6xr4")
-texture_scale = 2.02
-height = 13.0
-script = ExtResource("5_a4wmf")
-CurrentAnimation = 1
-
 [node name="PointLight2D52" type="PointLight2D" parent="Lights" unique_id=2048165175]
-position = Vector2(-30.141937, 14.465374)
+position = Vector2(-33.582798, 13.089025)
 scale = Vector2(1.0501375, 0.9813704)
 color = Color(0.97660345, 0.4084335, 0.83408976, 1)
 energy = 1.1
@@ -1719,8 +1814,8 @@ script = ExtResource("5_a4wmf")
 CurrentAnimation = 1
 
 [node name="PointLight2D51" type="PointLight2D" parent="Lights" unique_id=59643924]
-position = Vector2(-75.5613, -23.384092)
-scale = Vector2(1.0501375, 0.9813704)
+position = Vector2(-78.31398, -26.824953)
+scale = Vector2(0.6581467, 0.37309736)
 color = Color(1, 0.38553604, 0.81909704, 1)
 energy = 1.6
 texture = SubResource("GradientTexture2D_y6xr4")
@@ -1795,7 +1890,8 @@ height = 13.0
 script = ExtResource("5_a4wmf")
 
 [node name="PointLight2D22" type="PointLight2D" parent="Lights" unique_id=1490599353]
-position = Vector2(-235.21721, 4.142784)
+position = Vector2(-235.9054, 22.03526)
+scale = Vector2(0.61166257, 0.61166257)
 color = Color(1, 0.37642756, 0.8709062, 1)
 energy = 1.45
 texture = SubResource("GradientTexture2D_4bv7n")
@@ -1832,13 +1928,6 @@ height = 13.0
 [node name="PointLight2D15" type="PointLight2D" parent="Lights" unique_id=102736019]
 position = Vector2(-67.9914, 131.45462)
 color = Color(0.88741815, 0.49767113, 0.8530232, 1)
-energy = 0.55
-texture = SubResource("GradientTexture2D_4bv7n")
-height = 13.0
-
-[node name="PointLight2D17" type="PointLight2D" parent="Lights" unique_id=486851359]
-position = Vector2(-34.270973, 18.5944)
-color = Color(0.5002834, 0.65314096, 0.9934439, 1)
 energy = 0.55
 texture = SubResource("GradientTexture2D_4bv7n")
 height = 13.0
@@ -2178,6 +2267,67 @@ offset_left = -425.0
 offset_top = -323.0
 offset_right = 722.0
 offset_bottom = 380.0
+
+[node name="LightHidePlayer9" type="PointLight2D" parent="." unique_id=544160975]
+position = Vector2(119.7421, -46.59504)
+rotation = 1.5707964
+scale = Vector2(2.2863274, 0.3058533)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.65
+blend_mode = 1
+texture = SubResource("GradientTexture2D_5kqd8")
+texture_scale = 4.22
+height = 153.0
+script = ExtResource("5_a4wmf")
+
+[node name="LightHidePlayer10" type="PointLight2D" parent="." unique_id=91775638]
+position = Vector2(365.5, 21.848782)
+scale = Vector2(1.5662026, 0.43062216)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.65
+blend_mode = 1
+texture = SubResource("GradientTexture2D_5kqd8")
+texture_scale = 4.22
+height = 153.0
+script = ExtResource("5_a4wmf")
+
+[node name="ShowPlayerLights" type="Node2D" parent="." unique_id=1317990356]
+visible = false
+
+[node name="LightHidePlayer7" type="PointLight2D" parent="ShowPlayerLights" unique_id=1215979919]
+position = Vector2(-306.0849, 80)
+rotation = 1.5707964
+scale = Vector2(1.6835063, 0.48120648)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.65
+blend_mode = 1
+texture = SubResource("GradientTexture2D_5kqd8")
+texture_scale = 4.22
+height = 153.0
+script = ExtResource("5_a4wmf")
+
+[node name="LightHidePlayer11" type="PointLight2D" parent="ShowPlayerLights" unique_id=393844444]
+position = Vector2(120, -16.759987)
+rotation = -1.5707964
+scale = Vector2(2.0777597, 0.2972842)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.65
+blend_mode = 1
+texture = SubResource("GradientTexture2D_5kqd8")
+texture_scale = 4.22
+height = 153.0
+script = ExtResource("5_a4wmf")
+
+[node name="LightHidePlayer8" type="PointLight2D" parent="ShowPlayerLights" unique_id=1724446235]
+position = Vector2(-150, 229)
+scale = Vector2(1.6835063, 0.4517181)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.65
+blend_mode = 1
+texture = SubResource("GradientTexture2D_5kqd8")
+texture_scale = 4.22
+height = 153.0
+script = ExtResource("5_a4wmf")
 
 [connection signal="picked_by_player" from="Key" to="Key/ClockCutscenePlayer" method="_on_key_picked_by_player"]
 [connection signal="body_entered" from="TextArea" to="TextArea" method="_on_body_entered"]

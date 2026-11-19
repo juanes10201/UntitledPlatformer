@@ -98,6 +98,13 @@ gradient = SubResource("Gradient_31wbi")
 fill = 1
 fill_from = Vector2(0.48290598, 0.517094)
 
+[sub_resource type="Gradient" id="Gradient_nk3nm"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kdp1s"]
+gradient = SubResource("Gradient_nk3nm")
+fill_from = Vector2(0, 0.017094018)
+fill_to = Vector2(0, 1)
+
 [node name="Node2D" type="Node2D" unique_id=2112795000]
 position = Vector2(0, -1)
 
@@ -327,3 +334,39 @@ script = ExtResource("3_kv3dk")
 [node name="InvertedGravityInitialPosMarker" type="Marker2D" parent="Player" unique_id=898720221]
 top_level = true
 position = Vector2(-318, -112)
+
+[node name="LightHidePlayer7" type="PointLight2D" parent="." unique_id=125969556]
+position = Vector2(-333.2697, -43.000015)
+rotation = 1.5707964
+scale = Vector2(1.6835063, 0.43265754)
+color = Color(0, 0.96862745, 0.5058824, 1)
+energy = 0.7
+blend_mode = 1
+texture = SubResource("GradientTexture2D_kdp1s")
+texture_scale = 4.22
+height = 153.0
+script = ExtResource("13_5b3iq")
+
+[node name="LightHidePlayer8" type="PointLight2D" parent="." unique_id=415575830]
+position = Vector2(161.99998, -118.000015)
+rotation = -2.1659536
+scale = Vector2(1.6835063, 0.5902032)
+color = Color(0.8222463, 0.8582203, 0, 1)
+energy = 0.5
+blend_mode = 1
+texture = SubResource("GradientTexture2D_kdp1s")
+texture_scale = 4.22
+height = 153.0
+script = ExtResource("13_5b3iq")
+
+[node name="LightHidePlayer9" type="PointLight2D" parent="." unique_id=1107109789]
+position = Vector2(-85.46057, -178.04132)
+rotation = 3.1415927
+scale = Vector2(1.8504156, 0.62692326)
+color = Color(0, 0.96862745, 0.5058824, 1)
+energy = 0.7
+blend_mode = 1
+texture = SubResource("GradientTexture2D_kdp1s")
+texture_scale = 4.22
+height = 153.0
+script = ExtResource("13_5b3iq")
