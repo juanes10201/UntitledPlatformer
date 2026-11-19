@@ -271,6 +271,11 @@ gradient = SubResource("Gradient_kg7ln")
 fill = 1
 fill_from = Vector2(0.48290598, 0.517094)
 
+[sub_resource type="Gradient" id="Gradient_kl8q2"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_seci8"]
+gradient = SubResource("Gradient_kl8q2")
+
 [node name="Node2D" type="Node2D" unique_id=1268248894]
 position = Vector2(0, -1)
 
@@ -652,6 +657,17 @@ Visible = false
 
 [node name="Rail" parent="." unique_id=607275562 instance=ExtResource("23_kl8q2")]
 position = Vector2(-382, -50)
-points = PackedVector2Array(-6, 6, 0, 2, 7, 87, 366, 24, 215, 70, 121, 42, 618, 9, 669, -278)
+points = PackedVector2Array(-6, 6, 0, 2, 7, 87, 414, 59, 215, 70, 87, 70, 657, 49, 669, -278)
+
+[node name="LightHidePlayer11" type="PointLight2D" parent="." unique_id=1203201931]
+position = Vector2(-58.296024, -79)
+rotation = 1.5707964
+scale = Vector2(0.27641332, 2.1150649)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.55
+blend_mode = 1
+texture = SubResource("GradientTexture2D_seci8")
+texture_scale = 4.22
+height = 153.0
 
 [connection signal="body_entered" from="TextArea" to="TextArea" method="_on_body_entered"]

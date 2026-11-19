@@ -1601,10 +1601,10 @@ shader_parameter/roll_speed = 0.6440004105899995
 shader_parameter/scan_line_strength = -9.4669998796825
 shader_parameter/pixel_strength = -2.94799995003
 
-[sub_resource type="Gradient" id="Gradient_nk3nm"]
+[sub_resource type="Gradient" id="Gradient_hj8ko"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_5kqd8"]
-gradient = SubResource("Gradient_nk3nm")
+gradient = SubResource("Gradient_hj8ko")
 fill_from = Vector2(0, 0.017094018)
 fill_to = Vector2(0, 1)
 
@@ -2278,7 +2278,6 @@ blend_mode = 1
 texture = SubResource("GradientTexture2D_5kqd8")
 texture_scale = 4.22
 height = 153.0
-script = ExtResource("5_a4wmf")
 
 [node name="LightHidePlayer10" type="PointLight2D" parent="." unique_id=91775638]
 position = Vector2(365.5, 21.848782)
@@ -2289,7 +2288,6 @@ blend_mode = 1
 texture = SubResource("GradientTexture2D_5kqd8")
 texture_scale = 4.22
 height = 153.0
-script = ExtResource("5_a4wmf")
 
 [node name="ShowPlayerLights" type="Node2D" parent="." unique_id=1317990356]
 visible = false
@@ -2304,7 +2302,6 @@ blend_mode = 1
 texture = SubResource("GradientTexture2D_5kqd8")
 texture_scale = 4.22
 height = 153.0
-script = ExtResource("5_a4wmf")
 
 [node name="LightHidePlayer11" type="PointLight2D" parent="ShowPlayerLights" unique_id=393844444]
 position = Vector2(120, -16.759987)
@@ -2316,7 +2313,6 @@ blend_mode = 1
 texture = SubResource("GradientTexture2D_5kqd8")
 texture_scale = 4.22
 height = 153.0
-script = ExtResource("5_a4wmf")
 
 [node name="LightHidePlayer8" type="PointLight2D" parent="ShowPlayerLights" unique_id=1724446235]
 position = Vector2(-150, 229)
@@ -2327,7 +2323,6 @@ blend_mode = 1
 texture = SubResource("GradientTexture2D_5kqd8")
 texture_scale = 4.22
 height = 153.0
-script = ExtResource("5_a4wmf")
 
 [connection signal="picked_by_player" from="Key" to="Key/ClockCutscenePlayer" method="_on_key_picked_by_player"]
 [connection signal="body_entered" from="TextArea" to="TextArea" method="_on_body_entered"]

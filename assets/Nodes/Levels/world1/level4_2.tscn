@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://pjki5nu48c5" path="res://assets/Sprites/Gameplay/player/hologram.png" id="19_qwim0"]
 [ext_resource type="Material" uid="uid://cjr5dj81gf86x" path="res://assets/Shader/tutorial_button_shader_config.tres" id="20_rlp67"]
 [ext_resource type="FontFile" uid="uid://du1fhb4w0oxp8" path="res://assets/Fonts/pixelart/Coder's Crux.otf" id="21_6dob6"]
+[ext_resource type="Script" uid="uid://dbfv5o1s01x06" path="res://assets/Scripts/DynamicLightAnimation.gd" id="22_f74q4"]
 [ext_resource type="Script" uid="uid://b7kp4oyo8y484" path="res://assets/Nodes/Obj/Ui/text_tutorial_anim.gd" id="22_wdqwg"]
 [ext_resource type="AudioStream" uid="uid://dsvfo3erylgm" path="res://assets/Sounds/Tutorial/voicetutorial.wav" id="23_0rvih"]
 [ext_resource type="Texture2D" uid="uid://c84avb2yr7nyv" path="res://assets/Sprites/Ui/Input/Keyboard White.png" id="24_35tpb"]
@@ -289,6 +290,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hp7k"]
 size = Vector2(77.1953, 34)
 
+[sub_resource type="Gradient" id="Gradient_nk3nm"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oi6d2"]
+gradient = SubResource("Gradient_nk3nm")
+fill_from = Vector2(0, 0.017094018)
+fill_to = Vector2(0, 1)
+
 [node name="Node2D" type="Node2D" unique_id=729302942]
 position = Vector2(0, -1)
 
@@ -537,6 +545,30 @@ position = Vector2(84.25, 7.625)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimeStop/StopRemover" unique_id=302060818]
 position = Vector2(-54.25, 218.375)
 shape = SubResource("RectangleShape2D_0hp7k")
+
+[node name="LightHidePlayer9" type="PointLight2D" parent="." unique_id=1327753703]
+position = Vector2(-364, 214.43465)
+rotation = 1.5707964
+scale = Vector2(4.4602404, 0.3206637)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.65
+blend_mode = 1
+texture = SubResource("GradientTexture2D_oi6d2")
+texture_scale = 4.22
+height = 153.0
+script = ExtResource("22_f74q4")
+
+[node name="LightHidePlayer10" type="PointLight2D" parent="." unique_id=1324294742]
+position = Vector2(-99.94829, 431.87494)
+rotation = -1.5707964
+scale = Vector2(5.8663054, 1.2837242)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.65
+blend_mode = 1
+texture = SubResource("GradientTexture2D_oi6d2")
+texture_scale = 4.22
+height = 153.0
+script = ExtResource("22_f74q4")
 
 [connection signal="body_entered" from="TimeStop" to="TimeStop" method="_on_body_entered"]
 [connection signal="body_entered" from="TimeStop/StopRemover" to="TimeStop" method="_on_stop_remover_body_entered"]

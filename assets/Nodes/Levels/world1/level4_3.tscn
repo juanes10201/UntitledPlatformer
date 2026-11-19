@@ -164,7 +164,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w7ae7")
 }],
-"loop": true,
+"loop": 1,
 "name": &"disabled",
 "speed": 5.0
 }, {
@@ -178,7 +178,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w7ae7")
 }],
-"loop": true,
+"loop": 1,
 "name": &"hide",
 "speed": 5.0
 }, {
@@ -198,7 +198,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5d5i3")
 }],
-"loop": false,
+"loop": 0,
 "name": &"show",
 "speed": 5.0
 }]
@@ -220,7 +220,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tbb0o")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -228,7 +228,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jx7m1")
 }],
-"loop": true,
+"loop": 1,
 "name": &"pressed",
 "speed": 5.0
 }]
@@ -247,7 +247,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1jr0n")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -255,7 +255,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_usbao")
 }],
-"loop": true,
+"loop": 1,
 "name": &"pressed",
 "speed": 5.0
 }]
