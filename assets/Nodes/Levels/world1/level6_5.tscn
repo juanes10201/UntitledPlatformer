@@ -107,6 +107,25 @@ gradient = SubResource("Gradient_a2p30")
 fill = 1
 fill_from = Vector2(0.48290598, 0.517094)
 
+[sub_resource type="Gradient" id="Gradient_b4ko6"]
+offsets = PackedFloat32Array(0, 0.8980392, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_idf6w"]
+gradient = SubResource("Gradient_b4ko6")
+
+[sub_resource type="Gradient" id="Gradient_sfcbr"]
+offsets = PackedFloat32Array(0, 0.8980392, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m42l5"]
+gradient = SubResource("Gradient_sfcbr")
+
+[sub_resource type="Gradient" id="Gradient_bgwrj"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g1r4g"]
+gradient = SubResource("Gradient_bgwrj")
+
 [node name="Node2D" type="Node2D" unique_id=203193166]
 position = Vector2(0, -1)
 
@@ -376,3 +395,35 @@ texture = SubResource("GradientTexture2D_6ok8l")
 texture_scale = 1.15
 height = 13.0
 script = ExtResource("6_s385c")
+
+[node name="LightHidePlayer15" type="PointLight2D" parent="." unique_id=1124073709]
+position = Vector2(-88, -3.0000012)
+rotation = -4.7472954
+scale = Vector2(0.32097027, 2.0287666)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.55
+blend_mode = 1
+texture = SubResource("GradientTexture2D_idf6w")
+texture_scale = 4.22
+height = 153.0
+
+[node name="LightHidePlayer14" type="PointLight2D" parent="." unique_id=232872808]
+position = Vector2(-299.97015, -57.305023)
+rotation = -3.117158
+scale = Vector2(0.1740266, 1.3476797)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.55
+blend_mode = 1
+texture = SubResource("GradientTexture2D_m42l5")
+texture_scale = 4.22
+height = 153.0
+
+[node name="LightHidePlayer11" type="PointLight2D" parent="." unique_id=781582852]
+position = Vector2(83.744316, -118)
+scale = Vector2(0.30172038, 1.9736928)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.55
+blend_mode = 1
+texture = SubResource("GradientTexture2D_g1r4g")
+texture_scale = 4.22
+height = 153.0

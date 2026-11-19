@@ -445,14 +445,25 @@ gradient = SubResource("Gradient_d4cgy")
 fill = 1
 fill_from = Vector2(0.48290598, 0.517094)
 
-[sub_resource type="Gradient" id="Gradient_148xn"]
-offsets = PackedFloat32Array(0, 0.65238094)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+[sub_resource type="Gradient" id="Gradient_kfqnj"]
+offsets = PackedFloat32Array(0, 0.7764706, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_fgyic"]
-gradient = SubResource("Gradient_148xn")
-fill = 1
-fill_from = Vector2(0.48290598, 0.517094)
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t5vno"]
+gradient = SubResource("Gradient_kfqnj")
+
+[sub_resource type="Gradient" id="Gradient_sfcbr"]
+offsets = PackedFloat32Array(0, 0.8980392, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qgg86"]
+gradient = SubResource("Gradient_sfcbr")
+
+[sub_resource type="Gradient" id="Gradient_2t510"]
+offsets = PackedFloat32Array(0, 0.6431373)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fhemk"]
+gradient = SubResource("Gradient_2t510")
 
 [node name="Node2D" type="Node2D" unique_id=415498713]
 position = Vector2(0, -1)
@@ -711,19 +722,11 @@ color = Color(0.598049, 0.565586, 0.741277, 1)
 
 [node name="HiddableLights" type="Node2D" parent="." unique_id=671389126]
 
-[node name="PointLight2D11" type="PointLight2D" parent="HiddableLights" unique_id=1244205389]
-position = Vector2(56, 73)
-scale = Vector2(1.453125, 1.453125)
-color = Color(0.94203347, 0.54280084, 0.34444445, 1)
-texture = SubResource("GradientTexture2D_b3igw")
-height = 13.0
-script = ExtResource("16_eqw1s")
-CurrentAnimation = 1
-
 [node name="PointLight2D12" type="PointLight2D" parent="HiddableLights" unique_id=1954572965]
-position = Vector2(112, 105)
+position = Vector2(109, 75)
 scale = Vector2(1.453125, 1.453125)
 color = Color(0.94203347, 0.54280084, 0.34444445, 1)
+energy = 1.5
 texture = SubResource("GradientTexture2D_b3igw")
 height = 13.0
 script = ExtResource("16_eqw1s")
@@ -731,14 +734,6 @@ CurrentAnimation = 1
 
 [node name="PointLight2D14" type="PointLight2D" parent="HiddableLights" unique_id=2089743691]
 position = Vector2(-120, 73)
-scale = Vector2(1.453125, 1.453125)
-color = Color(0.9885257, 0.43792143, 0.71769613, 1)
-energy = 0.65
-texture = SubResource("GradientTexture2D_05rqf")
-height = 13.0
-
-[node name="PointLight2D15" type="PointLight2D" parent="HiddableLights" unique_id=1490273198]
-position = Vector2(72, 153)
 scale = Vector2(1.453125, 1.453125)
 color = Color(0.9885257, 0.43792143, 0.71769613, 1)
 energy = 0.65
@@ -762,71 +757,27 @@ texture = SubResource("GradientTexture2D_05rqf")
 height = 13.0
 
 [node name="PointLight2D18" type="PointLight2D" parent="HiddableLights" unique_id=1014412287]
-position = Vector2(224.00002, -15)
-scale = Vector2(1.453125, 1.453125)
+position = Vector2(206.99998, 87)
+scale = Vector2(1.1171875, 1.453125)
 color = Color(0.9885257, 0.43792143, 0.71769613, 1)
 energy = 0.7
 texture = SubResource("GradientTexture2D_05rqf")
 height = 13.0
 
 [node name="PointLight2D20" type="PointLight2D" parent="HiddableLights" unique_id=789572519]
-position = Vector2(136, 9)
+position = Vector2(244, 44)
 scale = Vector2(1.453125, 1.453125)
 color = Color(0.9885257, 0.43792143, 0.71769613, 1)
 energy = 0.45
 texture = SubResource("GradientTexture2D_05rqf")
 height = 13.0
-
-[node name="PointLight2D21" type="PointLight2D" parent="HiddableLights" unique_id=1400363685]
-position = Vector2(161, 7.9999995)
-scale = Vector2(1.453125, 1.453125)
-color = Color(0.9690828, 0.518879, 0, 1)
-energy = 0.55
-texture = SubResource("GradientTexture2D_05rqf")
-texture_scale = 1.55
-height = 13.0
-
-[node name="PointLight2D19" type="PointLight2D" parent="HiddableLights" unique_id=37771825]
-position = Vector2(112, 65)
-scale = Vector2(1.453125, 1.453125)
-color = Color(0.9885257, 0.43792143, 0.71769613, 1)
-energy = 0.7
-texture = SubResource("GradientTexture2D_05rqf")
-height = 13.0
-
-[node name="PointLight2D24" type="PointLight2D" parent="HiddableLights" unique_id=51958099]
-position = Vector2(233.00002, 23)
-scale = Vector2(1.453125, 1.453125)
-color = Color(1, 0.48542434, 0.40943006, 1)
-energy = 3.9
-texture = SubResource("GradientTexture2D_v138t")
-texture_scale = 2.6
-height = 13.0
-script = ExtResource("16_eqw1s")
 
 [node name="PointLight2D3" type="PointLight2D" parent="HiddableLights" unique_id=729675716]
-position = Vector2(272, 121)
+position = Vector2(229, 31.999992)
 scale = Vector2(1.453125, 1.453125)
-color = Color(0.7026668, 0.5993584, 0.9006834, 1)
-energy = 0.65
+color = Color(1, 0.5061776, 0.15123972, 1)
+energy = 1.3
 texture = SubResource("GradientTexture2D_148xn")
-height = 13.0
-
-[node name="PointLight2D4" type="PointLight2D" parent="HiddableLights" unique_id=870459289]
-position = Vector2(176, 17)
-scale = Vector2(1.453125, 1.453125)
-color = Color(0.8255318, 0.6290966, 0.018607348, 1)
-energy = 0.65
-texture = SubResource("GradientTexture2D_fgyic")
-texture_scale = 1.72
-height = 13.0
-
-[node name="PointLight2D10" type="PointLight2D" parent="HiddableLights" unique_id=1271153144]
-position = Vector2(80, 73)
-scale = Vector2(1.453125, 1.453125)
-color = Color(1, 0.37987858, 0.86713356, 1)
-energy = 0.45
-texture = SubResource("GradientTexture2D_ietdl")
 height = 13.0
 
 [node name="PointLight2D8" type="PointLight2D" parent="HiddableLights" unique_id=1004392549]
@@ -872,6 +823,39 @@ z_index = -1
 position = Vector2(-122, 35)
 points = PackedVector2Array(42, -139, -5, -99, 8, -94, 30, 29, 0, -1, 22, -51, 63, 27, 87, -9, 174, 5, 176, 67, 187, 81)
 EndWithSlam = true
+
+[node name="LightHidePlayer12" type="PointLight2D" parent="." unique_id=858851040]
+position = Vector2(-106.18095, 244.76088)
+rotation = 1.5707964
+scale = Vector2(0.46874335, 2.3784387)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.4
+blend_mode = 1
+texture = SubResource("GradientTexture2D_t5vno")
+texture_scale = 4.22
+height = 153.0
+
+[node name="LightHidePlayer13" type="PointLight2D" parent="." unique_id=2057333959]
+position = Vector2(336.00003, 48.000008)
+rotation = -0.95294976
+scale = Vector2(0.4897924, 1.3054317)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.55
+blend_mode = 1
+texture = SubResource("GradientTexture2D_qgg86")
+texture_scale = 4.22
+height = 153.0
+
+[node name="LightHidePlayer14" type="PointLight2D" parent="." unique_id=1371563176]
+position = Vector2(-105, 231.00002)
+rotation = -4.4348817
+scale = Vector2(0.79072183, 3.454563)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.25
+blend_mode = 1
+texture = SubResource("GradientTexture2D_fhemk")
+texture_scale = 4.22
+height = 73.0
 
 [connection signal="body_entered" from="TextArea" to="TextArea" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D/ClockCutscenePlayer" method="_on_area_2d_body_entered"]

@@ -345,7 +345,7 @@ position = Vector2(-178, -197)
 scale = Vector2(2.01, 1.165)
 
 [node name="LightHidePlayer5" type="PointLight2D" parent="." unique_id=1468618993]
-position = Vector2(-281, -186)
+position = Vector2(-289.00003, -184)
 rotation = -4.6687555
 scale = Vector2(1.6835063, 0.43402475)
 color = Color(1.8289685e-06, 0.96876377, 0.5075044, 1)
