@@ -63,11 +63,11 @@ fill = 1
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0.62369657, 0.4436018)
 
-[sub_resource type="Gradient" id="Gradient_oacxl"]
+[sub_resource type="Gradient" id="Gradient_vgvrc"]
 colors = PackedColorArray(0.4029194, 0.27022234, 0.5411549, 0.50980395, 0.31881967, 0.15335661, 0.6525167, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_phag5"]
-gradient = SubResource("Gradient_oacxl")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oacxl"]
+gradient = SubResource("Gradient_vgvrc")
 fill = 1
 fill_from = Vector2(1, 1)
 fill_to = Vector2(0.33459705, 0.4436018)
@@ -115,7 +115,7 @@ shader_parameter/light_color = SubResource("GradientTexture2D_uoqo2")
 shader_parameter/shadow_color = SubResource("GradientTexture2D_52veg")
 shader_parameter/v_light_color = SubResource("GradientTexture2D_u7u1o")
 shader_parameter/v_shadow_color = SubResource("GradientTexture2D_4uvog")
-shader_parameter/diagonal_upper_right_color = SubResource("GradientTexture2D_phag5")
+shader_parameter/diagonal_upper_right_color = SubResource("GradientTexture2D_oacxl")
 shader_parameter/diagonal_upper_left_color = SubResource("GradientTexture2D_t0wew")
 shader_parameter/diagonal_down_right_color = SubResource("GradientTexture2D_diaf4")
 shader_parameter/diagonal_down_left_color = SubResource("GradientTexture2D_0hxqn")
@@ -280,6 +280,12 @@ shader_parameter/vignette_intensity = 0.438
 shader_parameter/grille_amount = 0.348
 shader_parameter/brightness_boost = 1.087
 
+[sub_resource type="Gradient" id="Gradient_8ifkb"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l0nw2"]
+gradient = SubResource("Gradient_8ifkb")
+fill_to = Vector2(0, 1)
+
 [node name="Node2D" type="Node2D" unique_id=132502342]
 position = Vector2(0, -1)
 
@@ -323,7 +329,7 @@ script = ExtResource("7_ygepq")
 texture_filter = 1
 texture_repeat = 2
 material = SubResource("ShaderMaterial_v5r0p")
-tile_map_data = PackedByteArray("AADu/w8AAQAAAAEAAADu/xAAAQAAAAEAAADu/xEAAQAAAAEAAADu/xIAAQAAAAEAAADu/xMAAQAAAAIAAADw/xMAAQACAAIAAADw/xIAAQACAAEAAADw/xEAAQACAAEAAADw/xAAAQACAAEAAADw/w8AAQACAAEAAADv/xIAAQABAAEAAADv/xEAAQABAAEAAADv/xAAAQABAAEAAADv/w8AAQABAAEAAADv/xMAAQABAAIAAAACAA8AAQAAAAEAAAACABAAAQAAAAEAAAACABEAAQAAAAEAAAADAA8AAQACAAEAAAADABAAAQACAAEAAAADABEAAQACAAEAAAADABIAAQACAAIAAAACABIAAQAAAAIAAAAEABIAAQAAAAIAAAAFABIAAQACAAIAAAAFABEAAQACAAEAAAAFABAAAQACAAEAAAAFAA8AAQACAAAAAAAEABEAAQAAAAEAAAAEABAAAQAAAAEAAAAEAA8AAQAAAAAAAAARABwAAQACAAEAAAARABsAAQACAAEAAAARABoAAQACAAEAAAARABkAAQACAAEAAAARABgAAQACAAEAAAARABcAAQACAAEAAAARABYAAQACAAEAAAARABUAAQACAAEAAAARABQAAQACAAEAAAARABMAAQACAAEAAAARABIAAQACAAEAAAARABEAAQAIAAMAAAARABAAAQACAAEAAAARAA8AAQACAAEAAAAQABwAAQABAAEAAAAQABsAAQABAAEAAAAQABoAAQABAAEAAAAQABkAAQABAAEAAAAQABgAAQABAAEAAAAQABcAAQABAAEAAAAQABYAAQABAAEAAAAQABUAAQAAAAEAAAAQABQAAQAAAAEAAAAQABMAAQAAAAEAAAAQABIAAQAAAAEAAAAQABEAAQAAAAEAAAAQABAAAQAAAAEAAAAQAA8AAQAAAAEAAAAPABwAAQAAAAEAAAAPABsAAQAAAAEAAAAPABoAAQAAAAEAAAAPABkAAQAAAAEAAAAPABgAAQAAAAEAAAAPABcAAQAAAAEAAAAPABYAAQACAAIAAAAFABoAAQAIAAIAAAAFABkAAQACAAEAAAAFABgAAQACAAEAAAAFABcAAQACAAEAAAAFABYAAQACAAAAAAAEABoAAQAAAAEAAAAEABkAAQAAAAEAAAAEABgAAQAAAAEAAAAEABcAAQAAAAEAAAAEABYAAQAAAAAAAAAOABYAAQABAAIAAAANABYAAQABAAIAAAAMABYAAQABAAIAAAALABYAAQABAAIAAAAKABYAAQABAAIAAAAJABYAAQAAAAIAAAAFABsAAQACAAEAAAAFABwAAQACAAIAAAAEABwAAQAAAAIAAAAEABsAAQAAAAEAAAAPAB0AAQAHAAIAAAAPAB4AAQAAAAIAAAAQAB4AAQABAAIAAAAQAB0AAQABAAEAAAARAB0AAQACAAEAAAARAB4AAQACAAIAAAA=")
+tile_map_data = PackedByteArray("AADu/w8AAQAAAAEAAADu/xAAAQAAAAEAAADu/xEAAQAAAAEAAADu/xIAAQAAAAEAAADu/xMAAQAAAAIAAADw/xMAAQACAAIAAADw/xIAAQACAAEAAADw/xEAAQACAAEAAADw/xAAAQACAAEAAADw/w8AAQACAAEAAADv/xIAAQABAAEAAADv/xEAAQABAAEAAADv/xAAAQABAAEAAADv/w8AAQABAAEAAADv/xMAAQABAAIAAAACAA8AAQAAAAEAAAACABAAAQAAAAEAAAACABEAAQAAAAEAAAADAA8AAQACAAEAAAADABAAAQACAAEAAAADABEAAQACAAEAAAADABIAAQACAAIAAAACABIAAQAAAAIAAAAEABIAAQAAAAIAAAAFABIAAQABAAAAAFAFABEAAQACAAEAAAAFABAAAQABAAAAAFAFAA8AAQABAAAAAFAEABEAAQAAAAEAAAAEABAAAQAAAAEAAAAEAA8AAQAAAAAAAAARABwAAQACAAEAAAARABsAAQACAAEAAAARABoAAQACAAEAAAARABkAAQACAAEAAAARABgAAQACAAEAAAARABcAAQACAAEAAAARABYAAQACAAEAAAARABUAAQACAAEAAAARABQAAQACAAEAAAARABMAAQACAAEAAAARABIAAQACAAEAAAARABEAAQAIAAMAAAARABAAAQACAAEAAAARAA8AAQACAAEAAAAQABwAAQABAAEAAAAQABsAAQABAAEAAAAQABoAAQABAAEAAAAQABkAAQABAAEAAAAQABgAAQABAAEAAAAQABcAAQABAAEAAAAQABYAAQABAAEAAAAQABUAAQAAAAEAAAAQABQAAQAAAAEAAAAQABMAAQAAAAEAAAAQABIAAQAAAAEAAAAQABEAAQAAAAEAAAAQABAAAQAAAAEAAAAQAA8AAQAAAAEAAAAPABwAAQAAAAEAAAAPABsAAQAAAAEAAAAPABoAAQAAAAEAAAAPABkAAQAAAAEAAAAPABgAAQAAAAEAAAAPABcAAQAAAAEAAAAPABYAAQACAAIAAAAFABoAAQAIAAIAAAAFABkAAQACAAEAAAAFABgAAQACAAEAAAAFABcAAQACAAEAAAAFABYAAQACAAAAAAAEABoAAQAAAAEAAAAEABkAAQAAAAEAAAAEABgAAQAAAAEAAAAEABcAAQAAAAEAAAAEABYAAQAAAAAAAAAOABYAAQABAAIAAAANABYAAQABAAIAAAAMABYAAQABAAIAAAALABYAAQABAAIAAAAKABYAAQABAAIAAAAJABYAAQAAAAIAAAAFABsAAQACAAEAAAAFABwAAQACAAIAAAAEABwAAQAAAAIAAAAEABsAAQAAAAEAAAAPAB0AAQAHAAIAAAAPAB4AAQAAAAIAAAAQAB4AAQABAAIAAAAQAB0AAQABAAEAAAARAB0AAQACAAEAAAARAB4AAQACAAIAAAA=")
 tile_set = ExtResource("8_of5fn")
 script = ExtResource("7_ygepq")
 ShadowShader = true
@@ -336,10 +342,11 @@ tile_set = ExtResource("8_of5fn")
 script = ExtResource("7_ygepq")
 
 [node name="PointLight2D62" type="PointLight2D" parent="." unique_id=696002162]
-position = Vector2(137, 368.67145)
+position = Vector2(128, 347)
 scale = Vector2(0.94538355, 0.5633336)
 color = Color(0.8597781, 0.52709, 0.7955243, 1)
 energy = 0.45
+range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_of5fn")
 texture_scale = 2.57
 height = 38.0
@@ -351,6 +358,31 @@ position = Vector2(136, 495.00003)
 scale = Vector2(0.94538355, 0.88347614)
 color = Color(0.56824636, 0.62457806, 1, 1)
 energy = 0.45
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_of5fn")
+texture_scale = 2.57
+height = 38.0
+script = ExtResource("22_r4wuo")
+CurrentAnimation = 1
+
+[node name="PointLight2D67" type="PointLight2D" parent="." unique_id=1103257824]
+position = Vector2(96, 436.00003)
+scale = Vector2(0.55780846, 0.52128094)
+color = Color(1, 0.46900195, 0.48397702, 1)
+energy = 0.55
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_of5fn")
+texture_scale = 2.57
+height = 38.0
+script = ExtResource("22_r4wuo")
+CurrentAnimation = 1
+
+[node name="PointLight2D68" type="PointLight2D" parent="." unique_id=497141834]
+position = Vector2(73, 417)
+scale = Vector2(0.55780846, 0.52128094)
+color = Color(1.1358858e-05, 0.71671444, 0.966315, 1)
+energy = 0.55
+range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_of5fn")
 texture_scale = 2.57
 height = 38.0
@@ -362,6 +394,7 @@ position = Vector2(228, 391.00003)
 scale = Vector2(0.94538355, 0.88347614)
 color = Color(1, 0.36578655, 0.7207649, 1)
 energy = 0.3
+range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_of5fn")
 texture_scale = 2.57
 height = 38.0
@@ -373,6 +406,7 @@ position = Vector2(244.00002, 437)
 scale = Vector2(0.94538355, 0.88347614)
 color = Color(0.8528886, 0.57249767, 0.21756205, 1)
 energy = 0.35
+range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_of5fn")
 texture_scale = 2.57
 height = 38.0
@@ -384,6 +418,7 @@ position = Vector2(-186, 221.00002)
 scale = Vector2(0.94538355, 0.88347614)
 color = Color(0.9766763, 0.33209845, 0.99999994, 1)
 energy = 0.6
+range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_of5fn")
 texture_scale = 2.57
 height = 38.0
@@ -394,17 +429,124 @@ position = Vector2(65.999985, 158.00002)
 scale = Vector2(0.94538355, 0.88347614)
 color = Color(0.9766763, 0.33209845, 0.99999994, 1)
 energy = 0.45
+range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_of5fn")
 texture_scale = 2.57
 height = 38.0
 script = ExtResource("22_r4wuo")
 CurrentAnimation = 1
 
-[node name="PointLight2D64" type="PointLight2D" parent="." unique_id=1810099936]
-position = Vector2(214, 510.00003)
+[node name="PointLight2D70" type="PointLight2D" parent="." unique_id=1839339967]
+position = Vector2(-24, 225)
 scale = Vector2(0.94538355, 0.88347614)
-color = Color(0.8597781, 0.52709, 0.7955243, 1)
-energy = 0.2
+color = Color(0.9766763, 0.33209845, 0.99999994, 1)
+energy = 0.65
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_of5fn")
+texture_scale = 2.57
+height = 58.0
+script = ExtResource("22_r4wuo")
+CurrentAnimation = 1
+
+[node name="PointLight2D73" type="PointLight2D" parent="." unique_id=1366398765]
+position = Vector2(2, 190)
+scale = Vector2(0.5372943, 0.47621918)
+color = Color(0.54074717, 0.736886, 7.70092e-07, 1)
+energy = 0.65
+blend_mode = 1
+texture = SubResource("GradientTexture2D_of5fn")
+texture_scale = 2.57
+height = 58.0
+script = ExtResource("22_r4wuo")
+CurrentAnimation = 1
+
+[node name="PointLight2D71" type="PointLight2D" parent="." unique_id=2069513427]
+position = Vector2(206.00002, 208.00002)
+scale = Vector2(1.2995402, 0.42957848)
+color = Color(5.4869056e-06, 0.7559004, 0.73921275, 1)
+energy = 0.7
+blend_mode = 1
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_of5fn")
+texture_scale = 2.57
+height = 58.0
+script = ExtResource("22_r4wuo")
+
+[node name="PointLight2D77" type="PointLight2D" parent="." unique_id=130431906]
+position = Vector2(59.18357, 289.00003)
+scale = Vector2(0.42781574, 1.839379)
+color = Color(5.4869056e-06, 0.7559004, 0.73921275, 1)
+energy = 0.55
+blend_mode = 1
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_of5fn")
+texture_scale = 2.57
+height = 38.0
+script = ExtResource("22_r4wuo")
+
+[node name="PointLight2D72" type="PointLight2D" parent="." unique_id=1890453331]
+position = Vector2(157.53145, 193.91786)
+scale = Vector2(0.60151434, 0.19555132)
+color = Color(1, 0.47128505, 0.485677, 1)
+energy = 0.7
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_of5fn")
+texture_scale = 2.57
+height = 58.0
+script = ExtResource("22_r4wuo")
+
+[node name="PointLight2D74" type="PointLight2D" parent="." unique_id=698910150]
+position = Vector2(133, 374)
+scale = Vector2(0.54546785, 0.22393057)
+color = Color(5.4869056e-06, 0.7559004, 0.73921275, 1)
+energy = 0.7
+blend_mode = 1
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_of5fn")
+texture_scale = 2.57
+height = 58.0
+script = ExtResource("22_r4wuo")
+
+[node name="PointLight2D75" type="PointLight2D" parent="." unique_id=1644420221]
+position = Vector2(103.40562, 356.2464)
+scale = Vector2(0.60151434, 0.19555132)
+color = Color(1, 0.47128505, 0.485677, 1)
+energy = 0.7
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_of5fn")
+texture_scale = 2.57
+height = 58.0
+script = ExtResource("22_r4wuo")
+
+[node name="PointLight2D76" type="PointLight2D" parent="." unique_id=604970986]
+position = Vector2(93.00001, 283.00003)
+scale = Vector2(0.34189126, 0.5048705)
+color = Color(1, 0.47128505, 0.485677, 1)
+energy = 0.7
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_of5fn")
+texture_scale = 2.57
+height = 58.0
+script = ExtResource("22_r4wuo")
+
+[node name="PointLight2D64" type="PointLight2D" parent="." unique_id=1810099936]
+position = Vector2(259, 480.00006)
+scale = Vector2(0.94538355, 0.88347614)
+color = Color(1, 0.49255443, 0.24345583, 1)
+energy = 0.35
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_of5fn")
+texture_scale = 2.57
+height = 38.0
+script = ExtResource("22_r4wuo")
+CurrentAnimation = 1
+
+[node name="PointLight2D69" type="PointLight2D" parent="." unique_id=1779305625]
+position = Vector2(178.00002, 540.00006)
+scale = Vector2(0.94538355, 0.88347614)
+color = Color(1, 0.49255443, 0.24345583, 1)
+energy = 0.35
+range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_of5fn")
 texture_scale = 2.57
 height = 38.0
@@ -594,7 +736,7 @@ top_level = true
 position = Vector2(132, 418)
 
 [node name="float" parent="." unique_id=1298722529 instance=ExtResource("18_ygepq")]
-position = Vector2(-65, 232)
+position = Vector2(-76, 231)
 
 [node name="float2" parent="." unique_id=847996116 instance=ExtResource("18_ygepq")]
 position = Vector2(241, 164)
@@ -630,7 +772,7 @@ AditionalAction = 6
 AditionalActionArgument = 91.0
 
 [node name="Key5" parent="." unique_id=388702074 instance=ExtResource("9_pbw21")]
-position = Vector2(119, 385)
+position = Vector2(121, 384)
 AditionalAction = 6
 AditionalActionArgument = 354.0
 
@@ -666,3 +808,39 @@ position = Vector2(221, 547)
 
 [node name="falling_sand3" parent="." unique_id=1924752415 instance=ExtResource("20_ag4mn")]
 position = Vector2(200, 336)
+
+[node name="LightHidePlayer6" type="PointLight2D" parent="." unique_id=496033477]
+position = Vector2(-236.25632, 216.26988)
+rotation = 1.5707964
+scale = Vector2(0.7470709, 0.43459517)
+color = Color(1, 0.7579885, 0.5412006, 1)
+energy = 0.45
+blend_mode = 1
+texture = SubResource("GradientTexture2D_l0nw2")
+texture_scale = 4.22
+height = 153.0
+script = ExtResource("22_r4wuo")
+
+[node name="LightHidePlayer7" type="PointLight2D" parent="." unique_id=116469237]
+position = Vector2(36.929092, 128.91023)
+rotation = 1.5707964
+scale = Vector2(1.3219318, 0.07121453)
+color = Color(0.7339457, 0.78297704, 1, 1)
+energy = 0.45
+blend_mode = 1
+texture = SubResource("GradientTexture2D_l0nw2")
+texture_scale = 4.22
+height = 153.0
+script = ExtResource("22_r4wuo")
+
+[node name="LightHidePlayer8" type="PointLight2D" parent="." unique_id=433311400]
+position = Vector2(97, 453.00003)
+rotation = 1.5707964
+scale = Vector2(0.74212825, 0.19068168)
+color = Color(2.9841065e-06, 0.9546662, 0.405294, 1)
+energy = 0.45
+blend_mode = 1
+texture = SubResource("GradientTexture2D_l0nw2")
+texture_scale = 4.22
+height = 153.0
+script = ExtResource("22_r4wuo")

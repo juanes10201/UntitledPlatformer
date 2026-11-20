@@ -51,6 +51,7 @@ shader_parameter/border_color = SubResource("GradientTexture1D_of5fn")
 shader_parameter/water_surface_y = 237.475
 
 [node name="TileMapLayerWater" type="TileMapLayer" unique_id=1940844964 groups=["Tileset", "WaterTileset"]]
+light_mask = 2
 z_index = 2
 texture_filter = 1
 texture_repeat = 2

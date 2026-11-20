@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b6270h5m4qv0x" path="res://assets/Sprites/Gameplay/Obj/flag.png" id="3_k8pgl"]
 [ext_resource type="Texture2D" uid="uid://cc6sao5m1uf1p" path="res://assets/Sprites/particles/light3.png" id="3_klgg3"]
 [ext_resource type="Shader" uid="uid://c2lmrj8xyngdv" path="res://assets/Shader/Godray.gdshader" id="4_arfwt"]
+[ext_resource type="Shader" uid="uid://vf7wbaxmykte" path="res://assets/Nodes/Obj/blur.gdshader" id="6_w3hur"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sbb13"]
 size = Vector2(22, 30)
@@ -117,12 +118,20 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k8pgl"]
+shader = ExtResource("6_w3hur")
+shader_parameter/blur_size = 1.8030000856425001
+shader_parameter/max_alpha = 0.5230000248425
+shader_parameter/shadow_color = Color(0.15495309, 0.08759544, 0.0018636227, 1)
+shader_parameter/extend_px = 0.0
+
 [node name="Flag" type="Area2D" unique_id=893668377]
 position = Vector2(82, -35)
 collision_layer = 131073
 script = ExtResource("1_gl5pl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=638369776]
+z_index = -2
 position = Vector2(1, 3)
 shape = SubResource("RectangleShape2D_sbb13")
 
@@ -146,5 +155,12 @@ scale = Vector2(2.75599, 2.55839)
 texture = SubResource("GradientTexture2D_t3s8q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=585775462]
+z_index = 1
 material = SubResource("CanvasItemMaterial_k8pgl")
+sprite_frames = SubResource("SpriteFrames_md8ho")
+
+[node name="Shadow" type="AnimatedSprite2D" parent="AnimatedSprite2D" unique_id=1173973566]
+z_index = -1
+material = SubResource("ShaderMaterial_k8pgl")
+position = Vector2(-4, 2)
 sprite_frames = SubResource("SpriteFrames_md8ho")
