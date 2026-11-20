@@ -23,6 +23,7 @@
 [ext_resource type="Script" uid="uid://b70n1us6src5o" path="res://assets/Nodes/Obj/Dialogue/dialog_text_area.gd" id="21_w7ae7"]
 [ext_resource type="Script" uid="uid://6216kh0o2v0m" path="res://assets/Nodes/Obj/hologram.gd" id="22_2utor"]
 [ext_resource type="Script" uid="uid://dbfv5o1s01x06" path="res://assets/Scripts/DynamicLightAnimation.gd" id="23_2utor"]
+[ext_resource type="Shader" uid="uid://bclg3rdg5r8a7" path="res://assets/Shader/godray.gdshader" id="24_y33gm"]
 
 [sub_resource type="Gradient" id="Gradient_2utor"]
 offsets = PackedFloat32Array(0, 0.65238094)
@@ -327,6 +328,22 @@ fill_to = Vector2(0, 1)
 gradient = SubResource("Gradient_y33gm")
 fill_from = Vector2(0.6752137, 0.47863248)
 fill_to = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v6skd"]
+shader = ExtResource("24_y33gm")
+shader_parameter/angle = -0.365
+shader_parameter/position = -0.2
+shader_parameter/spread = 0.2050000097375
+shader_parameter/cutoff = 0.13300005381750002
+shader_parameter/falloff = 1.0
+shader_parameter/edge_fade = 0.26000001235
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.1600000076
+shader_parameter/color = Color(0.88308865, 0.43248236, 0, 0.18431373)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
 
 [node name="Node2D2" type="Node2D" unique_id=84872882]
 position = Vector2(0, -1)
@@ -868,6 +885,15 @@ texture_scale = 2.57
 height = 13.0
 script = ExtResource("23_2utor")
 CurrentAnimation = 1
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1306654558]
+z_index = 2
+material = SubResource("ShaderMaterial_v6skd")
+offset_left = -48.999996
+offset_top = 156.99998
+offset_right = 90.27913
+offset_bottom = 317.52002
+rotation = 0.46251225
 
 [connection signal="body_entered" from="TimeStop" to="TimeStop" method="_on_body_entered"]
 [connection signal="body_entered" from="TimeStop/StopRemover" to="TimeStop" method="_on_stop_remover_body_entered"]

@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://d1ji315fcqjjv" path="res://assets/Nodes/Particles/ambientparticles.tscn" id="12_mt158"]
 [ext_resource type="PackedScene" uid="uid://djqwajvc8m3td" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie.tscn" id="13_x8kaj"]
 [ext_resource type="PackedScene" uid="uid://cykeyxkv73jjt" path="res://assets/Nodes/Obj/Gameplay/falling_sand.tscn" id="14_rimw5"]
+[ext_resource type="Shader" uid="uid://bclg3rdg5r8a7" path="res://assets/Shader/godray.gdshader" id="15_b8ju4"]
 
 [sub_resource type="Gradient" id="Gradient_kg7ln"]
 offsets = PackedFloat32Array(0, 0.65238094)
@@ -69,6 +70,22 @@ gradient = SubResource("Gradient_celw7")
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_gq05b"]
 gradient = SubResource("Gradient_clqvu")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5kxvh"]
+shader = ExtResource("15_b8ju4")
+shader_parameter/angle = 0.51
+shader_parameter/position = 0.26
+shader_parameter/spread = 0.3150000149625
+shader_parameter/cutoff = 0.13300005381750002
+shader_parameter/falloff = 0.642000030495
+shader_parameter/edge_fade = 0.3470000164825
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.1600000076
+shader_parameter/color = Color(0.41960785, 0.5803922, 0.9137255, 0.19215687)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
 
 [node name="Node2D" type="Node2D" unique_id=512523774]
 position = Vector2(0, -1)
@@ -406,3 +423,11 @@ blend_mode = 1
 texture = SubResource("GradientTexture2D_gq05b")
 texture_scale = 4.22
 height = 153.0
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=2136793407]
+z_index = 2
+material = SubResource("ShaderMaterial_5kxvh")
+offset_left = 119.0
+offset_top = -416.0
+offset_right = 219.0
+offset_bottom = 32.0

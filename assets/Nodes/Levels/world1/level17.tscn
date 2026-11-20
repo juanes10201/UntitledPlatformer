@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://cyxm73atp4f5a" path="res://assets/Nodes/Obj/Ui/style_add_box.gd" id="13_8qno2"]
 [ext_resource type="PackedScene" uid="uid://cykeyxkv73jjt" path="res://assets/Nodes/Obj/Gameplay/falling_sand.tscn" id="13_y7odo"]
 [ext_resource type="PackedScene" uid="uid://cba0dn710x26" path="res://assets/Nodes/Obj/Gameplay/flag.tscn" id="17_nai04"]
+[ext_resource type="Shader" uid="uid://bclg3rdg5r8a7" path="res://assets/Shader/godray.gdshader" id="17_rrb62"]
 [ext_resource type="PackedScene" uid="uid://knd01tan0qom" path="res://assets/Nodes/Obj/Npc/npc.tscn" id="19_ej814"]
 [ext_resource type="Script" uid="uid://dbfv5o1s01x06" path="res://assets/Scripts/DynamicLightAnimation.gd" id="19_svtgq"]
 
@@ -178,6 +179,22 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8vbkp"]
 gradient = SubResource("Gradient_1q4f0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ej814"]
+shader = ExtResource("17_rrb62")
+shader_parameter/angle = -0.225
+shader_parameter/position = -0.07
+shader_parameter/spread = 0.3150000149625
+shader_parameter/cutoff = 0.10400005243999999
+shader_parameter/falloff = 0.142000006745
+shader_parameter/edge_fade = 0.222000010545
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.110000005225
+shader_parameter/color = Color(0.41960785, 0.5803922, 0.9137255, 0.16862746)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
 
 [node name="Node2D" type="Node2D" unique_id=834029177]
 position = Vector2(0, -1)
@@ -703,6 +720,14 @@ blend_mode = 1
 texture = SubResource("GradientTexture2D_8vbkp")
 texture_scale = 4.22
 height = 108.0
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=1522699526]
+z_index = 2
+material = SubResource("ShaderMaterial_ej814")
+offset_left = -181.0
+offset_top = -505.0
+offset_right = 9.0
+offset_bottom = 377.0
 
 [connection signal="body_entered" from="StyleAddBox" to="StyleAddBox" method="_on_body_entered"]
 

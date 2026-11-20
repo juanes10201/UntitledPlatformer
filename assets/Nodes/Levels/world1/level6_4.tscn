@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://djqwajvc8m3td" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie.tscn" id="15_qg6ch"]
 [ext_resource type="Script" uid="uid://dbfv5o1s01x06" path="res://assets/Scripts/DynamicLightAnimation.gd" id="16_b1vvu"]
 [ext_resource type="PackedScene" uid="uid://cjdqb7io2svh1" path="res://assets/Nodes/Obj/Gameplay/rail.tscn" id="16_unhkb"]
+[ext_resource type="Shader" uid="uid://bclg3rdg5r8a7" path="res://assets/Shader/godray.gdshader" id="17_43tnd"]
 
 [sub_resource type="Gradient" id="Gradient_kg7ln"]
 offsets = PackedFloat32Array(0, 0.65238094)
@@ -204,6 +205,22 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_rebgq")
 fill = 1
 fill_from = Vector2(0.48290598, 0.517094)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_680lf"]
+shader = ExtResource("17_43tnd")
+shader_parameter/angle = 0.51
+shader_parameter/position = 0.26
+shader_parameter/spread = 0.3150000149625
+shader_parameter/cutoff = 0.13300005381750002
+shader_parameter/falloff = 0.642000030495
+shader_parameter/edge_fade = 0.3470000164825
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.1600000076
+shader_parameter/color = Color(0.41960785, 0.5803922, 0.9137255, 0.19215687)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
 
 [node name="Node2D" type="Node2D" unique_id=1644117320]
 position = Vector2(0, -1)
@@ -579,3 +596,11 @@ texture_scale = 0.8
 height = 13.0
 script = ExtResource("16_b1vvu")
 CurrentAnimation = 1
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=483526103]
+z_index = 2
+material = SubResource("ShaderMaterial_680lf")
+offset_left = 63.0
+offset_top = -188.0
+offset_right = 163.0
+offset_bottom = 260.0

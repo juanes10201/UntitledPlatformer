@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://d1ji315fcqjjv" path="res://assets/Nodes/Particles/ambientparticles.tscn" id="16_jo1nc"]
 [ext_resource type="PackedScene" uid="uid://bygxx5ppwysc3" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie_special.tscn" id="16_okquh"]
 [ext_resource type="Script" uid="uid://cyxm73atp4f5a" path="res://assets/Nodes/Obj/Ui/style_add_box.gd" id="17_wyuh8"]
+[ext_resource type="Shader" uid="uid://bclg3rdg5r8a7" path="res://assets/Shader/godray.gdshader" id="18_xy0bu"]
 
 [sub_resource type="Gradient" id="Gradient_luitl"]
 offsets = PackedFloat32Array(0, 0.65238094)
@@ -70,6 +71,38 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_8g6tf")
 fill_from = Vector2(0.35897437, 0.47863248)
 fill_to = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xy0bu"]
+shader = ExtResource("18_xy0bu")
+shader_parameter/angle = -0.375
+shader_parameter/position = -0.3
+shader_parameter/spread = 0.4050000192375
+shader_parameter/cutoff = 0.10400005243999999
+shader_parameter/falloff = 0.39200001862
+shader_parameter/edge_fade = 0.222000010545
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.110000005225
+shader_parameter/color = Color(0.41960785, 0.5803922, 0.9137255, 0.16862746)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vhy6u"]
+shader = ExtResource("18_xy0bu")
+shader_parameter/angle = -0.18
+shader_parameter/position = -0.065
+shader_parameter/spread = 0.4050000192375
+shader_parameter/cutoff = 0.10400005243999999
+shader_parameter/falloff = 0.39200001862
+shader_parameter/edge_fade = 0.222000010545
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.110000005225
+shader_parameter/color = Color(0.75686276, 0.54901963, 0, 0.1254902)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
 
 [node name="Node2D" type="Node2D" unique_id=664365282]
 position = Vector2(0, -1)
@@ -469,5 +502,21 @@ blend_mode = 1
 texture = SubResource("GradientTexture2D_3qx3q")
 texture_scale = 4.22
 height = 153.0
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=872118857]
+z_index = 2
+material = SubResource("ShaderMaterial_xy0bu")
+offset_left = -50.0
+offset_top = -803.0
+offset_right = 140.0
+offset_bottom = 247.0
+
+[node name="ColorRect5" type="ColorRect" parent="." unique_id=947036723]
+z_index = 2
+material = SubResource("ShaderMaterial_vhy6u")
+offset_left = -272.0
+offset_top = -272.0
+offset_right = -190.0
+offset_bottom = -129.0
 
 [connection signal="body_entered" from="StyleAddBox" to="StyleAddBox" method="_on_body_entered"]

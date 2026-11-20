@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://fxx14m4na3pt" path="res://assets/Sprites/Ui/Input/kenney_inputs.png" id="14_qsjwe"]
 [ext_resource type="Script" uid="uid://dxswtkejq7e72" path="res://assets/Scripts/animated_button.gd" id="15_76ppp"]
 [ext_resource type="Script" uid="uid://dbfv5o1s01x06" path="res://assets/Scripts/DynamicLightAnimation.gd" id="16_qsjwe"]
+[ext_resource type="Shader" uid="uid://bclg3rdg5r8a7" path="res://assets/Shader/godray.gdshader" id="19_mmydu"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_a53cf"]
 light_mode = 1
@@ -133,6 +134,22 @@ fill_to = Vector2(0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ot246"]
 gradient = SubResource("Gradient_yvdxi")
 fill_to = Vector2(0, 0.84615386)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ot246"]
+shader = ExtResource("19_mmydu")
+shader_parameter/angle = -0.365
+shader_parameter/position = -0.2
+shader_parameter/spread = 0.2050000097375
+shader_parameter/cutoff = 0.13300005381750002
+shader_parameter/falloff = 0.8390000398525
+shader_parameter/edge_fade = 0.26000001235
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.1600000076
+shader_parameter/color = Color(0.85490197, 0.6627451, 0.91764706, 0.2784314)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
 
 [node name="Node2D" type="Node2D" unique_id=1867290443]
 position = Vector2(0, -1)
@@ -467,3 +484,11 @@ texture = SubResource("GradientTexture2D_mmydu")
 texture_scale = 4.22
 height = 153.0
 script = ExtResource("16_qsjwe")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1524416149]
+z_index = 2
+material = SubResource("ShaderMaterial_ot246")
+offset_left = 106.0
+offset_top = -593.0
+offset_right = 241.0
+offset_bottom = -30.0

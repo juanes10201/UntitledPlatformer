@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://pjki5nu48c5" path="res://assets/Sprites/Gameplay/player/hologram.png" id="19_qwim0"]
 [ext_resource type="Material" uid="uid://cjr5dj81gf86x" path="res://assets/Shader/tutorial_button_shader_config.tres" id="20_rlp67"]
 [ext_resource type="FontFile" uid="uid://du1fhb4w0oxp8" path="res://assets/Fonts/pixelart/Coder's Crux.otf" id="21_6dob6"]
+[ext_resource type="Shader" uid="uid://bclg3rdg5r8a7" path="res://assets/Shader/godray.gdshader" id="21_i26k5"]
 [ext_resource type="Script" uid="uid://dbfv5o1s01x06" path="res://assets/Scripts/DynamicLightAnimation.gd" id="22_f74q4"]
 [ext_resource type="Script" uid="uid://b7kp4oyo8y484" path="res://assets/Nodes/Obj/Ui/text_tutorial_anim.gd" id="22_wdqwg"]
 [ext_resource type="AudioStream" uid="uid://dsvfo3erylgm" path="res://assets/Sounds/Tutorial/voicetutorial.wav" id="23_0rvih"]
@@ -203,6 +204,22 @@ size = Vector2(77.1953, 34)
 gradient = SubResource("Gradient_nk3nm")
 fill_from = Vector2(0, 0.017094018)
 fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f74q4"]
+shader = ExtResource("21_i26k5")
+shader_parameter/angle = -0.465
+shader_parameter/position = -0.2
+shader_parameter/spread = 0.2950000140125
+shader_parameter/cutoff = 0.13300005381750002
+shader_parameter/falloff = 0.3190000151525
+shader_parameter/edge_fade = 0.30000001425
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 7.31
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.1600000076
+shader_parameter/color = Color(0.827451, 0.65882355, 1, 0.101960786)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
 
 [node name="Node2D" type="Node2D" unique_id=729302942]
 position = Vector2(0, -1)
@@ -450,6 +467,14 @@ texture = SubResource("GradientTexture2D_oi6d2")
 texture_scale = 4.22
 height = 153.0
 script = ExtResource("22_f74q4")
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=607306909]
+z_index = 2
+material = SubResource("ShaderMaterial_f74q4")
+offset_left = -330.0
+offset_top = -541.0
+offset_right = -190.0
+offset_bottom = 715.0
 
 [connection signal="body_entered" from="TimeStop" to="TimeStop" method="_on_body_entered"]
 [connection signal="body_entered" from="TimeStop/StopRemover" to="TimeStop" method="_on_stop_remover_body_entered"]

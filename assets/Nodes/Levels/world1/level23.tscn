@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dmnyy0uuvc0jk" path="res://assets/Nodes/Obj/Gameplay/kill_box.tscn" id="10_pj0ol"]
 [ext_resource type="PackedScene" uid="uid://cykeyxkv73jjt" path="res://assets/Nodes/Obj/Gameplay/falling_sand.tscn" id="11_wchcv"]
 [ext_resource type="PackedScene" uid="uid://d1ji315fcqjjv" path="res://assets/Nodes/Particles/ambientparticles.tscn" id="12_g843m"]
+[ext_resource type="Shader" uid="uid://bclg3rdg5r8a7" path="res://assets/Shader/godray.gdshader" id="12_jyygg"]
 
 [sub_resource type="Gradient" id="Gradient_luitl"]
 offsets = PackedFloat32Array(0, 0.65238094)
@@ -46,6 +47,40 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_h48im"]
 gradient = SubResource("Gradient_6cjuc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h48im"]
+shader = ExtResource("12_jyygg")
+shader_parameter/angle = -0.375
+shader_parameter/position = 0.055
+shader_parameter/spread = 0.4050000192375
+shader_parameter/cutoff = 0.10400005243999999
+shader_parameter/falloff = 0.83600003971
+shader_parameter/edge_fade = 0.222000010545
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.110000005225
+shader_parameter/color = Color(0.41960785, 0.5803922, 0.9137255, 0.16862746)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
+[sub_resource type="Gradient" id="Gradient_jyygg"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_feqdb"]
+gradient = SubResource("Gradient_jyygg")
+fill = 1
+fill_from = Vector2(0.5, 0.508547)
+fill_to = Vector2(0.85470086, 0.14529915)
+
+[sub_resource type="Gradient" id="Gradient_0r2et"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_12lcj"]
+gradient = SubResource("Gradient_0r2et")
+fill = 1
+fill_from = Vector2(0.491453, 0.4871795)
+fill_to = Vector2(0.86752135, 0.1965812)
 
 [node name="Node2D" type="Node2D" unique_id=1671194562]
 position = Vector2(0, -1)
@@ -247,5 +282,44 @@ color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
 energy = 0.4
 blend_mode = 1
 texture = SubResource("GradientTexture2D_h48im")
+texture_scale = 4.22
+height = 153.0
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=53357358]
+z_index = 2
+material = SubResource("ShaderMaterial_h48im")
+offset_left = -245.0
+offset_top = -452.0
+offset_right = -55.0
+offset_bottom = 553.0
+
+[node name="LightHidePlayer16" type="PointLight2D" parent="." unique_id=1533400033]
+position = Vector2(-140, 17.000002)
+rotation = -3.1415925
+scale = Vector2(0.2566172, 0.056188975)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.55
+blend_mode = 1
+texture = SubResource("GradientTexture2D_feqdb")
+texture_scale = 4.22
+height = 153.0
+
+[node name="LightHidePlayer17" type="PointLight2D" parent="." unique_id=438721879]
+position = Vector2(-157, 8.000001)
+rotation = -3.1415925
+scale = Vector2(0.31655225, 0.06684411)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.55
+texture = SubResource("GradientTexture2D_12lcj")
+texture_scale = 4.22
+height = 153.0
+
+[node name="LightHidePlayer18" type="PointLight2D" parent="." unique_id=229880850]
+position = Vector2(-181, 342)
+rotation = -3.1415925
+scale = Vector2(0.255169, 0.5964521)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.55
+texture = SubResource("GradientTexture2D_12lcj")
 texture_scale = 4.22
 height = 153.0

@@ -15,6 +15,7 @@
 [ext_resource type="Shader" uid="uid://bqv1myhf1mr1x" path="res://assets/Shader/SquiggleVision.gdshader" id="12_dyhps"]
 [ext_resource type="PackedScene" uid="uid://cykeyxkv73jjt" path="res://assets/Nodes/Obj/Gameplay/falling_sand.tscn" id="13_cg276"]
 [ext_resource type="Script" uid="uid://dbfv5o1s01x06" path="res://assets/Scripts/DynamicLightAnimation.gd" id="14_vn7l7"]
+[ext_resource type="Shader" uid="uid://bclg3rdg5r8a7" path="res://assets/Shader/godray.gdshader" id="16_f2rnl"]
 
 [sub_resource type="Gradient" id="Gradient_vmlh1"]
 offsets = PackedFloat32Array(0, 0.65238094)
@@ -102,6 +103,22 @@ shader_parameter/speed = 2.21
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_f2rnl"]
 gradient = SubResource("Gradient_f2rnl")
 fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mu4ij"]
+shader = ExtResource("16_f2rnl")
+shader_parameter/angle = -0.365
+shader_parameter/position = -0.2
+shader_parameter/spread = 0.2050000097375
+shader_parameter/cutoff = 0.13300005381750002
+shader_parameter/falloff = 0.8390000398525
+shader_parameter/edge_fade = 0.26000001235
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.1600000076
+shader_parameter/color = Color(0.85490197, 0.6627451, 0.91764706, 0.2784314)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
 
 [node name="Node2D" type="Node2D" unique_id=899246366]
 position = Vector2(0, -1)
@@ -368,3 +385,11 @@ texture = SubResource("GradientTexture2D_f2rnl")
 texture_scale = 4.22
 height = 153.0
 script = ExtResource("14_vn7l7")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1390396558]
+z_index = 2
+material = SubResource("ShaderMaterial_mu4ij")
+offset_left = -149.0
+offset_top = -695.0
+offset_right = -14.0
+offset_bottom = -132.0

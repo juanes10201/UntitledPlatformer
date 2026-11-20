@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://dxswtkejq7e72" path="res://assets/Scripts/animated_button.gd" id="21_kl8q2"]
 [ext_resource type="Texture2D" uid="uid://c84avb2yr7nyv" path="res://assets/Sprites/Ui/Input/Keyboard White.png" id="22_seci8"]
 [ext_resource type="PackedScene" uid="uid://cjdqb7io2svh1" path="res://assets/Nodes/Obj/Gameplay/rail.tscn" id="23_kl8q2"]
+[ext_resource type="Shader" uid="uid://bclg3rdg5r8a7" path="res://assets/Shader/godray.gdshader" id="23_seci8"]
 
 [sub_resource type="Gradient" id="Gradient_fgyic"]
 offsets = PackedFloat32Array(0, 0.65238094)
@@ -221,6 +222,22 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_nviea"]
 gradient = SubResource("Gradient_sfcbr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sfcbr"]
+shader = ExtResource("23_seci8")
+shader_parameter/angle = 0.51
+shader_parameter/position = 0.26
+shader_parameter/spread = 0.3150000149625
+shader_parameter/cutoff = 0.13300005381750002
+shader_parameter/falloff = 0.642000030495
+shader_parameter/edge_fade = 0.3470000164825
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.1600000076
+shader_parameter/color = Color(0.41960785, 0.5803922, 0.9137255, 0.19215687)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
 
 [node name="Node2D" type="Node2D" unique_id=1268248894]
 position = Vector2(0, -1)
@@ -565,5 +582,13 @@ blend_mode = 1
 texture = SubResource("GradientTexture2D_nviea")
 texture_scale = 4.22
 height = 153.0
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1057240781]
+z_index = 2
+material = SubResource("ShaderMaterial_sfcbr")
+offset_left = 126.0
+offset_top = -514.0
+offset_right = 226.0
+offset_bottom = -66.0
 
 [connection signal="body_entered" from="TextArea" to="TextArea" method="_on_body_entered"]

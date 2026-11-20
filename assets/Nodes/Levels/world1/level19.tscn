@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bygxx5ppwysc3" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie_special.tscn" id="15_7h57r"]
 [ext_resource type="PackedScene" uid="uid://d1ji315fcqjjv" path="res://assets/Nodes/Particles/ambientparticles.tscn" id="16_a6nlu"]
 [ext_resource type="Script" uid="uid://cyxm73atp4f5a" path="res://assets/Nodes/Obj/Ui/style_add_box.gd" id="17_lbwgj"]
+[ext_resource type="Shader" uid="uid://bclg3rdg5r8a7" path="res://assets/Shader/godray.gdshader" id="18_kybpx"]
 [ext_resource type="PackedScene" uid="uid://cjdqb7io2svh1" path="res://assets/Nodes/Obj/Gameplay/rail.tscn" id="18_t70fv"]
 
 [sub_resource type="Gradient" id="Gradient_kjx87"]
@@ -53,6 +54,22 @@ b = Vector2(-7.96941, -121)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t70fv"]
 size = Vector2(30.7479, 28.6468)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ml16"]
+shader = ExtResource("18_kybpx")
+shader_parameter/angle = -0.225
+shader_parameter/position = -0.07
+shader_parameter/spread = 0.3150000149625
+shader_parameter/cutoff = 0.10400005243999999
+shader_parameter/falloff = 0.142000006745
+shader_parameter/edge_fade = 0.222000010545
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.110000005225
+shader_parameter/color = Color(0.41960785, 0.5803922, 0.9137255, 0.16862746)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
 
 [node name="Node2D" type="Node2D" unique_id=1826469231]
 position = Vector2(0, -1)
@@ -372,6 +389,14 @@ StyleTypeAdd = 5
 position = Vector2(-0.5633774, -1)
 scale = Vector2(0.96, 0.33)
 shape = SubResource("RectangleShape2D_t70fv")
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=1405448161]
+z_index = 2
+material = SubResource("ShaderMaterial_2ml16")
+offset_left = 144.0
+offset_top = -316.0
+offset_right = 334.0
+offset_bottom = 29.0
 
 [connection signal="body_entered" from="SlideRampArea2D2" to="SlideRampArea2D2" method="_on_body_entered"]
 [connection signal="body_exited" from="SlideRampArea2D2" to="SlideRampArea2D2" method="_on_body_exited"]

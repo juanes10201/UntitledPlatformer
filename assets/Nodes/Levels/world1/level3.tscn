@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://d1ji315fcqjjv" path="res://assets/Nodes/Particles/ambientparticles.tscn" id="11_p2l43"]
 [ext_resource type="PackedScene" uid="uid://423rmnuehv0r" path="res://assets/Nodes/Obj/Gameplay/gem.tscn" id="12_x373i"]
 [ext_resource type="Script" uid="uid://dbfv5o1s01x06" path="res://assets/Scripts/DynamicLightAnimation.gd" id="13_5b3iq"]
+[ext_resource type="Shader" uid="uid://bclg3rdg5r8a7" path="res://assets/Shader/godray.gdshader" id="14_nk3nm"]
 
 [sub_resource type="Gradient" id="Gradient_x373i"]
 offsets = PackedFloat32Array(0, 0.65238094)
@@ -65,6 +66,22 @@ fill_from = Vector2(0.48290598, 0.517094)
 gradient = SubResource("Gradient_nk3nm")
 fill_from = Vector2(0, 0.017094018)
 fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kdp1s"]
+shader = ExtResource("14_nk3nm")
+shader_parameter/angle = -0.365
+shader_parameter/position = -0.2
+shader_parameter/spread = 0.2050000097375
+shader_parameter/cutoff = 0.13300005381750002
+shader_parameter/falloff = 0.8390000398525
+shader_parameter/edge_fade = 0.26000001235
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.1600000076
+shader_parameter/color = Color(0.85490197, 0.6627451, 0.91764706, 0.2784314)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
 
 [node name="Node2D" type="Node2D" unique_id=2112795000]
 position = Vector2(0, -1)
@@ -321,3 +338,11 @@ texture = SubResource("GradientTexture2D_kdp1s")
 texture_scale = 4.22
 height = 153.0
 script = ExtResource("13_5b3iq")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=888162677]
+z_index = 2
+material = SubResource("ShaderMaterial_kdp1s")
+offset_left = -7.0
+offset_top = -584.0
+offset_right = 128.0
+offset_bottom = -21.0

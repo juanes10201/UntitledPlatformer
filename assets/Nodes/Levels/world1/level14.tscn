@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://mwwwugaaoyiw" path="res://assets/Nodes/Obj/Gameplay/key.tscn" id="13_bnttt"]
 [ext_resource type="PackedScene" uid="uid://c1ytdkacld0nb" path="res://assets/Nodes/Obj/Gameplay/open_box.tscn" id="14_x46s7"]
 [ext_resource type="PackedScene" uid="uid://d1ji315fcqjjv" path="res://assets/Nodes/Particles/ambientparticles.tscn" id="15_ahf20"]
+[ext_resource type="Shader" uid="uid://bclg3rdg5r8a7" path="res://assets/Shader/godray.gdshader" id="17_lbcia"]
 
 [sub_resource type="Gradient" id="Gradient_pggsu"]
 offsets = PackedFloat32Array(0, 0.65238094)
@@ -73,6 +74,22 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_qowlo"]
 gradient = SubResource("Gradient_3eq5j")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3eq5j"]
+shader = ExtResource("17_lbcia")
+shader_parameter/angle = -0.225
+shader_parameter/position = -0.07
+shader_parameter/spread = 0.3150000149625
+shader_parameter/cutoff = 0.10400005243999999
+shader_parameter/falloff = 0.142000006745
+shader_parameter/edge_fade = 0.222000010545
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.110000005225
+shader_parameter/color = Color(0.41960785, 0.5803922, 0.9137255, 0.16862746)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
 
 [node name="Node2D" type="Node2D" unique_id=1723706142]
 position = Vector2(0, -1)
@@ -360,5 +377,21 @@ blend_mode = 1
 texture = SubResource("GradientTexture2D_qowlo")
 texture_scale = 4.22
 height = 108.0
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=1856502062]
+z_index = 2
+material = SubResource("ShaderMaterial_3eq5j")
+offset_left = -415.0
+offset_top = -414.0
+offset_right = -225.0
+offset_bottom = 14.0
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=2084128333]
+z_index = 2
+material = SubResource("ShaderMaterial_3eq5j")
+offset_left = -422.0
+offset_top = 126.0
+offset_right = -232.0
+offset_bottom = 554.0
 
 [editable path="Enemie3"]

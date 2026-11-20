@@ -1,14 +1,20 @@
 extends PointLight2D
 @onready var InitialEnergy = energy
+@export var MinEnergy : float = 0.0
 
 var Step : int = 0
 @export var CurrentAnimation : Global.LIGHT_ANIMATION_TYPES = Global.LIGHT_ANIMATION_TYPES.none
 
 @onready var EditorLights : Node2D = $EditorLights
 
+func _process_anim_random() -> void:
+	energy = randf_range(MinEnergy, InitialEnergy)
+
 func _ready() -> void:
 	if(!Edition.LightsEnabled && !Edition.Is_in_editor):
 		queue_free()
+	if(CurrentAnimation == Global.LIGHT_ANIMATION_TYPES.flickering):
+		_process_anim_random()
 
 func _process(delta: float) -> void:
 	#if(Edition.Is_in_editor && !Edition.Is_playing_in_editor): return
@@ -21,7 +27,6 @@ func _process(delta: float) -> void:
 			if(energy >= InitialEnergy-.1): Step = 0
 	elif(CurrentAnimation == Global.LIGHT_ANIMATION_TYPES.flickering):
 		if(Time.get_ticks_usec() % 20 == 0):
-			#print(Time.get_ticks_usec())
-			energy = randf_range(0, InitialEnergy)
+			_process_anim_random()
 	elif(CurrentAnimation == Global.LIGHT_ANIMATION_TYPES.none):
 		energy = InitialEnergy

@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://c51a5mg64cthq" path="res://assets/Sprites/Gameplay/Bosses/news.png" id="27_wowiw"]
 [ext_resource type="Shader" uid="uid://vf7wbaxmykte" path="res://assets/Nodes/Obj/blur.gdshader" id="28_hj8ko"]
 [ext_resource type="AudioStream" uid="uid://cx7ldb7k1p5yi" path="res://assets/Sounds/ClockCutscene.wav" id="29_l8tgm"]
+[ext_resource type="Shader" uid="uid://bclg3rdg5r8a7" path="res://assets/Shader/godray.gdshader" id="31_hj8ko"]
 
 [sub_resource type="Gradient" id="Gradient_vmlh1"]
 interpolation_mode = 2
@@ -1581,6 +1582,38 @@ gradient = SubResource("Gradient_hj8ko")
 fill_from = Vector2(0, 0.017094018)
 fill_to = Vector2(0, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5kqd8"]
+shader = ExtResource("31_hj8ko")
+shader_parameter/angle = 0.4
+shader_parameter/position = 0.11
+shader_parameter/spread = 0.400000019
+shader_parameter/cutoff = 0.15800005500500003
+shader_parameter/falloff = 1.0
+shader_parameter/edge_fade = 0.38000001805
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.1600000076
+shader_parameter/color = Color(0.88308865, 0.43248236, 0, 0.18431373)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rhs65"]
+shader = ExtResource("31_hj8ko")
+shader_parameter/angle = -0.365
+shader_parameter/position = -0.2
+shader_parameter/spread = 0.2050000097375
+shader_parameter/cutoff = 0.13300005381750002
+shader_parameter/falloff = 0.8390000398525
+shader_parameter/edge_fade = 0.26000001235
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.1600000076
+shader_parameter/color = Color(0.85490197, 0.6627451, 0.91764706, 0.2784314)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
 [node name="Node2D" type="Node2D" unique_id=421737780]
 position = Vector2(0, -1)
 
@@ -2285,6 +2318,22 @@ blend_mode = 1
 texture = SubResource("GradientTexture2D_5kqd8")
 texture_scale = 4.22
 height = 153.0
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1832078995]
+z_index = 2
+material = SubResource("ShaderMaterial_5kqd8")
+offset_left = -240.0
+offset_top = 15.0
+offset_right = -100.72087
+offset_bottom = 175.52005
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=552244034]
+z_index = 2
+material = SubResource("ShaderMaterial_rhs65")
+offset_left = 135.0
+offset_top = -475.0
+offset_right = 270.0
+offset_bottom = 88.0
 
 [connection signal="picked_by_player" from="Key" to="Key/ClockCutscenePlayer" method="_on_key_picked_by_player"]
 [connection signal="body_entered" from="TextArea" to="TextArea" method="_on_body_entered"]

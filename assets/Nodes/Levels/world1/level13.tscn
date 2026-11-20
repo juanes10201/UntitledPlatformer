@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c1ytdkacld0nb" path="res://assets/Nodes/Obj/Gameplay/open_box.tscn" id="15_x43xa"]
 [ext_resource type="PackedScene" uid="uid://d1ji315fcqjjv" path="res://assets/Nodes/Particles/ambientparticles.tscn" id="15_y51ri"]
 [ext_resource type="PackedScene" uid="uid://cjwpb8ragihkh" path="res://assets/Nodes/Obj/Gameplay/laser.tscn" id="16_kjx87"]
+[ext_resource type="Shader" uid="uid://bclg3rdg5r8a7" path="res://assets/Shader/godray.gdshader" id="17_7cn3t"]
 [ext_resource type="PackedScene" uid="uid://cjdqb7io2svh1" path="res://assets/Nodes/Obj/Gameplay/rail.tscn" id="17_l857t"]
 
 [sub_resource type="Gradient" id="Gradient_pggsu"]
@@ -65,6 +66,38 @@ fill = 1
 fill_from = Vector2(0.508547, 0.53846157)
 fill_to = Vector2(0.86752135, 0.15811966)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pg112"]
+shader = ExtResource("17_7cn3t")
+shader_parameter/angle = -0.28
+shader_parameter/position = 0.26
+shader_parameter/spread = 0.3150000149625
+shader_parameter/cutoff = 0.10400005243999999
+shader_parameter/falloff = 0.142000006745
+shader_parameter/edge_fade = 0.222000010545
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.110000005225
+shader_parameter/color = Color(0.41960785, 0.5803922, 0.9137255, 0.16862746)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7cn3t"]
+shader = ExtResource("17_7cn3t")
+shader_parameter/angle = -0.225
+shader_parameter/position = -0.07
+shader_parameter/spread = 0.3150000149625
+shader_parameter/cutoff = 0.10400005243999999
+shader_parameter/falloff = 0.142000006745
+shader_parameter/edge_fade = 0.222000010545
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.110000005225
+shader_parameter/color = Color(0.41960785, 0.5803922, 0.9137255, 0.16862746)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
 [node name="Node2D" type="Node2D" unique_id=142475726]
 position = Vector2(0, -1)
 
@@ -113,7 +146,7 @@ SpeedrunWaitTime = 8.0
 [node name="CanvasLayer" parent="." unique_id=1351321675 instance=ExtResource("11_frlgr")]
 
 [node name="Flag" parent="." unique_id=1335255310 instance=ExtResource("7_88bor")]
-position = Vector2(160, -83)
+position = Vector2(140, -89)
 
 [node name="WorldEnvironment" parent="." unique_id=774433144 instance=ExtResource("10_dey5y")]
 
@@ -479,3 +512,19 @@ blend_mode = 1
 texture = SubResource("GradientTexture2D_otqpx")
 texture_scale = 4.22
 height = 153.0
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=294220973]
+z_index = 2
+material = SubResource("ShaderMaterial_pg112")
+offset_left = 324.0
+offset_top = -171.0
+offset_right = 466.0
+offset_bottom = 192.0
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=697621445]
+z_index = 2
+material = SubResource("ShaderMaterial_7cn3t")
+offset_left = 33.0
+offset_top = -425.0
+offset_right = 223.0
+offset_bottom = 3.0

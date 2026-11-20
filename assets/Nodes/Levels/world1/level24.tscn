@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bygxx5ppwysc3" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie_special.tscn" id="11_wn83n"]
 [ext_resource type="PackedScene" uid="uid://bxtkh08fsp6ue" path="res://assets/Nodes/Obj/Gameplay/kill_box_blue.tscn" id="12_fhy0e"]
 [ext_resource type="PackedScene" uid="uid://mwwwugaaoyiw" path="res://assets/Nodes/Obj/Gameplay/key.tscn" id="13_gum8d"]
+[ext_resource type="Shader" uid="uid://bclg3rdg5r8a7" path="res://assets/Shader/godray.gdshader" id="14_0frdd"]
 [ext_resource type="PackedScene" uid="uid://d1ji315fcqjjv" path="res://assets/Nodes/Particles/ambientparticles.tscn" id="14_5q3si"]
 
 [sub_resource type="Gradient" id="Gradient_bpm7t"]
@@ -55,6 +56,40 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_n6s7s"]
 gradient = SubResource("Gradient_kq76h")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f1b55"]
+shader = ExtResource("14_0frdd")
+shader_parameter/angle = -0.375
+shader_parameter/position = 0.055
+shader_parameter/spread = 0.4050000192375
+shader_parameter/cutoff = 0.10400005243999999
+shader_parameter/falloff = 0.83600003971
+shader_parameter/edge_fade = 0.222000010545
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.110000005225
+shader_parameter/color = Color(0.41960785, 0.5803922, 0.9137255, 0.16862746)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
+[sub_resource type="Gradient" id="Gradient_jyygg"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0frdd"]
+gradient = SubResource("Gradient_jyygg")
+fill = 1
+fill_from = Vector2(0.5, 0.508547)
+fill_to = Vector2(0.85470086, 0.14529915)
+
+[sub_resource type="Gradient" id="Gradient_0r2et"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f1b55"]
+gradient = SubResource("Gradient_0r2et")
+fill = 1
+fill_from = Vector2(0.491453, 0.4871795)
+fill_to = Vector2(0.86752135, 0.1965812)
 
 [node name="Node2D" type="Node2D" unique_id=872421788]
 position = Vector2(0, -1)
@@ -331,5 +366,55 @@ color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
 energy = 0.4
 blend_mode = 1
 texture = SubResource("GradientTexture2D_n6s7s")
+texture_scale = 4.22
+height = 153.0
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=1700868942]
+z_index = 2
+material = SubResource("ShaderMaterial_f1b55")
+offset_left = -309.0
+offset_top = -443.0
+offset_right = -119.0
+offset_bottom = 562.0
+
+[node name="LightHidePlayer20" type="PointLight2D" parent="." unique_id=1200477391]
+position = Vector2(-72.00001, -220.00002)
+rotation = -3.1415925
+scale = Vector2(0.4090984, 0.100528225)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.9
+blend_mode = 1
+texture = SubResource("GradientTexture2D_0frdd")
+texture_scale = 4.22
+height = 153.0
+
+[node name="LightHidePlayer21" type="PointLight2D" parent="." unique_id=1063769167]
+position = Vector2(-104.00001, -249.99998)
+rotation = -3.1415925
+scale = Vector2(0.4029169, 0.12545067)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.4
+texture = SubResource("GradientTexture2D_f1b55")
+texture_scale = 4.22
+height = 153.0
+
+[node name="LightHidePlayer22" type="PointLight2D" parent="." unique_id=1672039447]
+position = Vector2(117.171295, -75.876)
+rotation = -3.1415925
+scale = Vector2(0.32744446, 0.07697424)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.9
+blend_mode = 1
+texture = SubResource("GradientTexture2D_0frdd")
+texture_scale = 4.22
+height = 153.0
+
+[node name="LightHidePlayer23" type="PointLight2D" parent="." unique_id=1959398945]
+position = Vector2(93.209656, -122.696396)
+rotation = -3.1415925
+scale = Vector2(0.3699413, 0.10346702)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.4
+texture = SubResource("GradientTexture2D_f1b55")
 texture_scale = 4.22
 height = 153.0

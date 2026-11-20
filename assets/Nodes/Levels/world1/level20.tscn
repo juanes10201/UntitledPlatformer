@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cykeyxkv73jjt" path="res://assets/Nodes/Obj/Gameplay/falling_sand.tscn" id="11_djstd"]
 [ext_resource type="PackedScene" uid="uid://djqwajvc8m3td" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie.tscn" id="12_46umu"]
 [ext_resource type="PackedScene" uid="uid://d1ji315fcqjjv" path="res://assets/Nodes/Particles/ambientparticles.tscn" id="14_qsey6"]
+[ext_resource type="Shader" uid="uid://bclg3rdg5r8a7" path="res://assets/Shader/godray.gdshader" id="15_ehwjg"]
 [ext_resource type="PackedScene" uid="uid://cjdqb7io2svh1" path="res://assets/Nodes/Obj/Gameplay/rail.tscn" id="15_hx4cf"]
 
 [sub_resource type="Gradient" id="Gradient_luitl"]
@@ -44,6 +45,22 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0.288518, 0.28851798, 0.288517
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_5x54l"]
 gradient = SubResource("Gradient_x17wl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kkxlc"]
+shader = ExtResource("15_ehwjg")
+shader_parameter/angle = -0.375
+shader_parameter/position = 0.055
+shader_parameter/spread = 0.4050000192375
+shader_parameter/cutoff = 0.10400005243999999
+shader_parameter/falloff = 0.142000006745
+shader_parameter/edge_fade = 0.222000010545
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.110000005225
+shader_parameter/color = Color(0.41960785, 0.5803922, 0.9137255, 0.16862746)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
 
 [node name="Node2D" type="Node2D" unique_id=467557408]
 position = Vector2(0, -1)
@@ -364,6 +381,14 @@ points = PackedVector2Array(-6, 6, 0, 2, 55, 8, 60, 76, 39, 108, 17, 106)
 position = Vector2(-81, -473)
 scale = Vector2(9999, 1)
 Visible = false
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=544892443]
+z_index = 2
+material = SubResource("ShaderMaterial_kkxlc")
+offset_left = -364.0
+offset_top = -482.0
+offset_right = -174.0
+offset_bottom = 523.0
 
 [connection signal="body_entered" from="SlideRampArea2D3" to="SlideRampArea2D3" method="_on_body_entered"]
 [connection signal="body_exited" from="SlideRampArea2D3" to="SlideRampArea2D3" method="_on_body_exited"]
