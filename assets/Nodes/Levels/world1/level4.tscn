@@ -1,8 +1,7 @@
 [gd_scene format=4 uid="uid://m5h8wu8oumvi"]
 
 [ext_resource type="PackedScene" uid="uid://cfa7sxsc3ppdn" path="res://assets/Nodes/Levels/Preload/UiCanvasLayer.tscn" id="1_0pcor"]
-[ext_resource type="Texture2D" uid="uid://l5gcewxed7vs" path="res://assets/Sprites/Gameplay/Bg/grid.png" id="2_2rpnx"]
-[ext_resource type="Script" uid="uid://bfjuhdt66v471" path="res://assets/Scripts/grid_bg.gd" id="3_l3vjq"]
+[ext_resource type="PackedScene" uid="uid://b3e6jq4nqnmph" path="res://assets/Nodes/Obj/Gameplay/Bg/bg1.tscn" id="1_vqh30"]
 [ext_resource type="TileSet" uid="uid://defl28kc6mcu4" path="res://assets/Nodes/Obj/Tileset/tiles.tres" id="4_y6xr4"]
 [ext_resource type="PackedScene" uid="uid://chat6jxc63bfj" path="res://assets/Nodes/Obj/Gameplay/Player/player.tscn" id="5_ex3gg"]
 [ext_resource type="Script" uid="uid://db87exh6jetnl" path="res://assets/Scripts/Player_camera.gd" id="6_vfkf5"]
@@ -24,44 +23,6 @@
 [ext_resource type="Script" uid="uid://b70n1us6src5o" path="res://assets/Nodes/Obj/Dialogue/dialog_text_area.gd" id="21_w7ae7"]
 [ext_resource type="Script" uid="uid://6216kh0o2v0m" path="res://assets/Nodes/Obj/hologram.gd" id="22_2utor"]
 [ext_resource type="Script" uid="uid://dbfv5o1s01x06" path="res://assets/Scripts/DynamicLightAnimation.gd" id="23_2utor"]
-
-[sub_resource type="Animation" id="Animation_wh1ld"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-755, -863)]
-}
-
-[sub_resource type="Animation" id="Animation_6ubuh"]
-resource_name = "move"
-length = 40.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 21.2, 39.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-755, -863), Vector2(-493, -367), Vector2(-755, -863)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0i2pc"]
-_data = {
-&"RESET": SubResource("Animation_wh1ld"),
-&"move": SubResource("Animation_6ubuh")
-}
 
 [sub_resource type="Gradient" id="Gradient_2utor"]
 offsets = PackedFloat32Array(0, 0.65238094)
@@ -370,6 +331,9 @@ fill_to = Vector2(1, 1)
 [node name="Node2D2" type="Node2D" unique_id=84872882]
 position = Vector2(0, -1)
 
+[node name="Bg" parent="." unique_id=781850622 instance=ExtResource("1_vqh30")]
+visible = false
+
 [node name="CanvasLayer" parent="." unique_id=1477730018 instance=ExtResource("1_0pcor")]
 
 [node name="TutorialCanvasModulate" type="CanvasModulate" parent="." unique_id=919103348]
@@ -377,20 +341,6 @@ visible = false
 position = Vector2(-755, -863)
 scale = Vector2(1.00384, 1)
 color = Color(0.598049, 0.565586, 0.741277, 1)
-
-[node name="Bg" type="Sprite2D" parent="." unique_id=1981226530]
-visible = false
-texture_repeat = 2
-position = Vector2(-755, -863)
-scale = Vector2(1.00384, 1)
-texture = ExtResource("2_2rpnx")
-centered = false
-region_enabled = true
-region_rect = Rect2(0.078, 0.149, 1376.72, 1506.27)
-script = ExtResource("3_l3vjq")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bg" unique_id=447715840]
-libraries/ = SubResource("AnimationLibrary_0i2pc")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=304839398 groups=["Tileset"]]
 position = Vector2(-2.00006, 32)

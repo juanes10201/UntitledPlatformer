@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://egw80mc81w82"]
 
-[ext_resource type="Texture2D" uid="uid://l5gcewxed7vs" path="res://assets/Sprites/Gameplay/Bg/grid.png" id="1_dk84l"]
-[ext_resource type="Script" uid="uid://bfjuhdt66v471" path="res://assets/Scripts/grid_bg.gd" id="2_qojo6"]
+[ext_resource type="PackedScene" uid="uid://b3e6jq4nqnmph" path="res://assets/Nodes/Obj/Gameplay/Bg/bg1.tscn" id="1_yvdxi"]
 [ext_resource type="PackedScene" uid="uid://chat6jxc63bfj" path="res://assets/Nodes/Obj/Gameplay/Player/player.tscn" id="3_cbuhv"]
 [ext_resource type="Script" uid="uid://db87exh6jetnl" path="res://assets/Scripts/Player_camera.gd" id="4_k0btq"]
 [ext_resource type="PackedScene" uid="uid://cba0dn710x26" path="res://assets/Nodes/Obj/Gameplay/flag.tscn" id="5_qsjwe"]
@@ -19,44 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://fxx14m4na3pt" path="res://assets/Sprites/Ui/Input/kenney_inputs.png" id="14_qsjwe"]
 [ext_resource type="Script" uid="uid://dxswtkejq7e72" path="res://assets/Scripts/animated_button.gd" id="15_76ppp"]
 [ext_resource type="Script" uid="uid://dbfv5o1s01x06" path="res://assets/Scripts/DynamicLightAnimation.gd" id="16_qsjwe"]
-
-[sub_resource type="Animation" id="Animation_wh1ld"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-755, -863)]
-}
-
-[sub_resource type="Animation" id="Animation_6ubuh"]
-resource_name = "move"
-length = 40.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 21.2, 39.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-755, -863), Vector2(-493, -367), Vector2(-755, -863)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0i2pc"]
-_data = {
-&"RESET": SubResource("Animation_wh1ld"),
-&"move": SubResource("Animation_6ubuh")
-}
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_a53cf"]
 light_mode = 1
@@ -167,21 +128,17 @@ gradient = SubResource("Gradient_nk3nm")
 fill_from = Vector2(0, 0.017094018)
 fill_to = Vector2(0, 1)
 
+[sub_resource type="Gradient" id="Gradient_yvdxi"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ot246"]
+gradient = SubResource("Gradient_yvdxi")
+fill_to = Vector2(0, 0.84615386)
+
 [node name="Node2D" type="Node2D" unique_id=1867290443]
 position = Vector2(0, -1)
 
-[node name="Bg" type="Sprite2D" parent="." unique_id=592360523]
+[node name="Bg" parent="." unique_id=781850622 instance=ExtResource("1_yvdxi")]
 visible = false
-texture_repeat = 2
-position = Vector2(-755, -863)
-texture = ExtResource("1_dk84l")
-centered = false
-region_enabled = true
-region_rect = Rect2(0.078, 0.149, 1200, 1273.48)
-script = ExtResource("2_qojo6")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bg" unique_id=54545357]
-libraries/ = SubResource("AnimationLibrary_0i2pc")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1710479984 groups=["Tileset"]]
 position = Vector2(-4, 32)
@@ -476,6 +433,7 @@ top_level = true
 position = Vector2(-316, -117)
 
 [node name="LightHidePlayer7" type="PointLight2D" parent="." unique_id=2075759196]
+visible = false
 position = Vector2(-341, -38)
 rotation = 1.5707964
 scale = Vector2(1.6835063, 0.43265754)
@@ -488,19 +446,20 @@ height = 153.0
 script = ExtResource("16_qsjwe")
 
 [node name="LightHidePlayer8" type="PointLight2D" parent="." unique_id=985711543]
-position = Vector2(-162.4176, 96)
-scale = Vector2(0.39556867, 0.5791843)
+position = Vector2(-162.4176, 106.89348)
+scale = Vector2(0.39556867, 0.6598528)
 color = Color(0, 0.96862745, 0.5058824, 1)
 energy = 0.7
 blend_mode = 1
-texture = SubResource("GradientTexture2D_mmydu")
+texture = SubResource("GradientTexture2D_ot246")
 texture_scale = 4.22
 height = 153.0
 script = ExtResource("16_qsjwe")
 
 [node name="LightHidePlayer9" type="PointLight2D" parent="." unique_id=986966914]
-position = Vector2(214.00002, 60.55327)
-scale = Vector2(0.4347511, 0.7224028)
+visible = false
+position = Vector2(212, 26.223362)
+scale = Vector2(0.4347511, 0.90918714)
 color = Color(0, 0.96862745, 0.5058824, 1)
 energy = 0.7
 blend_mode = 1

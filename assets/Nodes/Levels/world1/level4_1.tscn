@@ -1,8 +1,7 @@
 [gd_scene format=4 uid="uid://l4g8b8cwhj32"]
 
-[ext_resource type="Texture2D" uid="uid://l5gcewxed7vs" path="res://assets/Sprites/Gameplay/Bg/grid.png" id="1_bi0fk"]
+[ext_resource type="PackedScene" uid="uid://b3e6jq4nqnmph" path="res://assets/Nodes/Obj/Gameplay/Bg/bg1.tscn" id="1_wowiw"]
 [ext_resource type="PackedScene" uid="uid://chat6jxc63bfj" path="res://assets/Nodes/Obj/Gameplay/Player/player.tscn" id="2_snkaw"]
-[ext_resource type="Script" uid="uid://bfjuhdt66v471" path="res://assets/Scripts/grid_bg.gd" id="2_u03ck"]
 [ext_resource type="Script" uid="uid://db87exh6jetnl" path="res://assets/Scripts/Player_camera.gd" id="3_dqsa5"]
 [ext_resource type="Script" uid="uid://dbfv5o1s01x06" path="res://assets/Scripts/DynamicLightAnimation.gd" id="5_a4wmf"]
 [ext_resource type="PackedScene" uid="uid://djqwajvc8m3td" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie.tscn" id="5_h6i6c"]
@@ -31,44 +30,6 @@
 [ext_resource type="Texture2D" uid="uid://c51a5mg64cthq" path="res://assets/Sprites/Gameplay/Bosses/news.png" id="27_wowiw"]
 [ext_resource type="Shader" uid="uid://vf7wbaxmykte" path="res://assets/Nodes/Obj/blur.gdshader" id="28_hj8ko"]
 [ext_resource type="AudioStream" uid="uid://cx7ldb7k1p5yi" path="res://assets/Sounds/ClockCutscene.wav" id="29_l8tgm"]
-
-[sub_resource type="Animation" id="Animation_wh1ld"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-755, -863)]
-}
-
-[sub_resource type="Animation" id="Animation_6ubuh"]
-resource_name = "move"
-length = 40.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 21.2, 39.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-755, -863), Vector2(-493, -367), Vector2(-755, -863)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0i2pc"]
-_data = {
-&"RESET": SubResource("Animation_wh1ld"),
-&"move": SubResource("Animation_6ubuh")
-}
 
 [sub_resource type="Gradient" id="Gradient_vmlh1"]
 interpolation_mode = 2
@@ -979,6 +940,18 @@ tracks/18/keys = {
 "update": 0,
 "values": [0.0, 0.65]
 }
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("../PlayAnimArea/Snes_borders:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_0eh2n"]
 resource_name = "Intro"
@@ -1611,25 +1584,14 @@ fill_to = Vector2(0, 1)
 [node name="Node2D" type="Node2D" unique_id=421737780]
 position = Vector2(0, -1)
 
+[node name="Bg" parent="." unique_id=781850622 instance=ExtResource("1_wowiw")]
+visible = false
+
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1168903723]
 visible = false
 position = Vector2(-755, -863)
 scale = Vector2(1.00384, 1)
 color = Color(0.598049, 0.565586, 0.741277, 1)
-
-[node name="Bg" type="Sprite2D" parent="." unique_id=1942215930]
-visible = false
-texture_repeat = 2
-position = Vector2(-755, -863)
-scale = Vector2(1.00384, 1)
-texture = ExtResource("1_bi0fk")
-centered = false
-region_enabled = true
-region_rect = Rect2(0.078, 0.149, 1376.72, 1506.27)
-script = ExtResource("2_u03ck")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bg" unique_id=728699701]
-libraries/ = SubResource("AnimationLibrary_0i2pc")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1117426038 groups=["Tileset"]]
 position = Vector2(-2.00006, 32)
@@ -2156,7 +2118,7 @@ texture_scale = 4.22
 height = 133.0
 
 [node name="Snes_borders" type="Sprite2D" parent="PlayAnimArea" unique_id=1648881463]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0.6509804)
 position = Vector2(507.16714, -39.112286)
 scale = Vector2(5.8385277, 3.9410093)
 texture = SubResource("GradientTexture2D_hj8ko")

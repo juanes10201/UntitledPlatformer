@@ -1,8 +1,6 @@
 [gd_scene format=4 uid="uid://dhgyon50kqkuc"]
 
-[ext_resource type="Texture2D" uid="uid://l5gcewxed7vs" path="res://assets/Sprites/Gameplay/Bg/grid.png" id="1_qq1m5"]
-[ext_resource type="Script" uid="uid://bfjuhdt66v471" path="res://assets/Scripts/grid_bg.gd" id="2_27gdk"]
-[ext_resource type="Texture2D" uid="uid://krk3i3gy70sb" path="res://assets/Sprites/Gameplay/Bg/grid2.png" id="3_lqvjt"]
+[ext_resource type="PackedScene" uid="uid://b3e6jq4nqnmph" path="res://assets/Nodes/Obj/Gameplay/Bg/bg1.tscn" id="1_jx0wy"]
 [ext_resource type="TileSet" uid="uid://defl28kc6mcu4" path="res://assets/Nodes/Obj/Tileset/tiles.tres" id="4_lnq2d"]
 [ext_resource type="PackedScene" uid="uid://cjdqb7io2svh1" path="res://assets/Nodes/Obj/Gameplay/rail.tscn" id="5_3p25h"]
 [ext_resource type="PackedScene" uid="uid://chat6jxc63bfj" path="res://assets/Nodes/Obj/Gameplay/Player/player.tscn" id="5_t2ce6"]
@@ -19,97 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://d1ji315fcqjjv" path="res://assets/Nodes/Particles/ambientparticles.tscn" id="16_jo1nc"]
 [ext_resource type="PackedScene" uid="uid://bygxx5ppwysc3" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie_special.tscn" id="16_okquh"]
 [ext_resource type="Script" uid="uid://cyxm73atp4f5a" path="res://assets/Nodes/Obj/Ui/style_add_box.gd" id="17_wyuh8"]
-
-[sub_resource type="Animation" id="Animation_wh1ld"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-755, -863)]
-}
-
-[sub_resource type="Animation" id="Animation_6ubuh"]
-resource_name = "move"
-length = 40.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 21.2, 39.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-755, -863), Vector2(-493, -367), Vector2(-755, -863)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0i2pc"]
-_data = {
-&"RESET": SubResource("Animation_wh1ld"),
-&"move": SubResource("Animation_6ubuh")
-}
-
-[sub_resource type="Animation" id="Animation_timnu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-755, -863)]
-}
-
-[sub_resource type="Animation" id="Animation_y3i1q"]
-resource_name = "move"
-length = 40.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 19.9667, 39.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-755, -863), Vector2(-493, -367), Vector2(-755, -863)]
-}
-
-[sub_resource type="Animation" id="Animation_b10uo"]
-resource_name = "move2"
-length = 40.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 20.0333, 39.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-493, -367), Vector2(-755, -863), Vector2(-493, -367)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_klj0i"]
-_data = {
-&"RESET": SubResource("Animation_timnu"),
-&"move": SubResource("Animation_y3i1q"),
-&"move2": SubResource("Animation_b10uo")
-}
 
 [sub_resource type="Gradient" id="Gradient_luitl"]
 offsets = PackedFloat32Array(0, 0.65238094)
@@ -167,34 +74,9 @@ fill_to = Vector2(1, 1)
 [node name="Node2D" type="Node2D" unique_id=664365282]
 position = Vector2(0, -1)
 
-[node name="Bg" type="Sprite2D" parent="." unique_id=2104552416]
+[node name="Bg" parent="." unique_id=781850622 instance=ExtResource("1_jx0wy")]
 visible = false
-texture_repeat = 2
-position = Vector2(-755, -863)
-scale = Vector2(1.00384, 1)
-texture = ExtResource("1_qq1m5")
-centered = false
-region_enabled = true
-region_rect = Rect2(0.078, 0.149, 1376.72, 1506.27)
-script = ExtResource("2_27gdk")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bg" unique_id=19863471]
-libraries/ = SubResource("AnimationLibrary_0i2pc")
-
-[node name="Bg2" type="Sprite2D" parent="." unique_id=2015317781]
-visible = false
-texture_repeat = 2
-position = Vector2(-755, -863)
-scale = Vector2(1.00769, 1)
-texture = ExtResource("3_lqvjt")
-centered = false
-region_enabled = true
-region_rect = Rect2(0.078, 0.149, 1200, 1762.79)
-script = ExtResource("2_27gdk")
-PlayAnimation = "move2"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bg2" unique_id=216991002]
-libraries/ = SubResource("AnimationLibrary_klj0i")
+ShowSecond = true
 
 [node name="KillBox4" parent="." unique_id=1450132874 instance=ExtResource("10_71ce6")]
 position = Vector2(140, -414)
@@ -516,7 +398,7 @@ position = Vector2(-112.845566, -250.74364)
 rotation = -3.1415925
 scale = Vector2(0.1032199, 0.32563114)
 color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
-energy = 0.4
+energy = 0.25
 blend_mode = 1
 texture = SubResource("GradientTexture2D_3qx3q")
 texture_scale = 4.22

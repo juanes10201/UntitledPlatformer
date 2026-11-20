@@ -1,8 +1,6 @@
 [gd_scene format=4 uid="uid://bcpxnl22ymp48"]
 
-[ext_resource type="Texture2D" uid="uid://l5gcewxed7vs" path="res://assets/Sprites/Gameplay/Bg/grid.png" id="1_enkfg"]
-[ext_resource type="Script" uid="uid://bfjuhdt66v471" path="res://assets/Scripts/grid_bg.gd" id="2_37lu5"]
-[ext_resource type="Texture2D" uid="uid://krk3i3gy70sb" path="res://assets/Sprites/Gameplay/Bg/grid2.png" id="3_nkqi2"]
+[ext_resource type="PackedScene" uid="uid://b3e6jq4nqnmph" path="res://assets/Nodes/Obj/Gameplay/Bg/bg1.tscn" id="1_kctjo"]
 [ext_resource type="PackedScene" uid="uid://chat6jxc63bfj" path="res://assets/Nodes/Obj/Gameplay/Player/player.tscn" id="5_35hiv"]
 [ext_resource type="PackedScene" uid="uid://cjdqb7io2svh1" path="res://assets/Nodes/Obj/Gameplay/rail.tscn" id="5_108ef"]
 [ext_resource type="TileSet" uid="uid://defl28kc6mcu4" path="res://assets/Nodes/Obj/Tileset/tiles.tres" id="5_gmd1f"]
@@ -31,97 +29,6 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0.8503937, 0.8503937, 0.850393
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_j85gq"]
 gradient = SubResource("Gradient_qtrb6")
-
-[sub_resource type="Animation" id="Animation_wh1ld"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-755, -863)]
-}
-
-[sub_resource type="Animation" id="Animation_6ubuh"]
-resource_name = "move"
-length = 40.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 21.2, 39.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-755, -863), Vector2(-493, -367), Vector2(-755, -863)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0i2pc"]
-_data = {
-&"RESET": SubResource("Animation_wh1ld"),
-&"move": SubResource("Animation_6ubuh")
-}
-
-[sub_resource type="Animation" id="Animation_timnu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-755, -863)]
-}
-
-[sub_resource type="Animation" id="Animation_y3i1q"]
-resource_name = "move"
-length = 40.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 19.9667, 39.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-755, -863), Vector2(-493, -367), Vector2(-755, -863)]
-}
-
-[sub_resource type="Animation" id="Animation_b10uo"]
-resource_name = "move2"
-length = 40.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 20.0333, 39.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-493, -367), Vector2(-755, -863), Vector2(-493, -367)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_klj0i"]
-_data = {
-&"RESET": SubResource("Animation_timnu"),
-&"move": SubResource("Animation_y3i1q"),
-&"move2": SubResource("Animation_b10uo")
-}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_60xnv"]
 atlas = ExtResource("13_hnsh7")
@@ -180,6 +87,9 @@ fill_from = Vector2(0.48290598, 0.517094)
 [node name="Node2D" type="Node2D" unique_id=729302942]
 position = Vector2(0, -1)
 
+[node name="Bg" parent="." unique_id=781850622 instance=ExtResource("1_kctjo")]
+visible = false
+
 [node name="LightHidePlayer14" type="PointLight2D" parent="." unique_id=1653508016]
 position = Vector2(-386.9999, 1224.1945)
 rotation = 3.1415925
@@ -200,35 +110,6 @@ blend_mode = 1
 texture = SubResource("GradientTexture2D_j85gq")
 texture_scale = 4.22
 height = 1128.0
-
-[node name="Bg" type="Sprite2D" parent="." unique_id=1160261092]
-visible = false
-texture_repeat = 2
-position = Vector2(-755, -863)
-scale = Vector2(1.00384, 1)
-texture = ExtResource("1_enkfg")
-centered = false
-region_enabled = true
-region_rect = Rect2(0.078, 0.149, 1200, 3761)
-script = ExtResource("2_37lu5")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bg" unique_id=1450849995]
-libraries/ = SubResource("AnimationLibrary_0i2pc")
-
-[node name="Bg2" type="Sprite2D" parent="." unique_id=1962930390]
-visible = false
-texture_repeat = 2
-position = Vector2(-755, -863)
-scale = Vector2(1.00769, 1)
-texture = ExtResource("3_nkqi2")
-centered = false
-region_enabled = true
-region_rect = Rect2(0.078, 0.149, 1200, 3761)
-script = ExtResource("2_37lu5")
-PlayAnimation = "move2"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bg2" unique_id=754009391]
-libraries/ = SubResource("AnimationLibrary_klj0i")
 
 [node name="CanvasLayer" parent="." unique_id=47562953 instance=ExtResource("11_guge3")]
 

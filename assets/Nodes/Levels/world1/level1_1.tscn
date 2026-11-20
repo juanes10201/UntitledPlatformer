@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://cinam4yrotng7"]
 
-[ext_resource type="Texture2D" uid="uid://l5gcewxed7vs" path="res://assets/Sprites/Gameplay/Bg/grid.png" id="1_infck"]
-[ext_resource type="Script" uid="uid://bfjuhdt66v471" path="res://assets/Scripts/grid_bg.gd" id="2_up3lq"]
+[ext_resource type="PackedScene" uid="uid://b3e6jq4nqnmph" path="res://assets/Nodes/Obj/Gameplay/Bg/bg1.tscn" id="1_iw150"]
 [ext_resource type="TileSet" uid="uid://7dplhsq4unyk" path="res://assets/Sprites/Gameplay/Tilesets/World1/tileset.res" id="3_iw150"]
 [ext_resource type="Script" uid="uid://bn0iulww64056" path="res://assets/Scripts/tile_map_layer.gd" id="4_diu55"]
 [ext_resource type="PackedScene" uid="uid://chat6jxc63bfj" path="res://assets/Nodes/Obj/Gameplay/Player/player.tscn" id="5_cyxtg"]
@@ -22,44 +21,6 @@
 [ext_resource type="AudioStream" uid="uid://dsvfo3erylgm" path="res://assets/Sounds/Tutorial/voicetutorial.wav" id="17_jlc0c"]
 [ext_resource type="Script" uid="uid://dbfv5o1s01x06" path="res://assets/Scripts/DynamicLightAnimation.gd" id="17_kdsa1"]
 [ext_resource type="Script" uid="uid://bwlaywm6phpo1" path="res://assets/Scripts/text_jitterclick_explain.gd" id="21_scat7"]
-
-[sub_resource type="Animation" id="Animation_wh1ld"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-755, -863)]
-}
-
-[sub_resource type="Animation" id="Animation_6ubuh"]
-resource_name = "move"
-length = 40.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 21.2, 39.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-755, -863), Vector2(-493, -367), Vector2(-755, -863)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0i2pc"]
-_data = {
-&"RESET": SubResource("Animation_wh1ld"),
-&"move": SubResource("Animation_6ubuh")
-}
 
 [sub_resource type="Gradient" id="Gradient_jfyc5"]
 offsets = PackedFloat32Array(0, 0.65238094)
@@ -200,18 +161,8 @@ fill_to = Vector2(0, 1)
 [node name="Node2D" type="Node2D" unique_id=703607873]
 position = Vector2(0, -1)
 
-[node name="Bg" type="Sprite2D" parent="." unique_id=883655259]
+[node name="Bg" parent="." unique_id=781850622 instance=ExtResource("1_iw150")]
 visible = false
-texture_repeat = 2
-position = Vector2(-755, -863)
-texture = ExtResource("1_infck")
-centered = false
-region_enabled = true
-region_rect = Rect2(0.078, 0.149, 1000, 1000)
-script = ExtResource("2_up3lq")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bg" unique_id=1986782855]
-libraries/ = SubResource("AnimationLibrary_0i2pc")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1362609334 groups=["Tileset"]]
 texture_filter = 1

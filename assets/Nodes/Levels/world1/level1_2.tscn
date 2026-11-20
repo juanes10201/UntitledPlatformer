@@ -107,6 +107,7 @@ fill_to = Vector2(0, 1)
 position = Vector2(0, -1)
 
 [node name="Bg" parent="." unique_id=154542971 instance=ExtResource("1_f2rnl")]
+visible = false
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=230717552 groups=["Tileset"]]
 texture_filter = 1

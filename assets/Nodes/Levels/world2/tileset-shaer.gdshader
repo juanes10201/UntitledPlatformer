@@ -26,7 +26,7 @@ void vertex() {
 
 void fragment() {
 	ivec2 bsize = textureSize(border_map, 0);
-	if(bsize.x != 0 && bsize.y != 0 ){
+	if(bsize.x == 0 && bsize.y == 0 ){
 		COLOR = COLOR;
 	}
 	else{

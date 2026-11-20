@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://clxl5sarbyqrh"]
 
-[ext_resource type="Texture2D" uid="uid://l5gcewxed7vs" path="res://assets/Sprites/Gameplay/Bg/grid.png" id="1_lg2nj"]
-[ext_resource type="Script" uid="uid://bfjuhdt66v471" path="res://assets/Scripts/grid_bg.gd" id="2_c4268"]
+[ext_resource type="PackedScene" uid="uid://b3e6jq4nqnmph" path="res://assets/Nodes/Obj/Gameplay/Bg/bg1.tscn" id="1_1h663"]
 [ext_resource type="PackedScene" uid="uid://dmnyy0uuvc0jk" path="res://assets/Nodes/Obj/Gameplay/kill_box.tscn" id="4_os1ae"]
 [ext_resource type="TileSet" uid="uid://defl28kc6mcu4" path="res://assets/Nodes/Obj/Tileset/tiles.tres" id="5_pwpkw"]
 [ext_resource type="Script" uid="uid://dbfv5o1s01x06" path="res://assets/Scripts/DynamicLightAnimation.gd" id="6_s385c"]
@@ -14,62 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://d1ji315fcqjjv" path="res://assets/Nodes/Particles/ambientparticles.tscn" id="12_vj3p1"]
 [ext_resource type="PackedScene" uid="uid://djqwajvc8m3td" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie.tscn" id="16_82lnx"]
 [ext_resource type="PackedScene" uid="uid://cykeyxkv73jjt" path="res://assets/Nodes/Obj/Gameplay/falling_sand.tscn" id="16_lg2nj"]
-
-[sub_resource type="Animation" id="Animation_timnu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-755, -863)]
-}
-
-[sub_resource type="Animation" id="Animation_y3i1q"]
-resource_name = "move"
-length = 40.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 19.9667, 39.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-755, -863), Vector2(-493, -367), Vector2(-755, -863)]
-}
-
-[sub_resource type="Animation" id="Animation_b10uo"]
-resource_name = "move2"
-length = 40.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 20.0333, 39.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-493, -367), Vector2(-755, -863), Vector2(-493, -367)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_klj0i"]
-_data = {
-&"RESET": SubResource("Animation_timnu"),
-&"move": SubResource("Animation_y3i1q"),
-&"move2": SubResource("Animation_b10uo")
-}
 
 [sub_resource type="Gradient" id="Gradient_kg7ln"]
 offsets = PackedFloat32Array(0, 0.65238094)
@@ -108,11 +51,11 @@ fill = 1
 fill_from = Vector2(0.48290598, 0.517094)
 
 [sub_resource type="Gradient" id="Gradient_b4ko6"]
-offsets = PackedFloat32Array(0, 0.8980392, 1)
-colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.8980392)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_idf6w"]
 gradient = SubResource("Gradient_b4ko6")
+fill_to = Vector2(0.53846157, 0)
 
 [sub_resource type="Gradient" id="Gradient_sfcbr"]
 offsets = PackedFloat32Array(0, 0.8980392, 1)
@@ -129,30 +72,19 @@ gradient = SubResource("Gradient_bgwrj")
 [node name="Node2D" type="Node2D" unique_id=203193166]
 position = Vector2(0, -1)
 
-[node name="Bg" type="Sprite2D" parent="." unique_id=1358620539]
+[node name="Bg" parent="." unique_id=781850622 instance=ExtResource("1_1h663")]
 visible = false
-texture_repeat = 2
-position = Vector2(-755, -863)
-scale = Vector2(1.00384, 1)
-texture = ExtResource("1_lg2nj")
-centered = false
-region_enabled = true
-region_rect = Rect2(0.078, 0.149, 1200, 1200)
-script = ExtResource("2_c4268")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bg" unique_id=855194426]
-libraries/ = SubResource("AnimationLibrary_klj0i")
-
-[node name="KillBox2" parent="Bg/AnimationPlayer" unique_id=1386857898 instance=ExtResource("4_os1ae")]
-position = Vector2(-97, -312)
-scale = Vector2(9999, 1)
-Visible = false
 
 [node name="KillBox" parent="." unique_id=374149988 instance=ExtResource("4_os1ae")]
 position = Vector2(-24, 49)
 scale = Vector2(9999, 1)
 Visible = false
 CanChange = false
+
+[node name="KillBox2" parent="." unique_id=1386857898 instance=ExtResource("4_os1ae")]
+position = Vector2(-97, -311)
+scale = Vector2(9999, 1)
+Visible = false
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1365682696 groups=["Tileset"]]
 position = Vector2(-752, -831)
@@ -397,9 +329,9 @@ height = 13.0
 script = ExtResource("6_s385c")
 
 [node name="LightHidePlayer15" type="PointLight2D" parent="." unique_id=1124073709]
-position = Vector2(-88, -3.0000012)
+position = Vector2(-87.42494, 13.4676485)
 rotation = -4.7472954
-scale = Vector2(0.32097027, 2.0287666)
+scale = Vector2(0.44299105, 2.0287666)
 color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
 energy = 0.55
 blend_mode = 1

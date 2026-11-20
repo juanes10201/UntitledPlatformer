@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://3ij6a1el30hw"]
 
 [ext_resource type="Texture2D" uid="uid://l5gcewxed7vs" path="res://assets/Sprites/Gameplay/Bg/grid.png" id="1_1v4c0"]
+[ext_resource type="PackedScene" uid="uid://b3e6jq4nqnmph" path="res://assets/Nodes/Obj/Gameplay/Bg/bg1.tscn" id="1_w444u"]
 [ext_resource type="Script" uid="uid://bfjuhdt66v471" path="res://assets/Scripts/grid_bg.gd" id="2_rg4yn"]
 [ext_resource type="PackedScene" uid="uid://dmnyy0uuvc0jk" path="res://assets/Nodes/Obj/Gameplay/kill_box.tscn" id="3_fwckr"]
 [ext_resource type="TileSet" uid="uid://defl28kc6mcu4" path="res://assets/Nodes/Obj/Tileset/tiles.tres" id="4_7f8yv"]
@@ -116,8 +117,8 @@ fill = 1
 fill_from = Vector2(0.48290598, 0.517094)
 
 [sub_resource type="Gradient" id="Gradient_celw7"]
-offsets = PackedFloat32Array(0, 0.8980392, 1)
-colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.2838428, 0.38864627)
+colors = PackedColorArray(0, 0, 0, 1, 0.92134833, 0.92134833, 0.92134833, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_6fxss"]
 gradient = SubResource("Gradient_celw7")
@@ -129,6 +130,9 @@ gradient = SubResource("Gradient_clqvu")
 
 [node name="Node2D" type="Node2D" unique_id=130957929]
 position = Vector2(0, -1)
+
+[node name="Bg2" parent="." unique_id=781850622 instance=ExtResource("1_w444u")]
+visible = false
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=330534813]
 visible = false
@@ -342,9 +346,9 @@ scale = Vector2(9999, 1)
 Visible = false
 
 [node name="LightHidePlayer15" type="PointLight2D" parent="." unique_id=1282017752]
-position = Vector2(-43.200897, -4.5644116)
+position = Vector2(-42.231056, 23.208355)
 rotation = -4.7472954
-scale = Vector2(0.32097027, 2.3607159)
+scale = Vector2(0.5267589, 2.3607159)
 color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
 energy = 0.55
 blend_mode = 1

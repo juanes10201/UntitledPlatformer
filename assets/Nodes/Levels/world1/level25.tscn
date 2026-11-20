@@ -1,8 +1,6 @@
 [gd_scene format=4 uid="uid://cy4ir61bv7xvw"]
 
-[ext_resource type="Texture2D" uid="uid://l5gcewxed7vs" path="res://assets/Sprites/Gameplay/Bg/grid.png" id="1_a02c1"]
-[ext_resource type="Script" uid="uid://bfjuhdt66v471" path="res://assets/Scripts/grid_bg.gd" id="2_b0er1"]
-[ext_resource type="Texture2D" uid="uid://krk3i3gy70sb" path="res://assets/Sprites/Gameplay/Bg/grid2.png" id="3_3fic8"]
+[ext_resource type="PackedScene" uid="uid://b3e6jq4nqnmph" path="res://assets/Nodes/Obj/Gameplay/Bg/bg1.tscn" id="1_e3he8"]
 [ext_resource type="TileSet" uid="uid://defl28kc6mcu4" path="res://assets/Nodes/Obj/Tileset/tiles.tres" id="4_6fwjn"]
 [ext_resource type="PackedScene" uid="uid://cfa7sxsc3ppdn" path="res://assets/Nodes/Levels/Preload/UiCanvasLayer.tscn" id="5_6vrx7"]
 [ext_resource type="Script" uid="uid://cq42f2j2x22je" path="res://assets/Scripts/time_left.gd" id="5_ttvwy"]
@@ -16,97 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://djqwajvc8m3td" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie.tscn" id="14_fgbad"]
 [ext_resource type="PackedScene" uid="uid://cykeyxkv73jjt" path="res://assets/Nodes/Obj/Gameplay/falling_sand.tscn" id="15_2wuc7"]
 [ext_resource type="PackedScene" uid="uid://d1ji315fcqjjv" path="res://assets/Nodes/Particles/ambientparticles.tscn" id="15_yy6ai"]
-
-[sub_resource type="Animation" id="Animation_wh1ld"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-755, -863)]
-}
-
-[sub_resource type="Animation" id="Animation_6ubuh"]
-resource_name = "move"
-length = 40.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 21.2, 39.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-755, -863), Vector2(-493, -367), Vector2(-755, -863)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0i2pc"]
-_data = {
-&"RESET": SubResource("Animation_wh1ld"),
-&"move": SubResource("Animation_6ubuh")
-}
-
-[sub_resource type="Animation" id="Animation_timnu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-755, -863)]
-}
-
-[sub_resource type="Animation" id="Animation_y3i1q"]
-resource_name = "move"
-length = 40.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 19.9667, 39.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-755, -863), Vector2(-493, -367), Vector2(-755, -863)]
-}
-
-[sub_resource type="Animation" id="Animation_b10uo"]
-resource_name = "move2"
-length = 40.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 20.0333, 39.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-493, -367), Vector2(-755, -863), Vector2(-493, -367)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_klj0i"]
-_data = {
-&"RESET": SubResource("Animation_timnu"),
-&"move": SubResource("Animation_y3i1q"),
-&"move2": SubResource("Animation_b10uo")
-}
 
 [sub_resource type="Gradient" id="Gradient_vmlh1"]
 interpolation_mode = 2
@@ -127,37 +34,41 @@ gradient = SubResource("Gradient_5o3p1")
 fill = 1
 fill_from = Vector2(0.48290598, 0.517094)
 
+[sub_resource type="Gradient" id="Gradient_f1b55"]
+offsets = PackedFloat32Array(0, 0.8980392, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ttvwy"]
+gradient = SubResource("Gradient_f1b55")
+
+[sub_resource type="Gradient" id="Gradient_ttvwy"]
+offsets = PackedFloat32Array(0, 0.9475983, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_srjs0"]
+gradient = SubResource("Gradient_ttvwy")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_54y2q"]
+offsets = PackedFloat32Array(0, 0.8980392, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_54y2q"]
+gradient = SubResource("Gradient_54y2q")
+
+[sub_resource type="Gradient" id="Gradient_471t4"]
+offsets = PackedFloat32Array(0, 0.52401745, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xgoj0"]
+gradient = SubResource("Gradient_471t4")
+
 [node name="Node2D" type="Node2D" unique_id=1654874283]
 position = Vector2(0, -1)
 
-[node name="Bg" type="Sprite2D" parent="." unique_id=773421196]
+[node name="Bg" parent="." unique_id=781850622 instance=ExtResource("1_e3he8")]
 visible = false
-texture_repeat = 2
-position = Vector2(-755, -863)
-scale = Vector2(1.00384, 1)
-texture = ExtResource("1_a02c1")
-centered = false
-region_enabled = true
-region_rect = Rect2(0.078, 0.149, 1376.72, 1506.27)
-script = ExtResource("2_b0er1")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bg" unique_id=1681268247]
-libraries/ = SubResource("AnimationLibrary_0i2pc")
-
-[node name="Bg2" type="Sprite2D" parent="." unique_id=417943908]
-visible = false
-texture_repeat = 2
-position = Vector2(-755, -863)
-scale = Vector2(1.00769, 1)
-texture = ExtResource("3_3fic8")
-centered = false
-region_enabled = true
-region_rect = Rect2(0.078, 0.149, 1200, 1762.79)
-script = ExtResource("2_b0er1")
-PlayAnimation = "move2"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bg2" unique_id=826106950]
-libraries/ = SubResource("AnimationLibrary_klj0i")
+ShowSecond = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1789043773 groups=["Tileset"]]
 position = Vector2(242, 34)
@@ -474,3 +385,101 @@ height = 13.0
 position = Vector2(34, -632)
 scale = Vector2(9999, 1)
 Visible = false
+
+[node name="LightHidePlayer14" type="PointLight2D" parent="." unique_id=977814796]
+position = Vector2(-258.8525, -303.23492)
+rotation = -3.1415925
+scale = Vector2(0.46087798, 0.901225)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.4
+blend_mode = 1
+texture = SubResource("GradientTexture2D_ttvwy")
+texture_scale = 4.22
+height = 153.0
+
+[node name="LightHidePlayer22" type="PointLight2D" parent="." unique_id=1843087222]
+position = Vector2(-198.57813, -214)
+scale = Vector2(0.8416678, 0.18513034)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.4
+blend_mode = 1
+texture = SubResource("GradientTexture2D_srjs0")
+texture_scale = 4.22
+height = 153.0
+
+[node name="LightHidePlayer18" type="PointLight2D" parent="." unique_id=1481947370]
+position = Vector2(-102.28199, -362.9716)
+rotation = -3.1415925
+scale = Vector2(0.12555501, 0.53075373)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.4
+blend_mode = 1
+texture = SubResource("GradientTexture2D_ttvwy")
+texture_scale = 4.22
+height = 153.0
+
+[node name="LightHidePlayer15" type="PointLight2D" parent="." unique_id=1486154216]
+position = Vector2(129.64226, 89.16702)
+rotation = -3.1415925
+scale = Vector2(0.2434774, 0.2927603)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.4
+blend_mode = 1
+texture = SubResource("GradientTexture2D_ttvwy")
+texture_scale = 4.22
+height = 153.0
+
+[node name="LightHidePlayer16" type="PointLight2D" parent="." unique_id=783930334]
+position = Vector2(318.84085, -101.86776)
+rotation = -3.1415925
+scale = Vector2(0.2348937, 0.6343793)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.4
+blend_mode = 1
+texture = SubResource("GradientTexture2D_54y2q")
+texture_scale = 4.22
+height = 153.0
+
+[node name="LightHidePlayer17" type="PointLight2D" parent="." unique_id=1691499573]
+position = Vector2(298.0839, 51.897957)
+rotation = -3.1415925
+scale = Vector2(0.4509264, 0.50371355)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.4
+blend_mode = 1
+texture = SubResource("GradientTexture2D_xgoj0")
+texture_scale = 4.22
+height = 153.0
+
+[node name="LightHidePlayer19" type="PointLight2D" parent="." unique_id=1871360983]
+position = Vector2(253.37303, -532.33344)
+rotation = -3.1415925
+scale = Vector2(0.32910982, 0.6343793)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.4
+blend_mode = 1
+texture = SubResource("GradientTexture2D_54y2q")
+texture_scale = 4.22
+height = 153.0
+
+[node name="LightHidePlayer21" type="PointLight2D" parent="." unique_id=803702659]
+position = Vector2(87.64188, -511.25458)
+rotation = -3.1415925
+scale = Vector2(0.08208569, 0.37708253)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.4
+blend_mode = 1
+texture = SubResource("GradientTexture2D_54y2q")
+texture_scale = 4.22
+height = 153.0
+
+[node name="LightHidePlayer20" type="PointLight2D" parent="." unique_id=1200503284]
+position = Vector2(220.83963, -415.18857)
+rotation = -3.1415925
+scale = Vector2(0.55811864, 0.23252858)
+color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
+energy = 0.4
+blend_mode = 1
+texture = SubResource("GradientTexture2D_xgoj0")
+texture_scale = 4.22
+height = 153.0

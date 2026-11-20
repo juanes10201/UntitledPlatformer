@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://c6xw6jjilpbk1"]
 
-[ext_resource type="Texture2D" uid="uid://l5gcewxed7vs" path="res://assets/Sprites/Gameplay/Bg/grid.png" id="1_rebgq"]
-[ext_resource type="Script" uid="uid://bfjuhdt66v471" path="res://assets/Scripts/grid_bg.gd" id="2_xt7kr"]
+[ext_resource type="PackedScene" uid="uid://b3e6jq4nqnmph" path="res://assets/Nodes/Obj/Gameplay/Bg/bg1.tscn" id="1_spkuf"]
 [ext_resource type="PackedScene" uid="uid://dmnyy0uuvc0jk" path="res://assets/Nodes/Obj/Gameplay/kill_box.tscn" id="3_dlc2f"]
 [ext_resource type="PackedScene" uid="uid://cjdqb7io2svh1" path="res://assets/Nodes/Obj/Gameplay/rail.tscn" id="4_orcjn"]
 [ext_resource type="TileSet" uid="uid://defl28kc6mcu4" path="res://assets/Nodes/Obj/Tileset/tiles.tres" id="5_71i5c"]
@@ -23,62 +22,6 @@
 [ext_resource type="FontFile" uid="uid://du1fhb4w0oxp8" path="res://assets/Fonts/pixelart/Coder's Crux.otf" id="20_3va60"]
 [ext_resource type="Script" uid="uid://b7kp4oyo8y484" path="res://assets/Nodes/Obj/Ui/text_tutorial_anim.gd" id="21_h6i6q"]
 [ext_resource type="AudioStream" uid="uid://dsvfo3erylgm" path="res://assets/Sounds/Tutorial/voicetutorial.wav" id="22_jkn52"]
-
-[sub_resource type="Animation" id="Animation_timnu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-755, -863)]
-}
-
-[sub_resource type="Animation" id="Animation_y3i1q"]
-resource_name = "move"
-length = 40.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 19.9667, 39.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-755, -863), Vector2(-493, -367), Vector2(-755, -863)]
-}
-
-[sub_resource type="Animation" id="Animation_b10uo"]
-resource_name = "move2"
-length = 40.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 20.0333, 39.9),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-493, -367), Vector2(-755, -863), Vector2(-493, -367)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_klj0i"]
-_data = {
-&"RESET": SubResource("Animation_timnu"),
-&"move": SubResource("Animation_y3i1q"),
-&"move2": SubResource("Animation_b10uo")
-}
 
 [sub_resource type="Gradient" id="Gradient_148xn"]
 offsets = PackedFloat32Array(0, 0.65238094)
@@ -355,6 +298,7 @@ light_mode = 1
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0erjp"]
 gradient = SubResource("Gradient_bgwrj")
+fill_to = Vector2(0.5769231, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tu52k"]
 size = Vector2(249, 61.25)
@@ -378,19 +322,8 @@ fill_to = Vector2(0.86752135, 0.15811966)
 [node name="Node2D" type="Node2D" unique_id=624614125]
 position = Vector2(0, -1)
 
-[node name="Bg" type="Sprite2D" parent="." unique_id=1368684378]
+[node name="Bg" parent="." unique_id=781850622 instance=ExtResource("1_spkuf")]
 visible = false
-texture_repeat = 2
-position = Vector2(-755, -863)
-scale = Vector2(1.00384, 1)
-texture = ExtResource("1_rebgq")
-centered = false
-region_enabled = true
-region_rect = Rect2(0.078, 0.149, 1200, 1200)
-script = ExtResource("2_xt7kr")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bg" unique_id=243079822]
-libraries/ = SubResource("AnimationLibrary_klj0i")
 
 [node name="KillBox" parent="." unique_id=1144840151 instance=ExtResource("3_dlc2f")]
 position = Vector2(-8, 237)
@@ -760,9 +693,9 @@ volume_db = -20.0
 bus = &"Sfx"
 
 [node name="LightHidePlayer11" type="PointLight2D" parent="TextArea2/DashTutorial2/Voice" unique_id=2025559992]
-position = Vector2(0.36360064, 129.99013)
+position = Vector2(0.36359966, 152.52959)
 rotation = 1.5707964
-scale = Vector2(0.27348486, 2.680554)
+scale = Vector2(0.44039437, 2.680554)
 color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
 energy = 0.55
 blend_mode = 1
