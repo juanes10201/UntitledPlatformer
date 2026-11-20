@@ -46,7 +46,7 @@ shader_parameter/speed = 1.0
 shader_parameter/ray1_density = 8.0
 shader_parameter/ray2_density = 30.0
 shader_parameter/ray2_intensity = 0.2250000106875
-shader_parameter/color = Color(0.95422786, 0.67740124, 0.4366397, 0.47058824)
+shader_parameter/color = Color(0.9529412, 0.6784314, 0.43529412, 0.3372549)
 shader_parameter/hdr = false
 shader_parameter/seed = 5.0
 
@@ -111,12 +111,13 @@ CurrentAnimation = 1
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1334406953]
 z_index = 2
 material = SubResource("ShaderMaterial_md8ho")
-offset_left = 7.0
-offset_top = -152.0
-offset_right = 142.0
-offset_bottom = 411.0
+offset_left = 27.0
+offset_top = -133.0
+offset_right = 162.0
+offset_bottom = 430.0
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=2027412871]
+visible = false
 z_index = 2
 material = SubResource("ShaderMaterial_xdva3")
 offset_left = 462.0
@@ -441,9 +442,9 @@ height = 58.0
 script = ExtResource("23_1mvi3")
 
 [node name="PointLight2D82" type="PointLight2D" parent="." unique_id=1906594277]
-position = Vector2(393, 240)
+position = Vector2(378, 240)
 scale = Vector2(0.47108644, 0.08448155)
-color = Color(0.7668082, 0.6545092, 0, 1)
+color = Color(0.5587225, 0.65620977, 0.8806596, 1)
 energy = 0.55
 blend_mode = 1
 range_item_cull_mask = 3

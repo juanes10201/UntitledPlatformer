@@ -71,7 +71,7 @@ shader_parameter/speed = 1.0
 shader_parameter/ray1_density = 8.0
 shader_parameter/ray2_density = 30.0
 shader_parameter/ray2_intensity = 0.110000005225
-shader_parameter/color = Color(0.75250727, 0.3817562, 1, 0.16862746)
+shader_parameter/color = Color(0.66504645, 0.546409, 0.6452073, 0.16862746)
 shader_parameter/hdr = false
 shader_parameter/seed = 5.0
 
@@ -336,7 +336,7 @@ height = 153.0
 [node name="ColorRect4" type="ColorRect" parent="." unique_id=634785729]
 z_index = 2
 material = SubResource("ShaderMaterial_hb323")
-offset_left = 184.0
-offset_top = -436.0
-offset_right = 333.0
-offset_bottom = 181.0
+offset_left = 181.0
+offset_top = -367.0
+offset_right = 330.0
+offset_bottom = 250.0

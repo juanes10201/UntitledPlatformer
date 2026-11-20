@@ -171,7 +171,7 @@ shader_parameter/speed = 1.0
 shader_parameter/ray1_density = 8.0
 shader_parameter/ray2_density = 30.0
 shader_parameter/ray2_intensity = 0.1600000076
-shader_parameter/color = Color(0.85490197, 0.6627451, 0.91764706, 0.2784314)
+shader_parameter/color = Color(0.85490197, 0.6627451, 0.91764706, 0.18039216)
 shader_parameter/hdr = false
 shader_parameter/seed = 5.0
 
@@ -559,4 +559,4 @@ material = SubResource("ShaderMaterial_sc4ke")
 offset_left = -86.0
 offset_top = -616.0
 offset_right = 49.0
-offset_bottom = -53.0
+offset_bottom = -16.0
