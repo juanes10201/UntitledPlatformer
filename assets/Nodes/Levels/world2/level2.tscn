@@ -37,9 +37,9 @@ fill_from = Vector2(0.48290598, 0.517094)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_md8ho"]
 shader = ExtResource("24_xdva3")
 shader_parameter/angle = -0.365
-shader_parameter/position = -0.2
-shader_parameter/spread = 0.2050000097375
-shader_parameter/cutoff = 0.13300005381750002
+shader_parameter/position = -0.065
+shader_parameter/spread = 0.150000007125
+shader_parameter/cutoff = 0.0840000514899999
 shader_parameter/falloff = 0.6750000320625
 shader_parameter/edge_fade = 0.26000001235
 shader_parameter/speed = 1.0
@@ -111,10 +111,10 @@ CurrentAnimation = 1
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1334406953]
 z_index = 2
 material = SubResource("ShaderMaterial_md8ho")
-offset_left = 27.0
-offset_top = -133.0
-offset_right = 162.0
-offset_bottom = 430.0
+offset_left = 28.0
+offset_top = -149.0
+offset_right = 163.0
+offset_bottom = 414.0
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=2027412871]
 visible = false
@@ -492,14 +492,39 @@ script = ExtResource("23_1mvi3")
 CurrentAnimation = 1
 
 [node name="PointLight2D92" type="PointLight2D" parent="." unique_id=1011696776]
-position = Vector2(471, 171)
+position = Vector2(464.99997, 177)
 scale = Vector2(0.31708574, 0.40284696)
 color = Color(1, 0.47128505, 0.485677, 1)
-energy = 0.75
+energy = 0.95
 range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_1mvi3")
 texture_scale = 2.57
 height = 58.0
+script = ExtResource("23_1mvi3")
+CurrentAnimation = 1
+
+[node name="PointLight2D96" type="PointLight2D" parent="." unique_id=869857698]
+position = Vector2(407, 228.00002)
+scale = Vector2(0.605054, 0.19190815)
+color = Color(1, 0.44032308, 0.6449353, 1)
+energy = 0.95
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_1mvi3")
+texture_scale = 2.57
+height = 63.0
+script = ExtResource("23_1mvi3")
+CurrentAnimation = 1
+
+[node name="PointLight2D97" type="PointLight2D" parent="." unique_id=1590791955]
+position = Vector2(376, 239.00002)
+scale = Vector2(0.605054, 0.19190815)
+color = Color(0, 0.7091663, 0.99881, 1)
+energy = 0.3
+blend_mode = 1
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_1mvi3")
+texture_scale = 2.57
+height = 63.0
 script = ExtResource("23_1mvi3")
 CurrentAnimation = 1
 
@@ -615,10 +640,10 @@ height = 58.0
 script = ExtResource("23_1mvi3")
 
 [node name="PointLight2D87" type="PointLight2D" parent="." unique_id=196306421]
-position = Vector2(66, 430)
+position = Vector2(78, 432)
 scale = Vector2(0.9304387, 0.4442525)
 color = Color(0.529216, 0.6357099, 1, 1)
-energy = 0.25
+energy = 0.3
 range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_1mvi3")
 texture_scale = 2.57
@@ -664,8 +689,8 @@ script = ExtResource("23_1mvi3")
 CurrentAnimation = 1
 
 [node name="PointLight2D75" type="PointLight2D" parent="." unique_id=573568099]
-position = Vector2(182.00002, 400.99997)
-scale = Vector2(0.39440098, 0.09711736)
+position = Vector2(193.78223, 336.00653)
+scale = Vector2(0.46471003, 0.060718134)
 color = Color(0.83298904, 0.5652937, 0.7083757, 1)
 energy = 0.7
 blend_mode = 1
@@ -676,7 +701,7 @@ height = 58.0
 script = ExtResource("23_1mvi3")
 
 [node name="PointLight2D76" type="PointLight2D" parent="." unique_id=2032781434]
-position = Vector2(223, 400.00003)
+position = Vector2(220.00002, 400)
 scale = Vector2(0.39660916, 0.18897197)
 color = Color(1, 0.47128505, 0.485677, 1)
 energy = 0.5

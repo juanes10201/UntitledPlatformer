@@ -53,7 +53,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bxsak")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle",
 "speed": 5.0
 }, {
@@ -67,7 +67,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y0env")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Shoot",
 "speed": 7.0
 }, {
@@ -81,7 +81,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t8cs0")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Walking",
 "speed": 5.0
 }]
@@ -121,10 +121,10 @@ position = Vector2(8, -7)
 collision_layer = 131076
 collision_mask = 273
 script = ExtResource("1_yk4q4")
-enemy_type = 2.0
 EnemyDirection = 2
 Max_groundsmash_distance = 200.0
 Can_BeGroundSmash = false
+enemy_type = 2.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=889786328]
 collision_layer = 2
@@ -145,7 +145,7 @@ one_shot = true
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=473290733]
 material = SubResource("ShaderMaterial_wd6sj")
-position = Vector2(0.279999, 6.74)
+position = Vector2(2.0861626e-07, 8)
 sprite_frames = SubResource("SpriteFrames_2fkqx")
 animation = &"Shoot"
 offset = Vector2(-0.28, -6.35)

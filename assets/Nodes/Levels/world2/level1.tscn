@@ -941,15 +941,15 @@ height = 153.0
 script = ExtResource("22_r4wuo")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1761193005]
-visible = false
 z_index = 2
 material = SubResource("ShaderMaterial_phag5")
-offset_left = 105.0
-offset_top = -140.0
-offset_right = 240.0
-offset_bottom = 423.0
+offset_left = 93.0
+offset_top = -138.0
+offset_right = 228.0
+offset_bottom = 425.0
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=691394714]
+visible = false
 z_index = 2
 material = SubResource("ShaderMaterial_8ifkb")
 offset_left = 67.0
