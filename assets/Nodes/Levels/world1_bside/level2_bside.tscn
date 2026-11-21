@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://mwwwugaaoyiw" path="res://assets/Nodes/Obj/Gameplay/key.tscn" id="13_hatkf"]
 [ext_resource type="TileSet" uid="uid://edh4to7ikywy" path="res://assets/Sprites/Gameplay/Tilesets/World1-bside/tileset.res" id="14_icnfm"]
 [ext_resource type="Script" uid="uid://dbfv5o1s01x06" path="res://assets/Scripts/DynamicLightAnimation.gd" id="15_62pv3"]
+[ext_resource type="Shader" uid="uid://bclg3rdg5r8a7" path="res://assets/Shader/godray.gdshader" id="15_y42x8"]
 
 [sub_resource type="Gradient" id="Gradient_jfyc5"]
 offsets = PackedFloat32Array(0, 0.65238094)
@@ -21,6 +22,76 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_y42x8"]
 gradient = SubResource("Gradient_jfyc5")
+fill = 1
+fill_from = Vector2(0.48290598, 0.517094)
+
+[sub_resource type="Gradient" id="Gradient_62pv3"]
+offsets = PackedFloat32Array(0, 0.8980392, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_icnfm"]
+gradient = SubResource("Gradient_62pv3")
+fill_from = Vector2(0, 0.30769232)
+fill_to = Vector2(1, 0.62393165)
+
+[sub_resource type="Gradient" id="Gradient_y42x8"]
+offsets = PackedFloat32Array(0, 0.8980392, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_62pv3"]
+gradient = SubResource("Gradient_y42x8")
+fill_from = Vector2(0.8418803, 0.55128205)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_y54i0"]
+offsets = PackedFloat32Array(0, 0.8980392, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cuhhq"]
+gradient = SubResource("Gradient_y54i0")
+fill_from = Vector2(0.8418803, 0.55128205)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aylwl"]
+shader = ExtResource("15_y42x8")
+shader_parameter/angle = -0.225
+shader_parameter/position = -0.07
+shader_parameter/spread = 0.3150000149625
+shader_parameter/cutoff = 0.10400005244
+shader_parameter/falloff = 0.142000006745
+shader_parameter/edge_fade = 0.222000010545
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.110000005225
+shader_parameter/color = Color(0.6748114, 0.56856465, 0.4440411, 0.12156863)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
+[sub_resource type="Gradient" id="Gradient_oacxl"]
+offsets = PackedFloat32Array(0, 0.65238094)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y54i0"]
+gradient = SubResource("Gradient_oacxl")
+fill = 1
+fill_from = Vector2(0.48290598, 0.517094)
+
+[sub_resource type="Gradient" id="Gradient_cuhhq"]
+offsets = PackedFloat32Array(0, 0.65238094)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aylwl"]
+gradient = SubResource("Gradient_cuhhq")
+fill = 1
+fill_from = Vector2(0.48290598, 0.517094)
+
+[sub_resource type="Gradient" id="Gradient_aylwl"]
+offsets = PackedFloat32Array(0, 0.65238094)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jb38s"]
+gradient = SubResource("Gradient_aylwl")
 fill = 1
 fill_from = Vector2(0.48290598, 0.517094)
 
@@ -376,8 +447,8 @@ script = ExtResource("15_62pv3")
 CurrentAnimation = 1
 
 [node name="PointLight2D68" type="PointLight2D" parent="." unique_id=1019662405]
-position = Vector2(-261, -98.00001)
-scale = Vector2(1.5259811, 1.4260539)
+position = Vector2(-256.87418, -108.56967)
+scale = Vector2(0.8496372, 0.8580944)
 color = Color(0.7700061, 0.53416634, 1, 1)
 energy = 0.7
 texture = SubResource("GradientTexture2D_y42x8")
@@ -394,4 +465,136 @@ texture = SubResource("GradientTexture2D_y42x8")
 texture_scale = 2.57
 height = 13.0
 script = ExtResource("15_62pv3")
+CurrentAnimation = 1
+
+[node name="LightHidePlayer18" type="PointLight2D" parent="." unique_id=1247163268]
+position = Vector2(-309.1405, 15.727215)
+rotation = 3.1503193
+scale = Vector2(0.78034604, 1.2795706)
+color = Color(0.36523038, 0.9473396, 0.5413177, 1)
+energy = 0.55
+blend_mode = 1
+texture = SubResource("GradientTexture2D_icnfm")
+texture_scale = 4.22
+height = 108.0
+
+[node name="LightHidePlayer20" type="PointLight2D" parent="." unique_id=593071007]
+position = Vector2(102.1787, -42.71144)
+rotation = 2.9757864
+scale = Vector2(1.1804936, 2.0893698)
+color = Color(0.36523038, 0.9473396, 0.5413177, 1)
+energy = 0.85
+blend_mode = 1
+texture = SubResource("GradientTexture2D_62pv3")
+texture_scale = 4.22
+height = 108.0
+
+[node name="LightHidePlayer19" type="PointLight2D" parent="." unique_id=947590268]
+position = Vector2(-117.25001, -130.25)
+scale = Vector2(0.335086, 1.3384924)
+color = Color(0.36523038, 0.9473396, 0.5413177, 1)
+energy = 0.5
+blend_mode = 1
+texture = SubResource("GradientTexture2D_cuhhq")
+texture_scale = 4.22
+height = 108.0
+
+[node name="LightHidePlayer21" type="PointLight2D" parent="." unique_id=1990662465]
+position = Vector2(-114.62501, 147.37502)
+scale = Vector2(0.37488896, 0.37303767)
+color = Color(0.36523038, 0.9473396, 0.5413177, 1)
+energy = 0.5
+blend_mode = 1
+texture = SubResource("GradientTexture2D_cuhhq")
+texture_scale = 4.22
+height = 108.0
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=627970119]
+z_index = 2
+material = SubResource("ShaderMaterial_aylwl")
+offset_left = -96.0
+offset_top = -327.0
+offset_right = 94.0
+offset_bottom = 101.0
+
+[node name="PointLight2D72" type="PointLight2D" parent="." unique_id=299904144]
+position = Vector2(-188, -65.00001)
+scale = Vector2(0.65509474, 0.19759244)
+color = Color(5.4869056e-06, 0.7559004, 0.73921275, 1)
+energy = 0.4
+blend_mode = 1
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_y54i0")
+texture_scale = 2.57
+height = 58.0
+script = ExtResource("15_62pv3")
+
+[node name="PointLight2D73" type="PointLight2D" parent="." unique_id=1841553041]
+position = Vector2(-204.00002, -84)
+scale = Vector2(0.60151434, 0.19555132)
+color = Color(1, 0.47128505, 0.485677, 1)
+energy = 0.45
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_y54i0")
+texture_scale = 2.57
+height = 58.0
+script = ExtResource("15_62pv3")
+
+[node name="PointLight2D74" type="PointLight2D" parent="." unique_id=2104179624]
+position = Vector2(-142, 91)
+scale = Vector2(0.70829284, 0.15503404)
+color = Color(5.4869056e-06, 0.7559004, 0.73921275, 1)
+energy = 0.7
+blend_mode = 1
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_aylwl")
+texture_scale = 2.57
+height = 58.0
+script = ExtResource("15_62pv3")
+
+[node name="PointLight2D75" type="PointLight2D" parent="." unique_id=1853270755]
+position = Vector2(-160.00002, 71.00001)
+scale = Vector2(0.1062046, 0.2923282)
+color = Color(1, 0.47128505, 0.485677, 1)
+energy = 0.7
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_aylwl")
+texture_scale = 2.57
+height = 58.0
+script = ExtResource("15_62pv3")
+
+[node name="PointLight2D70" type="PointLight2D" parent="." unique_id=512358557]
+position = Vector2(-66.00001, -28.999996)
+scale = Vector2(0.5517287, 1.4202904)
+color = Color(0.9999998, 0.50316894, 0.19813573, 1)
+energy = 0.5
+texture = SubResource("GradientTexture2D_jb38s")
+texture_scale = 2.57
+height = 13.0
+script = ExtResource("15_62pv3")
+MinEnergy = 0.45
+CurrentAnimation = 1
+
+[node name="PointLight2D71" type="PointLight2D" parent="." unique_id=948324003]
+position = Vector2(18.999985, -97.999985)
+scale = Vector2(0.5517287, 1.4202904)
+color = Color(0.61932, 0.651954, 0.81476444, 1)
+energy = 0.35
+texture = SubResource("GradientTexture2D_jb38s")
+texture_scale = 2.57
+height = 13.0
+script = ExtResource("15_62pv3")
+MinEnergy = 0.45
+CurrentAnimation = 1
+
+[node name="PointLight2D76" type="PointLight2D" parent="." unique_id=1058690496]
+position = Vector2(16, -11.000008)
+scale = Vector2(0.5517287, 1.4202904)
+color = Color(1, 0.47031635, 0.51018137, 1)
+energy = 0.7
+texture = SubResource("GradientTexture2D_jb38s")
+texture_scale = 2.57
+height = 13.0
+script = ExtResource("15_62pv3")
+MinEnergy = 0.45
 CurrentAnimation = 1

@@ -56,6 +56,7 @@
 [ext_resource type="Texture2D" uid="uid://bkpeeq4uqgy4" path="res://assets/Sprites/particles/LightFocus.png" id="47_jqcgy"]
 [ext_resource type="PackedScene" uid="uid://bxtkh08fsp6ue" path="res://assets/Nodes/Obj/Gameplay/kill_box_blue.tscn" id="49_orvnp"]
 [ext_resource type="Texture2D" uid="uid://ba2lk2xlomwc" path="res://assets/Sprites/Gameplay/Bosses/Statue/Statue1-depth.png" id="54_y5g1q"]
+[ext_resource type="Shader" uid="uid://bclg3rdg5r8a7" path="res://assets/Shader/godray.gdshader" id="57_y5g1q"]
 
 [sub_resource type="Animation" id="Animation_fyk5b"]
 resource_name = "Idle"
@@ -2053,6 +2054,38 @@ size = Vector2(102.999985, 167)
 diffuse_texture = ExtResource("42_vef5d")
 normal_texture = ExtResource("54_y5g1q")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y5g1q"]
+shader = ExtResource("57_y5g1q")
+shader_parameter/angle = -0.225
+shader_parameter/position = -0.07
+shader_parameter/spread = 0.3150000149625
+shader_parameter/cutoff = 0.10400005244
+shader_parameter/falloff = 0.142000006745
+shader_parameter/edge_fade = 0.222000010545
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.110000005225
+shader_parameter/color = Color(0.84313726, 0.39607844, 0.75686276, 0.09411765)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
+[sub_resource type="Gradient" id="Gradient_xi0km"]
+offsets = PackedFloat32Array(0, 0.8980392, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ywxet"]
+gradient = SubResource("Gradient_xi0km")
+
+[sub_resource type="Gradient" id="Gradient_f1fwx"]
+offsets = PackedFloat32Array(0, 0.8980392, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ocl08"]
+gradient = SubResource("Gradient_f1fwx")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+
 [node name="Node2D" type="Node2D" unique_id=547109456]
 position = Vector2(1, -1)
 
@@ -3736,6 +3769,35 @@ texture_scale = 1.37
 height = 43.0
 script = ExtResource("47_adys0")
 CurrentAnimation = 1
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=1404925663]
+z_index = 2
+material = SubResource("ShaderMaterial_y5g1q")
+offset_left = -530.0
+offset_top = -624.0
+offset_right = -361.0
+offset_bottom = -196.0
+
+[node name="LightHidePlayer17" type="PointLight2D" parent="." unique_id=2548913]
+position = Vector2(-734.99994, -387.00003)
+rotation = 3.307399
+scale = Vector2(0.47633728, 1.1130127)
+color = Color(0.6721167, 0.83237606, 0.9967155, 1)
+energy = 1.14
+blend_mode = 1
+texture = SubResource("GradientTexture2D_ywxet")
+texture_scale = 4.22
+height = 108.0
+
+[node name="LightHidePlayer18" type="PointLight2D" parent="." unique_id=1002128364]
+position = Vector2(-744, 184)
+scale = Vector2(0.2974105, 3.3445692)
+color = Color(0.6721167, 0.83237606, 0.9967155, 1)
+energy = 1.14
+blend_mode = 1
+texture = SubResource("GradientTexture2D_ocl08")
+texture_scale = 4.22
+height = 108.0
 
 [connection signal="body_entered" from="SlimeRingIntro" to="SlimeRingIntro" method="_on_body_entered"]
 [connection signal="body_entered" from="SlimeRingIntro2" to="SlimeRingIntro2" method="_on_body_entered"]

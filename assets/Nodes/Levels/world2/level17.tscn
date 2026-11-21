@@ -241,14 +241,14 @@ fill_to = Vector2(0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vtpf4"]
 gradient = SubResource("Gradient_s7gyl")
-fill_to = Vector2(0, 0.43162394)
+fill_to = Vector2(1, 1)
 
-[sub_resource type="Gradient" id="Gradient_44oq8"]
+[sub_resource type="Gradient" id="Gradient_hsgyd"]
 offsets = PackedFloat32Array(0, 0.65238094)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_hsgyd"]
-gradient = SubResource("Gradient_44oq8")
+gradient = SubResource("Gradient_hsgyd")
 fill = 1
 fill_from = Vector2(0.48290598, 0.517094)
 
@@ -264,6 +264,24 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_v5xl8"]
 gradient = SubResource("Gradient_fc2dt")
+fill = 1
+fill_from = Vector2(0.48290598, 0.517094)
+
+[sub_resource type="Gradient" id="Gradient_yib5r"]
+offsets = PackedFloat32Array(0, 0.65238094)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kreas"]
+gradient = SubResource("Gradient_yib5r")
+fill = 1
+fill_from = Vector2(0.48290598, 0.517094)
+
+[sub_resource type="Gradient" id="Gradient_embvt"]
+offsets = PackedFloat32Array(0, 0.65238094)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v44lb"]
+gradient = SubResource("Gradient_embvt")
 fill = 1
 fill_from = Vector2(0.48290598, 0.517094)
 
@@ -545,3 +563,27 @@ height = 58.0
 script = ExtResource("19_hsgyd")
 MinEnergy = 0.3
 CurrentAnimation = 1
+
+[node name="PointLight2D72" type="PointLight2D" parent="." unique_id=1519878604]
+position = Vector2(16, 188)
+scale = Vector2(0.3554751, 0.22520085)
+color = Color(1, 0.47128505, 0.485677, 1)
+energy = 0.7
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_kreas")
+texture_scale = 2.57
+height = 58.0
+script = ExtResource("19_hsgyd")
+MinEnergy = 0.4
+CurrentAnimation = 1
+
+[node name="PointLight2D73" type="PointLight2D" parent="." unique_id=2141454061]
+position = Vector2(15, 210.00003)
+scale = Vector2(0.306837, 0.13729425)
+color = Color(5.4869056e-06, 0.7559004, 0.73921275, 1)
+energy = 1.59
+blend_mode = 1
+texture = SubResource("GradientTexture2D_v44lb")
+texture_scale = 2.57
+height = 58.0
+script = ExtResource("19_hsgyd")

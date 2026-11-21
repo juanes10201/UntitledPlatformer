@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" format=3 uid="uid://ybq37wiv7sl2"]
+
+[ext_resource type="Texture2D" uid="uid://8cxskcafu1ni" path="res://assets/Sprites/Gameplay/Obj/Umbrella/red.png" id="1_lbh1u"]
+[ext_resource type="Texture2D" uid="uid://d0ranep7kfa1c" path="res://assets/Sprites/Gameplay/Obj/Umbrella/red-normal-smooth.png" id="2_c8phc"]
+
+[resource]
+diffuse_texture = ExtResource("1_lbh1u")
+normal_texture = ExtResource("2_c8phc")

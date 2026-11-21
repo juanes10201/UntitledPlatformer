@@ -23,12 +23,20 @@ gradient = SubResource("Gradient_jfyc5")
 fill = 1
 fill_from = Vector2(0.48290598, 0.517094)
 
+[sub_resource type="Gradient" id="Gradient_p72no"]
+offsets = PackedFloat32Array(0, 0.8980392, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fldcg"]
+gradient = SubResource("Gradient_p72no")
+fill_from = Vector2(1, 1)
+fill_to = Vector2(0, 0)
+
 [node name="Node2D" type="Node2D" unique_id=789048306]
 position = Vector2(0, -1)
 
 [node name="Bg" parent="." unique_id=6104661 instance=ExtResource("1_p72no")]
 visible = false
-position = Vector2(-755, -863)
 
 [node name="PointLight2D67" type="PointLight2D" parent="." unique_id=1783282316]
 position = Vector2(-72, 49)
@@ -148,87 +156,85 @@ grab_grid = null
 
 [node name="falling_sand12" parent="." unique_id=860443458 instance=ExtResource("8_cle1q")]
 position = Vector2(-172, -156)
-wait_time = 0.05
 is_falling = true
 MAX_SPEED = 200.0
+wait_time = 0.05
 
 [node name="falling_sand13" parent="." unique_id=832294617 instance=ExtResource("8_cle1q")]
 position = Vector2(-156, -156)
-wait_time = 0.05
 is_falling = true
 MAX_SPEED = 200.0
+wait_time = 0.05
 
 [node name="falling_sand14" parent="." unique_id=1857248956 instance=ExtResource("8_cle1q")]
 position = Vector2(-140, -156)
-wait_time = 0.05
 is_falling = true
 MAX_SPEED = 200.0
+wait_time = 0.05
 
 [node name="falling_sand25" parent="." unique_id=245578884 instance=ExtResource("8_cle1q")]
 position = Vector2(82, -367)
 Activate_on_color = 1
-wait_time = 0.05
 is_falling = true
 MAX_SPEED = 100.0
+wait_time = 0.05
 
 [node name="falling_sand22" parent="." unique_id=2051111755 instance=ExtResource("8_cle1q")]
 position = Vector2(57, -256)
 Activate_on_color = 1
-wait_time = 0.05
 is_falling = true
-CanHover = true
 MAX_SPEED = 100.0
+wait_time = 0.05
 
 [node name="falling_sand26" parent="." unique_id=1524185563 instance=ExtResource("8_cle1q")]
 position = Vector2(82, -579)
 Activate_on_color = 1
-wait_time = 0.05
 is_falling = true
 MAX_SPEED = 100.0
+wait_time = 0.05
 
 [node name="falling_sand23" parent="." unique_id=301181456 instance=ExtResource("8_cle1q")]
 position = Vector2(57, -468)
 Activate_on_color = 1
-wait_time = 0.05
 is_falling = true
-CanHover = true
 MAX_SPEED = 100.0
+wait_time = 0.05
 
 [node name="falling_sand16" parent="." unique_id=1329782665 instance=ExtResource("8_cle1q")]
 position = Vector2(-56, -287)
-wait_time = 0.05
 is_falling = true
 MAX_SPEED = 150.0
+wait_time = 0.05
 
 [node name="falling_sand17" parent="." unique_id=1255760644 instance=ExtResource("8_cle1q")]
 position = Vector2(-40, -287)
-wait_time = 0.05
 is_falling = true
 MAX_SPEED = 150.0
+wait_time = 0.05
 
 [node name="falling_sand20" parent="." unique_id=214611821 instance=ExtResource("8_cle1q")]
 position = Vector2(-40, -327)
-wait_time = 0.05
 is_falling = true
 MAX_SPEED = 150.0
+wait_time = 0.05
 
 [node name="falling_sand21" parent="." unique_id=1109702661 instance=ExtResource("8_cle1q")]
 position = Vector2(-40, -343)
-wait_time = 0.05
 is_falling = true
 MAX_SPEED = 150.0
+wait_time = 0.05
 
 [node name="falling_sand30" parent="." unique_id=1215640212 instance=ExtResource("8_cle1q")]
 position = Vector2(-40, -359)
-wait_time = 0.05
 is_falling = true
 MAX_SPEED = 150.0
+wait_time = 0.05
 
 [node name="falling_sand31" parent="." unique_id=91167591 instance=ExtResource("8_cle1q")]
 position = Vector2(-40, -375)
-wait_time = 0.05
 is_falling = true
 MAX_SPEED = 150.0
+wait_time = 0.05
 
 [node name="falling_sand4" parent="." unique_id=405230917 instance=ExtResource("8_cle1q")]
 position = Vector2(-48, 252)
@@ -314,32 +320,30 @@ EnemyDirection = 2
 [node name="falling_sand27" parent="." unique_id=551371394 instance=ExtResource("8_cle1q")]
 position = Vector2(81, -803)
 Activate_on_color = 1
-wait_time = 0.05
 is_falling = true
 MAX_SPEED = 100.0
+wait_time = 0.05
 
 [node name="falling_sand24" parent="." unique_id=1411057480 instance=ExtResource("8_cle1q")]
 position = Vector2(56, -692)
 Activate_on_color = 1
-wait_time = 0.05
 is_falling = true
-CanHover = true
 MAX_SPEED = 100.0
+wait_time = 0.05
 
 [node name="falling_sand28" parent="." unique_id=2125806140 instance=ExtResource("8_cle1q")]
 position = Vector2(81, -1015)
 Activate_on_color = 1
-wait_time = 0.05
 is_falling = true
 MAX_SPEED = 100.0
+wait_time = 0.05
 
 [node name="falling_sand29" parent="." unique_id=1912926210 instance=ExtResource("8_cle1q")]
 position = Vector2(56, -904)
 Activate_on_color = 1
-wait_time = 0.05
 is_falling = true
-CanHover = true
 MAX_SPEED = 100.0
+wait_time = 0.05
 
 [node name="Enemie13" parent="." unique_id=306280526 instance=ExtResource("12_8c20a")]
 position = Vector2(57, -709)
@@ -362,12 +366,33 @@ position = Vector2(38, -267)
 
 [node name="falling_sand18" parent="." unique_id=1747420984 instance=ExtResource("8_cle1q")]
 position = Vector2(-103, -447)
-wait_time = 0.05
 is_falling = true
 MAX_SPEED = 150.0
+wait_time = 0.05
 
 [node name="falling_sand19" parent="." unique_id=1598825910 instance=ExtResource("8_cle1q")]
 position = Vector2(-87, -447)
-wait_time = 0.05
 is_falling = true
 MAX_SPEED = 150.0
+wait_time = 0.05
+
+[node name="LightHidePlayer18" type="PointLight2D" parent="." unique_id=1146102092]
+position = Vector2(-191.54755, -48.800323)
+scale = Vector2(0.9445169, 1.9416447)
+color = Color(0.36523038, 0.9473396, 0.5413177, 1)
+energy = 0.8
+blend_mode = 1
+texture = SubResource("GradientTexture2D_fldcg")
+texture_scale = 4.22
+height = 108.0
+
+[node name="LightHidePlayer19" type="PointLight2D" parent="." unique_id=939756562]
+position = Vector2(128, 65)
+rotation = 3.3859386
+scale = Vector2(0.9445169, 1.9416447)
+color = Color(0.36523038, 0.9473396, 0.5413177, 1)
+energy = 0.8
+blend_mode = 1
+texture = SubResource("GradientTexture2D_fldcg")
+texture_scale = 4.22
+height = 108.0
