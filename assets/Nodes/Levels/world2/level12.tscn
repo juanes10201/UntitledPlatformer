@@ -20,9 +20,11 @@
 [ext_resource type="PackedScene" uid="uid://d1ji315fcqjjv" path="res://assets/Nodes/Particles/ambientparticles.tscn" id="18_1o2t8"]
 [ext_resource type="PackedScene" uid="uid://5wgsndvnte8" path="res://assets/Nodes/Obj/Gameplay/float.tscn" id="20_62ycj"]
 [ext_resource type="PackedScene" uid="uid://mwwwugaaoyiw" path="res://assets/Nodes/Obj/Gameplay/key.tscn" id="21_wiemh"]
+[ext_resource type="Script" uid="uid://dbfv5o1s01x06" path="res://assets/Scripts/DynamicLightAnimation.gd" id="22_mn1ru"]
 [ext_resource type="PackedScene" uid="uid://bpcyg6vqonftj" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemy_fish.tscn" id="22_wwjui"]
+[ext_resource type="Shader" uid="uid://bclg3rdg5r8a7" path="res://assets/Shader/godray.gdshader" id="23_yk54o"]
 
-[sub_resource type="Image" id="Image_hqrgg"]
+[sub_resource type="Image" id="Image_xskr6"]
 data = {
 "data": PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/fwD/P38A/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL9/AP8AAAAAAAAAAAAAAAAAAAAAf38A/z9/AP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8AAP8/AAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvwAA/wAAAAAAAAAAAAAAAAAAAAB/AAD/PwAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/AAD/AAAAAAAAAAAAAAAAAAAAAH8AAP8/AAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/AAD/PwAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL8AAP8AAAAAAAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8AAP8/AAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvwAA/wAAAAAAAAAAAAAAAAAAAAB/AAD/PwAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/AAD/AAAAAAAAAAAAAAAAAAAAAH8AAP8/AAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/AAD/PwAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL8AAP8AAAAAAAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8AAP8/AAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvz8A/wAAAAAAAAAAAAAAAAAAAAB/AAD/PwAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8AAP8/AAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/AAD/PwAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8AAP8/AAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/AAD/PwAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfz8A/z8/AP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/fwD/AAAAAAAAAAAAAAAAAAAAAH8AAP8/AAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL8AAP8AAAAAAAAAAAAAAAAAAAAAfwAA/z8AAP9/fwD/AH8A/wB/AP8/fwD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfwCZ/wB/AP8AfwD/AH8A/wB/AP8AAMz/PwAA/38/AP8APwD/AABm/wAAmf8AvwD/AL8A/wC/AP8/vwD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/PwD/AD8A/wA/AP8APwD/AD8A/wA/AP8/PwD/AAAAAAAAAAB/PwD/Pz8A/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="),
 "format": "RGBA8",
@@ -31,8 +33,8 @@ data = {
 "width": 23
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_mn1ru"]
-image = SubResource("Image_hqrgg")
+[sub_resource type="ImageTexture" id="ImageTexture_10nnq"]
+image = SubResource("Image_xskr6")
 
 [sub_resource type="Gradient" id="Gradient_l0nw2"]
 offsets = PackedFloat32Array(0, 0.5753303)
@@ -107,7 +109,7 @@ fill_from = Vector2(1, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8i7gy"]
 resource_local_to_scene = true
 shader = ExtResource("3_mctsv")
-shader_parameter/border_map = SubResource("ImageTexture_mn1ru")
+shader_parameter/border_map = SubResource("ImageTexture_10nnq")
 shader_parameter/map_size = Vector2(23, 16)
 shader_parameter/light_color = SubResource("GradientTexture2D_10nnq")
 shader_parameter/shadow_color = SubResource("GradientTexture2D_1ny2k")
@@ -120,7 +122,7 @@ shader_parameter/diagonal_down_left_color = SubResource("GradientTexture2D_0hxqn
 shader_parameter/cell_size = Vector2(16, 16)
 shader_parameter/map_origin = Vector2(-13, 3)
 
-[sub_resource type="Image" id="Image_yk54o"]
+[sub_resource type="Image" id="Image_1ny2k"]
 data = {
 "data": PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH+/AP8/vwD/AAAAAAAAAAAAAAAAf38A/z9/AP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH9/AP8/fwD/AAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8AAP8/AAD/AAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8AAP8AAJn/AL8A/wC/AP8/vwD/fwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8AAP8/AAD/AAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8AAP8/AAD/AAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8AAP8/AAD/AAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8AAP8/AAD/AAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8AAP8/AAD/AAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8AAP8/AAD/AAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8AAP8/AAD/AAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8AAP8/AAD/AAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8AAP8/AAD/AAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH8/AP8/PwD/AAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfwAA/z8AAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfz8A/z8/AP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"),
 "format": "RGBA8",
@@ -129,8 +131,8 @@ data = {
 "width": 18
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_xskr6"]
-image = SubResource("Image_yk54o")
+[sub_resource type="ImageTexture" id="ImageTexture_8i7gy"]
+image = SubResource("Image_1ny2k")
 
 [sub_resource type="Gradient" id="Gradient_0hxqn"]
 offsets = PackedFloat32Array(0, 0.78678405)
@@ -204,7 +206,7 @@ fill_from = Vector2(1, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_irlge"]
 resource_local_to_scene = true
 shader = ExtResource("3_mctsv")
-shader_parameter/border_map = SubResource("ImageTexture_xskr6")
+shader_parameter/border_map = SubResource("ImageTexture_8i7gy")
 shader_parameter/map_size = Vector2(18, 24)
 shader_parameter/light_color = SubResource("GradientTexture2D_2vt61")
 shader_parameter/shadow_color = SubResource("GradientTexture2D_ix85n")
@@ -216,6 +218,31 @@ shader_parameter/diagonal_down_right_color = SubResource("GradientTexture2D_hdsk
 shader_parameter/diagonal_down_left_color = SubResource("GradientTexture2D_vp06d")
 shader_parameter/cell_size = Vector2(16, 16)
 shader_parameter/map_origin = Vector2(-11, 18)
+
+[sub_resource type="Gradient" id="Gradient_mn1ru"]
+offsets = PackedFloat32Array(0, 0.65238094)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_miwde"]
+gradient = SubResource("Gradient_mn1ru")
+fill = 1
+fill_from = Vector2(0.48290598, 0.517094)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wbp8o"]
+shader = ExtResource("23_yk54o")
+shader_parameter/angle = -0.365
+shader_parameter/position = -0.2
+shader_parameter/spread = 0.2050000097375
+shader_parameter/cutoff = 0.13300005381750002
+shader_parameter/falloff = 0.6750000320625
+shader_parameter/edge_fade = 0.26000001235
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.2250000106875
+shader_parameter/color = Color(0.95422786, 0.67740124, 0.4366397, 0.47058824)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
 
 [node name="Node2D" type="Node2D" unique_id=292821140]
 position = Vector2(0, -1)
@@ -462,3 +489,116 @@ AditionalActionArgument = 390.0
 position = Vector2(50, 206)
 AditionalAction = 6
 AditionalActionArgument = 199.0
+
+[node name="PointLight2D81" type="PointLight2D" parent="." unique_id=37739191]
+position = Vector2(102, 289)
+scale = Vector2(0.46129727, 0.12359268)
+color = Color(5.4869056e-06, 0.7559004, 0.73921275, 1)
+energy = 0.7
+blend_mode = 1
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_miwde")
+texture_scale = 2.57
+height = 58.0
+script = ExtResource("22_mn1ru")
+
+[node name="PointLight2D82" type="PointLight2D" parent="." unique_id=939774445]
+position = Vector2(88.93709, 264.08215)
+scale = Vector2(0.3554751, 0.19555132)
+color = Color(1, 0.47128505, 0.485677, 1)
+energy = 0.7
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_miwde")
+texture_scale = 2.57
+height = 58.0
+script = ExtResource("22_mn1ru")
+
+[node name="PointLight2D83" type="PointLight2D" parent="." unique_id=2023165268]
+position = Vector2(-106.99999, 288)
+scale = Vector2(0.46129727, 0.12359268)
+color = Color(5.4869056e-06, 0.7559004, 0.73921275, 1)
+energy = 0.7
+blend_mode = 1
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_miwde")
+texture_scale = 2.57
+height = 58.0
+script = ExtResource("22_mn1ru")
+MinEnergy = 0.4
+CurrentAnimation = 1
+
+[node name="PointLight2D84" type="PointLight2D" parent="." unique_id=849959775]
+position = Vector2(-130, 272)
+scale = Vector2(0.3554751, 0.19555132)
+color = Color(1, 0.47128505, 0.485677, 1)
+energy = 0.7
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_miwde")
+texture_scale = 2.57
+height = 58.0
+script = ExtResource("22_mn1ru")
+MinEnergy = 0.3
+CurrentAnimation = 1
+
+[node name="PointLight2D85" type="PointLight2D" parent="." unique_id=2075099920]
+position = Vector2(100.882866, 410.45892)
+scale = Vector2(0.41484848, 0.24976991)
+color = Color(1, 0.47128505, 0.485677, 1)
+energy = 0.7
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_miwde")
+texture_scale = 2.57
+height = 58.0
+script = ExtResource("22_mn1ru")
+
+[node name="PointLight2D87" type="PointLight2D" parent="." unique_id=1513231019]
+position = Vector2(-111.00001, 448.00003)
+scale = Vector2(0.41484848, 0.24976991)
+color = Color(1, 0.47128505, 0.485677, 1)
+energy = 0.7
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_miwde")
+texture_scale = 2.57
+height = 58.0
+script = ExtResource("22_mn1ru")
+
+[node name="PointLight2D88" type="PointLight2D" parent="." unique_id=656876137]
+position = Vector2(12, 381)
+scale = Vector2(0.2743017, 0.57478756)
+color = Color(1, 0.47128505, 0.485677, 1)
+energy = 0.7
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_miwde")
+texture_scale = 2.57
+height = 58.0
+script = ExtResource("22_mn1ru")
+
+[node name="PointLight2D89" type="PointLight2D" parent="." unique_id=236693300]
+position = Vector2(-27, 279.00003)
+scale = Vector2(0.2743017, 0.57478756)
+color = Color(1, 0.47128505, 0.485677, 1)
+energy = 0.7
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_miwde")
+texture_scale = 2.57
+height = 58.0
+script = ExtResource("22_mn1ru")
+
+[node name="PointLight2D86" type="PointLight2D" parent="." unique_id=1003024098]
+position = Vector2(65.99999, 454)
+scale = Vector2(0.2864612, 0.6477449)
+color = Color(0.80607486, 0.5603117, 0.8086245, 1)
+energy = 0.7
+range_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_miwde")
+texture_scale = 2.57
+height = 58.0
+script = ExtResource("22_mn1ru")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=751857727]
+z_index = 2
+material = SubResource("ShaderMaterial_wbp8o")
+offset_left = 51.0
+offset_top = -136.0
+offset_right = 186.0
+offset_bottom = 558.0
