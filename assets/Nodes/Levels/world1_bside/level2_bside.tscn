@@ -162,7 +162,7 @@ is_falling = true
 MAX_SPEED = 120.0
 
 [node name="falling_sand10" parent="." unique_id=1608984349 instance=ExtResource("6_f6dhd")]
-position = Vector2(-42, -344)
+position = Vector2(-43, -344)
 collision_mask = 1
 Activate_on_color = 1
 is_falling = true
@@ -190,7 +190,7 @@ is_falling = true
 MAX_SPEED = 120.0
 
 [node name="falling_sand14" parent="." unique_id=491560998 instance=ExtResource("6_f6dhd")]
-position = Vector2(-42, -503)
+position = Vector2(-43, -503)
 collision_mask = 1
 Activate_on_color = 1
 is_falling = true
@@ -218,7 +218,7 @@ is_falling = true
 MAX_SPEED = 120.0
 
 [node name="falling_sand18" parent="." unique_id=1801202523 instance=ExtResource("6_f6dhd")]
-position = Vector2(-40, -678)
+position = Vector2(-41, -678)
 collision_mask = 1
 Activate_on_color = 1
 is_falling = true
@@ -246,7 +246,7 @@ is_falling = true
 MAX_SPEED = 120.0
 
 [node name="falling_sand22" parent="." unique_id=557910109 instance=ExtResource("6_f6dhd")]
-position = Vector2(-40, -842)
+position = Vector2(-41, -842)
 collision_mask = 1
 Activate_on_color = 1
 is_falling = true
@@ -274,7 +274,7 @@ is_falling = true
 MAX_SPEED = 120.0
 
 [node name="falling_sand26" parent="." unique_id=621595251 instance=ExtResource("6_f6dhd")]
-position = Vector2(-40, -1001)
+position = Vector2(-41, -1001)
 collision_mask = 1
 Activate_on_color = 1
 is_falling = true
@@ -295,7 +295,7 @@ is_falling = true
 MAX_SPEED = 120.0
 
 [node name="falling_sand4" parent="." unique_id=275605062 instance=ExtResource("6_f6dhd")]
-position = Vector2(-180, -197)
+position = Vector2(-181, -197)
 collision_mask = 1
 is_falling = true
 MAX_SPEED = 120.0

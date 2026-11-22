@@ -231,6 +231,14 @@ scale = Vector2(5.455, 3)
 position = Vector2(-132, -156)
 scale = Vector2(5.455, 1.35)
 
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=1807709797]
+z_index = 2
+material = SubResource("ShaderMaterial_ko5iy")
+offset_left = -114.0
+offset_top = -383.0
+offset_right = 76.0
+offset_bottom = 45.0
+
 [node name="falling_sand" parent="." unique_id=341941332 instance=ExtResource("12_rljgi")]
 position = Vector2(-187, -289)
 is_falling = true
@@ -252,12 +260,12 @@ is_falling = true
 MAX_SPEED = 170.0
 
 [node name="falling_sand7" parent="." unique_id=32376071 instance=ExtResource("12_rljgi")]
-position = Vector2(-100, -472)
+position = Vector2(-101, -472)
 is_falling = true
 MAX_SPEED = 170.0
 
 [node name="falling_sand8" parent="." unique_id=1936678825 instance=ExtResource("12_rljgi")]
-position = Vector2(-116, -465)
+position = Vector2(-117, -465)
 is_falling = true
 MAX_SPEED = 170.0
 
@@ -282,22 +290,22 @@ is_falling = true
 MAX_SPEED = 170.0
 
 [node name="falling_sand11" parent="." unique_id=176573751 instance=ExtResource("12_rljgi")]
-position = Vector2(-42, -341)
+position = Vector2(-43, -341)
 is_falling = true
 MAX_SPEED = 120.0
 
 [node name="falling_sand13" parent="." unique_id=322941007 instance=ExtResource("12_rljgi")]
-position = Vector2(-26, -341)
+position = Vector2(-27, -341)
 is_falling = true
 MAX_SPEED = 120.0
 
 [node name="falling_sand14" parent="." unique_id=2125778802 instance=ExtResource("12_rljgi")]
-position = Vector2(-10, -341)
+position = Vector2(-12, -341)
 is_falling = true
 MAX_SPEED = 120.0
 
 [node name="falling_sand16" parent="." unique_id=214611821 instance=ExtResource("12_rljgi")]
-position = Vector2(6, -341)
+position = Vector2(3, -341)
 is_falling = true
 MAX_SPEED = 120.0
 
@@ -310,14 +318,6 @@ MAX_SPEED = 120.0
 position = Vector2(-74, -341)
 is_falling = true
 MAX_SPEED = 120.0
-
-[node name="ColorRect3" type="ColorRect" parent="." unique_id=1807709797]
-z_index = 2
-material = SubResource("ShaderMaterial_ko5iy")
-offset_left = -114.0
-offset_top = -383.0
-offset_right = 76.0
-offset_bottom = 45.0
 
 [node name="LightHidePlayer17" type="PointLight2D" parent="." unique_id=1364646459]
 position = Vector2(90.00001, -150)
