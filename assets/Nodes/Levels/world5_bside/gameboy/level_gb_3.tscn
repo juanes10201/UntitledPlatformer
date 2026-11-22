@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://b8qg5sn04s2e7"]
 
 [ext_resource type="PackedScene" uid="uid://cfa7sxsc3ppdn" path="res://assets/Nodes/Levels/Preload/UiCanvasLayer.tscn" id="1_mw2y8"]
+[ext_resource type="PackedScene" uid="uid://b3e6jq4nqnmph" path="res://assets/Nodes/Obj/Gameplay/Bg/bg1.tscn" id="1_ngtyg"]
 [ext_resource type="FontFile" uid="uid://du1fhb4w0oxp8" path="res://assets/Fonts/pixelart/Coder's Crux.otf" id="2_ieqme"]
-[ext_resource type="Shader" uid="uid://6h705pgtj7bn" path="res://assets/Nodes/Levels/world1/level7_shader.tres" id="2_sg2rv"]
 [ext_resource type="FontFile" uid="uid://dfigptrdw0fg2" path="res://assets/Fonts/pixelart/Gossamer Girls.ttf" id="3_2llqg"]
 [ext_resource type="TileSet" uid="uid://defl28kc6mcu4" path="res://assets/Nodes/Obj/Tileset/tiles.tres" id="3_3sebh"]
 [ext_resource type="PackedScene" uid="uid://chat6jxc63bfj" path="res://assets/Nodes/Obj/Gameplay/Player/player.tscn" id="4_ieqme"]
@@ -10,17 +10,25 @@
 [ext_resource type="Texture2D" uid="uid://du5ruoufp0dvj" path="res://assets/Sprites/Gameplay/Gameboy/Borders.png" id="5_picb2"]
 [ext_resource type="Script" uid="uid://g35fwd1dftrg" path="res://assets/Nodes/Levels/world5_bside/gameboy/gb_borders.gd" id="6_3po7b"]
 [ext_resource type="PackedScene" uid="uid://cba0dn710x26" path="res://assets/Nodes/Obj/Gameplay/flag.tscn" id="6_cgr7o"]
+[ext_resource type="Shader" uid="uid://dtvbdrlld23cs" path="res://assets/Nodes/Levels/world5_bside/gameboy/level_gb.gdshader" id="6_tl1ps"]
 [ext_resource type="PackedScene" uid="uid://djqwajvc8m3td" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie.tscn" id="7_64h8s"]
 [ext_resource type="PackedScene" uid="uid://cykeyxkv73jjt" path="res://assets/Nodes/Obj/Gameplay/falling_sand.tscn" id="8_0sj5j"]
 [ext_resource type="PackedScene" uid="uid://dmnyy0uuvc0jk" path="res://assets/Nodes/Obj/Gameplay/kill_box.tscn" id="9_xn1nj"]
 [ext_resource type="PackedScene" uid="uid://d1ji315fcqjjv" path="res://assets/Nodes/Particles/ambientparticles.tscn" id="10_k8l0s"]
 [ext_resource type="PackedScene" uid="uid://cjwpb8ragihkh" path="res://assets/Nodes/Obj/Gameplay/laser.tscn" id="11_sg2rv"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cgr7o"]
-shader = ExtResource("2_sg2rv")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ngtyg"]
+shader = ExtResource("6_tl1ps")
+shader_parameter/pallette_white = Color(0.9019608, 0.9019608, 0.7529412, 1)
+shader_parameter/pallette_light_grey = Color(0.7058824, 0.5803922, 0.7176471, 1)
+shader_parameter/pallette_dark_grey = Color(0.25882354, 0.2627451, 0.43137255, 1)
+shader_parameter/pallette_black = Color(0.14901961, 0.003921569, 0.24705882, 1)
 
 [node name="Node2D" type="Node2D" unique_id=782262721]
 position = Vector2(0, -1)
+
+[node name="Bg" parent="." unique_id=781850622 instance=ExtResource("1_ngtyg")]
+RetroStyle = true
 
 [node name="CanvasLayer" parent="." unique_id=1444175764 instance=ExtResource("1_mw2y8")]
 
@@ -63,9 +71,17 @@ metadata/_edit_use_anchors_ = true
 [node name="MultText" parent="CanvasLayer/Style/Mult" parent_id_path=PackedInt32Array(1444175764, 15292356) index="2" unique_id=1173110462]
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=571406673]
+[node name="Gb_borders" type="Sprite2D" parent="CanvasLayer" unique_id=915765155]
+visible = false
+z_index = 2
+position = Vector2(576.8889, 324.5)
+scale = Vector2(0.600926, 0.6009259)
+texture = ExtResource("5_picb2")
+script = ExtResource("6_3po7b")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1573704210]
 z_index = 6
-material = SubResource("ShaderMaterial_cgr7o")
+material = SubResource("ShaderMaterial_ngtyg")
 anchors_preset = -1
 anchor_left = -0.104166664
 anchor_top = -0.72376543
@@ -79,14 +95,6 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Gb_borders" type="Sprite2D" parent="CanvasLayer" unique_id=915765155]
-visible = false
-z_index = 2
-position = Vector2(576.8889, 324.5)
-scale = Vector2(0.600926, 0.6009259)
-texture = ExtResource("5_picb2")
-script = ExtResource("6_3po7b")
-
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=400139821 groups=["Tileset"]]
 position = Vector2(-757.008, -831)
 scale = Vector2(1.00769, 1)
@@ -96,6 +104,7 @@ tile_set = ExtResource("3_3sebh")
 [node name="Player" parent="." unique_id=1147812950 instance=ExtResource("4_ieqme")]
 position = Vector2(-296.00003, 47.000015)
 RetroStyle = true
+Styleometter = false
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=396490795]
 position = Vector2(64.53079, -14.51339)
@@ -119,27 +128,27 @@ grab_grid = null
 
 [node name="Enemie" parent="." unique_id=524885816 instance=ExtResource("7_64h8s")]
 position = Vector2(-560, -87)
-RetroStyle = true
 EnemyDirection = 2
 Can_BeGroundSmash = false
+RetroStyle = true
 
 [node name="Enemie5" parent="." unique_id=1428025625 instance=ExtResource("7_64h8s")]
 position = Vector2(-751, 201)
-RetroStyle = true
 EnemyDirection = 1
 Max_groundsmash_distance = 100.0
+RetroStyle = true
 
 [node name="Enemie4" parent="." unique_id=1091789588 instance=ExtResource("7_64h8s")]
 position = Vector2(-719, 203)
-RetroStyle = true
 EnemyDirection = 1
 Max_groundsmash_distance = 100.0
+RetroStyle = true
 
 [node name="Enemie6" parent="." unique_id=598779592 instance=ExtResource("7_64h8s")]
 position = Vector2(-784, 201)
-RetroStyle = true
 EnemyDirection = 1
 Max_groundsmash_distance = 100.0
+RetroStyle = true
 
 [node name="falling_sand4" parent="." unique_id=757554195 instance=ExtResource("8_0sj5j")]
 position = Vector2(-528, -87)
@@ -149,9 +158,9 @@ RetroStyle = true
 [node name="falling_sand5" parent="." unique_id=1392884369 instance=ExtResource("8_0sj5j")]
 position = Vector2(69, -37)
 Activate_on_color = 1
+MAX_SPEED = 600.0
 wait_time = 0.05
 RetroStyle = true
-MAX_SPEED = 600.0
 
 [node name="falling_sand8" parent="." unique_id=1343436655 instance=ExtResource("8_0sj5j")]
 position = Vector2(-203, 40)
@@ -191,23 +200,23 @@ RetroStyle = true
 [node name="falling_sand6" parent="." unique_id=1411704080 instance=ExtResource("8_0sj5j")]
 position = Vector2(69, -21)
 Activate_on_color = 1
+MAX_SPEED = 600.0
 wait_time = 0.05
 RetroStyle = true
-MAX_SPEED = 600.0
 
 [node name="falling_sand7" parent="." unique_id=1974976713 instance=ExtResource("8_0sj5j")]
 position = Vector2(69, -5)
 Activate_on_color = 1
+MAX_SPEED = 600.0
 wait_time = 0.05
 RetroStyle = true
-MAX_SPEED = 600.0
 
 [node name="falling_sand13" parent="." unique_id=1545306664 instance=ExtResource("8_0sj5j")]
 position = Vector2(69, 11)
 Activate_on_color = 1
+MAX_SPEED = 600.0
 wait_time = 0.05
 RetroStyle = true
-MAX_SPEED = 600.0
 
 [node name="KillBox" parent="." unique_id=744180777 instance=ExtResource("9_xn1nj")]
 position = Vector2(-88, 815)

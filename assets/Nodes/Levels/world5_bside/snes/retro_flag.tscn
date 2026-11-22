@@ -1,0 +1,164 @@
+[gd_scene format=3 uid="uid://ddqa5m4n1sl4m"]
+
+[ext_resource type="Script" uid="uid://c8n3a0sy27p6i" path="res://assets/Scripts/flag.gd" id="1_y88b7"]
+[ext_resource type="Texture2D" uid="uid://dj6fpitwbxqbk" path="res://assets/Premade/brackeys_platformer_assets/sprites/coin.png" id="2_3dvui"]
+[ext_resource type="Texture2D" uid="uid://cc6sao5m1uf1p" path="res://assets/Sprites/particles/light3.png" id="3_d4xgk"]
+[ext_resource type="Shader" uid="uid://c2lmrj8xyngdv" path="res://assets/Shader/Godray.gdshader" id="4_dbo0p"]
+[ext_resource type="Texture2D" uid="uid://b6270h5m4qv0x" path="res://assets/Sprites/Gameplay/Obj/flag.png" id="5_e5qxu"]
+[ext_resource type="Shader" uid="uid://vf7wbaxmykte" path="res://assets/Nodes/Obj/blur.gdshader" id="6_y3a7t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbb13"]
+size = Vector2(22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0xch"]
+atlas = ExtResource("2_3dvui")
+region = Rect2(2.28713, 2.28569, 11.511, 11.7884)
+
+[sub_resource type="GDScript" id="GDScript_qmtqk"]
+script/source = "extends Sprite2D
+
+@export var _LEVEL_TO_CHANGE : String = \"level2\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="Gradient" id="Gradient_kxf5n"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n4n2d"]
+gradient = SubResource("Gradient_kxf5n")
+fill_from = Vector2(1, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ek208"]
+shader = ExtResource("4_dbo0p")
+shader_parameter/blend_mode = 0
+shader_parameter/noiseTex = SubResource("GradientTexture2D_n4n2d")
+shader_parameter/angle = 0.68
+shader_parameter/position = 0.195
+shader_parameter/spread = 0.095
+shader_parameter/cutoff = 0.302
+shader_parameter/falloff = 0.2
+shader_parameter/edge_fade = 0.14
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.3
+shader_parameter/ray_color = Color(1, 0.9, 0.65, 0.8)
+shader_parameter/hdr = true
+shader_parameter/seed = 3.985
+shader_parameter/pixelSizeScale = 1.0
+shader_parameter/quantize_colors = true
+shader_parameter/color_levels = 4
+shader_parameter/dither = false
+shader_parameter/dither_strength = 0.197
+shader_parameter/opacity = 0.325
+
+[sub_resource type="Gradient" id="Gradient_qs57u"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t3s8q"]
+gradient = SubResource("Gradient_qs57u")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k8pgl"]
+light_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8pgl"]
+atlas = ExtResource("5_e5qxu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3hur"]
+atlas = ExtResource("5_e5qxu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inkva"]
+atlas = ExtResource("5_e5qxu")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5742t"]
+atlas = ExtResource("5_e5qxu")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swmsv"]
+atlas = ExtResource("5_e5qxu")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bmra"]
+atlas = ExtResource("5_e5qxu")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_md8ho"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8pgl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3hur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_inkva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5742t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swmsv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bmra")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k8pgl"]
+shader = ExtResource("6_y3a7t")
+shader_parameter/blur_size = 1.8030000856425
+shader_parameter/max_alpha = 0.5230000248425
+shader_parameter/shadow_color = Color(0.15495309, 0.08759544, 0.0018636227, 1)
+shader_parameter/extend_px = 0.0
+
+[node name="Flag" type="Area2D" unique_id=875676535]
+collision_layer = 131073
+script = ExtResource("1_y88b7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1467583519]
+z_index = -2
+position = Vector2(1, 3)
+shape = SubResource("RectangleShape2D_sbb13")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=767908540]
+texture = SubResource("AtlasTexture_r0xch")
+script = SubResource("GDScript_qmtqk")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=599404348]
+scale = Vector2(1.00384, 1)
+color = Color(0.809302, 0.528971, 0.270935, 1)
+energy = 0.3
+texture = ExtResource("3_d4xgk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=633821327]
+visible = false
+material = SubResource("ShaderMaterial_ek208")
+position = Vector2(45, -38)
+scale = Vector2(2.75599, 2.55839)
+texture = SubResource("GradientTexture2D_t3s8q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=146343563]
+visible = false
+z_index = 1
+material = SubResource("CanvasItemMaterial_k8pgl")
+sprite_frames = SubResource("SpriteFrames_md8ho")
+
+[node name="Shadow" type="AnimatedSprite2D" parent="AnimatedSprite2D" unique_id=642571262]
+z_index = -1
+material = SubResource("ShaderMaterial_k8pgl")
+position = Vector2(-4, 2)
+sprite_frames = SubResource("SpriteFrames_md8ho")

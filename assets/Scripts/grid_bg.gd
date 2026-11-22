@@ -39,8 +39,8 @@ func _process(delta: float) -> void:
 	else:
 		visible = Show
 	#if(objetive_move.x != first_pos.x && objetive_move.y != first_pos.y):
-	position.x = move_toward(first_pos.x, objetive_move.x, move*delta)
-	position.y = move_toward(first_pos.y, objetive_move.y, move*delta)
+	#position.x = move_toward(first_pos.x, objetive_move.x, move*delta)
+	#position.y = move_toward(first_pos.y, objetive_move.y, move*delta)
 	#else:
 	#	move_direction == Directions.LEFT if move_direction == Directions.RIGHT else Directions.RIGHT
 	#	objetive_move = Vector2(first_pos.x*-1+difference_move, first_pos.y*-1+difference_move)

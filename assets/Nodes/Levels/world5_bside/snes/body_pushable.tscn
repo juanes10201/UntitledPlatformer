@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://15n3mulg8su5"]
 
 [ext_resource type="Script" uid="uid://dtfve1fukttq7" path="res://assets/Nodes/Levels/world5_bside/snes/body_pushable.gd" id="1_cn0r4"]
+[ext_resource type="Texture2D" uid="uid://ss4fek4dagk1" path="res://assets/Sprites/Gameplay/Tilesets/World1/tiles.png" id="2_5ahbd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6lmg"]
 size = Vector2(22, 22)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_a6plp"]
-size = Vector2(20, 20)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogl62"]
+atlas = ExtResource("2_5ahbd")
+region = Rect2(288.003, 192.003, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ylgiq"]
 
@@ -24,7 +26,7 @@ shape = SubResource("RectangleShape2D_j6lmg")
 debug_color = Color(0, 0.6, 0.69803923, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1440908342]
-texture = SubResource("PlaceholderTexture2D_a6plp")
+texture = SubResource("AtlasTexture_ogl62")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=725515342]
 shape = SubResource("RectangleShape2D_ylgiq")

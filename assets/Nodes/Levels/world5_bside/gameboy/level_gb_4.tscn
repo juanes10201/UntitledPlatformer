@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://cfa7sxsc3ppdn" path="res://assets/Nodes/Levels/Preload/UiCanvasLayer.tscn" id="1_cpngn"]
 [ext_resource type="FontFile" uid="uid://du1fhb4w0oxp8" path="res://assets/Fonts/pixelart/Coder's Crux.otf" id="2_av27h"]
 [ext_resource type="FontFile" uid="uid://dfigptrdw0fg2" path="res://assets/Fonts/pixelart/Gossamer Girls.ttf" id="3_g2hfq"]
-[ext_resource type="Shader" uid="uid://6h705pgtj7bn" path="res://assets/Nodes/Levels/world1/level7_shader.tres" id="4_k80la"]
 [ext_resource type="Texture2D" uid="uid://du5ruoufp0dvj" path="res://assets/Sprites/Gameplay/Gameboy/Borders.png" id="5_3lu33"]
 [ext_resource type="TileSet" uid="uid://defl28kc6mcu4" path="res://assets/Nodes/Obj/Tileset/tiles.tres" id="5_5c8qp"]
+[ext_resource type="Shader" uid="uid://dtvbdrlld23cs" path="res://assets/Nodes/Levels/world5_bside/gameboy/level_gb.gdshader" id="6_1tger"]
 [ext_resource type="Script" uid="uid://g35fwd1dftrg" path="res://assets/Nodes/Levels/world5_bside/gameboy/gb_borders.gd" id="6_gtfmg"]
 [ext_resource type="PackedScene" uid="uid://chat6jxc63bfj" path="res://assets/Nodes/Obj/Gameplay/Player/player.tscn" id="6_mu82c"]
 [ext_resource type="Script" uid="uid://db87exh6jetnl" path="res://assets/Scripts/Player_camera.gd" id="7_07qkw"]
@@ -16,8 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://d1ji315fcqjjv" path="res://assets/Nodes/Particles/ambientparticles.tscn" id="12_coj3u"]
 [ext_resource type="PackedScene" uid="uid://cjwpb8ragihkh" path="res://assets/Nodes/Obj/Gameplay/laser.tscn" id="13_h7hd1"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cgr7o"]
-shader = ExtResource("4_k80la")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t33b4"]
+shader = ExtResource("6_1tger")
+shader_parameter/pallette_white = Color(0.8784314, 0.972549, 0.8156863, 1)
+shader_parameter/pallette_light_grey = Color(0.53333336, 0.7529412, 0.4392157, 1)
+shader_parameter/pallette_dark_grey = Color(0.20392157, 0.40784314, 0.3372549, 1)
+shader_parameter/pallette_black = Color(0.03137255, 0.09411765, 0.1254902, 1)
 
 [node name="Node2D" type="Node2D" unique_id=1902215191]
 position = Vector2(0, -1)
@@ -63,22 +67,6 @@ metadata/_edit_use_anchors_ = true
 [node name="MultText" parent="CanvasLayer/Style/Mult" parent_id_path=PackedInt32Array(1606032747, 15292356) index="2" unique_id=1173110462]
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1637585642]
-z_index = 6
-material = SubResource("ShaderMaterial_cgr7o")
-anchors_preset = -1
-anchor_left = -0.104166664
-anchor_top = -0.72376543
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -760.0
-offset_top = -211.0
-offset_right = 577.0
-offset_bottom = 498.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
 [node name="Gb_borders" type="Sprite2D" parent="CanvasLayer" unique_id=539979098]
 visible = false
 z_index = 2
@@ -86,6 +74,22 @@ position = Vector2(576.8889, 324.5)
 scale = Vector2(0.600926, 0.6009259)
 texture = ExtResource("5_3lu33")
 script = ExtResource("6_gtfmg")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1115190776]
+z_index = 6
+material = SubResource("ShaderMaterial_t33b4")
+anchors_preset = -1
+anchor_left = -0.104166664
+anchor_top = -0.72376543
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = 257.0
+offset_right = 697.0
+offset_bottom = 966.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=518241949 groups=["Tileset"]]
 position = Vector2(-757.008, -831)
@@ -119,9 +123,9 @@ grab_grid = null
 
 [node name="Enemie" parent="." unique_id=669551196 instance=ExtResource("9_ibdnc")]
 position = Vector2(-560, -87)
-RetroStyle = true
 EnemyDirection = 2
 Can_BeGroundSmash = false
+RetroStyle = true
 
 [node name="falling_sand4" parent="." unique_id=609094572 instance=ExtResource("10_paana")]
 position = Vector2(-528, -23)

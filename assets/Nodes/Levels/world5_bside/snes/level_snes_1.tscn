@@ -15,12 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://d3erf6nvt6a0n" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie_special_snes.tscn" id="8_67npk"]
 [ext_resource type="PackedScene" uid="uid://chat6jxc63bfj" path="res://assets/Nodes/Obj/Gameplay/Player/player.tscn" id="8_vktk1"]
 [ext_resource type="Script" uid="uid://db87exh6jetnl" path="res://assets/Scripts/Player_camera.gd" id="9_p1660"]
-[ext_resource type="PackedScene" uid="uid://cba0dn710x26" path="res://assets/Nodes/Obj/Gameplay/flag.tscn" id="10_0ls7q"]
 [ext_resource type="PackedScene" uid="uid://dmnyy0uuvc0jk" path="res://assets/Nodes/Obj/Gameplay/kill_box.tscn" id="12_uixod"]
 [ext_resource type="PackedScene" uid="uid://d1ji315fcqjjv" path="res://assets/Nodes/Particles/ambientparticles.tscn" id="13_61ubt"]
 [ext_resource type="PackedScene" uid="uid://mwwwugaaoyiw" path="res://assets/Nodes/Obj/Gameplay/key.tscn" id="14_igb2m"]
 [ext_resource type="PackedScene" uid="uid://c1ytdkacld0nb" path="res://assets/Nodes/Obj/Gameplay/open_box.tscn" id="15_eh6j6"]
 [ext_resource type="PackedScene" uid="uid://ckvjv26tlk028" path="res://assets/Nodes/Obj/Gameplay/falling_sand_snes.tscn" id="17_13mr7"]
+[ext_resource type="PackedScene" uid="uid://ddqa5m4n1sl4m" path="res://assets/Nodes/Levels/world5_bside/snes/retro_flag.tscn" id="20_0cnop"]
 [ext_resource type="Script" uid="uid://b70n1us6src5o" path="res://assets/Nodes/Obj/Dialogue/dialog_text_area.gd" id="22_m86a5"]
 [ext_resource type="Texture2D" uid="uid://pjki5nu48c5" path="res://assets/Sprites/Gameplay/player/hologram.png" id="23_vmoge"]
 [ext_resource type="Script" uid="uid://6216kh0o2v0m" path="res://assets/Nodes/Obj/hologram.gd" id="24_w8pjw"]
@@ -107,7 +107,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w7ae7")
 }],
-"loop": true,
+"loop": 1,
 "name": &"disabled",
 "speed": 5.0
 }, {
@@ -121,7 +121,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w7ae7")
 }],
-"loop": false,
+"loop": 0,
 "name": &"hide",
 "speed": 5.0
 }, {
@@ -141,7 +141,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5d5i3")
 }],
-"loop": false,
+"loop": 0,
 "name": &"show",
 "speed": 5.0
 }]
@@ -210,10 +210,10 @@ metadata/_edit_use_anchors_ = true
 z_index = 6
 material = SubResource("ShaderMaterial_0ib40")
 anchors_preset = -1
-anchor_left = -0.104166664
-anchor_top = -0.72376543
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = -1.2135416
+anchor_top = -2.3842592
+anchor_right = 2.5182292
+anchor_bottom = 4.1990743
 offset_left = -912.0
 offset_top = -998.0
 offset_right = 425.0
@@ -236,7 +236,7 @@ position = Vector2(-266, -254)
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1398394838 groups=["Tileset"]]
 position = Vector2(-757.008, -831)
 scale = Vector2(1.00769, 1)
-tile_map_data = PackedByteArray("AAAaAC4AAAAAAAEAAAAbAC4AAAABAAEAAAAcAC4AAAABAAEAAAAdAC4AAAABAAEAAAAeAC4AAAACAAEAAAAeAC0AAAACAAAAAAAdAC0AAAABAAAAAAAcAC0AAAABAAAAAAAbAC0AAAABAAAAAAAaAC0AAAAAAAAAAAAeAC8AAAACAAIAAAAdAC8AAAABAAIAAAAcAC8AAAABAAIAAAAbAC8AAAABAAIAAAAaAC8AAAAAAAIAAAAyACAAAAAAAAAAAAAyACEAAAAAAAIAAAAzACAAAAABAAAAAAAzACEAAAABAAIAAAA0ACAAAAABAAAAAAA0ACEAAAABAAIAAAA1ACAAAAABAAAAAAA1ACEAAAABAAIAAAA2ACEAAAACAAIAAAA2AB8AAAADAAEAAAA2AB4AAAADAAEAAAA2AB0AAAADAAEAAAA2ACAAAAACAAEAAAA2ABwAAAADAAAAAAAcACwAAQAEAAoAAAAdACwAAQAFAAoAAAAeACwAAQAGAAoAAAA=")
+tile_map_data = PackedByteArray("AAAaAC4AAAAAAAEAAAAbAC4AAAABAAEAAAAcAC4AAAABAAEAAAAdAC4AAAABAAEAAAAeAC4AAAACAAEAAAAeAC0AAAACAAAAAAAdAC0AAAABAAAAAAAcAC0AAAABAAAAAAAbAC0AAAABAAAAAAAaAC0AAAAAAAAAAAAeAC8AAAACAAIAAAAdAC8AAAABAAIAAAAcAC8AAAABAAIAAAAbAC8AAAABAAIAAAAaAC8AAAAAAAIAAAAyACAAAAAAAAAAAAAyACEAAAAAAAIAAAAzACAAAAABAAAAAAAzACEAAAABAAIAAAA0ACAAAAABAAAAAAA0ACEAAAABAAIAAAA1ACAAAAABAAAAAAA1ACEAAAABAAIAAAA2ACEAAAACAAIAAAA2AB8AAAADAAEAAAA2AB4AAAADAAEAAAA2AB0AAAADAAEAAAA2ACAAAAACAAEAAAA2ABwAAAADAAAAAAAcACwAAQAEAAoAAAAdACwAAQAFAAoAAAAeACwAAQAGAAoAAAA9AB0AAQABAAEAAABAABgAAQADAAMAAAA1AAQAAQADAAMAAAA3ABgAAQADAAMAAAA5ACAAAQADAAMAAAA7ABwAAQAAAAAAAAA7AB0AAQAAAAEAAAA7AB4AAQAAAAEAAAA7AB8AAQAAAAIAAAA8ABwAAQABAAAAAAA8AB0AAQABAAEAAAA8AB4AAQABAAEAAAA8AB8AAQABAAIAAAA9AAoAAQADAAMAAAA9ABwAAQABAAAAAAA9AB4AAQABAAEAAAA9AB8AAQABAAIAAAA+ABwAAQACAAAAAAA+AB0AAQACAAEAAAA+AB4AAQACAAEAAAA+AB8AAQACAAIAAAA0ABIAAQADAAMAAAA3AA0AAQAAAAMAAAA4AAYAAQABAAAAAAA4AAcAAQABAAEAAAA4AAgAAQABAAEAAAA4AAkAAQABAAEAAAA4AAoAAQABAAEAAAA4AAsAAQABAAEAAAA4AAwAAQABAAEAAAA4AA0AAQABAAEAAAA5AAYAAQABAAAAAAA5AAcAAQABAAEAAAA5AAgAAQABAAEAAAA5AAkAAQABAAEAAAA5AAoAAQABAAEAAAA5AAsAAQABAAEAAAA5AAwAAQABAAEAAAA5AA0AAQABAAEAAAA5ABIAAQADAAMAAAA6AAYAAQABAAAAAAA6AAcAAQABAAEAAAA6AAgAAQABAAEAAAA6AAkAAQABAAEAAAA6AAoAAQABAAEAAAA6AAsAAQABAAEAAAA6AAwAAQABAAEAAAA6AA0AAQABAAEAAAA6AA4AAQAAAAIAAAA7AAYAAQABAAAAAAA7AAcAAQABAAEAAAA7AAgAAQABAAEAAAA7AAkAAQABAAEAAAA7AAoAAQABAAEAAAA7AAsAAQABAAEAAAA7AAwAAQABAAEAAAA7AA0AAQABAAEAAAA7AA4AAQABAAIAAAA8AAYAAQACAAAAAAA8AAcAAQACAAEAAAA8AAgAAQACAAEAAAA8AAkAAQACAAEAAAA8AAoAAQACAAEAAAA8AAsAAQACAAEAAAA8AAwAAQACAAEAAAA8AA0AAQACAAEAAAA8AA4AAQACAAIAAAA=")
 tile_set = ExtResource("7_3wlqi")
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="TileMapLayer" unique_id=1699803039 groups=["Tileset"]]
@@ -299,7 +299,7 @@ Activate_on_color = 1
 position = Vector2(-9, -623)
 Activate_on_color = 1
 
-[node name="Flag" parent="." unique_id=893668377 instance=ExtResource("10_0ls7q")]
+[node name="Flag" parent="." unique_id=875676535 instance=ExtResource("20_0cnop")]
 position = Vector2(84, -338)
 
 [node name="Enemie" parent="." unique_id=1214814765 instance=ExtResource("8_67npk")]
@@ -307,6 +307,7 @@ position = Vector2(-189, -309)
 EnemyDirection = 2
 
 [node name="TextArea" type="Area2D" parent="." unique_id=1179259996 node_paths=PackedStringArray("Text")]
+visible = false
 position = Vector2(-169, -212)
 script = ExtResource("22_m86a5")
 Text = NodePath("DashTutorial2")

@@ -114,6 +114,7 @@ tile_set = ExtResource("4_7m610")
 [node name="Player" parent="." unique_id=1778032979 instance=ExtResource("4_i76ih")]
 position = Vector2(-296, -114)
 RetroStyle = true
+Styleometter = false
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1163065805]
 position = Vector2(24.530792, -12.51339)
