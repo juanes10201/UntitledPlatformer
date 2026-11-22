@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://cfa7sxsc3ppdn" path="res://assets/Nodes/Levels/Preload/UiCanvasLayer.tscn" id="3_gpmog"]
 [ext_resource type="FontFile" uid="uid://du1fhb4w0oxp8" path="res://assets/Fonts/pixelart/Coder's Crux.otf" id="4_5hfo3"]
 [ext_resource type="FontFile" uid="uid://b42aju5a8xkr8" path="res://assets/Fonts/pixelart/Pixel Or GTFO.ttf" id="5_md3uq"]
-[ext_resource type="Shader" uid="uid://dos2gdtrqw4xw" path="res://assets/Nodes/Levels/world5_bside/snes/level_snes_pallete.gdshader" id="6_hjltb"]
 [ext_resource type="Texture2D" uid="uid://b41mkx2occddk" path="res://assets/Sprites/Gameplay/Tilesets/World1/pallete.png" id="7_gq5y0"]
 [ext_resource type="Texture2D" uid="uid://hqst1d7kxpgu" path="res://assets/Sprites/Gameplay/Tilesets/World1/pallete-snes.png" id="8_mr45c"]
 [ext_resource type="Texture2D" uid="uid://b0yndn2sf6e8s" path="res://assets/Sprites/Gameplay/Snes/Borders.png" id="9_a738e"]
@@ -29,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://d3erf6nvt6a0n" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie_special_snes.tscn" id="26_gpmog"]
 [ext_resource type="PackedScene" uid="uid://ddqa5m4n1sl4m" path="res://assets/Nodes/Levels/world5_bside/snes/retro_flag.tscn" id="29_fhqgl"]
 [ext_resource type="PackedScene" uid="uid://15n3mulg8su5" path="res://assets/Nodes/Levels/world5_bside/snes/body_pushable.tscn" id="29_ilqtf"]
+[ext_resource type="Shader" uid="uid://b7m1msxbjwy2t" path="res://assets/Shader/CrtShader.gdshader" id="30_ilqtf"]
 
 [sub_resource type="Animation" id="Animation_wh1ld"]
 length = 0.001
@@ -67,11 +67,6 @@ _data = {
 &"RESET": SubResource("Animation_wh1ld"),
 &"move": SubResource("Animation_6ubuh")
 }
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ib40"]
-shader = ExtResource("6_hjltb")
-shader_parameter/original_palette = ExtResource("7_gq5y0")
-shader_parameter/target_palette = ExtResource("8_mr45c")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w7ae7"]
 atlas = ExtResource("21_jv4jr")
@@ -156,6 +151,18 @@ light_mode = 1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugyyw"]
 size = Vector2(81.75, 39.25)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x2af2"]
+shader = ExtResource("30_ilqtf")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 0.050000002375
+shader_parameter/warp_amount = 0.070000003325
+shader_parameter/vignette_amount = 0.34000001615
+shader_parameter/vignette_intensity = 0.3
+shader_parameter/grille_amount = 0.05
+shader_parameter/brightness_boost = 1.3150000149625
+shader_parameter/original_palette = ExtResource("7_gq5y0")
+shader_parameter/target_palette = ExtResource("8_mr45c")
+
 [node name="Node2D" type="Node2D" unique_id=1013497022]
 position = Vector2(0, -1)
 
@@ -212,22 +219,6 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_use_anchors_ = true
 
 [node name="MultText" parent="CanvasLayer/Style/Mult" parent_id_path=PackedInt32Array(2104942125, 15292356) index="2" unique_id=1173110462]
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1329628605]
-z_index = 6
-material = SubResource("ShaderMaterial_0ib40")
-anchors_preset = -1
-anchor_left = -0.104166664
-anchor_top = -0.72376543
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -851.0
-offset_top = -795.0
-offset_right = 486.0
-offset_bottom = -86.0
-grow_horizontal = 2
-grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Gb_borders" type="Sprite2D" parent="CanvasLayer" unique_id=884556882]
@@ -395,6 +386,19 @@ position = Vector2(450, -660)
 
 [node name="BodyPushable3" parent="." unique_id=1298972280 instance=ExtResource("29_ilqtf")]
 position = Vector2(-224, -119)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=2121531046]
+
+[node name="RectCrtSnes" type="ColorRect" parent="CanvasLayer2" unique_id=710545949]
+top_level = true
+z_index = 99
+material = SubResource("ShaderMaterial_x2af2")
+offset_left = -1140.0
+offset_top = -703.0
+offset_right = 1424.0
+offset_bottom = 780.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="TextArea" to="TextArea" method="_on_body_entered"]
 

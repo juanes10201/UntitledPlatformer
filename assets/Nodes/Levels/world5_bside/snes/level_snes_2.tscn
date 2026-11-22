@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://cfa7sxsc3ppdn" path="res://assets/Nodes/Levels/Preload/UiCanvasLayer.tscn" id="3_mytat"]
 [ext_resource type="FontFile" uid="uid://du1fhb4w0oxp8" path="res://assets/Fonts/pixelart/Coder's Crux.otf" id="4_m46yr"]
 [ext_resource type="FontFile" uid="uid://b42aju5a8xkr8" path="res://assets/Fonts/pixelart/Pixel Or GTFO.ttf" id="5_sa72a"]
-[ext_resource type="Shader" uid="uid://dos2gdtrqw4xw" path="res://assets/Nodes/Levels/world5_bside/snes/level_snes_pallete.gdshader" id="6_nol20"]
 [ext_resource type="Texture2D" uid="uid://b41mkx2occddk" path="res://assets/Sprites/Gameplay/Tilesets/World1/pallete.png" id="7_hyuyi"]
 [ext_resource type="Texture2D" uid="uid://hqst1d7kxpgu" path="res://assets/Sprites/Gameplay/Tilesets/World1/pallete-snes.png" id="8_vfqdv"]
 [ext_resource type="Texture2D" uid="uid://b0yndn2sf6e8s" path="res://assets/Sprites/Gameplay/Snes/Borders.png" id="9_vspcx"]
@@ -22,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://d3erf6nvt6a0n" path="res://assets/Nodes/Obj/Gameplay/Enemie/enemie_special_snes.tscn" id="21_u0y4v"]
 [ext_resource type="Script" uid="uid://b70n1us6src5o" path="res://assets/Nodes/Obj/Dialogue/dialog_text_area.gd" id="22_hyuyi"]
 [ext_resource type="Texture2D" uid="uid://pjki5nu48c5" path="res://assets/Sprites/Gameplay/player/hologram.png" id="23_vfqdv"]
+[ext_resource type="Shader" uid="uid://b7m1msxbjwy2t" path="res://assets/Shader/CrtShader.gdshader" id="24_v4wh8"]
 [ext_resource type="Script" uid="uid://6216kh0o2v0m" path="res://assets/Nodes/Obj/hologram.gd" id="24_vspcx"]
 [ext_resource type="Script" uid="uid://b7kp4oyo8y484" path="res://assets/Nodes/Obj/Ui/text_tutorial_anim.gd" id="25_qy86a"]
 [ext_resource type="AudioStream" uid="uid://dsvfo3erylgm" path="res://assets/Sounds/Tutorial/voicetutorial.wav" id="26_5hij8"]
@@ -64,11 +64,6 @@ _data = {
 &"RESET": SubResource("Animation_wh1ld"),
 &"move": SubResource("Animation_6ubuh")
 }
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ib40"]
-shader = ExtResource("6_nol20")
-shader_parameter/original_palette = ExtResource("7_hyuyi")
-shader_parameter/target_palette = ExtResource("8_vfqdv")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w7ae7"]
 atlas = ExtResource("23_vfqdv")
@@ -153,6 +148,18 @@ light_mode = 1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugyyw"]
 size = Vector2(41.5, 60.5)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f7v86"]
+shader = ExtResource("24_v4wh8")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 0.050000002375
+shader_parameter/warp_amount = 0.070000003325
+shader_parameter/vignette_amount = 0.34000001615
+shader_parameter/vignette_intensity = 0.3
+shader_parameter/grille_amount = 0.05
+shader_parameter/brightness_boost = 1.3150000149625
+shader_parameter/original_palette = ExtResource("7_hyuyi")
+shader_parameter/target_palette = ExtResource("8_vfqdv")
+
 [node name="Node2D" type="Node2D" unique_id=1013497022]
 position = Vector2(0, -1)
 
@@ -209,22 +216,6 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_use_anchors_ = true
 
 [node name="MultText" parent="CanvasLayer/Style/Mult" parent_id_path=PackedInt32Array(2104942125, 15292356) index="2" unique_id=1173110462]
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1329628605]
-z_index = 6
-material = SubResource("ShaderMaterial_0ib40")
-anchors_preset = -1
-anchor_left = -0.104166664
-anchor_top = -0.72376543
-anchor_right = 2.6762152
-anchor_bottom = 3.2314816
-offset_left = -1072.0
-offset_top = -1163.0
-offset_right = 265.0
-offset_bottom = -454.0
-grow_horizontal = 2
-grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Gb_borders" type="Sprite2D" parent="CanvasLayer" unique_id=884556882]
@@ -431,6 +422,19 @@ position = Vector2(368, -518)
 
 [node name="Flag2" parent="." unique_id=1661703740 instance=ExtResource("26_v4wh8")]
 position = Vector2(368, -518)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1257904773]
+
+[node name="RectCrtSnes" type="ColorRect" parent="CanvasLayer2" unique_id=1937212095]
+top_level = true
+z_index = 99
+material = SubResource("ShaderMaterial_f7v86")
+offset_left = -1140.0
+offset_top = -703.0
+offset_right = 1424.0
+offset_bottom = 780.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="TextArea" to="TextArea" method="_on_body_entered"]
 
