@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dk8qs15tgkthx" path="res://assets/Sprites/Ui/Bg/Transition.png" id="4_lv8yh"]
 [ext_resource type="Script" uid="uid://vy45jgrig202" path="res://assets/Nodes/Obj/Ui/transitionLevelSelect.gd" id="5_bx5ix"]
 [ext_resource type="Texture2D" uid="uid://cpkuxgr2hg7ll" path="res://assets/Sprites/Ui/Logo/logo.png" id="6_ber5a"]
+[ext_resource type="Texture2D" uid="uid://dja8vtnmdhsck" path="res://assets/Sprites/Ui/Crt/Crt1.png" id="7_0exxl"]
 [ext_resource type="Texture2D" uid="uid://baydkvulrlle8" path="res://assets/Sprites/Ui/menus/LevelSelect/Previews/1.png" id="7_iytug"]
 [ext_resource type="Texture2D" uid="uid://u4viimpk3d5b" path="res://assets/Sprites/Ui/menus/LevelSelect/Previews/2.png" id="8_cxtu5"]
 [ext_resource type="Texture2D" uid="uid://ct0om17p0agd4" path="res://assets/Sprites/Ui/menus/LevelSelect/Previews/3.png" id="9_1thri"]
@@ -97,6 +98,8 @@
 [ext_resource type="FontFile" uid="uid://cyhethdmcdauq" path="res://assets/Fonts/Beta.ttf" id="89_u0tr1"]
 [ext_resource type="Texture2D" uid="uid://ddl0328ep5lom" path="res://assets/Sprites/Ui/menus/LevelSelect/DiscRegular.png" id="90_lv8yh"]
 [ext_resource type="Texture2D" uid="uid://dant1mgxuw15i" path="res://assets/Sprites/Ui/menus/LevelSelect/DiscBside.png" id="90_xkuxm"]
+[ext_resource type="Texture2D" uid="uid://b63ylbiuayl8g" path="res://assets/Sprites/Ui/menus/Leaderboards/leaderboards-button.png" id="94_aa0ux"]
+[ext_resource type="Texture2D" uid="uid://dyxnatjklskv0" path="res://assets/Sprites/Ui/menus/Challenges/challenges-button.png" id="95_junpp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_70ybb"]
 
@@ -105,6 +108,16 @@ shader = ExtResource("3_1thri")
 shader_parameter/blend_mode = 19
 shader_parameter/base_source = 0
 shader_parameter/layer_source = 1
+shader_parameter/blend_color = Color(1, 1, 1, 1)
+shader_parameter/blend_uv_scale = Vector2(1, 1)
+shader_parameter/blend_uv_offset = Vector2(0, 0)
+shader_parameter/opacity = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1thri"]
+shader = ExtResource("3_1thri")
+shader_parameter/blend_mode = 6
+shader_parameter/base_source = 1
+shader_parameter/layer_source = 0
 shader_parameter/blend_color = Color(1, 1, 1, 1)
 shader_parameter/blend_uv_scale = Vector2(1, 1)
 shader_parameter/blend_uv_offset = Vector2(0, 0)
@@ -4033,6 +4046,14 @@ scale = Vector2(2.6724281, 2.672428)
 texture = ExtResource("4_1thri")
 flip_h = true
 
+[node name="SpriteWorld" type="Sprite2D" parent="CanvasLayer" unique_id=600099306]
+visible = false
+modulate = Color(1, 1, 1, 0.6397421)
+material = SubResource("ShaderMaterial_1thri")
+position = Vector2(2193.3333, 1053.3333)
+scale = Vector2(2.1693888, 2.1693888)
+texture = ExtResource("7_0exxl")
+
 [node name="Background" type="Sprite2D" parent="CanvasLayer" unique_id=1378921781]
 z_index = -1
 material = SubResource("ShaderMaterial_achq7")
@@ -4661,7 +4682,7 @@ offset_right = 3790.0
 offset_bottom = 2190.0
 theme_override_fonts/normal_font = ExtResource("78_ivuwd")
 theme_override_font_sizes/normal_font_size = 136
-text = "Press: 'r' to load the replay, 'c' for Challenges - 't' for the leaderboard"
+text = "Press: 'r' to load the replay, 'c' for Challenges"
 horizontal_alignment = 2
 
 [node name="BestTimes" type="Sprite2D" parent="CanvasLayer" unique_id=240768865]
@@ -4798,6 +4819,46 @@ text = "Lobby(very wip)"
 script = ExtResource("87_uf3ji")
 Scene = "level_lobby"
 
+[node name="ButtonLeaderboards" type="Button" parent="CanvasLayer" unique_id=510995479]
+z_index = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1194.6665
+offset_top = 986.6666
+offset_right = 1927.9998
+offset_bottom = 1143.3333
+grow_horizontal = 0
+theme_override_styles/focus = ExtResource("80_q8y2j")
+icon = ExtResource("94_aa0ux")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("70_mrtek")
+BUTTON_ACTION = 4
+ADITIONAL_ARGUMENT = "res://assets/Nodes/Ui/SubMenus/GlobalLeaderboards.tscn"
+HoverDif = 60.0
+
+[node name="ButtonChallenges" type="Button" parent="CanvasLayer" unique_id=1824911857]
+z_index = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1191.3333
+offset_top = 843.3333
+offset_right = 1924.6665
+offset_bottom = 1000.0
+grow_horizontal = 0
+theme_override_styles/focus = ExtResource("80_q8y2j")
+icon = ExtResource("95_junpp")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("70_mrtek")
+BUTTON_ACTION = 4
+ADITIONAL_ARGUMENT = "res://assets/Nodes/Ui/ui_challenges.tscn"
+HoverDif = 60.0
+
 [node name="DiscBside" type="Button" parent="CanvasLayer" unique_id=1379308233]
 modulate = Color(1, 1, 1, 0.27999997)
 self_modulate = Color(1, 1, 1, 0.26666665)
@@ -4859,6 +4920,7 @@ offset_left = 226.66667
 offset_top = 533.3333
 offset_right = 2346.6663
 offset_bottom = 766.6671
+mouse_filter = 2
 theme_override_constants/outline_size = 60
 theme_override_fonts/normal_font = ExtResource("78_ivuwd")
 theme_override_font_sizes/normal_font_size = 181
@@ -4870,6 +4932,7 @@ layout_mode = 0
 offset_left = 213.33333
 offset_right = 2893.3333
 offset_bottom = 233.33337
+mouse_filter = 2
 theme_override_constants/outline_size = 60
 theme_override_fonts/normal_font = ExtResource("89_u0tr1")
 theme_override_font_sizes/normal_font_size = 161
@@ -4882,6 +4945,7 @@ offset_left = 340.0
 offset_top = 749.99994
 offset_right = 2293.338
 offset_bottom = 983.34827
+mouse_filter = 2
 theme_override_constants/outline_size = 60
 theme_override_fonts/normal_font = ExtResource("78_ivuwd")
 theme_override_font_sizes/normal_font_size = 181
@@ -4894,6 +4958,7 @@ offset_left = 209.99994
 offset_top = -6.666626
 offset_right = 2540.0
 offset_bottom = 226.66675
+mouse_filter = 2
 theme_override_constants/outline_size = 60
 theme_override_fonts/normal_font = ExtResource("89_u0tr1")
 theme_override_font_sizes/normal_font_size = 161
@@ -4906,6 +4971,7 @@ offset_left = 446.66666
 offset_top = 983.33325
 offset_right = 2293.3396
 offset_bottom = 1216.5977
+mouse_filter = 2
 theme_override_constants/outline_size = 60
 theme_override_fonts/normal_font = ExtResource("78_ivuwd")
 theme_override_font_sizes/normal_font_size = 181
@@ -4918,6 +4984,7 @@ offset_left = 213.33328
 offset_top = -6.666626
 offset_right = 2086.6665
 offset_bottom = 226.66675
+mouse_filter = 2
 theme_override_constants/outline_size = 60
 theme_override_fonts/normal_font = ExtResource("89_u0tr1")
 theme_override_font_sizes/normal_font_size = 161
@@ -4930,6 +4997,7 @@ offset_left = 513.3333
 offset_top = 1200.0
 offset_right = 2320.002
 offset_bottom = 1433.3334
+mouse_filter = 2
 theme_override_constants/outline_size = 60
 theme_override_fonts/normal_font = ExtResource("78_ivuwd")
 theme_override_font_sizes/normal_font_size = 181
@@ -4942,6 +5010,7 @@ offset_left = 276.66663
 offset_top = 16.666626
 offset_right = 1886.6666
 offset_bottom = 250.0
+mouse_filter = 2
 theme_override_constants/outline_size = 60
 theme_override_fonts/normal_font = ExtResource("89_u0tr1")
 theme_override_font_sizes/normal_font_size = 161
@@ -5015,6 +5084,12 @@ LevelRanking = NodePath("../ranking")
 [connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button2" to="CanvasLayer/Button2" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button3" to="CanvasLayer/Button3" method="_on_pressed"]
+[connection signal="button_down" from="CanvasLayer/ButtonLeaderboards" to="CanvasLayer/Levels" method="_on_pause_menu_button_2_button_down"]
+[connection signal="button_down" from="CanvasLayer/ButtonLeaderboards" to="CanvasLayer/ButtonLeaderboards" method="_on_button_down"]
+[connection signal="pressed" from="CanvasLayer/ButtonLeaderboards" to="CanvasLayer/ButtonLeaderboards" method="_on_pressed"]
+[connection signal="button_down" from="CanvasLayer/ButtonChallenges" to="CanvasLayer/Levels" method="_on_pause_menu_button_2_button_down"]
+[connection signal="button_down" from="CanvasLayer/ButtonChallenges" to="CanvasLayer/ButtonChallenges" method="_on_button_down"]
+[connection signal="pressed" from="CanvasLayer/ButtonChallenges" to="CanvasLayer/ButtonChallenges" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/DiscBside" to="CanvasLayer/Levels" method="_bside_start"]
 [connection signal="pressed" from="CanvasLayer/DiscReturnBside" to="CanvasLayer/Levels" method="_bside_end"]
 [connection signal="pressed" from="CanvasLayer/replayButton" to="CanvasLayer/replayButton" method="_on_pressed"]

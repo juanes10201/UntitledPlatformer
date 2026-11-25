@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cwkyeba58fbkj"]
+
+[ext_resource type="Texture2D" uid="uid://0ntqafbax0al" path="res://assets/Sprites/Ui/menus/Leaderboards/selected-tab.png" id="1_jf763"]
+[ext_resource type="Script" uid="uid://bjtr7wivohect" path="res://assets/Nodes/Ui/SubMenus/leaderboards/LeaderboardTabs.gd" id="1_t5ks0"]
+
+[node name="Tab1" type="Button" unique_id=1868986090]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 293.33337
+offset_bottom = 130.0
+script = ExtResource("1_t5ks0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1630670204]
+position = Vector2(147.21971, 53.49998)
+scale = Vector2(1.5189391, 1.5189393)
+texture = ExtResource("1_jf763")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

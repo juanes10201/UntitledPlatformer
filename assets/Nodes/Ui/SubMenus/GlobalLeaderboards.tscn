@@ -5,9 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://dk8qs15tgkthx" path="res://assets/Sprites/Ui/Bg/Transition.png" id="2_3q4bd"]
 [ext_resource type="Texture2D" uid="uid://ccjecpi5e7a80" path="res://assets/Sprites/Ui/menus/Leaderboards/bgTest.png" id="3_58rll"]
 [ext_resource type="Shader" uid="uid://c0ala2mebwtsw" path="res://assets/Shader/easy_effects.gdshader" id="4_achq7"]
+[ext_resource type="Script" uid="uid://3crm18ad88ys" path="res://assets/Scripts/menu_button.gd" id="5_nib1i"]
 [ext_resource type="Texture2D" uid="uid://wkl668qo0vt5" path="res://assets/Sprites/Ui/menus/Leaderboards/box-leaderboard-bg.png" id="6_ufevf"]
 [ext_resource type="Texture2D" uid="uid://brrsg5v5l428d" path="res://assets/Sprites/Ui/menus/Leaderboards/FishMove/FishMove1.png" id="7_dwx1i"]
 [ext_resource type="Texture2D" uid="uid://cuet37wpok0mj" path="res://assets/Sprites/Ui/menus/Leaderboards/FishMove/FishMove2.png" id="8_mk32g"]
+[ext_resource type="PackedScene" uid="uid://cwkyeba58fbkj" path="res://assets/Nodes/Ui/SubMenus/leaderboards/tab_1.tscn" id="8_r8f3v"]
 [ext_resource type="Texture2D" uid="uid://10agprbpjs6m" path="res://assets/Sprites/Ui/menus/Leaderboards/FishMove/FishMove3.png" id="9_i3jwj"]
 [ext_resource type="Texture2D" uid="uid://d0602f2m5rsph" path="res://assets/Sprites/Ui/menus/Leaderboards/FishMove/FishMove4.png" id="10_70ybb"]
 [ext_resource type="Texture2D" uid="uid://c25gydrtvl6u8" path="res://assets/Sprites/Ui/menus/Leaderboards/FishMove/FishMove5.png" id="11_58rll"]
@@ -28,6 +30,8 @@
 [ext_resource type="Texture2D" uid="uid://bxfuc0s2jdkik" path="res://assets/Sprites/Ui/menus/Leaderboards/Button/button-next-level-disabled.png" id="20_58rll"]
 [ext_resource type="Texture2D" uid="uid://b8sjbqnqfsv6e" path="res://assets/Sprites/Ui/menus/Leaderboards/Button/button-prev-disabled.png" id="22_achq7"]
 [ext_resource type="Texture2D" uid="uid://bu0yg1b66xqw7" path="res://assets/Sprites/Ui/menus/Leaderboards/Button/button-next-disabled.png" id="24_r8f3v"]
+[ext_resource type="StyleBox" uid="uid://c1edtywsppgxy" path="res://assets/Sprites/Ui/selectStylebox2.tres" id="30_n04qw"]
+[ext_resource type="Texture2D" uid="uid://bpihspm4r3mvd" path="res://assets/Sprites/Ui/menus/Leaderboards/exit-button.png" id="31_t448r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wlb3l"]
 shader = ExtResource("4_achq7")
@@ -230,6 +234,64 @@ position = Vector2(1900.0002, 1090)
 scale = Vector2(1.6225094, 1.6225096)
 texture = ExtResource("6_ufevf")
 
+[node name="LeaderboardTabs" type="Control" parent="UiLeaderboards" unique_id=1620990948]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Tab1" parent="UiLeaderboards/LeaderboardTabs" unique_id=1868986090 instance=ExtResource("8_r8f3v")]
+layout_mode = 0
+offset_left = 523.3333
+offset_top = 340.0
+offset_right = 816.6667
+offset_bottom = 470.0
+
+[node name="Tab2" parent="UiLeaderboards/LeaderboardTabs" unique_id=910650784 instance=ExtResource("8_r8f3v")]
+layout_mode = 0
+offset_left = 855.262
+offset_top = 340.0
+offset_right = 1148.5953
+offset_bottom = 470.0
+id = 1
+
+[node name="Tab3" parent="UiLeaderboards/LeaderboardTabs" unique_id=1247827868 instance=ExtResource("8_r8f3v")]
+layout_mode = 0
+offset_left = 1196.2627
+offset_top = 340.0
+offset_right = 1489.596
+offset_bottom = 470.0
+id = 2
+
+[node name="Tab4" parent="UiLeaderboards/LeaderboardTabs" unique_id=216260375 instance=ExtResource("8_r8f3v")]
+layout_mode = 0
+offset_left = 1537.2627
+offset_top = 340.0
+offset_right = 1830.596
+offset_bottom = 470.0
+id = 3
+
+[node name="Tab5" parent="UiLeaderboards/LeaderboardTabs" unique_id=700478424 instance=ExtResource("8_r8f3v")]
+layout_mode = 0
+offset_left = 1881.5957
+offset_top = 340.0
+offset_right = 2174.929
+offset_bottom = 470.0
+id = 4
+
+[node name="TabNames" type="RichTextLabel" parent="UiLeaderboards/LeaderboardTabs" unique_id=1362831854]
+layout_mode = 0
+offset_left = 550.0
+offset_top = 336.66666
+offset_right = 3293.3333
+offset_bottom = 430.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("19_dwx1i")
+theme_override_font_sizes/normal_font_size = 73
+text = "World 1     World 2     World 3     World 4     World 5"
+
 [node name="FishBgAnim" type="AnimatedSprite2D" parent="UiLeaderboards" unique_id=665885945]
 position = Vector2(1920, 1093.3333)
 scale = Vector2(6.799999, 5.7481484)
@@ -325,11 +387,35 @@ offset_left = 536.6666
 offset_top = 206.66666
 offset_right = 3323.333
 offset_bottom = 296.6667
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("19_dwx1i")
 theme_override_font_sizes/normal_font_size = 83
 horizontal_alignment = 1
+
+[node name="ConfigButton" type="Button" parent="UiLeaderboards" unique_id=760450241]
+z_index = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 2041.3333
+offset_top = 183.33333
+offset_right = 2185.3857
+offset_bottom = 309.99997
+grow_horizontal = 0
+theme_override_styles/focus = ExtResource("30_n04qw")
+icon = ExtResource("31_t448r")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("5_nib1i")
+BUTTON_ACTION = 4
+ADITIONAL_ARGUMENT = "res://assets/Nodes/Ui/select_level_world1.tscn"
+HoverDif = 20.0
+FadeTransition = true
 
 [connection signal="pressed" from="UiLeaderboards/ButtonPrevLevel" to="UiLeaderboards" method="change_prev_level"]
 [connection signal="pressed" from="UiLeaderboards/ButtonNextLevel" to="UiLeaderboards" method="change_next_level"]
 [connection signal="pressed" from="UiLeaderboards/ButtonPrev" to="UiLeaderboards" method="change_prev_page"]
 [connection signal="pressed" from="UiLeaderboards/ButtonNext" to="UiLeaderboards" method="change_next_page"]
+[connection signal="button_down" from="UiLeaderboards/ConfigButton" to="UiLeaderboards/ConfigButton" method="_on_button_down"]
+[connection signal="pressed" from="UiLeaderboards/ConfigButton" to="UiLeaderboards/ConfigButton" method="_on_pressed"]
