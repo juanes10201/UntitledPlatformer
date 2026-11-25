@@ -22,10 +22,23 @@
 [ext_resource type="PackedScene" uid="uid://ddqa5m4n1sl4m" path="res://assets/Nodes/Levels/world5_bside/snes/retro_flag.tscn" id="20_0cnop"]
 [ext_resource type="Script" uid="uid://b70n1us6src5o" path="res://assets/Nodes/Obj/Dialogue/dialog_text_area.gd" id="22_m86a5"]
 [ext_resource type="Texture2D" uid="uid://pjki5nu48c5" path="res://assets/Sprites/Gameplay/player/hologram.png" id="23_vmoge"]
+[ext_resource type="Script" uid="uid://dbfv5o1s01x06" path="res://assets/Scripts/DynamicLightAnimation.gd" id="24_2yxh3"]
 [ext_resource type="Script" uid="uid://6216kh0o2v0m" path="res://assets/Nodes/Obj/hologram.gd" id="24_w8pjw"]
 [ext_resource type="Script" uid="uid://b7kp4oyo8y484" path="res://assets/Nodes/Obj/Ui/text_tutorial_anim.gd" id="25_dtqlq"]
 [ext_resource type="AudioStream" uid="uid://dsvfo3erylgm" path="res://assets/Sounds/Tutorial/voicetutorial.wav" id="26_7fsh2"]
 [ext_resource type="Shader" uid="uid://b7m1msxbjwy2t" path="res://assets/Shader/CrtShader.gdshader" id="27_2yxh3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_plev6"]
+shader = ExtResource("27_2yxh3")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 0.050000002375
+shader_parameter/warp_amount = 0.070000003325
+shader_parameter/vignette_amount = 0.34000001615
+shader_parameter/vignette_intensity = 0.3
+shader_parameter/grille_amount = 0.05
+shader_parameter/brightness_boost = 1.3150000149625
+shader_parameter/original_palette = ExtResource("5_8el8b")
+shader_parameter/target_palette = ExtResource("6_13mr7")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w8pjw"]
 shader = ExtResource("1_vmoge")
@@ -147,22 +160,33 @@ light_mode = 1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4p8d"]
 size = Vector2(41.5, 60.5)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_plev6"]
-shader = ExtResource("27_2yxh3")
-shader_parameter/resolution = Vector2(320, 180)
-shader_parameter/scan_line_amount = 0.050000002375
-shader_parameter/warp_amount = 0.070000003325
-shader_parameter/vignette_amount = 0.34000001615
-shader_parameter/vignette_intensity = 0.3
-shader_parameter/grille_amount = 0.05
-shader_parameter/brightness_boost = 1.3150000149625
-shader_parameter/original_palette = ExtResource("5_8el8b")
-shader_parameter/target_palette = ExtResource("6_13mr7")
+[sub_resource type="Gradient" id="Gradient_sc4ke"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.06113537, 0.12227074, 0.20524018, 0.2838428, 0.34497815, 0.41921398, 0.48471615, 0.58078605, 0.6637555, 0.7248908, 0.7947598, 0.8558952, 0.93886465, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.06113537, 0.06113537, 0.06113537, 1, 0.12227074, 0.12227074, 0.12227074, 1, 0.209725, 0.209725, 0.209725, 1, 0.29257643, 0.29257643, 0.29257643, 1, 0.35296622, 0.35296622, 0.35296622, 1, 0.42629674, 0.42629674, 0.42629674, 1, 0.4910001, 0.4910001, 0.4910001, 1, 0.5858984, 0.5858984, 0.5858984, 1, 0.667856, 0.667856, 0.667856, 1, 0.7282458, 0.7282458, 0.7282458, 1, 0.7972627, 0.7972627, 0.7972627, 1, 0.8576526, 0.8576526, 0.8576526, 1, 0.9396102, 0.9396102, 0.9396102, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_plev6"]
+gradient = SubResource("Gradient_sc4ke")
+fill_to = Vector2(0, 1)
 
 [node name="Node2D" type="Node2D" unique_id=1013497022]
 position = Vector2(0, -1)
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=987527664]
+
+[node name="RectCrtSnes" type="ColorRect" parent="CanvasLayer2" unique_id=1498486141]
+top_level = true
+z_index = 99
+material = SubResource("ShaderMaterial_plev6")
+offset_left = -987.0
+offset_top = -1026.0
+offset_right = 1577.0
+offset_bottom = 457.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
 [node name="Bg" type="Sprite2D" parent="." unique_id=1297843794]
+light_mask = 0
 texture_repeat = 2
 material = SubResource("ShaderMaterial_w8pjw")
 position = Vector2(-755, -863)
@@ -343,18 +367,30 @@ volume_db = -20.0
 position = Vector2(-132, 70)
 shape = SubResource("RectangleShape2D_k4p8d")
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=987527664]
+[node name="LightHidePlayer5" type="PointLight2D" parent="." unique_id=868027999]
+visible = false
+position = Vector2(-387, -286)
+rotation = 1.5707964
+scale = Vector2(1.8869932, 0.82019645)
+color = Color(0.970431, 0.7664636, 0.59400105, 1)
+energy = 1.35
+blend_mode = 1
+texture = SubResource("GradientTexture2D_plev6")
+texture_scale = 4.22
+height = 153.0
+script = ExtResource("24_2yxh3")
 
-[node name="RectCrtSnes" type="ColorRect" parent="CanvasLayer2" unique_id=1498486141]
-top_level = true
-z_index = 99
-material = SubResource("ShaderMaterial_plev6")
-offset_left = -1140.0
-offset_top = -703.0
-offset_right = 1424.0
-offset_bottom = 780.0
-mouse_filter = 2
-metadata/_edit_use_anchors_ = true
+[node name="LightHidePlayer6" type="PointLight2D" parent="." unique_id=767349164]
+position = Vector2(327, -422.00003)
+rotation = -1.5707964
+scale = Vector2(1.8869932, 0.82019645)
+color = Color(3.3691526e-07, 0.22917229, 0.21385035, 1)
+energy = 0.95
+blend_mode = 1
+texture = SubResource("GradientTexture2D_plev6")
+texture_scale = 4.22
+height = 153.0
+script = ExtResource("24_2yxh3")
 
 [connection signal="body_entered" from="TextArea" to="TextArea" method="_on_body_entered"]
 

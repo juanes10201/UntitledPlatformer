@@ -9,7 +9,8 @@ var FlipHAnim : bool = true
 }
 
 func offset_play(animation: String = "", flipH : bool = true):
-	FlipHAnim = flipH
+	#FlipHAnim = flipH
+	#flip_v = FlipHAnim
 	if(animation in positions):
 		offset = positions[animation]
 		JuiceStretchLogic.Offset = offset

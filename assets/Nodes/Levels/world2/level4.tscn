@@ -292,7 +292,7 @@ tile_set = ExtResource("4_kkddq")
 script = ExtResource("7_d8hgi")
 
 [node name="DirtBgTileMap2" type="TileMapLayer" parent="CleanTileMap" unique_id=126723942 groups=["Tileset"]]
-modulate = Color(0.4582796, 0.40914744, 0.46272314, 1)
+modulate = Color(0.4745098, 0.39607844, 0.49019608, 0.8784314)
 z_index = -2
 texture_filter = 1
 texture_repeat = 2

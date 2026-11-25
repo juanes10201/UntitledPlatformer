@@ -3131,6 +3131,7 @@ position = Vector2(84.25, 7.625)
 
 [node name="CharacterBody2D2" parent="." unique_id=137243909 instance=ExtResource("16_o8wts")]
 position = Vector2(-554, -87)
+Dialogue_Action = "npc_lobby1_english"
 PlayAnim = true
 
 [node name="CharacterBody2D9" parent="." unique_id=1884817764 instance=ExtResource("16_o8wts")]
@@ -3656,6 +3657,7 @@ script = ExtResource("32_101q1")
 
 [node name="Sprite3" type="Sprite2D" parent="CrtPhotos" unique_id=1557847284]
 visible = false
+modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_13lo3")
 position = Vector2(-444.99997, -61.000042)
 scale = Vector2(0.31875005, 0.31875002)
@@ -3663,7 +3665,7 @@ texture = ExtResource("30_v0wky")
 
 [node name="Sprite2" type="Sprite2D" parent="CrtPhotos" unique_id=117596324]
 visible = false
-modulate = Color(1, 1, 1, 0.416003)
+modulate = Color(1, 1, 1, 0)
 position = Vector2(-444.99997, -61.000042)
 scale = Vector2(0.31875005, 0.31875002)
 texture = ExtResource("29_5l5lc")
@@ -3790,7 +3792,6 @@ shape = SubResource("RectangleShape2D_xj11r")
 
 [node name="Player" parent="." unique_id=1652695725 instance=ExtResource("25_rxeeo")]
 visible = false
-modulate = Color(1, 1, 1, 0)
 position = Vector2(-467, -42.76)
 Styleometter = false
 CountTime = false

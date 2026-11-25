@@ -3822,7 +3822,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("66_iy4x0")
 }],
-"loop": false,
+"loop": 0,
 "name": &"world1",
 "speed": 0.0
 }]
@@ -4602,13 +4602,12 @@ theme_override_font_sizes/normal_font_size = 95
 text = "Tickers"
 
 [node name="placeholder" type="RichTextLabel" parent="CanvasLayer" unique_id=1458900384]
-offset_left = 633.3333
-offset_top = 2003.3335
-offset_right = 3786.6665
-offset_bottom = 2190.0005
+offset_top = 2003.333
+offset_right = 3790.0
+offset_bottom = 2190.0
 theme_override_fonts/normal_font = ExtResource("78_ivuwd")
 theme_override_font_sizes/normal_font_size = 136
-text = "Press 'r' to load the replay - Press 'c' for Challenges"
+text = "Press: 'r' to load the replay, 'c' for Challenges - 't' for the leaderboard"
 horizontal_alignment = 2
 
 [node name="BestTimes" type="Sprite2D" parent="CanvasLayer" unique_id=240768865]

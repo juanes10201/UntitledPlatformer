@@ -164,7 +164,7 @@ shader_parameter/target_palette = ExtResource("8_vfqdv")
 position = Vector2(0, -1)
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=1297843794]
-visible = false
+light_mask = 0
 texture_repeat = 2
 position = Vector2(-755, -863)
 texture = ExtResource("1_wo001")

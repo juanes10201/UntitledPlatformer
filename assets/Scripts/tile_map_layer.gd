@@ -37,7 +37,8 @@ enum PosBorderDiagonal{
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if(ShadowShader): update_neighbor_map()
-	pass # Replace with function body.
+	else: reset_neighbor_map()
+	#pass # Replace with function body.
 
 func _generate_map_image() -> ImageTexture:
 	var _tileset_rect2i : Rect2i = get_used_rect()
@@ -113,7 +114,8 @@ func reset_neighbor_map() -> void:
 	LoadedShadeShader = false
 	var _unused_image = Image.create_empty(0, 0, false, Image.FORMAT_RGBA8)
 	var _unused_image_texture : ImageTexture = ImageTexture.create_from_image(_unused_image)
-	material.set_shader_parameter("border_map", _unused_image_texture)
+	if (material && "shader_parameter_border_map" in material.get_property_list()):
+		material.set_shader_parameter("border_map", _unused_image_texture)
 
 func _process(delta: float) -> void:
 	if(!Engine.is_editor_hint() && Edition.Is_in_editor ):

@@ -546,7 +546,6 @@ scale = Vector2(0.15807393, 0.27645504)
 color = Color(0.48326355, 0.72736853, 0.5578668, 1)
 energy = 1.25
 blend_mode = 1
-range_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_of5fn")
 texture_scale = 2.57
 height = 58.0
