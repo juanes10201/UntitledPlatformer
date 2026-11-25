@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dwis6q21e8fa8" path="res://assets/Sprites/Ui/menus/LevelSelect/backgrounds/Background.png" id="1_gv0ud"]
 [ext_resource type="Script" uid="uid://7bgbo4ncps6m" path="res://assets/Nodes/Ui/SubMenus/ui_leaderboards.gd" id="1_nib1i"]
 [ext_resource type="Texture2D" uid="uid://dk8qs15tgkthx" path="res://assets/Sprites/Ui/Bg/Transition.png" id="2_3q4bd"]
+[ext_resource type="Texture2D" uid="uid://ccjecpi5e7a80" path="res://assets/Sprites/Ui/menus/Leaderboards/bgTest.png" id="3_58rll"]
+[ext_resource type="Shader" uid="uid://c0ala2mebwtsw" path="res://assets/Shader/easy_effects.gdshader" id="4_achq7"]
 [ext_resource type="Texture2D" uid="uid://wkl668qo0vt5" path="res://assets/Sprites/Ui/menus/Leaderboards/box-leaderboard-bg.png" id="6_ufevf"]
 [ext_resource type="Texture2D" uid="uid://brrsg5v5l428d" path="res://assets/Sprites/Ui/menus/Leaderboards/FishMove/FishMove1.png" id="7_dwx1i"]
 [ext_resource type="Texture2D" uid="uid://cuet37wpok0mj" path="res://assets/Sprites/Ui/menus/Leaderboards/FishMove/FishMove2.png" id="8_mk32g"]
@@ -19,8 +21,136 @@
 [ext_resource type="Texture2D" uid="uid://kbmkiitgqatm" path="res://assets/Sprites/Ui/menus/Leaderboards/FishMove/FishMove10.png" id="16_n04qw"]
 [ext_resource type="Texture2D" uid="uid://mj87aseic5cp" path="res://assets/Sprites/Ui/menus/Leaderboards/Button/button-prev.png" id="17_nib1i"]
 [ext_resource type="Texture2D" uid="uid://lu386gqeug44" path="res://assets/Sprites/Ui/menus/Leaderboards/box-leaderboard-overlay.png" id="17_t448r"]
+[ext_resource type="Texture2D" uid="uid://iluscl28o18v" path="res://assets/Sprites/Ui/menus/Leaderboards/Button/button-prev-level-disabled.png" id="18_70ybb"]
 [ext_resource type="Texture2D" uid="uid://dxjf5bcjei3up" path="res://assets/Sprites/Ui/menus/Leaderboards/Button/button-next.png" id="18_ufevf"]
+[ext_resource type="FontFile" uid="uid://c3i7air7h1h2p" path="res://assets/Fonts/Glitch Slap.otf" id="19_dwx1i"]
 [ext_resource type="PackedScene" uid="uid://dw0l4beu0c5xh" path="res://assets/Nodes/Ui/SubMenus/leaderboards/user_leaderboard.tscn" id="20_8b8l8"]
+[ext_resource type="Texture2D" uid="uid://bxfuc0s2jdkik" path="res://assets/Sprites/Ui/menus/Leaderboards/Button/button-next-level-disabled.png" id="20_58rll"]
+[ext_resource type="Texture2D" uid="uid://b8sjbqnqfsv6e" path="res://assets/Sprites/Ui/menus/Leaderboards/Button/button-prev-disabled.png" id="22_achq7"]
+[ext_resource type="Texture2D" uid="uid://bu0yg1b66xqw7" path="res://assets/Sprites/Ui/menus/Leaderboards/Button/button-next-disabled.png" id="24_r8f3v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wlb3l"]
+shader = ExtResource("4_achq7")
+shader_parameter/blend_mode = 16
+shader_parameter/base_source = 1
+shader_parameter/layer_source = 0
+shader_parameter/blend_color = Color(1, 1, 1, 1)
+shader_parameter/blend_uv_scale = Vector2(1, 1)
+shader_parameter/blend_uv_offset = Vector2(0, 0)
+shader_parameter/opacity = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_achq7"]
+atlas = ExtResource("3_58rll")
+region = Rect2(0, 0, 500, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t448r"]
+atlas = ExtResource("3_58rll")
+region = Rect2(2500, 0, 500, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcn2q"]
+atlas = ExtResource("3_58rll")
+region = Rect2(3000, 0, 500, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohek4"]
+atlas = ExtResource("3_58rll")
+region = Rect2(3500, 0, 500, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4n7lj"]
+atlas = ExtResource("3_58rll")
+region = Rect2(4000, 0, 500, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_da51x"]
+atlas = ExtResource("3_58rll")
+region = Rect2(4500, 0, 500, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84o0v"]
+atlas = ExtResource("3_58rll")
+region = Rect2(5000, 0, 500, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlb3l"]
+atlas = ExtResource("3_58rll")
+region = Rect2(5000, 0, 500, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_111hq"]
+atlas = ExtResource("3_58rll")
+region = Rect2(4500, 0, 500, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwri3"]
+atlas = ExtResource("3_58rll")
+region = Rect2(4000, 0, 500, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uudo3"]
+atlas = ExtResource("3_58rll")
+region = Rect2(3500, 0, 500, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4yoc"]
+atlas = ExtResource("3_58rll")
+region = Rect2(3000, 0, 500, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhjfx"]
+atlas = ExtResource("3_58rll")
+region = Rect2(2500, 0, 500, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghjmy"]
+atlas = ExtResource("3_58rll")
+region = Rect2(2000, 0, 500, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejomw"]
+atlas = ExtResource("3_58rll")
+region = Rect2(0, 0, 500, 281)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sw3el"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_achq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t448r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcn2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohek4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4n7lj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_da51x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84o0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlb3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_111hq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwri3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uudo3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4yoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhjfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghjmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejomw")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 1.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_md8ho"]
 animations = [{
@@ -64,17 +194,29 @@ animations = [{
 layout_mode = 3
 anchors_preset = 0
 
-[node name="UiLeaderboards" type="CanvasLayer" parent="." unique_id=228184511 node_paths=PackedStringArray("NodeTextUsers")]
+[node name="UiLeaderboards" type="CanvasLayer" parent="." unique_id=228184511 node_paths=PackedStringArray("NodeTextUsers", "TabTitleText", "ButtonNextLevel", "ButtonPrevLevel", "ButtonNextPage", "ButtonPrevPage")]
 scale = Vector2(0.3, 0.3)
 transform = Transform2D(0.3, 0, 0, 0.3, 0, 0)
 script = ExtResource("1_nib1i")
 NodeTextUsers = NodePath("TextUsers")
+TabTitleText = NodePath("TabTitleText")
+ButtonNextLevel = NodePath("ButtonNextLevel")
+ButtonPrevLevel = NodePath("ButtonPrevLevel")
+ButtonNextPage = NodePath("ButtonNext")
+ButtonPrevPage = NodePath("ButtonPrev")
 
 [node name="Background" type="Sprite2D" parent="UiLeaderboards" unique_id=1590903499]
 z_index = -1
 position = Vector2(1920.476, 1084.3333)
 scale = Vector2(2.6724281, 2.672428)
 texture = ExtResource("1_gv0ud")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UiLeaderboards" unique_id=1070793698]
+material = SubResource("ShaderMaterial_wlb3l")
+position = Vector2(1923.4293, 1085.5833)
+scale = Vector2(7.7657175, 7.765717)
+sprite_frames = SubResource("SpriteFrames_sw3el")
+script = ExtResource("14_8b8l8")
 
 [node name="bg1" type="Sprite2D" parent="UiLeaderboards" unique_id=1640737686]
 self_modulate = Color(1, 1, 1, 0.75686276)
@@ -105,6 +247,7 @@ offset_top = 1750.0
 offset_right = 1288.6665
 offset_bottom = 1941.0
 texture_normal = ExtResource("15_angng")
+texture_disabled = ExtResource("18_70ybb")
 stretch_mode = 4
 
 [node name="ButtonNextLevel" type="TextureButton" parent="UiLeaderboards" unique_id=169215588]
@@ -113,6 +256,7 @@ offset_top = 1750.0
 offset_right = 2906.6665
 offset_bottom = 1941.0
 texture_normal = ExtResource("16_8b8l8")
+texture_disabled = ExtResource("20_58rll")
 stretch_mode = 4
 
 [node name="ButtonPrev" type="TextureButton" parent="UiLeaderboards" unique_id=1783595608]
@@ -121,6 +265,7 @@ offset_top = 1750.0
 offset_right = 1918.6665
 offset_bottom = 1941.0
 texture_normal = ExtResource("17_nib1i")
+texture_disabled = ExtResource("22_achq7")
 stretch_mode = 4
 
 [node name="ButtonNext" type="TextureButton" parent="UiLeaderboards" unique_id=1102139189]
@@ -129,6 +274,7 @@ offset_top = 1749.9995
 offset_right = 2568.667
 offset_bottom = 1940.9995
 texture_normal = ExtResource("18_ufevf")
+texture_disabled = ExtResource("24_r8f3v")
 stretch_mode = 4
 
 [node name="TextUsers" type="Node2D" parent="UiLeaderboards" unique_id=742742589]
@@ -173,3 +319,17 @@ UserNumber = 8
 modulate = Color(1, 1, 1, 0.8156863)
 position = Vector2(586.66626, 1420)
 UserNumber = 9
+
+[node name="TabTitleText" type="RichTextLabel" parent="UiLeaderboards" unique_id=656094361]
+offset_left = 536.6666
+offset_top = 206.66666
+offset_right = 3323.333
+offset_bottom = 296.6667
+theme_override_fonts/normal_font = ExtResource("19_dwx1i")
+theme_override_font_sizes/normal_font_size = 83
+horizontal_alignment = 1
+
+[connection signal="pressed" from="UiLeaderboards/ButtonPrevLevel" to="UiLeaderboards" method="change_prev_level"]
+[connection signal="pressed" from="UiLeaderboards/ButtonNextLevel" to="UiLeaderboards" method="change_next_level"]
+[connection signal="pressed" from="UiLeaderboards/ButtonPrev" to="UiLeaderboards" method="change_prev_page"]
+[connection signal="pressed" from="UiLeaderboards/ButtonNext" to="UiLeaderboards" method="change_next_page"]

@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://b8hfdqkkc1qu4"]
 
 [ext_resource type="Script" uid="uid://bq0swgsur6uoe" path="res://assets/Nodes/Ui/level_select_canvas.gd" id="1_7qti3"]
-[ext_resource type="Texture2D" uid="uid://ca64cpmg8v0je" path="res://assets/Sprites/Ui/menus/LevelSelect/backgrounds/Background_bside.png" id="2_bx5ix"]
 [ext_resource type="Texture2D" uid="uid://dwis6q21e8fa8" path="res://assets/Sprites/Ui/menus/LevelSelect/backgrounds/Background.png" id="2_xkuxm"]
+[ext_resource type="Shader" uid="uid://c0ala2mebwtsw" path="res://assets/Shader/easy_effects.gdshader" id="3_1thri"]
 [ext_resource type="Texture2D" uid="uid://bvblufa5y0su4" path="res://assets/Sprites/Ui/menus/LevelSelect/border.png" id="3_b1y0g"]
+[ext_resource type="Texture2D" uid="uid://cnd3g7sebrgqg" path="res://assets/Sprites/Ui/menus/LevelSelect/backgrounds/Background_bside_crt.png" id="4_1thri"]
 [ext_resource type="Texture2D" uid="uid://dk8qs15tgkthx" path="res://assets/Sprites/Ui/Bg/Transition.png" id="4_lv8yh"]
 [ext_resource type="Script" uid="uid://vy45jgrig202" path="res://assets/Nodes/Obj/Ui/transitionLevelSelect.gd" id="5_bx5ix"]
 [ext_resource type="Texture2D" uid="uid://cpkuxgr2hg7ll" path="res://assets/Sprites/Ui/Logo/logo.png" id="6_ber5a"]
@@ -96,6 +97,20 @@
 [ext_resource type="FontFile" uid="uid://cyhethdmcdauq" path="res://assets/Fonts/Beta.ttf" id="89_u0tr1"]
 [ext_resource type="Texture2D" uid="uid://ddl0328ep5lom" path="res://assets/Sprites/Ui/menus/LevelSelect/DiscRegular.png" id="90_lv8yh"]
 [ext_resource type="Texture2D" uid="uid://dant1mgxuw15i" path="res://assets/Sprites/Ui/menus/LevelSelect/DiscBside.png" id="90_xkuxm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_70ybb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_58rll"]
+shader = ExtResource("3_1thri")
+shader_parameter/blend_mode = 19
+shader_parameter/base_source = 0
+shader_parameter/layer_source = 1
+shader_parameter/blend_color = Color(1, 1, 1, 1)
+shader_parameter/blend_uv_scale = Vector2(1, 1)
+shader_parameter/blend_uv_offset = Vector2(0, 0)
+shader_parameter/opacity = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_achq7"]
 
 [sub_resource type="Animation" id="Animation_bx5ix"]
 resource_name = "BSide_end"
@@ -238,7 +253,7 @@ resource_name = "BSide_start"
 length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("../Background:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
@@ -255,10 +270,10 @@ tracks/1/path = NodePath("../Background:self_modulate")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.1, 0.73333335),
+"times": PackedFloat32Array(0.1, 0.6666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.3137255)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -327,10 +342,10 @@ tracks/7/path = NodePath("../BackgroundBside:self_modulate")
 tracks/7/interp = 2
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.03333334),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -342,7 +357,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [-1]
+"values": [0]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -367,6 +382,18 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(80, 2133.3333), Vector2(80, 1851.298), Vector2(80, 1851.298)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../BackgroundBside:scale")
+tracks/11/interp = 2
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.56666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(8.217, 8.217), Vector2(4.166, 4.117), Vector2(2.677, 2.282)]
 }
 
 [sub_resource type="Animation" id="Animation_8cdkx"]
@@ -1438,6 +1465,30 @@ tracks/88/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/89/type = "value"
+tracks/89/imported = false
+tracks/89/enabled = true
+tracks/89/path = NodePath("../BackgroundBside:self_modulate")
+tracks/89/interp = 1
+tracks/89/loop_wrap = true
+tracks/89/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/90/type = "value"
+tracks/90/imported = false
+tracks/90/enabled = true
+tracks/90/path = NodePath("../BackgroundBside:scale")
+tracks/90/interp = 1
+tracks/90/loop_wrap = true
+tracks/90/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.6724281, 2.672428)]
 }
 
 [sub_resource type="Animation" id="Animation_7qti3"]
@@ -3969,19 +4020,22 @@ script = ExtResource("1_7qti3")
 [node name="bg1" type="Sprite2D" parent="CanvasLayer" unique_id=91443946]
 modulate = Color(1, 1, 1, 0)
 z_index = 3
+material = SubResource("ShaderMaterial_70ybb")
 position = Vector2(2426.6665, 783.33325)
 scale = Vector2(2.604, 2.604)
 texture = ExtResource("4_lv8yh")
 
 [node name="BackgroundBside" type="Sprite2D" parent="CanvasLayer" unique_id=1635184685]
 z_index = -1
+material = SubResource("ShaderMaterial_58rll")
 position = Vector2(1920.476, -838.499)
 scale = Vector2(2.6724281, 2.672428)
-texture = ExtResource("2_bx5ix")
+texture = ExtResource("4_1thri")
 flip_h = true
 
 [node name="Background" type="Sprite2D" parent="CanvasLayer" unique_id=1378921781]
 z_index = -1
+material = SubResource("ShaderMaterial_achq7")
 position = Vector2(1920.476, 1084.3333)
 scale = Vector2(2.6724281, 2.672428)
 texture = ExtResource("2_xkuxm")
@@ -4686,7 +4740,7 @@ visible = false
 offset_left = 80.0
 offset_top = 1866.6666
 offset_right = 1403.3333
-offset_bottom = 2183.1318
+offset_bottom = 2183.1326
 theme_override_constants/outline_size = 60
 theme_override_fonts/normal_font = ExtResource("77_q7of2")
 theme_override_font_sizes/normal_font_size = 321
@@ -4698,7 +4752,7 @@ visible = false
 offset_left = 80.0
 offset_top = 2133.3333
 offset_right = 1403.3333
-offset_bottom = 2449.81
+offset_bottom = 2449.8098
 theme_override_constants/outline_size = 60
 theme_override_fonts/normal_font = ExtResource("77_q7of2")
 theme_override_font_sizes/normal_font_size = 321
@@ -4754,8 +4808,8 @@ anchor_left = 1.0
 anchor_right = 1.0
 offset_left = 1834.666
 offset_top = 326.66675
-offset_right = 2847.9907
-offset_bottom = 1286.6523
+offset_right = 2847.9944
+offset_bottom = 1286.6467
 grow_horizontal = 0
 theme_override_styles/focus = ExtResource("80_q8y2j")
 icon = ExtResource("90_xkuxm")
@@ -4776,8 +4830,8 @@ anchor_left = 1.0
 anchor_right = 1.0
 offset_left = 2874.6665
 offset_top = 293.3333
-offset_right = 3887.9683
-offset_bottom = 1253.3516
+offset_right = 3887.977
+offset_bottom = 1253.3594
 grow_horizontal = 0
 theme_override_styles/focus = ExtResource("80_q8y2j")
 icon = ExtResource("90_lv8yh")
