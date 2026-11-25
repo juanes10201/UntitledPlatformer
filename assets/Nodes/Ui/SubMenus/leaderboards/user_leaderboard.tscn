@@ -15,7 +15,7 @@ text = "1. Juanes1020"
 
 [node name="TimeText" type="RichTextLabel" parent="." unique_id=1453417884]
 offset_left = 2143.3333
-offset_right = 2574.0
+offset_right = 2703.0
 offset_bottom = 90.00003
 theme_override_fonts/normal_font = ExtResource("1_7kh30")
 theme_override_font_sizes/normal_font_size = 83
