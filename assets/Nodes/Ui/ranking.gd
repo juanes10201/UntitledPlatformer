@@ -17,7 +17,16 @@ func _set_data(Username : String, UserTime : float, TextUser : RichTextLabel):#,
 	#Si no esta vacio
 	TextUser.text = _set_text_pos(Username, UserTime)
 
+var scoreboard_process_thread : Thread
 func _update_best_scores(Level : int, World : int) -> void:
+	scoreboard_process_thread = Thread.new()
+	scoreboard_process_thread.start(_update_best_scores_thread.bind(Level,World) )
+
+func _exit_tree() -> void:
+	if(scoreboard_process_thread):
+		scoreboard_process_thread.wait_to_finish()
+
+func _update_best_scores_thread(Level : int, World : int) -> void:
 	print("STEAM: " + str(SteamIntegration.DidSteamInitialize))
 	if(!SteamIntegration.DidSteamInitialize):
 		for i in range(Users.size()):

@@ -1,10 +1,8 @@
 [gd_scene format=3 uid="uid://0ffum0ap2p7f"]
 
 [ext_resource type="Texture2D" uid="uid://dwis6q21e8fa8" path="res://assets/Sprites/Ui/menus/LevelSelect/backgrounds/Background.png" id="1_gv0ud"]
+[ext_resource type="Script" uid="uid://7bgbo4ncps6m" path="res://assets/Nodes/Ui/SubMenus/ui_leaderboards.gd" id="1_nib1i"]
 [ext_resource type="Texture2D" uid="uid://dk8qs15tgkthx" path="res://assets/Sprites/Ui/Bg/Transition.png" id="2_3q4bd"]
-[ext_resource type="Texture2D" uid="uid://b1ifl8spiqdmv" path="res://assets/Sprites/Ui/Button/Outline/buttonSelect2.png" id="3_angng"]
-[ext_resource type="Texture2D" uid="uid://c0c3m8uwkh35y" path="res://assets/Sprites/Ui/Button/Button_Back.png" id="4_8b8l8"]
-[ext_resource type="Script" uid="uid://3crm18ad88ys" path="res://assets/Scripts/menu_button.gd" id="5_nib1i"]
 [ext_resource type="Texture2D" uid="uid://wkl668qo0vt5" path="res://assets/Sprites/Ui/menus/Leaderboards/box-leaderboard-bg.png" id="6_ufevf"]
 [ext_resource type="Texture2D" uid="uid://brrsg5v5l428d" path="res://assets/Sprites/Ui/menus/Leaderboards/FishMove/FishMove1.png" id="7_dwx1i"]
 [ext_resource type="Texture2D" uid="uid://cuet37wpok0mj" path="res://assets/Sprites/Ui/menus/Leaderboards/FishMove/FishMove2.png" id="8_mk32g"]
@@ -14,16 +12,15 @@
 [ext_resource type="Texture2D" uid="uid://b8vqq10qm7r0g" path="res://assets/Sprites/Ui/menus/Leaderboards/FishMove/FishMove6.png" id="12_achq7"]
 [ext_resource type="Texture2D" uid="uid://cy3j7n2vqybe3" path="res://assets/Sprites/Ui/menus/Leaderboards/FishMove/FishMove7.png" id="13_r8f3v"]
 [ext_resource type="Texture2D" uid="uid://bbggulocoy20s" path="res://assets/Sprites/Ui/menus/Leaderboards/FishMove/FishMove8.png" id="14_1eq68"]
+[ext_resource type="Script" uid="uid://cfjawmk0agbkm" path="res://assets/Scripts/fish_bg_anim.gd" id="14_8b8l8"]
+[ext_resource type="Texture2D" uid="uid://ckwie06p41w5c" path="res://assets/Sprites/Ui/menus/Leaderboards/Button/button-prev-level.png" id="15_angng"]
 [ext_resource type="Texture2D" uid="uid://dedrr4crm7wov" path="res://assets/Sprites/Ui/menus/Leaderboards/FishMove/FishMove9.png" id="15_nv33l"]
+[ext_resource type="Texture2D" uid="uid://bcwwbon33rwe" path="res://assets/Sprites/Ui/menus/Leaderboards/Button/button-next-level.png" id="16_8b8l8"]
 [ext_resource type="Texture2D" uid="uid://kbmkiitgqatm" path="res://assets/Sprites/Ui/menus/Leaderboards/FishMove/FishMove10.png" id="16_n04qw"]
+[ext_resource type="Texture2D" uid="uid://mj87aseic5cp" path="res://assets/Sprites/Ui/menus/Leaderboards/Button/button-prev.png" id="17_nib1i"]
 [ext_resource type="Texture2D" uid="uid://lu386gqeug44" path="res://assets/Sprites/Ui/menus/Leaderboards/box-leaderboard-overlay.png" id="17_t448r"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fcn2q"]
-texture = ExtResource("3_angng")
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
+[ext_resource type="Texture2D" uid="uid://dxjf5bcjei3up" path="res://assets/Sprites/Ui/menus/Leaderboards/Button/button-next.png" id="18_ufevf"]
+[ext_resource type="PackedScene" uid="uid://dw0l4beu0c5xh" path="res://assets/Nodes/Ui/SubMenus/leaderboards/user_leaderboard.tscn" id="20_8b8l8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_md8ho"]
 animations = [{
@@ -60,63 +57,119 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
-"speed": 2.0
+"speed": 1.5
 }]
 
 [node name="GlobalLeaderboards" type="Control" unique_id=1632205725]
 layout_mode = 3
 anchors_preset = 0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=228184511]
+[node name="UiLeaderboards" type="CanvasLayer" parent="." unique_id=228184511 node_paths=PackedStringArray("NodeTextUsers")]
 scale = Vector2(0.3, 0.3)
 transform = Transform2D(0.3, 0, 0, 0.3, 0, 0)
+script = ExtResource("1_nib1i")
+NodeTextUsers = NodePath("TextUsers")
 
-[node name="Background" type="Sprite2D" parent="CanvasLayer" unique_id=1590903499]
+[node name="Background" type="Sprite2D" parent="UiLeaderboards" unique_id=1590903499]
 z_index = -1
 position = Vector2(1920.476, 1084.3333)
 scale = Vector2(2.6724281, 2.672428)
 texture = ExtResource("1_gv0ud")
 
-[node name="bg1" type="Sprite2D" parent="CanvasLayer" unique_id=1640737686]
+[node name="bg1" type="Sprite2D" parent="UiLeaderboards" unique_id=1640737686]
 self_modulate = Color(1, 1, 1, 0.75686276)
 z_index = -1
 position = Vector2(2026.6666, 1780.0001)
 scale = Vector2(2.104, 2.104)
 texture = ExtResource("2_3q4bd")
 
-[node name="PauseMenuConfigButton2" type="Button" parent="CanvasLayer" unique_id=1118253819]
-z_index = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -1072.0
-offset_top = 1750.0
-offset_right = -87.90845
-offset_bottom = 2086.666
-grow_horizontal = 0
-theme_override_styles/focus = SubResource("StyleBoxTexture_fcn2q")
-icon = ExtResource("4_8b8l8")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("5_nib1i")
-BUTTON_ACTION = 4
-ADITIONAL_ARGUMENT = "res://assets/Nodes/Ui/select_level_world1.tscn"
-FadeTransition = true
-
-[node name="ChallengesBg" type="Sprite2D" parent="CanvasLayer" unique_id=1104456986]
+[node name="ChallengesBg" type="Sprite2D" parent="UiLeaderboards" unique_id=1104456986]
 position = Vector2(1900.0002, 1090)
 scale = Vector2(1.6225094, 1.6225096)
 texture = ExtResource("6_ufevf")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=665885945]
+[node name="FishBgAnim" type="AnimatedSprite2D" parent="UiLeaderboards" unique_id=665885945]
 position = Vector2(1920, 1093.3333)
 scale = Vector2(6.799999, 5.7481484)
 sprite_frames = SubResource("SpriteFrames_md8ho")
+script = ExtResource("14_8b8l8")
 
-[node name="ChallengesBg2" type="Sprite2D" parent="CanvasLayer" unique_id=2139378529]
+[node name="ChallengesBg2" type="Sprite2D" parent="UiLeaderboards" unique_id=2139378529]
 position = Vector2(1920, 1090)
 scale = Vector2(1.6225094, 1.6225096)
 texture = ExtResource("17_t448r")
 
-[connection signal="pressed" from="CanvasLayer/PauseMenuConfigButton2" to="CanvasLayer/PauseMenuConfigButton2" method="_on_pressed"]
+[node name="ButtonPrevLevel" type="TextureButton" parent="UiLeaderboards" unique_id=950043264]
+offset_left = 996.6665
+offset_top = 1750.0
+offset_right = 1288.6665
+offset_bottom = 1941.0
+texture_normal = ExtResource("15_angng")
+stretch_mode = 4
+
+[node name="ButtonNextLevel" type="TextureButton" parent="UiLeaderboards" unique_id=169215588]
+offset_left = 2603.3335
+offset_top = 1750.0
+offset_right = 2906.6665
+offset_bottom = 1941.0
+texture_normal = ExtResource("16_8b8l8")
+stretch_mode = 4
+
+[node name="ButtonPrev" type="TextureButton" parent="UiLeaderboards" unique_id=1783595608]
+offset_left = 1326.6665
+offset_top = 1750.0
+offset_right = 1918.6665
+offset_bottom = 1941.0
+texture_normal = ExtResource("17_nib1i")
+stretch_mode = 4
+
+[node name="ButtonNext" type="TextureButton" parent="UiLeaderboards" unique_id=1102139189]
+offset_left = 1976.667
+offset_top = 1749.9995
+offset_right = 2568.667
+offset_bottom = 1940.9995
+texture_normal = ExtResource("18_ufevf")
+stretch_mode = 4
+
+[node name="TextUsers" type="Node2D" parent="UiLeaderboards" unique_id=742742589]
+
+[node name="User1" parent="UiLeaderboards/TextUsers" unique_id=814410846 instance=ExtResource("20_8b8l8")]
+position = Vector2(586.66626, 466.66675)
+
+[node name="User2" parent="UiLeaderboards/TextUsers" unique_id=722541722 instance=ExtResource("20_8b8l8")]
+position = Vector2(586.66626, 583.33374)
+UserNumber = 2
+
+[node name="User3" parent="UiLeaderboards/TextUsers" unique_id=1640738405 instance=ExtResource("20_8b8l8")]
+position = Vector2(586.66626, 700.0005)
+UserNumber = 3
+
+[node name="User4" parent="UiLeaderboards/TextUsers" unique_id=1781688899 instance=ExtResource("20_8b8l8")]
+modulate = Color(1, 1, 1, 0.8156863)
+position = Vector2(586.66626, 830)
+UserNumber = 4
+
+[node name="User5" parent="UiLeaderboards/TextUsers" unique_id=17380809 instance=ExtResource("20_8b8l8")]
+modulate = Color(1, 1, 1, 0.8156863)
+position = Vector2(586.66626, 946.66724)
+UserNumber = 5
+
+[node name="User6" parent="UiLeaderboards/TextUsers" unique_id=710638935 instance=ExtResource("20_8b8l8")]
+modulate = Color(1, 1, 1, 0.8156863)
+position = Vector2(586.66626, 1063.334)
+UserNumber = 6
+
+[node name="User7" parent="UiLeaderboards/TextUsers" unique_id=1364691695 instance=ExtResource("20_8b8l8")]
+modulate = Color(1, 1, 1, 0.8156863)
+position = Vector2(586.66626, 1186.666)
+UserNumber = 7
+
+[node name="User8" parent="UiLeaderboards/TextUsers" unique_id=2069241793 instance=ExtResource("20_8b8l8")]
+modulate = Color(1, 1, 1, 0.8156863)
+position = Vector2(586.66626, 1303.334)
+UserNumber = 8
+
+[node name="User9" parent="UiLeaderboards/TextUsers" unique_id=254165459 instance=ExtResource("20_8b8l8")]
+modulate = Color(1, 1, 1, 0.8156863)
+position = Vector2(586.66626, 1420)
+UserNumber = 9

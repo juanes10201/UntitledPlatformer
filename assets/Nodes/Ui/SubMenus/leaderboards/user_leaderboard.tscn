@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dw0l4beu0c5xh"]
+
+[ext_resource type="FontFile" uid="uid://c3i7air7h1h2p" path="res://assets/Fonts/Glitch Slap.otf" id="1_7kh30"]
+[ext_resource type="Script" uid="uid://br2w040o308dl" path="res://assets/Nodes/Ui/SubMenus/leaderboards/user_leaderboard.gd" id="1_et8fh"]
+
+[node name="User1" type="Node2D" unique_id=814410846]
+script = ExtResource("1_et8fh")
+
+[node name="UserText" type="RichTextLabel" parent="." unique_id=538087556]
+offset_right = 2280.0
+offset_bottom = 90.00003
+theme_override_fonts/normal_font = ExtResource("1_7kh30")
+theme_override_font_sizes/normal_font_size = 83
+text = "1. Juanes1020"
+
+[node name="TimeText" type="RichTextLabel" parent="." unique_id=1453417884]
+offset_left = 2143.3333
+offset_right = 2574.0
+offset_bottom = 90.00003
+theme_override_fonts/normal_font = ExtResource("1_7kh30")
+theme_override_font_sizes/normal_font_size = 83
+text = "15 seg"

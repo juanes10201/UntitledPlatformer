@@ -158,6 +158,9 @@ func leaderboard_submit_level_time(sec : int, level : int, world : int) -> void:
 	Steam.downloadLeaderboardEntries(0, 2, Steam.LEADERBOARD_DATA_REQUEST_GLOBAL, handle)
 
 func leaderboard_load_level_time(level : int, world : int, amount : int) -> Array:
+	return await leaderboard_load_level_time_ranged(level, world, 0, amount-1)
+
+func leaderboard_load_level_time_ranged(level : int, world : int, start_range : int, end : int) -> Array:
 	if(!SteamIntegration.initialize_steam): return []
 	var key = get_leaderboard_key_name(level, world)
 	#se agrega el await porque la puta funcion es coroutine
@@ -165,7 +168,7 @@ func leaderboard_load_level_time(level : int, world : int, amount : int) -> Arra
 	print("HANDLE:")
 	print(handle)
 	if(handle == -1): return []
-	Steam.downloadLeaderboardEntries(0, amount-1, Steam.LEADERBOARD_DATA_REQUEST_GLOBAL, handle)
+	Steam.downloadLeaderboardEntries(start_range, end, Steam.LEADERBOARD_DATA_REQUEST_GLOBAL, handle)
 	var result = await Steam.leaderboard_scores_downloaded
 	#Agrego variables debug que no se usan por las dudas: message y this_handle
 	var message : String = result[0]
@@ -238,12 +241,15 @@ func leaderboard_parse_user_to_ingame_ui(User : Dictionary) -> Dictionary:
 	return _dicc
 
 func leaderboard_load_level_parse_to_ingame_ui(level : int, world : int, amount : int) -> Array:
+	return await leaderboard_load_level_parse_to_ingame_ui_ranged(level, world, 0, amount-1)
+	
+func leaderboard_load_level_parse_to_ingame_ui_ranged(level : int, world : int, start : int, end : int) -> Array:
 	if(!SteamIntegration.initialize_steam): return []
 	#se fija si esta cacheado el res y lo devuelve si es el caso
 	var _cache : Array = leaderboard_check_if_caches_is_stored(get_leaderboard_key_name(level, world) )
 	if(_cache): return _cache
 	
-	var _leaderboard = await leaderboard_load_level_time(level, world, amount)
+	var _leaderboard = await leaderboard_load_level_time_ranged(level, world, start, end)
 	if(_leaderboard): return await leaderboard_parse_to_ingame_ui(_leaderboard, get_leaderboard_key_name(level, world))
 	return []
 
