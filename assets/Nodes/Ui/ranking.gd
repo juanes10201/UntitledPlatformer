@@ -4,6 +4,7 @@ extends Control
 
 @export var UserPlayer : RichTextLabel
 @export var PlacePlayer : RichTextLabel
+const amount_load_scores : int = 4
 
 func _round_time_number(time : float) -> float:
 	#La idea es redondear a un punto de decimal de minimo 3 unidades, si esta empatadado con otro incluir las decimales hasta que no este
@@ -48,17 +49,19 @@ func _update_best_scores_thread(Level : int, World : int) -> void:
 	#esto se hace con un await, lo cual no es una buena idea
 	#se tendria que hacer en paralelo de alguna forma
 	#TODO: investigar sobre como hacer en paralelo esto
-	var res : Array = await SaveGame.leaderboard_load_level_parse_to_ingame_ui(Level, World, Users.size())
+	var res : Array = await SaveGame.leaderboard_load_level_parse_to_ingame_ui(Level, World, amount_load_scores)
 	
 	var PlayerData = await SaveGame.leaderboard_get_user_parsed_ui(Level, World)
-	print(PlayerData)
+	print(res)
 	if(PlayerData && PlayerData.has("rank") && PlayerData["rank"] > 3):
 		PlacePlayer.text = " " + str(PlayerData["rank"]) + "."
 		PlacePlayer.show()
 		UserPlayer.show()
 	else:
-		PlacePlayer.hide()
-		UserPlayer.hide()
+		_set_data(res[3]["name"], res[3]["score"], UserPlayer)
+		PlacePlayer.text = "4. "
+		PlacePlayer.show()
+		UserPlayer.show()
 	
 	for i in range(Users.size()):
 		if(i < res.size()):

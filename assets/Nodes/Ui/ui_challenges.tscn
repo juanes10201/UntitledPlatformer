@@ -1,15 +1,31 @@
 [gd_scene format=3 uid="uid://dr8ikr1h0wkg7"]
 
 [ext_resource type="Texture2D" uid="uid://dwis6q21e8fa8" path="res://assets/Sprites/Ui/menus/LevelSelect/backgrounds/Background.png" id="1_6j1n2"]
-[ext_resource type="Texture2D" uid="uid://vd45rnesa0r8" path="res://assets/Sprites/Ui/menus/Challenges/selectChallenge.png" id="2_hfnad"]
+[ext_resource type="Shader" uid="uid://c0ala2mebwtsw" path="res://assets/Shader/easy_effects.gdshader" id="2_vkgan"]
+[ext_resource type="Texture2D" uid="uid://xckdaasre4bx" path="res://assets/Sprites/Ui/menus/Challenges/selectChallengeFrutiger.png" id="3_0mp1d"]
 [ext_resource type="Texture2D" uid="uid://kbc3ci8pt48" path="res://assets/Sprites/Ui/menus/Challenges/challengesText.png" id="3_rqai6"]
+[ext_resource type="Texture2D" uid="uid://k03v4hn8i3dy" path="res://assets/Sprites/Ui/menus/Challenges/test-bg-pixelart1.png" id="3_vkgan"]
 [ext_resource type="FontFile" uid="uid://c3i7air7h1h2p" path="res://assets/Fonts/Glitch Slap.otf" id="4_4jx20"]
 [ext_resource type="Script" uid="uid://d2mxkmup07kcp" path="res://assets/Nodes/Ui/button_challenge.gd" id="5_6r73g"]
 [ext_resource type="Script" uid="uid://3crm18ad88ys" path="res://assets/Scripts/menu_button.gd" id="5_x20i0"]
-[ext_resource type="Texture2D" uid="uid://b1ifl8spiqdmv" path="res://assets/Sprites/Ui/Button/Outline/buttonSelect2.png" id="6_4jx20"]
-[ext_resource type="Texture2D" uid="uid://c0c3m8uwkh35y" path="res://assets/Sprites/Ui/Button/Button_Back.png" id="7_6r73g"]
+[ext_resource type="Texture2D" uid="uid://ddl0328ep5lom" path="res://assets/Sprites/Ui/menus/LevelSelect/DiscRegular.png" id="8_vkgan"]
 [ext_resource type="Texture2D" uid="uid://dk8qs15tgkthx" path="res://assets/Sprites/Ui/Bg/Transition.png" id="9_0mp1d"]
+[ext_resource type="Texture2D" uid="uid://dant1mgxuw15i" path="res://assets/Sprites/Ui/menus/LevelSelect/DiscBside.png" id="9_0vqqa"]
+[ext_resource type="Script" uid="uid://c67onx748rpps" path="res://assets/Sprites/Ui/menus/Challenges/disc_rotate.gd" id="9_uijvl"]
+[ext_resource type="Texture2D" uid="uid://cwjjj0e7h8nwe" path="res://assets/Sprites/Ui/menus/Challenges/selectChallengeFrutigerOverlay.png" id="10_q4gwn"]
 [ext_resource type="Script" uid="uid://vy45jgrig202" path="res://assets/Nodes/Obj/Ui/transitionLevelSelect.gd" id="10_x20i0"]
+[ext_resource type="StyleBox" uid="uid://c1edtywsppgxy" path="res://assets/Sprites/Ui/selectStylebox2.tres" id="11_3n10r"]
+[ext_resource type="Texture2D" uid="uid://bpihspm4r3mvd" path="res://assets/Sprites/Ui/menus/Leaderboards/exit-button.png" id="12_0vqqa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0mp1d"]
+shader = ExtResource("2_vkgan")
+shader_parameter/blend_mode = 16
+shader_parameter/base_source = 1
+shader_parameter/layer_source = 0
+shader_parameter/blend_color = Color(1, 1, 1, 1)
+shader_parameter/blend_uv_scale = Vector2(1, 1)
+shader_parameter/blend_uv_offset = Vector2(0, 0)
+shader_parameter/opacity = 1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0mp1d"]
 
@@ -20,6 +36,20 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uijvl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q4gwn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_md8ho"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_vkgan")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0vqqa")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 0.0
+}]
 
 [sub_resource type="Animation" id="Animation_vkgan"]
 length = 0.001
@@ -50,62 +80,62 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../PauseMenuConfigButton2:position")
+tracks/2/path = NodePath("../SelectChallenge:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(80, 1750)]
+"values": [Vector2(1889.9999, 1150)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../SelectChallenge:position")
+tracks/3/path = NodePath("../SelectChallenge:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1889.9999, 1150)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../SelectChallenge:modulate")
+tracks/4/path = NodePath("../ChallengesText:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(1156.6666, 290)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../ChallengesText:position")
+tracks/5/path = NodePath("../ChallengesText:self_modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1156.6666, 290)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../ChallengesText:self_modulate")
+tracks/6/path = NodePath("../SelectChallenge:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(1.0504473, 1.0504473)]
 }
 
 [sub_resource type="Animation" id="Animation_0mp1d"]
@@ -137,58 +167,46 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../PauseMenuConfigButton2:position")
+tracks/2/path = NodePath("../SelectChallenge:position")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.03333333, 0.61, 0.9333334),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(80, 1750), Vector2(-16.049194, 1831.5154), Vector2(-426.66663, 2180)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../SelectChallenge:position")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0.16666669, 0.8100001, 1.1000001),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(1889.9999, 1150), Vector2(1146.96, 1103.92), Vector2(-1549.9999, 936.66656)]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../SelectChallenge:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../SelectChallenge:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0.03333336, 0.6766668),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../ChallengesText:position")
-tracks/5/interp = 2
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../ChallengesText:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.6433334, 0.9000001),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(1156.6666, 290), Vector2(719.52374, 244.46428), Vector2(-283.33337, 140)]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../ChallengesText:self_modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../ChallengesText:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0.0333333, 0.43333346),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -224,62 +242,62 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../PauseMenuConfigButton2:position")
+tracks/2/path = NodePath("../SelectChallenge:position")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.06666667, 0.4, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-426.66663, 2180), Vector2(-16.049194, 1831.5154), Vector2(80, 1750)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../SelectChallenge:position")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.36666667, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(-1549.9999, 936.66656), Vector2(1146.96, 1103.92), Vector2(1889.9999, 1150)]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../SelectChallenge:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../SelectChallenge:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0.23333333, 0.76666665),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../ChallengesText:position")
-tracks/5/interp = 2
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../ChallengesText:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.4, 0.93333334),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(-283.33337, 140), Vector2(719.52374, 244.46428), Vector2(1156.6666, 290)]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../ChallengesText:self_modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../ChallengesText:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0.19, 0.96666664),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../SelectChallenge:scale")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.03333333, 0.4, 0.6333333, 0.76666665, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.345, 1.345), Vector2(1.077524, 1.077524), Vector2(1.0504473, 1.0504473), Vector2(1.035, 1.035), Vector2(1.0504473, 1.0504473)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q4gwn"]
@@ -288,13 +306,6 @@ _data = {
 &"fade_movement": SubResource("Animation_0mp1d"),
 &"start": SubResource("Animation_uijvl")
 }
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0mp1d"]
-texture = ExtResource("6_4jx20")
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
 
 [node name="control_level_select" type="Control" unique_id=1118240205]
 layout_mode = 3
@@ -315,27 +326,36 @@ position = Vector2(1920.476, 1084.3333)
 scale = Vector2(2.6724281, 2.672428)
 texture = ExtResource("1_6j1n2")
 
+[node name="TestBg" type="Sprite2D" parent="CanvasLayer" unique_id=959298147]
+z_index = -1
+material = SubResource("ShaderMaterial_0mp1d")
+position = Vector2(1956.8647, 1139.0314)
+scale = Vector2(6.554276, 6.55428)
+texture = ExtResource("3_vkgan")
+
 [node name="bg1" type="Sprite2D" parent="CanvasLayer" unique_id=1574628089]
 self_modulate = Color(1, 1, 1, 0.75686276)
 z_index = -1
-position = Vector2(2026.6666, 1780.0001)
-scale = Vector2(2.104, 2.104)
+position = Vector2(2014.9202, 1780.0001)
+scale = Vector2(2.1162362, 2.104)
 texture = ExtResource("9_0mp1d")
 
 [node name="SelectChallenge" type="Sprite2D" parent="CanvasLayer" unique_id=1059219182]
 z_index = -1
 position = Vector2(1889.9999, 1150)
 scale = Vector2(1.0504473, 1.0504473)
-texture = ExtResource("2_hfnad")
+texture = ExtResource("3_0mp1d")
 
 [node name="ButtonChallengeNone" type="Button" parent="CanvasLayer/SelectChallenge" unique_id=313778905]
-offset_left = -1291.5132
-offset_top = -301.45898
-offset_right = 1451.8203
-offset_bottom = -158.12573
-theme_override_colors/font_focus_color = Color(0.76101106, 0.39861044, 0.955303, 1)
-theme_override_colors/font_pressed_color = Color(0.60882187, 0.6744009, 1, 1)
-theme_override_colors/font_hover_color = Color(0.7607843, 0.4, 0.95686275, 1)
+offset_left = -1241.9958
+offset_top = -632.114
+offset_right = 1501.3376
+offset_bottom = -488.78076
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.13725491, 0.16078432, 0.23921569, 1)
+theme_override_colors/font_pressed_color = Color(0.309106, 0.34870422, 0.48667496, 1)
+theme_override_colors/font_hover_color = Color(0.29013455, 0.32603052, 0.4583549, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_4jx20")
 theme_override_font_sizes/font_size = 84
 theme_override_styles/normal = SubResource("StyleBoxEmpty_0mp1d")
@@ -346,15 +366,18 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_q4gwn")
 text = "None"
 alignment = 0
 script = ExtResource("5_6r73g")
+ColorTextSelected = Color(0.195396, 0.20561928, 0.55816305, 1)
 
 [node name="ButtonChallenge1" type="Button" parent="CanvasLayer/SelectChallenge" unique_id=121340417]
-offset_left = -1291.5132
-offset_top = -149.14294
-offset_right = 1451.8201
-offset_bottom = -5.8096924
-theme_override_colors/font_focus_color = Color(0.76101106, 0.39861044, 0.955303, 1)
-theme_override_colors/font_pressed_color = Color(0.60882187, 0.6744009, 1, 1)
-theme_override_colors/font_hover_color = Color(0.7607843, 0.4, 0.95686275, 1)
+offset_left = -1245.1691
+offset_top = -486.14438
+offset_right = 1498.1642
+offset_bottom = -342.81113
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.75686276, 0.8509804, 0.9137255, 1)
+theme_override_colors/font_pressed_color = Color(0.75686276, 0.8509804, 0.9137255, 1)
+theme_override_colors/font_hover_color = Color(0.75686276, 0.8509804, 0.9137255, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_4jx20")
 theme_override_font_sizes/font_size = 84
 theme_override_styles/normal = SubResource("StyleBoxEmpty_0mp1d")
@@ -362,19 +385,22 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_x20i0")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_vkgan")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_uijvl")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_q4gwn")
-text = "1. Speedtickers - Inverted Gravity - Player starts in Inverted Gravity"
+text = "1. Speedtickers Demo - Inverted Gravity"
 alignment = 0
 script = ExtResource("5_6r73g")
 Challenge = 1
+ColorTextSelected = Color(0.09470896, 0.13166738, 0.39052215, 1)
 
 [node name="ButtonChallenge2" type="Button" parent="CanvasLayer/SelectChallenge" unique_id=1648573128]
-offset_left = -1291.5132
-offset_top = -44.42566
-offset_right = 1451.8201
-offset_bottom = 98.90759
-theme_override_colors/font_focus_color = Color(0.76101106, 0.39861044, 0.955303, 1)
-theme_override_colors/font_pressed_color = Color(0.60882187, 0.6744009, 1, 1)
-theme_override_colors/font_hover_color = Color(0.7607843, 0.4, 0.95686275, 1)
+offset_left = -1245.1691
+offset_top = -381.4271
+offset_right = 1498.1642
+offset_bottom = -238.09384
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.75686276, 0.8509804, 0.9137255, 1)
+theme_override_colors/font_pressed_color = Color(0.75686276, 0.8509804, 0.9137255, 1)
+theme_override_colors/font_hover_color = Color(0.75686276, 0.8509804, 0.9137255, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_4jx20")
 theme_override_font_sizes/font_size = 84
 theme_override_styles/normal = SubResource("StyleBoxEmpty_0mp1d")
@@ -382,19 +408,22 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_x20i0")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_vkgan")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_uijvl")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_q4gwn")
-text = "2. Speedtickers - No Restart - Can't die"
+text = "2. Speedtickers Demo - No Restart"
 alignment = 0
 script = ExtResource("5_6r73g")
 Challenge = 2
+ColorTextSelected = Color(0.09470896, 0.13166738, 0.39052215, 1)
 
 [node name="ButtonChallenge3" type="Button" parent="CanvasLayer/SelectChallenge" unique_id=692309301]
-offset_left = -1291.5132
-offset_top = 66.63818
-offset_right = 1451.8201
-offset_bottom = 209.97144
-theme_override_colors/font_focus_color = Color(0.76101106, 0.39861044, 0.955303, 1)
-theme_override_colors/font_pressed_color = Color(0.60882187, 0.6744009, 1, 1)
-theme_override_colors/font_hover_color = Color(0.7607843, 0.4, 0.95686275, 1)
+offset_left = -1245.1691
+offset_top = -270.36325
+offset_right = 1498.1642
+offset_bottom = -127.03
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.75686276, 0.8509804, 0.9137255, 1)
+theme_override_colors/font_pressed_color = Color(0.75686276, 0.8509804, 0.9137255, 1)
+theme_override_colors/font_hover_color = Color(0.75686276, 0.8509804, 0.9137255, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_4jx20")
 theme_override_font_sizes/font_size = 84
 theme_override_styles/normal = SubResource("StyleBoxEmpty_0mp1d")
@@ -402,19 +431,22 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_x20i0")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_vkgan")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_uijvl")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_q4gwn")
-text = "3. Speedtickers - Speedrun - Time significatively reduced"
+text = "3. Speedtickers Demo - Speedrun"
 alignment = 0
 script = ExtResource("5_6r73g")
 Challenge = 3
+ColorTextSelected = Color(0.09470896, 0.13166738, 0.39052215, 1)
 
 [node name="ButtonChallenge4" type="Button" parent="CanvasLayer/SelectChallenge" unique_id=83724579]
-offset_left = -1291.5132
-offset_top = 174.52856
-offset_right = 1451.8201
-offset_bottom = 317.86182
-theme_override_colors/font_focus_color = Color(0.76101106, 0.39861044, 0.955303, 1)
-theme_override_colors/font_pressed_color = Color(0.60882187, 0.6744009, 1, 1)
-theme_override_colors/font_hover_color = Color(0.7607843, 0.4, 0.95686275, 1)
+offset_left = -1245.1691
+offset_top = -162.47287
+offset_right = 1498.1642
+offset_bottom = -19.139633
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.75686276, 0.8509804, 0.9137255, 1)
+theme_override_colors/font_pressed_color = Color(0.75686276, 0.8509804, 0.9137255, 1)
+theme_override_colors/font_hover_color = Color(0.75686276, 0.8509804, 0.9137255, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_4jx20")
 theme_override_font_sizes/font_size = 84
 theme_override_styles/normal = SubResource("StyleBoxEmpty_0mp1d")
@@ -422,14 +454,49 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_x20i0")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_vkgan")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_uijvl")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_q4gwn")
-text = "4. Speedtickers - x2 Speed"
+text = "4. Speedtickers Demo - x2 Speed"
 alignment = 0
 script = ExtResource("5_6r73g")
 Challenge = 3
+ColorTextSelected = Color(0.09470896, 0.13166738, 0.39052215, 1)
+
+[node name="DiscRegular" type="AnimatedSprite2D" parent="CanvasLayer/SelectChallenge" unique_id=438124498]
+position = Vector2(879.87726, 276.3512)
+scale = Vector2(0.63048965, 0.63048965)
+sprite_frames = SubResource("SpriteFrames_md8ho")
+offset = Vector2(48.745, 56.515)
+script = ExtResource("9_uijvl")
+
+[node name="SelectChallengeFrutigerOverlay" type="Sprite2D" parent="CanvasLayer/SelectChallenge" unique_id=1936316483]
+position = Vector2(622.58435, 333.52734)
+scale = Vector2(0.9529355, 0.9529355)
+texture = ExtResource("10_q4gwn")
+
+[node name="ConfigButton" type="Button" parent="CanvasLayer/SelectChallenge" unique_id=853254550]
+z_index = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1652.948
+offset_top = -778.2307
+offset_right = -1508.8953
+offset_bottom = -651.5641
+grow_horizontal = 0
+theme_override_styles/focus = ExtResource("11_3n10r")
+icon = ExtResource("12_0vqqa")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("5_x20i0")
+BUTTON_ACTION = 4
+ADITIONAL_ARGUMENT = "res://assets/Nodes/Ui/select_level_world1.tscn"
+HoverDif = 20.0
+FadeTransition = true
 
 [node name="ChallengesText" type="Sprite2D" parent="CanvasLayer" unique_id=166861188]
 position = Vector2(1156.6666, 290)
 texture = ExtResource("3_rqai6")
+offset = Vector2(0, -96.39)
 
 [node name="Transition" type="Sprite2D" parent="CanvasLayer" unique_id=103331453]
 z_index = 2
@@ -441,29 +508,10 @@ script = ExtResource("10_x20i0")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Transition" unique_id=792057343]
 libraries/ = SubResource("AnimationLibrary_q4gwn")
 
-[node name="PauseMenuConfigButton2" type="Button" parent="CanvasLayer" unique_id=907887081]
-z_index = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -1072.0
-offset_top = 1750.0
-offset_right = -87.9082
-offset_bottom = 2086.6665
-grow_horizontal = 0
-theme_override_styles/focus = SubResource("StyleBoxTexture_0mp1d")
-icon = ExtResource("7_6r73g")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("5_x20i0")
-BUTTON_ACTION = 4
-ADITIONAL_ARGUMENT = "res://assets/Nodes/Ui/select_level_world1.tscn"
-FadeTransition = true
-
 [connection signal="pressed" from="CanvasLayer/SelectChallenge/ButtonChallengeNone" to="CanvasLayer/SelectChallenge/ButtonChallengeNone" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/SelectChallenge/ButtonChallenge1" to="CanvasLayer/SelectChallenge/ButtonChallenge1" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/SelectChallenge/ButtonChallenge2" to="CanvasLayer/SelectChallenge/ButtonChallenge2" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/SelectChallenge/ButtonChallenge3" to="CanvasLayer/SelectChallenge/ButtonChallenge3" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/SelectChallenge/ButtonChallenge4" to="CanvasLayer/SelectChallenge/ButtonChallenge4" method="_on_pressed"]
-[connection signal="pressed" from="CanvasLayer/PauseMenuConfigButton2" to="CanvasLayer/PauseMenuConfigButton2" method="_on_pressed"]
+[connection signal="button_down" from="CanvasLayer/SelectChallenge/ConfigButton" to="CanvasLayer/SelectChallenge/ConfigButton" method="_on_button_down"]
+[connection signal="pressed" from="CanvasLayer/SelectChallenge/ConfigButton" to="CanvasLayer/SelectChallenge/ConfigButton" method="_on_pressed"]

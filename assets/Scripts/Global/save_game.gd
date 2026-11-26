@@ -85,7 +85,7 @@ func SaveLevelPersonalRecord(Level : int = 1, World : int = 1, RealTime : float 
 		if(_player && _player.ReplayAction == Global.ReplayStates.RECORD):
 			#TODO: se tiene que subir a steam el replay, d forma d q se pueda acceder por el sistema d leaderboards
 			pass
-			#_player._save_level_replay()
+			_player._save_level_replay()
 		set_save_value(_world_name, str(Level), RealTime/1000.0)
 
 func SaveLevelRecord(Level : int = 1, World : int = 0, RealTime : float = 0) -> void:
@@ -233,7 +233,7 @@ func leaderboard_parse_user_to_ingame_ui(User : Dictionary) -> Dictionary:
 	return _dicc
 
 func leaderboard_load_level_parse_to_ingame_ui(level : int, world : int, amount : int, page : int = -1) -> Array:
-	return await leaderboard_load_level_parse_to_ingame_ui_ranged(level, world, 0, amount-1, page)
+	return await leaderboard_load_level_parse_to_ingame_ui_ranged(level, world, 0, amount, page)
 	
 func leaderboard_load_level_parse_to_ingame_ui_ranged(level : int, world : int, start : int, end : int, page : int = -1) -> Array:
 	if(!SteamIntegration.initialize_steam): return []

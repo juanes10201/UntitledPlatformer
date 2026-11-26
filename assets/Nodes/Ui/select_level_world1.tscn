@@ -8,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://dk8qs15tgkthx" path="res://assets/Sprites/Ui/Bg/Transition.png" id="4_lv8yh"]
 [ext_resource type="Script" uid="uid://vy45jgrig202" path="res://assets/Nodes/Obj/Ui/transitionLevelSelect.gd" id="5_bx5ix"]
 [ext_resource type="Texture2D" uid="uid://cpkuxgr2hg7ll" path="res://assets/Sprites/Ui/Logo/logo.png" id="6_ber5a"]
+[ext_resource type="Texture2D" uid="uid://g8enx1snlkf6" path="res://assets/Sprites/Ui/Crt/Crt5.png" id="6_q7c77"]
 [ext_resource type="Texture2D" uid="uid://dja8vtnmdhsck" path="res://assets/Sprites/Ui/Crt/Crt1.png" id="7_0exxl"]
+[ext_resource type="Script" uid="uid://cy6ayu7qbkfa4" path="res://assets/Nodes/Ui/sprite_world.gd" id="7_32rq6"]
 [ext_resource type="Texture2D" uid="uid://baydkvulrlle8" path="res://assets/Sprites/Ui/menus/LevelSelect/Previews/1.png" id="7_iytug"]
 [ext_resource type="Texture2D" uid="uid://u4viimpk3d5b" path="res://assets/Sprites/Ui/menus/LevelSelect/Previews/2.png" id="8_cxtu5"]
 [ext_resource type="Texture2D" uid="uid://ct0om17p0agd4" path="res://assets/Sprites/Ui/menus/LevelSelect/Previews/3.png" id="9_1thri"]
@@ -125,6 +127,20 @@ shader_parameter/blend_color = Color(1, 1, 1, 1)
 shader_parameter/blend_uv_scale = Vector2(1, 1)
 shader_parameter/blend_uv_offset = Vector2(0, 0)
 shader_parameter/opacity = 1.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sw3el"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_0exxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_q7c77")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 0.0
+}]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_achq7"]
 
@@ -262,6 +278,42 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(80, 2115.727), Vector2(80, 2056.9023), Vector2(80, 1866.6666), Vector2(80, 1866.6666)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../BsideStates/CdLabel:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.9333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(3390.0015, 763.333), Vector2(3109.591, 763.333), Vector2(3390.0015, 763.333)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../Background:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.13333334, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.21176471), Color(1, 1, 1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../SpriteWorld:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0.03333333, 1.3666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.6397421)]
 }
 
 [sub_resource type="Animation" id="Animation_ber5a"]
@@ -410,6 +462,30 @@ tracks/11/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(8.217, 8.217), Vector2(4.166, 4.117), Vector2(2.677, 2.282)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../BsideStates/CdLabel:position")
+tracks/12/interp = 2
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.23333333, 0.73333335, 1.1666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(3390.0015, 763.333), Vector2(3109.591, 763.333), Vector2(3390.0015, 763.333)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../SpriteWorld:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0.033333335, 0.43333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.6397421), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_8cdkx"]
@@ -1553,6 +1629,42 @@ tracks/94/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/95/type = "value"
+tracks/95/imported = false
+tracks/95/enabled = true
+tracks/95/path = NodePath("../BsideStates/CdLabel:position")
+tracks/95/interp = 1
+tracks/95/loop_wrap = true
+tracks/95/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3390.0015, 763.333)]
+}
+tracks/96/type = "value"
+tracks/96/imported = false
+tracks/96/enabled = true
+tracks/96/path = NodePath("../Background:modulate")
+tracks/96/interp = 1
+tracks/96/loop_wrap = true
+tracks/96/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/97/type = "value"
+tracks/97/imported = false
+tracks/97/enabled = true
+tracks/97/path = NodePath("../SpriteWorld:modulate")
+tracks/97/interp = 1
+tracks/97/loop_wrap = true
+tracks/97/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.6397421)]
 }
 
 [sub_resource type="Animation" id="Animation_7qti3"]
@@ -4078,16 +4190,16 @@ colors = PackedColorArray(0, 0, 0, 1, 0.743556, 0.743556, 0.74355596, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_b1y0g"]
 gradient = SubResource("Gradient_xkuxm")
 
-[sub_resource type="Gradient" id="Gradient_ber5a"]
+[sub_resource type="Gradient" id="Gradient_q7c77"]
 colors = PackedColorArray(0, 0, 0, 1, 1, 0.7176471, 1, 1)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_iytug"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_32rq6"]
 frequency = 0.0047
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cxtu5"]
 width = 20
-noise = SubResource("FastNoiseLite_iytug")
-color_ramp = SubResource("Gradient_ber5a")
+noise = SubResource("FastNoiseLite_32rq6")
+color_ramp = SubResource("Gradient_q7c77")
 seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xkuxm"]
@@ -4113,10 +4225,22 @@ shader_parameter/noise = SubResource("NoiseTexture2D_cxtu5")
 
 [sub_resource type="Gradient" id="Gradient_bx5ix"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ber5a"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4plnn"]
 gradient = SubResource("Gradient_bx5ix")
 fill_from = Vector2(0.34331524, 0.24705856)
 fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_ber5a"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 0.7176471, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_iytug"]
+frequency = 0.0047
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5iq88"]
+width = 20
+noise = SubResource("FastNoiseLite_iytug")
+color_ramp = SubResource("Gradient_ber5a")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iytug"]
 shader = ExtResource("71_jvv1s")
@@ -4135,9 +4259,9 @@ shader_parameter/scroll = 1.0
 shader_parameter/normal_strength = 0.1
 shader_parameter/effect_alpha_mult = 0.82000003895
 shader_parameter/direction = 0.0
-shader_parameter/foil_mask = SubResource("GradientTexture2D_ber5a")
+shader_parameter/foil_mask = SubResource("GradientTexture2D_4plnn")
 shader_parameter/gradient = ExtResource("88_b1y0g")
-shader_parameter/noise = SubResource("NoiseTexture2D_cxtu5")
+shader_parameter/noise = SubResource("NoiseTexture2D_5iq88")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_32rq6"]
 atlas = ExtResource("101_q7c77")
@@ -4222,6 +4346,14 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w1tox")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1tox")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m2rmq")
@@ -4290,13 +4422,15 @@ scale = Vector2(2.6724281, 2.672428)
 texture = ExtResource("4_1thri")
 flip_h = true
 
-[node name="SpriteWorld" type="Sprite2D" parent="CanvasLayer" unique_id=600099306]
+[node name="SpriteWorld" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=2052553430 node_paths=PackedStringArray("LevelSelectorNode")]
 visible = false
 modulate = Color(1, 1, 1, 0.6397421)
 material = SubResource("ShaderMaterial_1thri")
 position = Vector2(2193.3333, 1053.3333)
 scale = Vector2(2.1693888, 2.1693888)
-texture = ExtResource("7_0exxl")
+sprite_frames = SubResource("SpriteFrames_sw3el")
+script = ExtResource("7_32rq6")
+LevelSelectorNode = NodePath("../Levels")
 
 [node name="Background" type="Sprite2D" parent="CanvasLayer" unique_id=1378921781]
 z_index = -1
@@ -4961,7 +5095,7 @@ anchor_right = 1.0
 offset_left = -982.0
 offset_top = 1450.0
 offset_right = -189.69983
-offset_bottom = 1906.6608
+offset_bottom = 1906.6606
 grow_horizontal = 0
 theme_override_styles/focus = ExtResource("80_q8y2j")
 icon = ExtResource("82_btbrx")
@@ -5005,7 +5139,7 @@ visible = false
 offset_left = 80.0
 offset_top = 1866.6666
 offset_right = 1403.3333
-offset_bottom = 2183.1318
+offset_bottom = 2183.1316
 theme_override_constants/outline_size = 60
 theme_override_fonts/normal_font = ExtResource("77_q7of2")
 theme_override_font_sizes/normal_font_size = 321
@@ -5017,7 +5151,7 @@ visible = false
 offset_left = 80.0
 offset_top = 2133.3333
 offset_right = 1403.3333
-offset_bottom = 2449.81
+offset_bottom = 2449.8103
 theme_override_constants/outline_size = 60
 theme_override_fonts/normal_font = ExtResource("77_q7of2")
 theme_override_font_sizes/normal_font_size = 321
@@ -5080,7 +5214,7 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("70_mrtek")
 BUTTON_ACTION = 4
-ADITIONAL_ARGUMENT = "res://assets/Nodes/Ui/SubMenus/GlobalLeaderboards.tscn"
+ADITIONAL_ARGUMENT = "res://assets/Nodes/Ui/ui_challenges.tscn"
 HoverDif = 60.0
 
 [node name="ButtonChallenges" type="Button" parent="CanvasLayer" unique_id=1824911857]
@@ -5100,7 +5234,7 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("70_mrtek")
 BUTTON_ACTION = 4
-ADITIONAL_ARGUMENT = "res://assets/Nodes/Ui/ui_challenges.tscn"
+ADITIONAL_ARGUMENT = "res://assets/Nodes/Ui/SubMenus/GlobalLeaderboards.tscn"
 HoverDif = 60.0
 
 [node name="BsideStates" type="Node2D" parent="CanvasLayer" unique_id=466879729]
@@ -5116,8 +5250,8 @@ anchor_left = 1.0
 anchor_right = 1.0
 offset_left = 2986.666
 offset_top = 326.66675
-offset_right = 4000.0022
-offset_bottom = 1286.6467
+offset_right = 4000.0122
+offset_bottom = 1286.6453
 grow_horizontal = 0
 theme_override_styles/focus = ExtResource("80_q8y2j")
 icon = ExtResource("90_xkuxm")
@@ -5138,8 +5272,8 @@ anchor_left = 1.0
 anchor_right = 1.0
 offset_left = 4026.6665
 offset_top = 293.3333
-offset_right = 5039.977
-offset_bottom = 1253.3594
+offset_right = 5039.9883
+offset_bottom = 1253.3623
 grow_horizontal = 0
 theme_override_styles/focus = ExtResource("80_q8y2j")
 icon = ExtResource("90_lv8yh")
@@ -5164,7 +5298,6 @@ modulate = Color(1, 1, 1, 0.65882355)
 z_index = 1
 position = Vector2(1.2335815, -2.4669037)
 sprite_frames = SubResource("SpriteFrames_md8ho")
-animation = &"open_fast"
 
 [node name="ranking" type="Control" parent="CanvasLayer" unique_id=334064905 node_paths=PackedStringArray("Users", "UserPlayer", "PlacePlayer")]
 layout_mode = 3
@@ -5193,7 +5326,7 @@ vertical_alignment = 1
 layout_mode = 0
 offset_left = 213.33333
 offset_right = 2893.3333
-offset_bottom = 233.33337
+offset_bottom = 183.33331
 mouse_filter = 2
 theme_override_constants/outline_size = 60
 theme_override_fonts/normal_font = ExtResource("89_u0tr1")
@@ -5206,7 +5339,7 @@ layout_mode = 0
 offset_left = 340.0
 offset_top = 749.99994
 offset_right = 2293.336
-offset_bottom = 983.3486
+offset_bottom = 983.3485
 mouse_filter = 2
 theme_override_constants/outline_size = 60
 theme_override_fonts/normal_font = ExtResource("78_ivuwd")
@@ -5219,7 +5352,7 @@ layout_mode = 0
 offset_left = 209.99994
 offset_top = -6.666626
 offset_right = 2540.0
-offset_bottom = 226.66675
+offset_bottom = 173.33337
 mouse_filter = 2
 theme_override_constants/outline_size = 60
 theme_override_fonts/normal_font = ExtResource("89_u0tr1")
@@ -5245,7 +5378,7 @@ layout_mode = 0
 offset_left = 213.33328
 offset_top = -6.666626
 offset_right = 2086.6665
-offset_bottom = 226.66675
+offset_bottom = 166.66675
 mouse_filter = 2
 theme_override_constants/outline_size = 60
 theme_override_fonts/normal_font = ExtResource("89_u0tr1")
@@ -5271,7 +5404,7 @@ layout_mode = 0
 offset_left = 276.66663
 offset_top = 16.666626
 offset_right = 1886.6666
-offset_bottom = 250.0
+offset_bottom = 190.0
 mouse_filter = 2
 theme_override_constants/outline_size = 60
 theme_override_fonts/normal_font = ExtResource("89_u0tr1")

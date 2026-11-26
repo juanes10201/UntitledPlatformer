@@ -2,7 +2,7 @@ extends Button
 
 @export var Challenge : Global.CHALLENGES = Global.CHALLENGES.none
 
-const ColorTextSelected = Color(Color.CORNFLOWER_BLUE)
+@export var ColorTextSelected : Color = Color(Color.CORNFLOWER_BLUE)
 @onready var ColorTextUnselected = get("theme_override_colors/font_color")
 
 func _ready() -> void:
