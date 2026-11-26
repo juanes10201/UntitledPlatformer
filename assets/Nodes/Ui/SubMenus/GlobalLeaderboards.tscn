@@ -32,6 +32,9 @@
 [ext_resource type="Texture2D" uid="uid://bu0yg1b66xqw7" path="res://assets/Sprites/Ui/menus/Leaderboards/Button/button-next-disabled.png" id="24_r8f3v"]
 [ext_resource type="StyleBox" uid="uid://c1edtywsppgxy" path="res://assets/Sprites/Ui/selectStylebox2.tres" id="30_n04qw"]
 [ext_resource type="Texture2D" uid="uid://bpihspm4r3mvd" path="res://assets/Sprites/Ui/menus/Leaderboards/exit-button.png" id="31_t448r"]
+[ext_resource type="Script" uid="uid://vy45jgrig202" path="res://assets/Nodes/Obj/Ui/transitionLevelSelect.gd" id="33_t448r"]
+[ext_resource type="Texture2D" uid="uid://blpaeud8pv8sr" path="res://assets/Sprites/Ui/menus/Leaderboards/Button/replay.png" id="34_fcn2q"]
+[ext_resource type="Script" uid="uid://lsinug23pnjj" path="res://assets/Nodes/Ui/SubMenus/ui_popup.gd" id="35_ohek4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wlb3l"]
 shader = ExtResource("4_achq7")
@@ -133,7 +136,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_111hq")
 }, {
-"duration": 1.0,
+"duration": 0.9,
 "texture": SubResource("AtlasTexture_vwri3")
 }, {
 "duration": 1.0,
@@ -194,9 +197,62 @@ animations = [{
 "speed": 1.5
 }]
 
+[sub_resource type="Animation" id="Animation_fcn2q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ohek4"]
+resource_name = "start"
+length = 1.315
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.16666666, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.972549), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.03333333, 0.46666664, 0.99999994),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2320, 1033.3334), Vector2(-1398.2915, 1196.2549), Vector2(-2396.666, 1239.9999)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4n7lj"]
+_data = {
+&"RESET": SubResource("Animation_fcn2q"),
+&"start": SubResource("Animation_ohek4")
+}
+
 [node name="GlobalLeaderboards" type="Control" unique_id=1632205725]
 layout_mode = 3
 anchors_preset = 0
+offset_left = 2320.0
+offset_top = 1033.3334
+offset_right = 2320.0
+offset_bottom = 1033.3334
 
 [node name="UiLeaderboards" type="CanvasLayer" parent="." unique_id=228184511 node_paths=PackedStringArray("NodeTextUsers", "TabTitleText", "ButtonNextLevel", "ButtonPrevLevel", "ButtonNextPage", "ButtonPrevPage")]
 scale = Vector2(0.3, 0.3)
@@ -413,9 +469,47 @@ ADITIONAL_ARGUMENT = "res://assets/Nodes/Ui/select_level_world1.tscn"
 HoverDif = 20.0
 FadeTransition = true
 
+[node name="Transition" type="Sprite2D" parent="UiLeaderboards" unique_id=926331474]
+z_index = 2
+position = Vector2(-2396.666, 1239.9999)
+scale = Vector2(2.454, 2.454)
+texture = ExtResource("2_3q4bd")
+script = ExtResource("33_t448r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UiLeaderboards/Transition" unique_id=1930721673]
+libraries/ = SubResource("AnimationLibrary_4n7lj")
+
+[node name="UiPopup" type="Sprite2D" parent="UiLeaderboards" unique_id=1671695571]
+position = Vector2(3439.9998, 1790)
+scale = Vector2(0.65172935, 0.65172946)
+texture = ExtResource("34_fcn2q")
+script = ExtResource("35_ohek4")
+
+[node name="ConfigButton" type="Button" parent="UiLeaderboards/UiPopup" unique_id=1456763885]
+z_index = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -754.3218
+offset_top = -475.65735
+offset_right = -610.2693
+offset_bottom = -348.99072
+grow_horizontal = 0
+theme_override_styles/focus = ExtResource("30_n04qw")
+icon = ExtResource("31_t448r")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("5_nib1i")
+HoverDif = 20.0
+FadeTransition = true
+
 [connection signal="pressed" from="UiLeaderboards/ButtonPrevLevel" to="UiLeaderboards" method="change_prev_level"]
 [connection signal="pressed" from="UiLeaderboards/ButtonNextLevel" to="UiLeaderboards" method="change_next_level"]
 [connection signal="pressed" from="UiLeaderboards/ButtonPrev" to="UiLeaderboards" method="change_prev_page"]
 [connection signal="pressed" from="UiLeaderboards/ButtonNext" to="UiLeaderboards" method="change_next_page"]
 [connection signal="button_down" from="UiLeaderboards/ConfigButton" to="UiLeaderboards/ConfigButton" method="_on_button_down"]
 [connection signal="pressed" from="UiLeaderboards/ConfigButton" to="UiLeaderboards/ConfigButton" method="_on_pressed"]
+[connection signal="button_down" from="UiLeaderboards/UiPopup/ConfigButton" to="UiLeaderboards/UiPopup/ConfigButton" method="_on_button_down"]
+[connection signal="pressed" from="UiLeaderboards/UiPopup/ConfigButton" to="UiLeaderboards/UiPopup" method="_on_config_button_pressed"]
+[connection signal="pressed" from="UiLeaderboards/UiPopup/ConfigButton" to="UiLeaderboards/UiPopup/ConfigButton" method="_on_pressed"]

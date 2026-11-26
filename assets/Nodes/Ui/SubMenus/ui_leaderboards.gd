@@ -28,7 +28,7 @@ func _update_scoreboards_thread(_level : int = Level, _world : int = World) -> v
 	NodeTextUsers.hide()
 	var _initial_range = CurrentPage*PageSize
 	var _end_range = _initial_range+PageSize
-	var results = await SaveGame.leaderboard_load_level_parse_to_ingame_ui_ranged(_level, _world, _initial_range, _end_range)
+	var results = await SaveGame.leaderboard_load_level_parse_to_ingame_ui_ranged(_level, _world, _initial_range, _end_range, CurrentPage)
 	print("results: ")
 	print(str(results))
 	CurrentAmountPages = ceil(results.size()/PageSize)

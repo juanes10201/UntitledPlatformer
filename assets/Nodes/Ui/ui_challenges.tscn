@@ -45,7 +45,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -432,7 +432,6 @@ position = Vector2(1156.6666, 290)
 texture = ExtResource("3_rqai6")
 
 [node name="Transition" type="Sprite2D" parent="CanvasLayer" unique_id=103331453]
-self_modulate = Color(1, 1, 1, 0)
 z_index = 2
 position = Vector2(2320, 1033.3334)
 scale = Vector2(2.454, 2.454)
@@ -449,8 +448,8 @@ anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -1072.0
 offset_top = 1750.0
-offset_right = -87.90845
-offset_bottom = 2086.666
+offset_right = -87.9082
+offset_bottom = 2086.6665
 grow_horizontal = 0
 theme_override_styles/focus = SubResource("StyleBoxTexture_0mp1d")
 icon = ExtResource("7_6r73g")

@@ -114,8 +114,6 @@ func _process(delta: float) -> void:
 	if(SteamIntegration.initialize_steam):
 		Steam.run_callbacks()
 
-#tener en cuenta que la funcion get_leaderboard_handle es de tipo coroutine
-#hay que agregar un await al usarla
 func get_leaderboard_handle(key : String) -> int:
 	if(!SteamIntegration.initialize_steam): return 0 
 	if(key in Cache_Leaderboard_Handles):
@@ -130,16 +128,6 @@ func get_leaderboard_handle(key : String) -> int:
 	print("Leadeboard named " + key + " was found with handle id: " + str(handle))
 	Cache_Leaderboard_Handles[key] = handle
 	return handle
-
-func _ready() -> void:
-	pass
-	#Espero a que se inicie steam
-	
-	#await get_tree().create_timer(1.0).timeout
-	#print(await leaderboard_load_level_parse_to_ingame_ui(7, 0, 3))
-	
-	#print("DEBUGGING")
-	#print(await SaveGame.leaderboard_load_level_top_3(7, 0))
 
 func get_leaderboard_key_name(level : int, world : int) -> String:
 	return "world" + str(world) + "_level" + str(level)
@@ -180,17 +168,21 @@ func leaderboard_load_level_time_ranged(level : int, world : int, start_range : 
 #	return await leaderboard_load_level_time(level, world, 3)
 
 #El tipo de dato es un diccionario, que dentro guarda una lista que contiene diccionarios
-#Osea: Dictionary[String, Array[Dictionary] ]
-var leaderboard_level_worlds_cache : Dictionary = {}
+#La idea es que se guardeprimero el path del nivel, luego eso redirija a otro diccionario
+#con las paginas correspondientes de cada uno
+#y desde ahi al final a lo cacheado
+#Osea: Dictionary[String, Dictionary[Array[Dictionary]] ]
+var leaderboard_level_worlds_cache : Dictionary[String, Dictionary] = {}
 
-func leaderboard_check_if_caches_is_stored(path : String) -> Array:
+func leaderboard_get_cache(path : String, page : int = -1) -> Array:
 	if(!SteamIntegration.initialize_steam): return []
-	if(path in leaderboard_level_worlds_cache):
-		return leaderboard_level_worlds_cache[path]
+	if(path in leaderboard_level_worlds_cache && page in leaderboard_level_worlds_cache[path]):
+		return leaderboard_level_worlds_cache[path][page]
 	return []
-func leaderboard_store_cache_res(res : Array, path : String) -> void:
+func leaderboard_store_cache_res(res : Array, path : String, page : int = -1) -> void:
 	if(!SteamIntegration.initialize_steam): return
-	leaderboard_level_worlds_cache[path] = res
+	if(path in leaderboard_level_worlds_cache):
+		leaderboard_level_worlds_cache[path][page] = res
 
 func _on_leaderboard_scores_downloaded(message: String, this_handle: int, results: Array) -> void:
 	if(!SteamIntegration.initialize_steam): return
@@ -221,7 +213,7 @@ func get_username_from_uuid(uuid : int) -> String:
 #Convierto los tiempos a segundos
 #Convierto los uuid de los usuarios a los nombres
 #Los ordeno por puesto de forma ascendente
-func leaderboard_parse_to_ingame_ui(steam_leaderboard : Array, path : String) -> Array:
+func leaderboard_parse_to_ingame_ui(steam_leaderboard : Array, path : String, page : int = -1) -> Array:
 	if(!SteamIntegration.initialize_steam): return []
 	var parse_res : Array = []
 	if(!steam_leaderboard): return []
@@ -229,7 +221,7 @@ func leaderboard_parse_to_ingame_ui(steam_leaderboard : Array, path : String) ->
 	for User in steam_leaderboard:
 		var _dicc = await leaderboard_parse_user_to_ingame_ui(User)
 		parse_res.append(_dicc)
-	leaderboard_store_cache_res(parse_res, path)
+	leaderboard_store_cache_res(parse_res, path, page)
 	return parse_res
 
 func leaderboard_parse_user_to_ingame_ui(User : Dictionary) -> Dictionary:
@@ -240,20 +232,20 @@ func leaderboard_parse_user_to_ingame_ui(User : Dictionary) -> Dictionary:
 	_dicc["rank"] = User["global_rank"]
 	return _dicc
 
-func leaderboard_load_level_parse_to_ingame_ui(level : int, world : int, amount : int) -> Array:
-	return await leaderboard_load_level_parse_to_ingame_ui_ranged(level, world, 0, amount-1)
+func leaderboard_load_level_parse_to_ingame_ui(level : int, world : int, amount : int, page : int = -1) -> Array:
+	return await leaderboard_load_level_parse_to_ingame_ui_ranged(level, world, 0, amount-1, page)
 	
-func leaderboard_load_level_parse_to_ingame_ui_ranged(level : int, world : int, start : int, end : int) -> Array:
+func leaderboard_load_level_parse_to_ingame_ui_ranged(level : int, world : int, start : int, end : int, page : int = -1) -> Array:
 	if(!SteamIntegration.initialize_steam): return []
 	#se fija si esta cacheado el res y lo devuelve si es el caso
-	var _cache : Array = leaderboard_check_if_caches_is_stored(get_leaderboard_key_name(level, world) )
+	var _cache : Array = leaderboard_get_cache(get_leaderboard_key_name(level, world), page)
 	if(_cache): return _cache
 	
 	var _leaderboard = await leaderboard_load_level_time_ranged(level, world, start, end)
-	if(_leaderboard): return await leaderboard_parse_to_ingame_ui(_leaderboard, get_leaderboard_key_name(level, world))
+	if(_leaderboard): return await leaderboard_parse_to_ingame_ui(_leaderboard, get_leaderboard_key_name(level, world), page)
 	return []
 
-func leaderboard_get_user_parsed_ui(level : int, world : int) -> Dictionary:
+func leaderboard_get_user_parsed_ui(level : int, world : int, page : int = -1) -> Dictionary:
 	if(!SteamIntegration.initialize_steam): return {}
 	if(level < 0 || world < 0): return {}
 	var Username : String = GetPlayerUserName()
@@ -265,7 +257,7 @@ func leaderboard_get_user_parsed_ui(level : int, world : int) -> Dictionary:
 		var Steam_UserData = await get_leaderboard_user_position(level, world)
 		if(Steam_UserData):
 			var Parsed_UserData = await leaderboard_parse_user_to_ingame_ui(Steam_UserData)
-			leaderboard_level_worlds_cache[LevelKeyName].append(Parsed_UserData)
+			leaderboard_level_worlds_cache[LevelKeyName][page] = Parsed_UserData
 			print("Parsed userdata: " + str(Parsed_UserData))
 			return Parsed_UserData
 	return {}
