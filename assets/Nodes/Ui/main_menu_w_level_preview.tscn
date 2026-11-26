@@ -543,8 +543,8 @@ texture_scale = 4.22
 height = 108.0
 
 [node name="LightHidePlayer18" type="PointLight2D" parent="." unique_id=1456684276]
-position = Vector2(-157, 256.1747)
-scale = Vector2(0.4961493, 1.1687299)
+position = Vector2(-190, 256.1747)
+scale = Vector2(0.74052143, 1.1687299)
 color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
 energy = 0.55
 blend_mode = 1

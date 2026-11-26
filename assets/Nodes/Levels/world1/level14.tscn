@@ -80,7 +80,23 @@ shader = ExtResource("17_lbcia")
 shader_parameter/angle = -0.225
 shader_parameter/position = -0.07
 shader_parameter/spread = 0.3150000149625
-shader_parameter/cutoff = 0.10400005243999999
+shader_parameter/cutoff = 0.10400005244
+shader_parameter/falloff = 0.142000006745
+shader_parameter/edge_fade = 0.222000010545
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.110000005225
+shader_parameter/color = Color(0.41960785, 0.5803922, 0.9137255, 0.16862746)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lbcia"]
+shader = ExtResource("17_lbcia")
+shader_parameter/angle = -0.225
+shader_parameter/position = -0.07
+shader_parameter/spread = 0.130000006175
+shader_parameter/cutoff = 0.1740000557650001
 shader_parameter/falloff = 0.142000006745
 shader_parameter/edge_fade = 0.222000010545
 shader_parameter/speed = 1.0
@@ -151,10 +167,10 @@ texture_scale = 2.08
 height = 13.0
 
 [node name="PointLight2D20" type="PointLight2D" parent="." unique_id=1588953670]
-position = Vector2(-120, -34)
-scale = Vector2(1.453125, 1.453125)
+position = Vector2(-74, -12.000003)
+scale = Vector2(1.4176683, 0.7716347)
 color = Color(0.99999994, 0.21361312, 0.723753, 1)
-energy = 0.62
+energy = 1.02
 shadow_color = Color(1, 1, 1, 0)
 shadow_item_cull_mask = 3
 texture = SubResource("GradientTexture2D_77phb")
@@ -369,8 +385,8 @@ texture_scale = 4.22
 height = 108.0
 
 [node name="LightHidePlayer18" type="PointLight2D" parent="." unique_id=1681488238]
-position = Vector2(-157, 256.1747)
-scale = Vector2(0.4961493, 1.1687299)
+position = Vector2(-201, 251.99998)
+scale = Vector2(0.82197875, 1.3847749)
 color = Color(9.144843e-06, 0.97496754, 0.38193193, 1)
 energy = 0.55
 blend_mode = 1
@@ -388,10 +404,10 @@ offset_bottom = 14.0
 
 [node name="ColorRect4" type="ColorRect" parent="." unique_id=2084128333]
 z_index = 2
-material = SubResource("ShaderMaterial_3eq5j")
-offset_left = -422.0
-offset_top = 126.0
-offset_right = -232.0
-offset_bottom = 554.0
+material = SubResource("ShaderMaterial_lbcia")
+offset_left = -444.0
+offset_top = -27.0
+offset_right = -197.0
+offset_bottom = 519.0
 
 [editable path="Enemie3"]
