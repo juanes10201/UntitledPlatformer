@@ -98,8 +98,11 @@
 [ext_resource type="FontFile" uid="uid://cyhethdmcdauq" path="res://assets/Fonts/Beta.ttf" id="89_u0tr1"]
 [ext_resource type="Texture2D" uid="uid://ddl0328ep5lom" path="res://assets/Sprites/Ui/menus/LevelSelect/DiscRegular.png" id="90_lv8yh"]
 [ext_resource type="Texture2D" uid="uid://dant1mgxuw15i" path="res://assets/Sprites/Ui/menus/LevelSelect/DiscBside.png" id="90_xkuxm"]
-[ext_resource type="Texture2D" uid="uid://b63ylbiuayl8g" path="res://assets/Sprites/Ui/menus/Leaderboards/leaderboards-button.png" id="94_aa0ux"]
-[ext_resource type="Texture2D" uid="uid://dyxnatjklskv0" path="res://assets/Sprites/Ui/menus/Challenges/challenges-button.png" id="95_junpp"]
+[ext_resource type="Texture2D" uid="uid://b60b72vacdgpt" path="res://assets/Sprites/Ui/menus/LevelSelect/button_challenges.png" id="94_aa0ux"]
+[ext_resource type="Texture2D" uid="uid://885dr4jjaume" path="res://assets/Sprites/Ui/menus/LevelSelect/ButtonBoards.png" id="95_junpp"]
+[ext_resource type="Texture2D" uid="uid://bqmxdx81b51at" path="res://assets/Sprites/Ui/menus/LevelSelect/cd.png" id="99_uc6p3"]
+[ext_resource type="Script" uid="uid://xcd6k4f3hl0b" path="res://assets/Nodes/Ui/cd_label.gd" id="100_0pygg"]
+[ext_resource type="Texture2D" uid="uid://ccfxgvp3s3jx6" path="res://assets/Sprites/Ui/menus/LevelSelect/cd-anim.png" id="101_q7c77"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_70ybb"]
 
@@ -155,7 +158,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../DiscBside:position")
+tracks/2/path = NodePath("../BsideStates/DiscBside:position")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -167,7 +170,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = false
-tracks/3/path = NodePath("../DiscBside:rotation")
+tracks/3/path = NodePath("../BsideStates/DiscBside:rotation")
 tracks/3/interp = 4
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -179,7 +182,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../DiscReturnBside:position")
+tracks/4/path = NodePath("../BsideStates/DiscReturnBside:position")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -191,7 +194,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = false
-tracks/5/path = NodePath("../DiscReturnBside:rotation")
+tracks/5/path = NodePath("../BsideStates/DiscReturnBside:rotation")
 tracks/5/interp = 4
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -291,7 +294,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../DiscBside:position")
+tracks/2/path = NodePath("../BsideStates/DiscBside:position")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -303,7 +306,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = false
-tracks/3/path = NodePath("../DiscBside:rotation")
+tracks/3/path = NodePath("../BsideStates/DiscBside:rotation")
 tracks/3/interp = 4
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -315,7 +318,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../DiscReturnBside:position")
+tracks/4/path = NodePath("../BsideStates/DiscReturnBside:position")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -327,7 +330,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = false
-tracks/5/path = NodePath("../DiscReturnBside:rotation")
+tracks/5/path = NodePath("../BsideStates/DiscReturnBside:rotation")
 tracks/5/interp = 4
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -1362,7 +1365,7 @@ tracks/78/keys = {
 tracks/79/type = "value"
 tracks/79/imported = false
 tracks/79/enabled = true
-tracks/79/path = NodePath("../DiscBside:position")
+tracks/79/path = NodePath("../BsideStates/DiscBside:position")
 tracks/79/interp = 1
 tracks/79/loop_wrap = true
 tracks/79/keys = {
@@ -1374,7 +1377,7 @@ tracks/79/keys = {
 tracks/80/type = "value"
 tracks/80/imported = false
 tracks/80/enabled = true
-tracks/80/path = NodePath("../DiscBside:rotation")
+tracks/80/path = NodePath("../BsideStates/DiscBside:rotation")
 tracks/80/interp = 1
 tracks/80/loop_wrap = true
 tracks/80/keys = {
@@ -1386,7 +1389,7 @@ tracks/80/keys = {
 tracks/81/type = "value"
 tracks/81/imported = false
 tracks/81/enabled = true
-tracks/81/path = NodePath("../DiscReturnBside:position")
+tracks/81/path = NodePath("../BsideStates/DiscReturnBside:position")
 tracks/81/interp = 1
 tracks/81/loop_wrap = true
 tracks/81/keys = {
@@ -1502,6 +1505,54 @@ tracks/90/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(2.6724281, 2.672428)]
+}
+tracks/91/type = "value"
+tracks/91/imported = false
+tracks/91/enabled = true
+tracks/91/path = NodePath("../BsideStates:position")
+tracks/91/interp = 1
+tracks/91/loop_wrap = true
+tracks/91/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1)]
+}
+tracks/92/type = "value"
+tracks/92/imported = false
+tracks/92/enabled = true
+tracks/92/path = NodePath("../BsideStates:modulate")
+tracks/92/interp = 1
+tracks/92/loop_wrap = true
+tracks/92/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/93/type = "value"
+tracks/93/imported = false
+tracks/93/enabled = true
+tracks/93/path = NodePath("../BsideStates/CdLabel:modulate")
+tracks/93/interp = 1
+tracks/93/loop_wrap = true
+tracks/93/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/94/type = "value"
+tracks/94/imported = false
+tracks/94/enabled = true
+tracks/94/path = NodePath("../ButtonLeaderboards:modulate")
+tracks/94/interp = 1
+tracks/94/loop_wrap = true
+tracks/94/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_7qti3"]
@@ -2469,6 +2520,30 @@ tracks/62/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/63/type = "value"
+tracks/63/imported = false
+tracks/63/enabled = true
+tracks/63/path = NodePath("../BsideStates:position")
+tracks/63/interp = 2
+tracks/63/loop_wrap = true
+tracks/63/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 1), Vector2(763.9075, 1), Vector2(1031.275, 1)]
+}
+tracks/64/type = "value"
+tracks/64/imported = false
+tracks/64/enabled = true
+tracks/64/path = NodePath("../BsideStates:modulate")
+tracks/64/interp = 1
+tracks/64/loop_wrap = true
+tracks/64/keys = {
+"times": PackedFloat32Array(-0.033333335, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ec4ib"]
@@ -3646,7 +3721,7 @@ tracks/59/keys = {
 tracks/60/type = "value"
 tracks/60/imported = false
 tracks/60/enabled = true
-tracks/60/path = NodePath("../DiscBside:position")
+tracks/60/path = NodePath("../BsideStates/DiscBside:position")
 tracks/60/interp = 2
 tracks/60/loop_wrap = true
 tracks/60/keys = {
@@ -3658,7 +3733,7 @@ tracks/60/keys = {
 tracks/61/type = "value"
 tracks/61/imported = false
 tracks/61/enabled = true
-tracks/61/path = NodePath("../DiscReturnBside:position")
+tracks/61/path = NodePath("../BsideStates/DiscReturnBside:position")
 tracks/61/interp = 2
 tracks/61/loop_wrap = true
 tracks/61/keys = {
@@ -3687,6 +3762,54 @@ tracks/63/interp = 1
 tracks/63/loop_wrap = true
 tracks/63/keys = {
 "times": PackedFloat32Array(0.06666666, 0.56666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/64/type = "value"
+tracks/64/imported = false
+tracks/64/enabled = true
+tracks/64/path = NodePath("../BsideStates:position")
+tracks/64/interp = 2
+tracks/64/loop_wrap = true
+tracks/64/keys = {
+"times": PackedFloat32Array(0, 0.76666665),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1031.275, 1), Vector2(0, 1)]
+}
+tracks/65/type = "value"
+tracks/65/imported = false
+tracks/65/enabled = true
+tracks/65/path = NodePath("../BsideStates/CdLabel:modulate")
+tracks/65/interp = 1
+tracks/65/loop_wrap = true
+tracks/65/keys = {
+"times": PackedFloat32Array(0.36666667, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/66/type = "value"
+tracks/66/imported = false
+tracks/66/enabled = true
+tracks/66/path = NodePath("../ButtonLeaderboards:modulate")
+tracks/66/interp = 1
+tracks/66/loop_wrap = true
+tracks/66/keys = {
+"times": PackedFloat32Array(0.23333332, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/67/type = "value"
+tracks/67/imported = false
+tracks/67/enabled = true
+tracks/67/path = NodePath("../ButtonChallenges:modulate")
+tracks/67/interp = 1
+tracks/67/loop_wrap = true
+tracks/67/keys = {
+"times": PackedFloat32Array(0.33333334, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -4015,6 +4138,127 @@ shader_parameter/direction = 0.0
 shader_parameter/foil_mask = SubResource("GradientTexture2D_ber5a")
 shader_parameter/gradient = ExtResource("88_b1y0g")
 shader_parameter/noise = SubResource("NoiseTexture2D_cxtu5")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32rq6"]
+atlas = ExtResource("101_q7c77")
+region = Rect2(1800, 0, 300, 258)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4plnn"]
+atlas = ExtResource("101_q7c77")
+region = Rect2(1500, 0, 300, 258)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5iq88"]
+atlas = ExtResource("101_q7c77")
+region = Rect2(1200, 0, 300, 258)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8f76"]
+atlas = ExtResource("101_q7c77")
+region = Rect2(900, 0, 300, 258)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eifot"]
+atlas = ExtResource("101_q7c77")
+region = Rect2(600, 0, 300, 258)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eafvi"]
+atlas = ExtResource("101_q7c77")
+region = Rect2(300, 0, 300, 258)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwkue"]
+atlas = ExtResource("101_q7c77")
+region = Rect2(0, 0, 300, 258)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1tox"]
+atlas = ExtResource("101_q7c77")
+region = Rect2(0, 0, 300, 258)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2rmq"]
+atlas = ExtResource("101_q7c77")
+region = Rect2(600, 0, 300, 258)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i53pj"]
+atlas = ExtResource("101_q7c77")
+region = Rect2(1200, 0, 300, 258)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83y5e"]
+atlas = ExtResource("101_q7c77")
+region = Rect2(1500, 0, 300, 258)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vp035"]
+atlas = ExtResource("101_q7c77")
+region = Rect2(300, 0, 300, 258)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pghia"]
+atlas = ExtResource("101_q7c77")
+region = Rect2(900, 0, 300, 258)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_md8ho"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32rq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4plnn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5iq88")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8f76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eifot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eafvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwkue")
+}],
+"loop": 0,
+"name": &"close_slow",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1tox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2rmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i53pj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83y5e")
+}],
+"loop": 0,
+"name": &"open_fast",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1tox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vp035")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2rmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pghia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i53pj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83y5e")
+}],
+"loop": 0,
+"name": &"open_slow",
+"speed": 10.0
+}]
 
 [node name="control_level_select" type="Control" unique_id=1118240205]
 layout_mode = 3
@@ -4601,8 +4845,8 @@ anchor_left = 1.0
 anchor_right = 1.0
 offset_left = 1114.6665
 offset_top = 933.3333
-offset_right = 1674.6777
-offset_bottom = 1152.517
+offset_right = 1674.6799
+offset_bottom = 1152.5142
 grow_horizontal = 0
 theme_override_fonts/font = ExtResource("68_wfqlv")
 theme_override_font_sizes/font_size = 120
@@ -4697,8 +4941,8 @@ anchor_left = 1.0
 anchor_right = 1.0
 offset_left = 4.666626
 offset_top = 1440.0
-offset_right = 797.0653
-offset_bottom = 1896.564
+offset_right = 797.0657
+offset_bottom = 1896.5627
 grow_horizontal = 0
 theme_override_styles/focus = ExtResource("80_q8y2j")
 icon = ExtResource("81_au3go")
@@ -4716,8 +4960,8 @@ anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -982.0
 offset_top = 1450.0
-offset_right = -189.6914
-offset_bottom = 1906.6599
+offset_right = -189.69983
+offset_bottom = 1906.6608
 grow_horizontal = 0
 theme_override_styles/focus = ExtResource("80_q8y2j")
 icon = ExtResource("82_btbrx")
@@ -4747,7 +4991,7 @@ texture = ExtResource("85_gltq7")
 [node name="WorldLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=1741512740]
 offset_left = 2795.878
 offset_top = 43.333
-offset_right = 4902.547
+offset_right = 4902.5444
 offset_bottom = 326.66638
 theme_override_constants/outline_size = 60
 theme_override_fonts/normal_font = ExtResource("77_q7of2")
@@ -4761,7 +5005,7 @@ visible = false
 offset_left = 80.0
 offset_top = 1866.6666
 offset_right = 1403.3333
-offset_bottom = 2183.1326
+offset_bottom = 2183.1318
 theme_override_constants/outline_size = 60
 theme_override_fonts/normal_font = ExtResource("77_q7of2")
 theme_override_font_sizes/normal_font_size = 321
@@ -4773,7 +5017,7 @@ visible = false
 offset_left = 80.0
 offset_top = 2133.3333
 offset_right = 1403.3333
-offset_bottom = 2449.8098
+offset_bottom = 2449.81
 theme_override_constants/outline_size = 60
 theme_override_fonts/normal_font = ExtResource("77_q7of2")
 theme_override_font_sizes/normal_font_size = 321
@@ -4824,10 +5068,10 @@ z_index = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 1194.6665
-offset_top = 986.6666
-offset_right = 1927.9998
-offset_bottom = 1143.3333
+offset_left = 1194.668
+offset_top = 1006.66724
+offset_right = 1928.0012
+offset_bottom = 1146.6667
 grow_horizontal = 0
 theme_override_styles/focus = ExtResource("80_q8y2j")
 icon = ExtResource("94_aa0ux")
@@ -4844,10 +5088,10 @@ z_index = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 1191.3333
-offset_top = 843.3333
-offset_right = 1924.6665
-offset_bottom = 1000.0
+offset_left = 1194.668
+offset_top = 863.333
+offset_right = 1641.3347
+offset_bottom = 989.99976
 grow_horizontal = 0
 theme_override_styles/focus = ExtResource("80_q8y2j")
 icon = ExtResource("95_junpp")
@@ -4859,7 +5103,10 @@ BUTTON_ACTION = 4
 ADITIONAL_ARGUMENT = "res://assets/Nodes/Ui/ui_challenges.tscn"
 HoverDif = 60.0
 
-[node name="DiscBside" type="Button" parent="CanvasLayer" unique_id=1379308233]
+[node name="BsideStates" type="Node2D" parent="CanvasLayer" unique_id=466879729]
+position = Vector2(0, 1)
+
+[node name="DiscBside" type="Button" parent="CanvasLayer/BsideStates" unique_id=1379308233]
 modulate = Color(1, 1, 1, 0.27999997)
 self_modulate = Color(1, 1, 1, 0.26666665)
 z_index = 1
@@ -4867,9 +5114,9 @@ material = SubResource("ShaderMaterial_xkuxm")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 1834.666
+offset_left = 2986.666
 offset_top = 326.66675
-offset_right = 2847.9944
+offset_right = 4000.0022
 offset_bottom = 1286.6467
 grow_horizontal = 0
 theme_override_styles/focus = ExtResource("80_q8y2j")
@@ -4882,16 +5129,16 @@ ADITIONAL_ARGUMENT = "res://assets/Nodes/Ui/select_level_world2.tscn"
 DiscShader = true
 HoverDif = 60.0
 
-[node name="DiscReturnBside" type="Button" parent="CanvasLayer" unique_id=1984114350]
+[node name="DiscReturnBside" type="Button" parent="CanvasLayer/BsideStates" unique_id=1984114350]
 self_modulate = Color(1, 1, 1, 0.26666665)
 z_index = 1
 material = SubResource("ShaderMaterial_iytug")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 2874.6665
+offset_left = 4026.6665
 offset_top = 293.3333
-offset_right = 3887.977
+offset_right = 5039.977
 offset_bottom = 1253.3594
 grow_horizontal = 0
 theme_override_styles/focus = ExtResource("80_q8y2j")
@@ -4903,6 +5150,21 @@ script = ExtResource("70_mrtek")
 ADITIONAL_ARGUMENT = "res://assets/Nodes/Ui/select_level_world2.tscn"
 DiscShader = true
 HoverDif = 60.0
+
+[node name="CdLabel" type="Sprite2D" parent="CanvasLayer/BsideStates" unique_id=1464694522 node_paths=PackedStringArray("ButtonDiscBside", "ButtonDiscRegular")]
+position = Vector2(3390.0015, 763.333)
+scale = Vector2(5.405039, 5.405039)
+texture = ExtResource("99_uc6p3")
+script = ExtResource("100_0pygg")
+ButtonDiscBside = NodePath("../DiscBside")
+ButtonDiscRegular = NodePath("../DiscReturnBside")
+
+[node name="Cd" type="AnimatedSprite2D" parent="CanvasLayer/BsideStates/CdLabel" unique_id=1332781969]
+modulate = Color(1, 1, 1, 0.65882355)
+z_index = 1
+position = Vector2(1.2335815, -2.4669037)
+sprite_frames = SubResource("SpriteFrames_md8ho")
+animation = &"open_fast"
 
 [node name="ranking" type="Control" parent="CanvasLayer" unique_id=334064905 node_paths=PackedStringArray("Users", "UserPlayer", "PlacePlayer")]
 layout_mode = 3
@@ -4943,8 +5205,8 @@ vertical_alignment = 1
 layout_mode = 0
 offset_left = 340.0
 offset_top = 749.99994
-offset_right = 2293.338
-offset_bottom = 983.34827
+offset_right = 2293.336
+offset_bottom = 983.3486
 mouse_filter = 2
 theme_override_constants/outline_size = 60
 theme_override_fonts/normal_font = ExtResource("78_ivuwd")
@@ -4969,8 +5231,8 @@ vertical_alignment = 1
 layout_mode = 0
 offset_left = 446.66666
 offset_top = 983.33325
-offset_right = 2293.3396
-offset_bottom = 1216.5977
+offset_right = 2293.3406
+offset_bottom = 1216.5994
 mouse_filter = 2
 theme_override_constants/outline_size = 60
 theme_override_fonts/normal_font = ExtResource("78_ivuwd")
@@ -4995,7 +5257,7 @@ vertical_alignment = 1
 layout_mode = 0
 offset_left = 513.3333
 offset_top = 1200.0
-offset_right = 2320.002
+offset_right = 2320.0022
 offset_bottom = 1433.3334
 mouse_filter = 2
 theme_override_constants/outline_size = 60
@@ -5016,17 +5278,6 @@ theme_override_fonts/normal_font = ExtResource("89_u0tr1")
 theme_override_font_sizes/normal_font_size = 161
 text = "{steam user}"
 vertical_alignment = 1
-
-[node name="placeholder2" type="RichTextLabel" parent="CanvasLayer" unique_id=609533443]
-self_modulate = Color(1, 1, 1, 0.7647059)
-z_index = 1
-offset_left = 3173.333
-offset_top = 316.66663
-offset_right = 3776.6663
-offset_bottom = 503.33362
-theme_override_fonts/normal_font = ExtResource("78_ivuwd")
-theme_override_font_sizes/normal_font_size = 136
-text = "Swap Disc"
 
 [node name="replayButton" type="Button" parent="CanvasLayer" unique_id=1406054013 node_paths=PackedStringArray("LevelBg", "LevelRanking")]
 z_index = 1
@@ -5090,6 +5341,6 @@ LevelRanking = NodePath("../ranking")
 [connection signal="button_down" from="CanvasLayer/ButtonChallenges" to="CanvasLayer/Levels" method="_on_pause_menu_button_2_button_down"]
 [connection signal="button_down" from="CanvasLayer/ButtonChallenges" to="CanvasLayer/ButtonChallenges" method="_on_button_down"]
 [connection signal="pressed" from="CanvasLayer/ButtonChallenges" to="CanvasLayer/ButtonChallenges" method="_on_pressed"]
-[connection signal="pressed" from="CanvasLayer/DiscBside" to="CanvasLayer/Levels" method="_bside_start"]
-[connection signal="pressed" from="CanvasLayer/DiscReturnBside" to="CanvasLayer/Levels" method="_bside_end"]
+[connection signal="pressed" from="CanvasLayer/BsideStates/DiscBside" to="CanvasLayer/Levels" method="_bside_start"]
+[connection signal="pressed" from="CanvasLayer/BsideStates/DiscReturnBside" to="CanvasLayer/Levels" method="_bside_end"]
 [connection signal="pressed" from="CanvasLayer/replayButton" to="CanvasLayer/replayButton" method="_on_pressed"]

@@ -504,6 +504,13 @@ script = ExtResource("5_nib1i")
 HoverDif = 20.0
 FadeTransition = true
 
+[node name="Button" type="Button" parent="UiLeaderboards/UiPopup" unique_id=1889362616]
+modulate = Color(1, 1, 1, 0)
+offset_left = -291.53204
+offset_top = 107.406525
+offset_right = 373.3659
+offset_bottom = 337.56326
+
 [connection signal="pressed" from="UiLeaderboards/ButtonPrevLevel" to="UiLeaderboards" method="change_prev_level"]
 [connection signal="pressed" from="UiLeaderboards/ButtonNextLevel" to="UiLeaderboards" method="change_next_level"]
 [connection signal="pressed" from="UiLeaderboards/ButtonPrev" to="UiLeaderboards" method="change_prev_page"]
@@ -513,3 +520,4 @@ FadeTransition = true
 [connection signal="button_down" from="UiLeaderboards/UiPopup/ConfigButton" to="UiLeaderboards/UiPopup/ConfigButton" method="_on_button_down"]
 [connection signal="pressed" from="UiLeaderboards/UiPopup/ConfigButton" to="UiLeaderboards/UiPopup" method="_on_config_button_pressed"]
 [connection signal="pressed" from="UiLeaderboards/UiPopup/ConfigButton" to="UiLeaderboards/UiPopup/ConfigButton" method="_on_pressed"]
+[connection signal="pressed" from="UiLeaderboards/UiPopup/Button" to="UiLeaderboards/UiPopup" method="_on_config_button_pressed"]
