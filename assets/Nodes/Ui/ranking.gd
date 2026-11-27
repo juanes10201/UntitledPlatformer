@@ -57,11 +57,14 @@ func _update_best_scores_thread(Level : int, World : int) -> void:
 		PlacePlayer.text = " " + str(PlayerData["rank"]) + "."
 		PlacePlayer.show()
 		UserPlayer.show()
-	else:
+	elif(res.size() >= 4):
 		_set_data(res[3]["name"], res[3]["score"], UserPlayer)
 		PlacePlayer.text = "4. "
 		PlacePlayer.show()
 		UserPlayer.show()
+	else:
+		PlacePlayer.hide()
+		UserPlayer.hide()
 	
 	for i in range(Users.size()):
 		if(i < res.size()):

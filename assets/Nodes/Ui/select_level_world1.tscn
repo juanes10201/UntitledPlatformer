@@ -98,8 +98,10 @@
 [ext_resource type="Texture2D" uid="uid://b3fto536wqb6f" path="res://assets/Sprites/Ui/menus/LevelSelect/disc_placeholder.jpg" id="88_b1y0g"]
 [ext_resource type="Script" uid="uid://cad2skq2xmp6d" path="res://assets/Nodes/Ui/ranking.gd" id="88_se4jc"]
 [ext_resource type="FontFile" uid="uid://cyhethdmcdauq" path="res://assets/Fonts/Beta.ttf" id="89_u0tr1"]
+[ext_resource type="Texture2D" uid="uid://bfk24hlhxkrje" path="res://assets/Sprites/Ui/menus/LevelSelect/button_next_selected.png" id="90_4plnn"]
 [ext_resource type="Texture2D" uid="uid://ddl0328ep5lom" path="res://assets/Sprites/Ui/menus/LevelSelect/DiscRegular.png" id="90_lv8yh"]
 [ext_resource type="Texture2D" uid="uid://dant1mgxuw15i" path="res://assets/Sprites/Ui/menus/LevelSelect/DiscBside.png" id="90_xkuxm"]
+[ext_resource type="Texture2D" uid="uid://be2sp43nfdjbk" path="res://assets/Sprites/Ui/menus/LevelSelect/button_prev_selected.png" id="91_32rq6"]
 [ext_resource type="Texture2D" uid="uid://b60b72vacdgpt" path="res://assets/Sprites/Ui/menus/LevelSelect/button_challenges.png" id="94_aa0ux"]
 [ext_resource type="Texture2D" uid="uid://885dr4jjaume" path="res://assets/Sprites/Ui/menus/LevelSelect/ButtonBoards.png" id="95_junpp"]
 [ext_resource type="Texture2D" uid="uid://bqmxdx81b51at" path="res://assets/Sprites/Ui/menus/LevelSelect/cd.png" id="99_uc6p3"]
@@ -5086,6 +5088,7 @@ expand_icon = true
 script = ExtResource("70_mrtek")
 ADITIONAL_ARGUMENT = "res://assets/Nodes/Ui/select_level_world2.tscn"
 HoverDif = 60.0
+SelectedSprite = ExtResource("90_4plnn")
 
 [node name="ButtonPrevPage" type="Button" parent="CanvasLayer" unique_id=1832989316]
 z_index = 1
@@ -5105,6 +5108,7 @@ expand_icon = true
 script = ExtResource("70_mrtek")
 ADITIONAL_ARGUMENT = "select_level"
 HoverDif = 60.0
+SelectedSprite = ExtResource("91_32rq6")
 
 [node name="Stars" type="Sprite2D" parent="CanvasLayer" unique_id=920850166]
 z_index = 2
