@@ -227,7 +227,7 @@ func _Enemie_Shoot_Sprite_Shader() -> void:
 
 var SlamJump : bool = false
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if(Sleep && !Sprite.is_playing()):
 		_Play_Animation("Sleep", false, false, false, true, false)
 	

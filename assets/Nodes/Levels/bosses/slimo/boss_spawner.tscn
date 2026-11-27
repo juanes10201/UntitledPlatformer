@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b1pm5o0gyl1hx"]
+
+[ext_resource type="Script" uid="uid://dkc2dv8d2secv" path="res://assets/Nodes/Obj/Gameplay/Boss/Slimo/timer_spawner.gd" id="1_agt8o"]
+[ext_resource type="PackedScene" uid="uid://vuuthlna3tf0" path="res://assets/Nodes/Obj/Gameplay/Boss/Slimo/BossBomb.tscn" id="2_d8j5a"]
+
+[node name="BossSpawner" type="Node2D" unique_id=229699419 node_paths=PackedStringArray("BombSamplesNode", "BombSampleNode") groups=["TimerSpawner"]]
+script = ExtResource("1_agt8o")
+SpawnRange = 300.0
+BombSamplesNode = NodePath("Samples")
+BombSampleNode = NodePath("SampleBomb")
+
+[node name="SampleBomb" parent="." unique_id=669070221 instance=ExtResource("2_d8j5a")]
+visible = false
+Autostart = false
+Despawn = false
+
+[node name="Samples" type="Node2D" parent="." unique_id=715221269]

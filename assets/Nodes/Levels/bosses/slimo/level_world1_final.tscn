@@ -32,12 +32,12 @@
 [ext_resource type="PackedScene" uid="uid://fswjgnqueri7" path="res://assets/Nodes/Obj/Gameplay/Boss/Slimo/enemie_slime_boss.tscn" id="20_1rl84"]
 [ext_resource type="Shader" uid="uid://dkqraf03jdkib" path="res://assets/Shader/HighBloom.gdshader" id="22_stess"]
 [ext_resource type="PackedScene" uid="uid://cjdqb7io2svh1" path="res://assets/Nodes/Obj/Gameplay/rail.tscn" id="22_sw0pm"]
-[ext_resource type="Script" uid="uid://dkc2dv8d2secv" path="res://assets/Nodes/Obj/Gameplay/Boss/Slimo/timer_spawner.gd" id="22_v8p1a"]
 [ext_resource type="Texture2D" uid="uid://jai2a8iwux2v" path="res://assets/Sprites/Gameplay/Bosses/Stage/3.png" id="27_px2v3"]
 [ext_resource type="Texture2D" uid="uid://d3xiljyf7nhbo" path="res://assets/Sprites/Gameplay/Bosses/Stage/2.png" id="31_0dkde"]
 [ext_resource type="Texture2D" uid="uid://ckm1q1ahpebml" path="res://assets/Sprites/Gameplay/Bosses/Frame/Frame1.png" id="31_ytcgp"]
 [ext_resource type="Texture2D" uid="uid://c86t24qo81mbb" path="res://assets/Sprites/Gameplay/Bosses/Frame/Frame2.png" id="32_aeb8i"]
 [ext_resource type="Texture2D" uid="uid://ctyflmjge8it4" path="res://assets/Sprites/Gameplay/Bosses/Stage/Casino/4-alt-alt.png" id="32_jqcgy"]
+[ext_resource type="PackedScene" uid="uid://b1pm5o0gyl1hx" path="res://assets/Nodes/Levels/bosses/slimo/boss_spawner.tscn" id="32_y5g1q"]
 [ext_resource type="Texture2D" uid="uid://1l5lcx6nqbnr" path="res://assets/Sprites/Gameplay/Bosses/Frame/Frame.png" id="33_bhiel"]
 [ext_resource type="Texture2D" uid="uid://c6gn5akmh264v" path="res://assets/Sprites/Gameplay/Bosses/Stage/Casino/1-alt-alt.png" id="33_jqcgy"]
 [ext_resource type="Texture2D" uid="uid://b4ywixyr2o6km" path="res://assets/Sprites/Gameplay/Bosses/Stage/Casino/Depth/4.png" id="33_qwwq0"]
@@ -2086,6 +2086,22 @@ gradient = SubResource("Gradient_f1fwx")
 fill_from = Vector2(1, 0)
 fill_to = Vector2(0, 0)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vyc2g"]
+shader = ExtResource("57_y5g1q")
+shader_parameter/angle = -0.365
+shader_parameter/position = -0.2
+shader_parameter/spread = 0.2050000097375
+shader_parameter/cutoff = 0.13300005381750002
+shader_parameter/falloff = 0.8390000398525
+shader_parameter/edge_fade = 0.26000001235
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/ray2_intensity = 0.1600000076
+shader_parameter/color = Color(0.85490197, 0.6627451, 0.91764706, 0.18039216)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
 [node name="Node2D" type="Node2D" unique_id=547109456]
 position = Vector2(1, -1)
 
@@ -2412,10 +2428,8 @@ collision_mask = 4352
 position = Vector2(1088, -863)
 collision_mask = 4352
 
-[node name="BossSpawner" type="Node2D" parent="." unique_id=913374270 groups=["TimerSpawner"]]
+[node name="BossSpawner" parent="." unique_id=229699419 instance=ExtResource("32_y5g1q")]
 position = Vector2(180, -460)
-script = ExtResource("22_v8p1a")
-SpawnRange = 300.0
 
 [node name="FinalAttackPlayerPos" type="Marker2D" parent="." unique_id=1405819066]
 top_level = true
@@ -3802,6 +3816,14 @@ height = 108.0
 
 [node name="Flag3" parent="." unique_id=893668377 instance=ExtResource("9_sw0pm")]
 position = Vector2(911, -315)
+
+[node name="RayClock" type="ColorRect" parent="." unique_id=992995211]
+z_index = 2
+material = SubResource("ShaderMaterial_vyc2g")
+offset_left = 132.0
+offset_top = -659.0
+offset_right = 267.0
+offset_bottom = -59.0
 
 [connection signal="body_entered" from="SlimeRingIntro" to="SlimeRingIntro" method="_on_body_entered"]
 [connection signal="body_entered" from="SlimeRingIntro2" to="SlimeRingIntro2" method="_on_body_entered"]

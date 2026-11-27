@@ -510,7 +510,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_31d2u")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Default",
 "speed": 12.0
 }, {
@@ -560,7 +560,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dycn5")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Default-Phase2",
 "speed": 12.0
 }, {
@@ -643,7 +643,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ky5om")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Explode",
 "speed": 20.0
 }, {
@@ -726,7 +726,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jgn88")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Explode-Phase2",
 "speed": 20.0
 }, {
@@ -773,7 +773,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7d1ys")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Intro",
 "speed": 12.0
 }, {
@@ -820,7 +820,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3aauj")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Intro-Phase2",
 "speed": 12.0
 }]
