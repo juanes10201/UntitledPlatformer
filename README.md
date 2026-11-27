@@ -51,37 +51,63 @@ Feel free to open an issue or submit a pull request if you'd like to contribute.
 
 # Music
 Music by: Maximiliano Morales
+
 Original Prototype Music by: Agustin Barrios
+
 # Art
 First world tileset by Manny Aberduj
+
 Main Character Clay Design by Gonzalo Davalos
+
 # 3D Models
 Crt Shader in Blender by [Mrmo Tarius](https://itch.io/profile/mrmotarius) on Itch.io: https://mrmotarius.itch.io/mrmocrt
+
 godot easy blend shader by [nobuyukinyuu](https://github.com/nobuyukinyuu): https://github.com/nobuyukinyuu/Godot-EasyBlend/tree/master
+
 # Shaders
 God rays Shader by [pend00](https://godotshaders.com/author/pend00/) on godotshaders.com: https://godotshaders.com/shader/god-rays/
+
 Shader Gameboy by [BreezyMelee](https://godotshaders.com/author/breezymelee/) on godotshaders.com: https://godotshaders.com/shader/gameboy-color-palette-shader/
+
 Earthbound styled Background Shader by [roteroam](https://godotshaders.com/author/roteroam/) on godotshaders.com: https://godotshaders.com/shader/earthbound-background-shader/
+
 Radial Chromatic Aberration Shader Godot by [alfroids](https://godotshaders.com/author/alfroids/) on godotshaders.com: godotshaders.com/shader/radial-chromatic-aberration-2/
+
 Clockwise Pixel Outline Progress display by [shadecore_dev](https://godotshaders.com/author/shadecore_dev/) on godotshaders.com: https://godotshaders.com/shader/clockwise-pixel-outline-progress-display/
+
 Lightweight Crt Shader by [pxlforge](https://godotshaders.com/author/pxlforge/) on godotshaders.com: https://godotshaders.com/shader/lightweight-crt-effect/
+
 Fill Progress Shader by [Merovingen](https://godotshaders.com/author/merovingen/) on godotshaders.com: https://godotshaders.com/shader/fill-progress/
+
 Pixelated Godrays Shader by [VEGAMETA](https://godotshaders.com/author/vegameta/) on godotshaders.com: godotshaders.com/shader/god-rays-2d-godot-v4-4-1/
+
 Bloom Shader by [VEGAMETA](https://godotshaders.com/author/vegameta/) on godotshaders.com: https://godotshaders.com/shader/bloom/
+
 Hue Shift Shader based on the shader made by [pxlforge](https://godotshaders.com/author/pxlforge/) on godotshaders.com: https://godotshaders.com/shader/lightweight-crt-effect/
+
 Hue Control by [Arrison Knabben](https://godotshaders.com/author/arrison-knabben/) on godotshaders.com: https://godotshaders.com/shader/hue-control/
+
 2D Highlight Improved by [kostilus](https://godotshaders.com/author/kostilus/) on godotshaders.com: https://godotshaders.com/shader/2d-highlight-improved/
+
 2D Holographic Card Shader by [AquaBaby](https://godotshaders.com/author/aquababy/) on godotshaders.com: https://godotshaders.com/shader/2d-holographic-card-shader/
+
 Rotation Displacement Vertex Shader by [iroboticist](https://godotshaders.com/author/iroboticist/) on godotshaders.com: https://godotshaders.com/shader/rotation-displacement-vertex-shader/
+
 Bounding Battle Background shader by [Youkuri](https://godotshaders.com/author/youkuri/) on godotshaders.com: https://godotshaders.com/shader/bounding-battle-background/
+
 Text Jiggle Shader by [NaiName](https://godotshaders.com/author/nainame/) on godotshaders.com: https://godotshaders.com/shader/text-jiggle-shader/
+
 Realistic Crt Shader by [c64cosmin](https://godotshaders.com/author/c64cosmin/) on godotshaders.com: https://godotshaders.com/shader/realistic-crt-shader/
+
 2D Water Shader by [Purga](https://godotshaders.com/author/purga/) on godotshaders.com: https://godotshaders.com/shader/water-2d-distortion-4-x/
 
 # 2D Assets
 2D Input prompts pixel by Kenney: https://kenney.nl/assets/input-prompts-pixel
+
 Keyboard Controller Keys by [Hyohnoo](https://itch.io/profile/hyohnoo)[](https://itch.io/post/16901720): https://hyohnoo.itch.io/keyboard-controller-keys
+
 Brackeys' Platformer Bundle by brackeysgames: https://brackeysgames.itch.io/brackeys-platformer-bundle
+
 # 3D Models
 3D Jewel Case Model: https://sketchfab.com/3d-models/cd-jewel-case-f6c8386e76e54918b551ebdd276479dd
 
@@ -104,7 +130,9 @@ Virtual Joystick
 
 ## PixelComposer Addons
 Fluff by [MakhamDev's Workshop](https://steamcommunity.com/id/MakhamDev/myworkshopfiles/?appid=2299510): https://steamcommunity.com/sharedfiles/filedetails/?id=3575499414
+
 MK Palm tree by [MakhamDev's Workshop](https://steamcommunity.com/id/MakhamDev/myworkshopfiles/?appid=2299510): https://steamcommunity.com/sharedfiles/filedetails/?id=3565050308
+
 # Special Thanks
 ### My parents:
 Carlos Manuel Esteban y Noralí Luciana Tanno
