@@ -1,5 +1,6 @@
 extends Node
 
+var SelectingButton : bool = false
 
 enum TRANSITION_TYPES{
 	NONE,

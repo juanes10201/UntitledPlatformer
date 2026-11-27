@@ -12,6 +12,7 @@ extends CanvasLayer
 @export var ButtonPrevLevel : TextureButton
 @export var ButtonNextPage : TextureButton
 @export var ButtonPrevPage : TextureButton
+@export var PageTitleText : RichTextLabel
 
 var CurrentAmountPages : int = 1
 
@@ -39,6 +40,7 @@ func _update_scoreboards_thread(_level : int = Level, _world : int = World) -> v
 			var Userdata : Dictionary = results[i]
 			Usertext.set_user_data(Userdata.name, Userdata.rank, Userdata.score)
 	NodeTextUsers.show()
+	PageTitleText.text = "page " + str(CurrentPage) +"/"+str(CurrentAmountPages)
 
 func _ready() -> void:
 	_update_best_scores()

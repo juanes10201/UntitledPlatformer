@@ -12,10 +12,12 @@
 [ext_resource type="Script" uid="uid://3crm18ad88ys" path="res://assets/Scripts/menu_button.gd" id="9_itrmr"]
 [ext_resource type="Texture2D" uid="uid://84h5mqrn7esw" path="res://assets/Sprites/Ui/Button/config.png" id="9_yxylt"]
 [ext_resource type="StyleBox" uid="uid://dirm08jxjyusl" path="res://assets/Sprites/Ui/selectStylebox.tres" id="10_gopbp"]
+[ext_resource type="Texture2D" uid="uid://byxckia7sqr4k" path="res://assets/Sprites/Ui/Button/editor_selected.png" id="10_plytu"]
 [ext_resource type="Texture2D" uid="uid://db23c3wlmi58l" path="res://assets/Sprites/Ui/Button/play.png" id="11_tsnyn"]
 [ext_resource type="Texture2D" uid="uid://cutg5fdr7mjoj" path="res://assets/Sprites/Ui/menus/MainMenu/Stars.png" id="12_yfpj7"]
 [ext_resource type="FontFile" uid="uid://c5ntpr4futgw" path="res://assets/Fonts/Smorgasbord.otf" id="12_yxylt"]
 [ext_resource type="FontFile" uid="uid://d3ebca3t4i171" path="res://assets/Fonts/Ace Futurism.ttf" id="13_tsnyn"]
+[ext_resource type="Texture2D" uid="uid://c44flummaxh00" path="res://assets/Sprites/Ui/Button/config_selected.png" id="15_moww1"]
 [ext_resource type="Texture2D" uid="uid://cb14lku61lirw" path="res://assets/Sprites/Ui/menus/MainMenu/mini_star2.png" id="17_plytu"]
 
 [sub_resource type="Animation" id="Animation_xvgwm"]
@@ -773,6 +775,9 @@ _data = {
 &"main_movement": SubResource("Animation_3qh4w")
 }
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gd86k"]
+load_path = "res://.godot/imported/play_selected.png-e371c737ba89130beff942a20123495f.ctex"
+
 [node name="pause_menu" type="CanvasLayer" unique_id=1157534340]
 layer = 2
 script = ExtResource("1_p4p5w")
@@ -790,7 +795,7 @@ scale = Vector2(1.2926039, 1.2926037)
 texture = ExtResource("3_0d5a2")
 
 [node name="Transition" type="Sprite2D" parent="." unique_id=1752509263]
-position = Vector2(1930.465, 377)
+position = Vector2(1927.14, 377)
 rotation = 1.33518
 scale = Vector2(-1.21884, 1.21061)
 texture = ExtResource("3_6l5tb")
@@ -805,14 +810,14 @@ position = Vector2(575, 945.195)
 scale = Vector2(0.335, 0.335)
 texture = ExtResource("6_gd86k")
 
-[node name="QuitButton" type="Button" parent="." unique_id=167611801]
+[node name="QuitButton" type="Button" parent="." unique_id=167611801 node_paths=PackedStringArray("SelectedSprite")]
 z_index = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -1579.0
 offset_right = -1184.008
-offset_bottom = 100.00018
+offset_bottom = 100.000244
 grow_horizontal = 0
 theme_override_styles/focus = ExtResource("7_kynhk")
 icon = ExtResource("8_gd86k")
@@ -823,16 +828,23 @@ script = ExtResource("9_itrmr")
 BUTTON_ACTION = 4
 ADITIONAL_ARGUMENT = "res://assets/Nodes/LevelEditor/levelEditor.tscn"
 Tag = "Editor"
-HoverDif = 20.0
+HoverDif = 15.0
 FadeTransition = true
+SelectedSprite = NodePath("SpriteSelected")
 
-[node name="PlayButton" type="Button" parent="." unique_id=792300202]
+[node name="SpriteSelected" type="Sprite2D" parent="QuitButton" unique_id=872145719]
+visible = false
+position = Vector2(-456.64502, -90.100006)
+texture = ExtResource("10_plytu")
+centered = false
+
+[node name="PlayButton" type="Button" parent="." unique_id=792300202 node_paths=PackedStringArray("SelectedSprite")]
 z_index = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -1754.0
-offset_right = -1383.1068
+offset_right = -1383.1069
 offset_bottom = 213.77042
 grow_horizontal = 0
 theme_override_styles/focus = ExtResource("10_gopbp")
@@ -843,8 +855,14 @@ expand_icon = true
 script = ExtResource("9_itrmr")
 BUTTON_ACTION = 4
 ADITIONAL_ARGUMENT = "res://assets/Nodes/Ui/select_level_world1.tscn"
-HoverDif = 20.0
+HoverDif = 15.0
 FadeTransition = true
+SelectedSprite = NodePath("SpriteSelected")
+
+[node name="SpriteSelected" type="Sprite2D" parent="PlayButton" unique_id=1169665252]
+visible = false
+texture = SubResource("CompressedTexture2D_gd86k")
+centered = false
 
 [node name="Stars" type="Sprite2D" parent="." unique_id=1948636821]
 z_index = 1
@@ -852,7 +870,7 @@ position = Vector2(241, 797.725)
 scale = Vector2(0.37, 0.37)
 texture = ExtResource("12_yfpj7")
 
-[node name="ConfigButton" type="Button" parent="." unique_id=383621813]
+[node name="ConfigButton" type="Button" parent="." unique_id=383621813 node_paths=PackedStringArray("SelectedSprite")]
 z_index = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -860,7 +878,7 @@ anchor_right = 1.0
 offset_left = -1543.0
 offset_top = -4.0
 offset_right = -1174.9861
-offset_bottom = 111.99936
+offset_bottom = 111.99939
 grow_horizontal = 0
 theme_override_styles/focus = ExtResource("7_kynhk")
 icon = ExtResource("9_yxylt")
@@ -870,8 +888,15 @@ expand_icon = true
 script = ExtResource("9_itrmr")
 BUTTON_ACTION = 4
 ADITIONAL_ARGUMENT = "res://assets/Nodes/Ui/config_menu.tscn"
-HoverDif = 20.0
+HoverDif = 15.0
 FadeTransition = true
+SelectedSprite = NodePath("SpriteSelected")
+
+[node name="SpriteSelected" type="Sprite2D" parent="ConfigButton" unique_id=1909197120]
+visible = false
+position = Vector2(-456.64502, -90.100006)
+texture = ExtResource("15_moww1")
+centered = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=609362175]
 offset_left = -756.0

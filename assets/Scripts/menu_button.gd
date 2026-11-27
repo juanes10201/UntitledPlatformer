@@ -12,7 +12,6 @@ extends Button
 
 @onready var original_size : Vector2 = self.size
 @onready var ControlNode = $"../../pause_menu"
-@onready var SelectedSprite = $SelectedSprite
 @onready var Player : Node2D = SaveGame.get_player()
 @export var IsPixelartButton : bool = false
 
@@ -27,6 +26,8 @@ extends Button
 @export var ShowOnExpo : bool = true
 
 @export var BSide : bool = false
+
+@export var SelectedSprite : Sprite2D
 
 enum BoxSize{
 	Mini,
@@ -52,6 +53,8 @@ var tween_normal = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.SelectingButton = false
+		
 	if(Tag == "Editor"):
 		disabled = !Edition.IncludeLevelEditor
 	#if(text == "1"):
@@ -69,6 +72,7 @@ func _ready() -> void:
 	_set_text_size(original_size.y)
 
 @onready var DiscShaderInitialTilt : float = 0.0
+@onready var InitialZIndex : int = z_index
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -93,10 +97,25 @@ func _process(delta: float) -> void:
 			_on_pressed()
 		#endregion
 		#region Button anims
+		var _px_size : Vector2 = icon.get_size()
+		var _scale_prop : Vector2 = size/_px_size
+		if(SelectedSprite):
+			SelectedSprite.scale = _scale_prop#Vector2(_scale_prop.x, _scale_prop.x)
+			SelectedSprite.global_position = global_position
 		if(!PressedAnim):
 			var Mouse_pos = get_global_mouse_position()
 			#Checks if mouse is touching button or if has focused(For controller support)
-			if(has_focus() || (Mouse_pos.x >= self.position.x && Mouse_pos.x <= self.position.x + self.size.x && Mouse_pos.y >= self.position.y && Mouse_pos.y <= self.position.y + self.size.y+20)):
+			if (!Global.SelectingButton || touching_mouse) && (has_focus() || (Mouse_pos.x >= self.position.x && Mouse_pos.x <= self.position.x + self.size.x && Mouse_pos.y >= self.position.y && Mouse_pos.y <= self.position.y + self.size.y+20)):
+				Global.SelectingButton = true
+				z_index = InitialZIndex+1
+				if(SelectedSprite):
+					print("Px: " + str(_px_size))
+					print("Scale: " + str(_scale_prop))
+					print(SelectedSprite.scale)
+					if(!SelectedSprite.visible):
+						SelectedSprite.self_modulate.a = 0.0
+					SelectedSprite.show()
+					SelectedSprite.self_modulate.a = lerpf(SelectedSprite.self_modulate.a, 1.0, delta*20)
 				if(IsPixelartButton && !touching_mouse):
 					if(LevelBg):
 						LevelBg.animation == ADITIONAL_ARGUMENT
@@ -123,8 +142,12 @@ func _process(delta: float) -> void:
 				#endregion
 			#region Return to normal state
 			elif(self.size != original_size):
+				z_index = InitialZIndex
+				if(SelectedSprite):
+					SelectedSprite.self_modulate.a = lerpf(SelectedSprite.self_modulate.a, 0.0, delta*20)
 				if(touching_mouse):
 					if(IsPixelartButton): icon = tex_unselected
+					Global.SelectingButton = false
 				touching_mouse = false
 				var tween_button = get_tree().create_tween()
 				tween_button.tween_property(self, "size", original_size, 1)\
@@ -144,6 +167,7 @@ func _set_text_size(X : float):
 
 func _on_pressed() -> void:
 	LevelManager.ExpoMoveTimeout.start()
+	Global.SelectingButton = false
 	print("Button pressed!")
 	if(FadeTransition):
 		var Transition = $"../Transition" if $"../Transition" else $"../../Transition"

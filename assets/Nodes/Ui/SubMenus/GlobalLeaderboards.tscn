@@ -254,7 +254,7 @@ offset_top = 1033.3334
 offset_right = 2320.0
 offset_bottom = 1033.3334
 
-[node name="UiLeaderboards" type="CanvasLayer" parent="." unique_id=228184511 node_paths=PackedStringArray("NodeTextUsers", "TabTitleText", "ButtonNextLevel", "ButtonPrevLevel", "ButtonNextPage", "ButtonPrevPage")]
+[node name="UiLeaderboards" type="CanvasLayer" parent="." unique_id=228184511 node_paths=PackedStringArray("NodeTextUsers", "TabTitleText", "ButtonNextLevel", "ButtonPrevLevel", "ButtonNextPage", "ButtonPrevPage", "PageTitleText")]
 scale = Vector2(0.3, 0.3)
 transform = Transform2D(0.3, 0, 0, 0.3, 0, 0)
 script = ExtResource("1_nib1i")
@@ -264,6 +264,7 @@ ButtonNextLevel = NodePath("ButtonNextLevel")
 ButtonPrevLevel = NodePath("ButtonPrevLevel")
 ButtonNextPage = NodePath("ButtonNext")
 ButtonPrevPage = NodePath("ButtonPrev")
+PageTitleText = NodePath("PageTitleText")
 
 [node name="Background" type="Sprite2D" parent="UiLeaderboards" unique_id=1590903499]
 z_index = -1
@@ -448,6 +449,16 @@ theme_override_fonts/normal_font = ExtResource("19_dwx1i")
 theme_override_font_sizes/normal_font_size = 83
 horizontal_alignment = 1
 
+[node name="PageTitleText" type="RichTextLabel" parent="UiLeaderboards" unique_id=303864634]
+offset_left = 530.00024
+offset_top = 206.66669
+offset_right = 1050.0
+offset_bottom = 296.66672
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("19_dwx1i")
+theme_override_font_sizes/normal_font_size = 83
+text = "page 0/10"
+
 [node name="ConfigButton" type="Button" parent="UiLeaderboards" unique_id=760450241]
 z_index = 1
 anchors_preset = 1
@@ -480,6 +491,7 @@ script = ExtResource("33_t448r")
 libraries/ = SubResource("AnimationLibrary_4n7lj")
 
 [node name="UiPopup" type="Sprite2D" parent="UiLeaderboards" unique_id=1671695571]
+visible = false
 position = Vector2(3439.9998, 1790)
 scale = Vector2(0.65172935, 0.65172946)
 texture = ExtResource("34_fcn2q")

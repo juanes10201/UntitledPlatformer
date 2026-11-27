@@ -12,4 +12,6 @@ func _process(delta: float) -> void:
 func _on_pressed() -> void:
 	print("Changing world to: " + str(id))
 	MainUiLeaderboards.World = id
+	MainUiLeaderboards.Level = 0
+	MainUiLeaderboards.CurrentPage = 0
 	MainUiLeaderboards._update_best_scores()
