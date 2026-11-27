@@ -333,6 +333,8 @@ func _process(delta: float) -> void:
 		AttackLight.enabled = (CountSpecialAttack+1) % 3 == 0
 		if(Slide && Move):
 			velocity.x = VelSlideX * direction
+			if(is_on_wall()):
+				_end_slide()
 		
 		#if(Player):
 		if(Particles && _is_on_floor() && velocity.x > 0):
@@ -570,17 +572,21 @@ func _on_stop_slide_area_2d_body_entered(body: Node2D) -> void:
 		WallJump = true
 	if(Slide):
 		#Done Slide and touched wall
-		Player._play_sound($AudioCrashWall, true, true, -5, 1, .7, .15, 1.2)
-		_update_direction()
-		Slide = false
-		_Play_Animation("Air", true, true, true, true)
-		BossSpawner.spawn_clock()
-		_jump(JUMP_VELOCITY)
-		MoveTimer.start()
+		_end_slide()
 
+
+func _end_slide() -> void:
+	Player._play_sound($AudioCrashWall, true, true, -5, 1, .7, .15, 1.2)
+	_update_direction()
+	Slide = false
+	_Play_Animation("Air", true, true, true, true)
+	BossSpawner.spawn_clock()
+	_jump(JUMP_VELOCITY)
+	MoveTimer.start()
 
 func _on_wall_jump_timer_timeout() -> void:
-	pass
+	if(!is_on_wall() and WallJump and is_on_floor()):
+		WallJump = false
 	#print("Ended Walljump")
 
 

@@ -5290,6 +5290,7 @@ DiscShader = true
 HoverDif = 60.0
 
 [node name="CdLabel" type="Sprite2D" parent="CanvasLayer/BsideStates" unique_id=1464694522 node_paths=PackedStringArray("ButtonDiscBside", "ButtonDiscRegular")]
+visible = false
 position = Vector2(3390.0015, 763.333)
 scale = Vector2(5.405039, 5.405039)
 texture = ExtResource("99_uc6p3")

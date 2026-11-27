@@ -2,6 +2,7 @@ extends Node
 
 enum ALL_GAME_STATUS{
 	retail,
+	demo_nextfest_steam,
 	expo,
 	demo
 }
@@ -12,6 +13,16 @@ var GAME_STATUS_CHARACTERISTICS : Array = [
 		"Variables" : {
 			"IncludeLevelEditor" : true,
 			"LimitWorlds" : false,
+			"SteamEnabled" : true
+		}
+	},
+	{
+		"Name" : "Demo-Nextfest-Steam",
+		"Id" : ALL_GAME_STATUS.demo_nextfest_steam,
+		"Variables" : {
+			"IncludeLevelEditor" : true,
+			"LimitWorlds" : true,
+			"AmountLimitedWorlds" : 2,
 			"SteamEnabled" : true
 		}
 	},
@@ -37,7 +48,7 @@ var GAME_STATUS_CHARACTERISTICS : Array = [
 	}
 	
 	]
-var GAME_STATUS = ALL_GAME_STATUS.retail
+var GAME_STATUS = ALL_GAME_STATUS.demo_nextfest_steam
 var IncludeLevelEditor = true
 
 var ExpoLimitedTime : bool = true

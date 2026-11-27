@@ -179,17 +179,24 @@ func change_to_next_level_with_completion_ui() -> void:
 		print("Going to next level")
 		change_to_next_level()
 
+var InBossLevel : bool = false
+
 func get_next_level_path() -> String:
 	if(Global.Level+1 >= get_level_paths(Global.BSide)[get_world_order(Global.BSide)[Global.World]].size() ):
 		return LevelManager.get_level_path(0, LevelManager.get_world_order(Global.BSide)[Global.World+1], Global.BSide)
 	return LevelManager.get_level_path(Global.Level+1, LevelManager.get_world_order(Global.BSide)[Global.World], Global.BSide)
-	
+
+func change_to_boss_level(number : int) -> void:
+	InBossLevel = true
+	Global.Level += 1
+	change_scene(BossesLevelPath[Global.World])
+
 func change_to_next_level() -> void:
 	if(Global.Level+1 >= get_level_paths(Global.BSide)[get_world_order(Global.BSide)[Global.World]].size() ):
-		if(Global.World < BossesLevelPath.size()):
-			change_scene(BossesLevelPath[Global.World])
-			Global.Level += 1
+		if(!InBossLevel && Global.World < BossesLevelPath.size()):
+			change_to_boss_level(Global.World)
 		else:
+			InBossLevel = false
 			change_to_level(0, Global.World + 1, Global.BSide)
 	else:
 		change_to_level(Global.Level+1, Global.World, Global.BSide)

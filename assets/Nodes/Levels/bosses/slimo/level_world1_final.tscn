@@ -1765,7 +1765,7 @@ tracks/13/keys = {
 "times": PackedFloat32Array(1.1333333, 1.3015553, 1.6666666, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [&"Idle", &"Air", &"Damage", &"Idle"]
+"values": [&"Idle", &"Air", &"Damage", &"Right"]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
@@ -3712,6 +3712,7 @@ rotation = 1.5707964
 
 [node name="RespawnPoint" parent="." unique_id=994135283 instance=ExtResource("37_e4war")]
 position = Vector2(103, 65)
+Enabled = true
 
 [node name="PointLight2D84" type="PointLight2D" parent="." unique_id=818738580]
 position = Vector2(642.00006, -300)
@@ -3798,6 +3799,9 @@ blend_mode = 1
 texture = SubResource("GradientTexture2D_ocl08")
 texture_scale = 4.22
 height = 108.0
+
+[node name="Flag3" parent="." unique_id=893668377 instance=ExtResource("9_sw0pm")]
+position = Vector2(911, -315)
 
 [connection signal="body_entered" from="SlimeRingIntro" to="SlimeRingIntro" method="_on_body_entered"]
 [connection signal="body_entered" from="SlimeRingIntro2" to="SlimeRingIntro2" method="_on_body_entered"]
